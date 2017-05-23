@@ -1,0 +1,73 @@
+{
+  "name": "Trolley",
+  "version": "0.1.0",
+  "summary": "A short description of Trolley For Life fite me",
+  "description": "A short description of Trolley for me to do later",
+  "homepage": "https://github.com/Off-Piste/Trolley.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "harrytwright": "haroldtomwright@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Off-Piste/Trolley.io.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Trolley/**/**/*",
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "PassKit"
+  ],
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Trolley/Core/**/**/*.swift"
+    },
+    {
+      "name": "Networking",
+      "source_files": "Trolley/Networking/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Core": [
+
+        ],
+        "ReachabilitySwift": [
+          "~> 3"
+        ],
+        "PromiseKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": "Trolley/Database/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Networking": [
+
+        ],
+        "SwiftyJSON": [
+
+        ],
+        "PromiseKit/Alamofire": [
+
+        ]
+      }
+    },
+    {
+      "name": "Default",
+      "source_files": "Trolley/API/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Database": [
+
+        ]
+      }
+    }
+  ]
+}

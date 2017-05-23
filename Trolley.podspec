@@ -9,34 +9,44 @@
 Pod::Spec.new do |s|
   s.name             = 'Trolley'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Trolley.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'A short description of Trolley For Life fite me'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A short description of Trolley for me to do later
                        DESC
 
-  s.homepage         = 'https://github.com/harrytwright/Trolley'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/Off-Piste/Trolley.io'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'harrytwright' => 'haroldtomwright@gmail.com' }
-  s.source           = { :git => 'https://github.com/harrytwright/Trolley.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/Off-Piste/Trolley.io.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Trolley/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Trolley' => ['Trolley/Assets/*.png']
-  # }
+  s.source_files = 'Trolley/**/**/*'
+  s.frameworks = 'Foundation', 'UIKit', 'PassKit'
+  s.default_subspecs = 'Default'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'Core' do |core|
+      core.source_files = 'Trolley/Core/**/**/*.swift'
+  end
+
+  s.subspec 'Networking' do |n|
+      n.source_files = 'Trolley/Networking/**/**/*.swift'
+      n.dependency 'Trolley/Core'
+      n.dependency 'ReachabilitySwift', '~> 3'
+      n.dependency 'PromiseKit'
+  end
+
+  s.subspec 'Database' do |d|
+      d.source_files = 'Trolley/Database/**/**/*.swift'
+      d.dependency 'Trolley/Networking'
+      d.dependency 'SwiftyJSON'
+      d.dependency 'PromiseKit/Alamofire'
+  end
+
+  s.subspec 'Default' do |default|
+      default.source_files = 'Trolley/API/**/**/*.swift'
+      default.dependency 'Trolley/Database'
+  end
+
 end
