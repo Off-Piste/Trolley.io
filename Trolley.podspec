@@ -33,7 +33,7 @@ A short description of Trolley for me to do later
   s.subspec 'Networking' do |n|
       n.source_files = 'Trolley/Networking/**/**/*.swift'
       n.dependency 'Trolley/Core'
-      n.dependency 'ReachabilitySwift', '~> 3'
+      # n.dependency 'ReachabilitySwift', '~> 3' // To work Reachabilty with Promise kit, have to insert the reachabilty manually
       n.dependency 'PromiseKit'
   end
 
@@ -47,6 +47,7 @@ A short description of Trolley for me to do later
   s.subspec 'Default' do |default|
       default.source_files = 'Trolley/API/**/**/*.swift'
       default.dependency 'Trolley/Database'
+      default.dependency 'PromiseKit/Foundation'
   end
 
 end

@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 // Reachability.swift version 2.2beta2
 
 import SystemConfiguration
+import PromiseKit
 import Foundation
 
 public enum ReachabilityError: Error {
@@ -35,6 +36,7 @@ public enum ReachabilityError: Error {
     case FailedToCreateWithHostname(String)
     case UnableToSetCallback
     case UnableToSetDispatchQueue
+    case guardFailed(String)
 }
 
 public let ReachabilityChangedNotification = NSNotification.Name("ReachabilityChangedNotification")
@@ -222,6 +224,81 @@ public extension Reachability {
         let d = isDirectFlagSet ? "d" : "-"
         
         return "\(W)\(R) \(c)\(t)\(i)\(C)\(D)\(l)\(d)"
+    }
+}
+
+// MARK: - Reachability + Promise Kit
+extension Reachability {
+    
+    func promise() -> Promise<Reachability> {
+        return Promise { fullfill, reject in
+            guard let reachabilityRef = reachabilityRef,
+                !notifierRunning
+                else {
+                    reject(
+                        ReachabilityError
+                            .guardFailed(
+                                "let reachabilityRef = reachabilityRef, !notifierRunning"
+                        )
+                    )
+                    return
+            }
+            
+            var context = SCNetworkReachabilityContext(
+                version: 0,
+                info: nil,
+                retain: nil,
+                release: nil,
+                copyDescription: nil
+            )
+            
+            context.info = UnsafeMutableRawPointer(
+                Unmanaged<Reachability>.passUnretained(self).toOpaque()
+            )
+            
+            if !SCNetworkReachabilitySetCallback(
+                reachabilityRef,
+                callback, &context) {
+                    stopNotifier()
+                    throw ReachabilityError.UnableToSetCallback
+            }
+            
+            if !SCNetworkReachabilitySetDispatchQueue(
+                reachabilityRef,
+                reachabilitySerialQueue) {
+                    stopNotifier()
+                    throw ReachabilityError.UnableToSetDispatchQueue
+            }
+            
+            // Perform an intial check
+            reachabilitySerialQueue.async {
+                self.promiseChanged().then(on: self.reachabilitySerialQueue) { (Reach) -> Void in
+                    fullfill(Reach)
+                    }.catch(on: self.reachabilitySerialQueue) { (error) in
+                        reject(error)
+                }
+            }
+            
+            notifierRunning = true
+        }
+    }
+    
+    private func promiseChanged() -> Promise<Reachability> {
+        return Promise { fullfill, reject in
+            let flags = reachabilityFlags
+            
+            guard previousFlags != flags else {
+                reject(ReachabilityError.guardFailed("previousFlags != flags"))
+                return
+            }
+            
+            let block = isReachable ? whenReachable : whenUnreachable
+            block?(self)
+            
+            fullfill(self)
+            
+            previousFlags = flags
+        }
     }
 }
 

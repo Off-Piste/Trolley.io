@@ -37,9 +37,6 @@
         "Trolley/Core": [
 
         ],
-        "ReachabilitySwift": [
-          "~> 3"
-        ],
         "PromiseKit": [
 
         ]
@@ -65,6 +62,9 @@
       "source_files": "Trolley/API/**/**/*.swift",
       "dependencies": {
         "Trolley/Database": [
+
+        ],
+        "PromiseKit/Foundation": [
 
         ]
       }
