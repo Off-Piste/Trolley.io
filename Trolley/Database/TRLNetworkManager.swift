@@ -10,21 +10,31 @@ import Foundation
 import PromiseKit
 import Alamofire
 
+let kOldBaseURL: String = "trolley-io.eu-gb.mybluemix.net/API"
+let kLocalHostURL: String = "localhost:8080/API"
+
 public struct TRLNetworkManager {
     
     fileprivate var shopKey: String
     
+    var internalManagerInfo: TRLNetworkManagerInfo
+    
     public init(withKey key: String, isLocal: Bool = false) {
         self.shopKey = key
-        _TRLInternalManager.shared.isLocal = isLocal
+        
+        self.internalManagerInfo = TRLNetworkManagerInfo(
+            isLocal: isLocal,
+            internalHost: kLocalHostURL,
+            host: kOldBaseURL
+        )
     }
     
     public func fetch(_ items: Databases) -> Networkable {
-        guard let url = URL(baseURL: kOldBaseURL, route: items.name, key: shopKey) else {
-            fatalError("Invaid URL")
-        }
-        
-        let request = Alamofire.request(url)
+        let request = Alamofire.request(
+            internalManagerInfo
+                .connectionURL
+                .addDatabase(items)
+            ).validate()
         let response = request.response()
         return TRLResponse(promise: response)
     }
