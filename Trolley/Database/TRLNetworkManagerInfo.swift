@@ -27,15 +27,33 @@ let kKeyQuery: String = "?key="
 // TODO: Move to another location
 struct TRLNetworkManagerInfo: CustomStringConvertible {
     
-    var isLocal: Bool
+    fileprivate var isLocal: Bool
     
-    var secure: Bool {
+    fileprivate var secure: Bool {
         return !isLocal
     }
     
-    var internalHost: String
+    fileprivate var internalHost: String
     
-    var host: String
+    fileprivate var host: String
+    
+    fileprivate var route: String = ""
+    
+    init(host: String, internalHost: String, isLocal: Bool, route: String = "") {
+        self.host = host
+        self.internalHost = internalHost
+        self.isLocal = isLocal
+        self.route = route
+    }
+    
+    func addNode(_ node: String) -> TRLNetworkManagerInfo {
+        return TRLNetworkManagerInfo(
+            host: self.host,
+            internalHost: self.internalHost,
+            isLocal: self.isLocal,
+            route: node
+        )
+    }
     
     var connectionURL: URL {
         guard let url = URL(TRLNetworkMangerInfo: self) else {
@@ -46,24 +64,20 @@ struct TRLNetworkManagerInfo: CustomStringConvertible {
     }
     
     var description: String {
-        return "http\(secure ? "" : "s")://" + (isLocal ? internalHost : host)
+        return "http\(secure ? "" : "s")://" +
+            (isLocal ? internalHost : host) +
+            (route.isEmpty ? "" : "/" + route)
     }
 }
 
 extension URL {
     
     init?(TRLNetworkMangerInfo nm: TRLNetworkManagerInfo) {
-        let url = "http\(nm.secure ? "" : "s")://" + (nm.isLocal ? nm.internalHost : nm.host)
-        self.init(string: url)
-    }
-    
-    func addDatabase(_ database: Databases) -> URL {
-        let baseURL = self.absoluteString
-        guard let fullURL = URL(string: baseURL + "/" + database.name) else {
-            fatalError("Invalid URL")
-        }
+        let url = "http\(nm.secure ? "" : "s")://"
+            + (nm.isLocal ? nm.internalHost : nm.host) +
+            (nm.route.isEmpty ? "" : "/" + nm.route)
         
-        return fullURL
+        self.init(string: url)
     }
     
 }

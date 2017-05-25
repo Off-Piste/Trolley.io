@@ -23,19 +23,19 @@ public struct TRLNetworkManager {
         self.shopKey = key
         
         self.internalManagerInfo = TRLNetworkManagerInfo(
-            isLocal: isLocal,
+            host: kOldBaseURL,
             internalHost: kLocalHostURL,
-            host: kOldBaseURL
+            isLocal: isLocal
         )
     }
     
     public func fetch(_ items: Databases) -> Networkable {
+        let parameters = ["key" : self.shopKey]
         let request = Alamofire.request(
-            internalManagerInfo
-                .connectionURL
-                .addDatabase(items)
-            ).validate()
-        let response = request.response()
+                internalManagerInfo.addNode(items.name).connectionURL,
+                parameters: parameters
+            )
+        let response = request.validate().response()
         return TRLResponse(promise: response)
     }
     
