@@ -16,13 +16,57 @@ import CoreLocation
  
  
  */
-extension _Basket where P == Products {
+public extension _Basket where P == Products {
     
     /// <#Description#>
     ///
     /// - Parameter json: <#json description#>
     public init(json: JSON) {
         self.init(indexes: json.products)
+    }
+    
+    mutating func add(_ element: Element, withQuantity q: Int) -> Promise<_Basket> {
+        return Promise { fullfill, reject in
+            Trolley.shared.networkManager
+                .post(element, to: .basket)
+                .responseJSON()
+                .then { json -> Void in
+                    // validate response
+                    
+                    // Needed to build
+                    DispatchQueue.default.sync {
+                        for _ in 0...q {
+                            self.append(element)
+                        }
+                        fullfill(self)
+                    }
+            }.catch { (error) in
+                reject(error)
+            }
+        }
+    }
+    
+    mutating func add(
+        _ element: Element,
+        withQuantity q: Int,
+        handler: @escaping (_Basket, Error?) -> Void
+        )
+    {
+        self.add(element, withQuantity: q).then { newBasket -> Void in
+            handler(newBasket, nil)
+        }.catch { (error) in
+            DispatchQueue.default.sync {
+                handler(self, error)
+            }
+        }
+    }
+    
+}
+
+public extension Products {
+    
+    class func getAll() -> Promise<[Products]> {
+        return Trolley.shared.networkManager.fetch(.products).responseProducts()
     }
     
 }
@@ -54,10 +98,12 @@ extension LocationManager {
     
     public static func promise() -> Promise<CLPlacemark> {
         return Promise { fullfill, reject in
-            CLLocationManager.promise()
-                .then { ShippingManager.reverseGeocode(for: $0) }
-                .then { fullfill($0) }
-                .catch { reject($0) }
+            OperationQueue.main.addOperation {
+                CLLocationManager.promise()
+                    .then { ShippingManager.reverseGeocode(for: $0) }
+                    .then { fullfill($0) }
+                    .catch { reject($0) }
+            }
         }
         
     }
