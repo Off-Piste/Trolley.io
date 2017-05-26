@@ -261,6 +261,10 @@ extension Products {
         )
         
     }
+    
+    open override var description: String {
+        return "\(self.name) by \(self.company)"
+    }
 
 }
 

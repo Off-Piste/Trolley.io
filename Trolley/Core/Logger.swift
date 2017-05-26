@@ -9,6 +9,14 @@
 import Foundation
 import Dispatch
 
+func +(lhs: String, rhs: Any) -> String {
+    return lhs + String(describing: rhs)
+}
+
+func +(lhs: Any, rhs: String) -> String {
+    return String(describing: lhs) + rhs
+}
+
 /// Required to be global to set as a default
 /// Person Preference. I prefer english -> d/m/y
 public var dateFormat: String = "dd-MM-yyyy hh:mm:ss ZZZ"
@@ -42,36 +50,32 @@ internal class Logger {
     }
     
     internal static func debug(
-        _ info: Any? = nil,
+        _ info: Any,
+        withTimer: Bool = false,
         file: NSString = #file,
         function: StaticString = #function,
         line: Int32 = #line
         )
     {
         if !isInDebugMode { return }
+        let date = (withTimer ? self.formatedDate() + " " : "")
         let frameworkName = "[DEBUG MODE]"
         let details = "File: \(file.lastPathComponent) Func: \(function) Line: \(line)"
-        let printValue: String
-        
-        if info == nil {
-            printValue = "\(frameworkName) | \(details)"
-        } else {
-            printValue = "\(frameworkName) | Info: \(info!) | \(details)"
-        }
+        let printValue: String = date + "\(frameworkName) | Info: \(info) | \(details)"
         
         queue.async {
             print(printValue)
         }
     }
     
-    internal static func log(
+    fileprivate static func log(
         _ value: Any...,
         level: logLevel = .info,
+        file: NSString,
+        function: StaticString,
+        line: Int32,
         seperator: StaticString = " ",
-        terminator: String = "\n",
-        file: NSString = #file,
-        function: StaticString = #function,
-        line: Int32 = #line
+        terminator: String = "\n"
         )
     {
         if !shouldLogEverything && level == .info { return }
@@ -102,4 +106,26 @@ internal class Logger {
             print(printValue, terminator: terminator)
         }
     }
+}
+
+extension Logger {
+    
+    static func info(_ items: Any...,
+        file: NSString = #file,
+        function: StaticString = #function,
+        line: Int32 = #line
+        )
+    {
+        self.log(items, level: .info, file: file, function: function, line: line)
+    }
+    
+    static func error(_ items: Any...,
+        file: NSString = #file,
+        function: StaticString = #function,
+        line: Int32 = #line
+        )
+    {
+        self.log(items, level: .error, file: file, function: function, line: line)
+    }
+    
 }

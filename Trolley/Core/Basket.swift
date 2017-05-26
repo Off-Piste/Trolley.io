@@ -373,13 +373,7 @@ extension _Basket : Equatable {
 extension _Basket : CustomStringConvertible, CustomDebugStringConvertible, CustomReflectable {
     
     public var description: String {
-        var description: String = ""
-        
-        self._products.forEach {
-            description.append("\($0.name) \($0.company) \($0.price) \($0.price) \($0.discount) \($0.addedOn) \($0.details)")
-        }
-        
-        return !_products.isEmpty ? description : "Empty Basket"
+        return self._products.description
     }
     
     public var debugDescription: String {
