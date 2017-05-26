@@ -64,7 +64,7 @@ struct TRLNetworkManagerInfo: CustomStringConvertible {
     }
     
     var description: String {
-        return "http\(secure ? "" : "s")://" +
+        return "http\(secure ? "s" : "")://" +
             (isLocal ? internalHost : host) +
             (route.isEmpty ? "" : "/" + route)
     }
@@ -73,7 +73,7 @@ struct TRLNetworkManagerInfo: CustomStringConvertible {
 extension URL {
     
     init?(TRLNetworkMangerInfo nm: TRLNetworkManagerInfo) {
-        let url = "http\(nm.secure ? "" : "s")://"
+        let url = "http\(nm.secure ? "s" : "")://"
             + (nm.isLocal ? nm.internalHost : nm.host) +
             (nm.route.isEmpty ? "" : "/" + nm.route)
         

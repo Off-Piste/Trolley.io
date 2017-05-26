@@ -17,7 +17,7 @@ public struct TRLNetworkManager {
     
     fileprivate var shopKey: String
     
-    var internalManagerInfo: TRLNetworkManagerInfo
+    fileprivate var internalManagerInfo: TRLNetworkManagerInfo
     
     public init(withKey key: String, isLocal: Bool = false) {
         self.shopKey = key
@@ -27,6 +27,7 @@ public struct TRLNetworkManager {
             internalHost: kLocalHostURL,
             isLocal: isLocal
         )
+        
     }
     
     public func fetch(_ items: Databases) -> Networkable {
@@ -35,6 +36,26 @@ public struct TRLNetworkManager {
                 internalManagerInfo.addNode(items.name).connectionURL,
                 parameters: parameters
             )
+        let response = request.validate().response()
+        return TRLResponse(promise: response)
+    }
+    
+    public func post(_ items: Any, to database: Databases) -> Networkable {
+        let param = ["key" : self.shopKey]
+        let request = Alamofire.request(
+            internalManagerInfo.addNode(database.name).connectionURL,
+            parameters: param
+        )
+        let response = request.validate().response()
+        return TRLResponse(promise: response)
+    }
+    
+    public func postData(_ data: Any, to database: Databases) -> Networkable {
+        let param = ["key" : self.shopKey]
+        let request = Alamofire.request(
+            internalManagerInfo.addNode(database.name).connectionURL,
+            parameters: param
+        )
         let response = request.validate().response()
         return TRLResponse(promise: response)
     }
