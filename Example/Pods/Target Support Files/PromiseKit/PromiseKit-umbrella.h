@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "CLGeocoder+AnyPromise.h"
+#import "CLLocationManager+AnyPromise.h"
+#import "PMKCoreLocation.h"
 #import "AnyPromise.h"
 #import "fwd.h"
 #import "PromiseKit.h"

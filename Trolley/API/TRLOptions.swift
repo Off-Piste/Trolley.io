@@ -24,7 +24,7 @@ public class TRLOptions {
     private(set) var xml: XML = [:]
     
     /// <#Description#>
-    private(set) var error: Error?
+    fileprivate private(set) var error: Error?
     
     /// <#Description#>
     private convenience init() {
@@ -55,9 +55,33 @@ public class TRLOptions {
 
 public extension TRLOptions {
     
+    public var containsError: Bool {
+        return (error != nil) ? true : false
+    }
+    
     /// <#Description#>
     public var merchantID: String {
         return xml[kPlistMerchantIDKey].stringValue
+    }
+    
+}
+
+internal extension TRLOptions {
+    
+    func validate() {
+        if self.containsError {
+            let err = self.error!
+            switch err {
+            case ParserError.error.pathCannotBeFound:
+                NSException.raise("The required plist cannot be found, please download from <url>")
+            default:
+                NSException.raise(err.localizedDescription)
+            }
+        }
+        
+        if self.merchantID.isEmpty {
+            NSException.raise("The Merchant ID is nil, please re-download the plist")
+        }
     }
     
 }

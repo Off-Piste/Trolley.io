@@ -8,6 +8,8 @@ PODS:
   - PromiseKit/Alamofire (4.2.0):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
+  - PromiseKit/CoreLocation (4.2.0):
+    - PromiseKit/CorePromise
   - PromiseKit/CorePromise (4.2.0)
   - PromiseKit/Foundation (4.2.0):
     - PromiseKit/CorePromise
@@ -25,7 +27,7 @@ PODS:
     - SwiftyJSON
     - Trolley/Networking
   - Trolley/Default (0.1.0):
-    - PromiseKit/Foundation
+    - PromiseKit/CoreLocation
     - Trolley/Database
   - Trolley/Networking (0.1.0):
     - PromiseKit
@@ -46,7 +48,7 @@ SPEC CHECKSUMS:
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Trolley: 7c6dbbff9c9212e3d987b1f51b37f7db0f332bea
+  Trolley: 3258cdd3afabab5dc7241a8d6d3502eadc245975
 
 PODFILE CHECKSUM: c22bfcd3ceb2649bfddf42a0449402a10ff79834
 

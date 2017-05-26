@@ -12,21 +12,32 @@ import Foundation
 import PromiseKit
 import SwiftyJSON
 
+var kAlreadyConfigured: Bool = false
+
 /// <#Description#>
 public class Trolley {
     
-    /// <#Description#>
+    /// The singleton that ever user should access
+    ///
+    /// Holds the `TRLOptions` for the shop and the
+    /// `TRLNetworkManager`
     public
     static var shared: Trolley = Trolley()
     
+    /// <#Description#>
     public fileprivate(set)
     var anOption: TRLOptions!
     
-    /// <#Description#>
+    /// The network manager that is set up to work with our data.
+    ///
+    /// Calls for downloads should be made through this.
     public fileprivate(set)
     var networkManager: TRLNetworkManager!
     
-    /// <#Description#>
+    /// The queue to be used when not using `zalgo`
+    ///
+    /// This is due to when using the default `Promise Kit` parameters 
+    /// the closures are never called. So its a workaround
     fileprivate
     let queue = DispatchQueue(
         label: "io.trolley",
@@ -49,14 +60,22 @@ public class Trolley {
      */
     public
     func configure() {
+        if kAlreadyConfigured { return }
+        
         let options = TRLOptions.default
         self.configure(options: options)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter options: <#options description#>
     public
     func configure(options: TRLOptions) {
+        if kAlreadyConfigured { return }
+        kAlreadyConfigured = !kAlreadyConfigured
+        
         self.anOption = options
-        self.validateOption(anOption)
+        self.anOption.validate()
         
         self.networkManager = TRLNetworkManager(option: anOption)
         
@@ -65,38 +84,41 @@ public class Trolley {
             return
         }
         
-        reach.promise().then(on: queue) { (newReach) -> Void in
+        reach.promise().then(on: queue) { (newReach) -> Promise<TRLUser> in
             print(newReach.currentReachabilityString)
+            return self.setupUser()
+        }.then(on: queue)  { (user) -> Void in
+            print(user)
         }.catch(on: queue) { error in
             print(error)
         }
 
     }
     
-    /// A method to check the options inside TRLOptions.
-    ///
-    /// If it fails the validation then it will raise an exception
-    ///
-    /// - Parameter anOption: The TRLOption been used
-    func validateOption(_ anOption: TRLOptions) {
-        if anOption.error != nil {
-            switch anOption.error! {
-            case ParserError.error.pathCannotBeFound:
-                NSException.raise("The required plist cannot be found, please download from <url>")
-            default:
-                NSException.raise(anOption.error!.localizedDescription)
-            }
-        }
-        
-        if anOption.merchantID.isEmpty {
-            NSException.raise("The Merchant ID is nil, please re-download the plist")
+    func setupUser() -> Promise<TRLUser> {
+        return Promise { fullfill, reject in
+            var usr = TRLUser.current
+            
+            firstly {
+                return LocationManager.promise()
+            }.then(on: zalgo, execute: { (PM) -> Void in
+                usr.placemark = PM
+                
+                fullfill(usr)
+            }).catch(on: zalgo, execute: { (error) in
+                reject(error)
+            })
         }
     }
     
 }
 
-extension Trolley {
+private extension Trolley {
     
+    /// <#Description#>
+    ///
+    /// - Parameter file: <#file description#>
+    /// - Returns: <#return value description#>
     func parsePLIST(in file: String) -> Promise<XML> {
         return  Promise { fullfill, reject in
             do {

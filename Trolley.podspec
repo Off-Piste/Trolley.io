@@ -47,7 +47,7 @@ A short description of Trolley for me to do later
   s.subspec 'Default' do |default|
       default.source_files = 'Trolley/API/**/**/*.swift'
       default.dependency 'Trolley/Database'
-      default.dependency 'PromiseKit/Foundation'
+      default.dependency 'PromiseKit/CoreLocation'
   end
 
 end

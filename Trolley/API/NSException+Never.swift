@@ -16,7 +16,7 @@ import Foundation
  */
 internal extension NSException {
     
-    internal convenience init(_ n: NSExceptionName, _ r: String, _ ui: [AnyHashable: Any]?) {
+    private convenience init(_ n: NSExceptionName, _ r: String, _ ui: [AnyHashable: Any]?) {
         self.init(name: n, reason: r, userInfo: ui)
     }
     

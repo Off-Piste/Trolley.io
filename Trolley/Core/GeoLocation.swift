@@ -40,7 +40,7 @@ class ShippingManager {
     public internal(set) var shippingDict = [String : Money]()
     
     /// <#Description#>
-    public private(set) var postalCode: String? {
+    public internal(set) var postalCode: String? {
         didSet {
             shippingPrice = calculateShipping(for: postalCode!)
         }

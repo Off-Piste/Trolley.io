@@ -26,6 +26,7 @@ struct ParserError {
 }
 
 typealias PError = ParserError.error
+typealias PlistFormat = PropertyListSerialization.PropertyListFormat
 
 public class Parser {
     
@@ -51,7 +52,7 @@ open class PLISTParser {
     
     open private(set) var headers: [String] = []
     
-    private init(xmlData: Data?, format: PropertyListSerialization.PropertyListFormat) throws {
+    private init(xmlData: Data?, format: PlistFormat) throws {
         if let data = xmlData {
             var format = format
             
@@ -66,7 +67,7 @@ open class PLISTParser {
     }
     
     public convenience init(contentsOfURL url: String) throws {
-        let propertyListForamt = PropertyListSerialization.PropertyListFormat.xml
+        let propertyListForamt: PlistFormat = .xml
         let plistXML = FileManager.default.contents(atPath: url)
         try self.init(xmlData: plistXML, format: propertyListForamt)
     }
