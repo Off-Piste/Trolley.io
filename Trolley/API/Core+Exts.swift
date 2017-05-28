@@ -46,12 +46,7 @@ public extension _Basket where P == Products {
         }
     }
     
-    mutating func add(
-        _ element: Element,
-        withQuantity q: Int,
-        handler: @escaping (_Basket, Error?) -> Void
-        )
-    {
+    mutating func add(_ element: Element, withQuantity q: Int, handler: @escaping (_Basket, Error?) -> Void) {
         self.add(element, withQuantity: q).then { newBasket -> Void in
             handler(newBasket, nil)
         }.catch { (error) in
