@@ -35,7 +35,9 @@ PODS:
 
 DEPENDENCIES:
   - Nimble (~> 5.1.1)
+  - PromiseKit
   - Quick (~> 1.0.0)
+  - SwiftyJSON
   - Trolley (from `../`)
 
 EXTERNAL SOURCES:
@@ -50,6 +52,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Trolley: 3258cdd3afabab5dc7241a8d6d3502eadc245975
 
-PODFILE CHECKSUM: c22bfcd3ceb2649bfddf42a0449402a10ff79834
+PODFILE CHECKSUM: dfd68145f96c510bcef92b3d413ab0c0d0392dbf
 
 COCOAPODS: 1.2.0.beta.3

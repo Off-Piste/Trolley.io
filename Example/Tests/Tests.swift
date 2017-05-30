@@ -3,48 +3,56 @@
 import Quick
 import Nimble
 import Trolley
+import PromiseKit
+import SwiftyJSON
 
-class TableOfContentsSpec: QuickSpec {
+// TODO: Finish this
+
+/// Required due to not being able to find `.plist` file
+let kOptions = TRLOptions(merchantID: "default")
+
+extension Parser {
+    
+    static func testParser(for r: String) throws -> [String : Any] {
+        let bundle = Bundle(for: Trolley.self)
+        guard let path = bundle.path(forResource: r, ofType: "plist") else {
+            throw NSError(domain: "Cannot Find File", code: 0, userInfo: nil)
+        }
+        
+        let plistParser = try PLISTParser(contentsOfURL: path)
+        return plistParser.plist
+    }
+    
+}
+
+//class TableOfContentsSpec: QuickSpec {
+//    
+//    override func spec() {
+//        describe("Products Download") {
+//            Trolley.shared.configure(options: kOptions)
+//            
+//            print(Bundle(for: Trolley.self))
+//            
+//            Products.getAll().then { products -> Void in
+//                expect(products).toNot(beEmpty())
+//            }.catch { (error) in
+//                expect(error).toNot(beNil())
+//            }
+//        }
+//    }
+//}
+
+class TrolleyTest: QuickSpec {
+    
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
-            }
-            
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+        describe("Finding the correct plist") {
+            do {
+                let xml = try Parser.testParser(for: "Trolley-Config")
+                expect(xml).toNot(beEmpty())
+            } catch {
+                expect(error).to(beNil())
             }
         }
     }
+    
 }

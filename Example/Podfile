@@ -7,6 +7,10 @@ target 'Trolley_Example' do
     inherit! :search_paths
 
     pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
+    pod 'PromiseKit'
+    pod 'SwiftyJSON'
+    pod 'Nimble', '~> 5.1.1'
+    pod 'Trolley', :path => '../'
   end
+  
 end
