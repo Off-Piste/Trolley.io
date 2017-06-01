@@ -138,7 +138,7 @@ public class Reporter {
     ///   - product: The product of type `Product` that had been added
     ///   - basket: The Basket the object was added to
     internal func added<P: Product>(product: P, to basket: _Basket<P>) {
-        Logger.info("Product : \(product.name) added in basket (\(basket)) at \(Date())")
+        Log.info("Product : \(product.name) added in basket (\(basket)) at \(Date())")
         
         delegate?.basket(basket, productsAdded: [product])
         NotificationCenter.default.post(
@@ -160,7 +160,7 @@ public class Reporter {
     ///   - basket: The Basket the objects were added to
     internal func added<P: Product>(products: [P], to basket: _Basket<P>) {
         products.forEach {
-            Logger.info("Product : \($0.name) added in basket (\(basket)) at \(Date())")
+            Log.info("Product : \($0.name) added in basket (\(basket)) at \(Date())")
         }
         
         delegate?.basket(basket, productsAdded: products)
@@ -180,7 +180,7 @@ public class Reporter {
     ///   - products: The products of type `Product` that had been removed
     ///   - basket: The Basket the objects were added to
     internal func removed<P: Product>(product: P, from basket: _Basket<P>) {
-        Logger.info("Product : \(product.name) removed from basket (\(basket)) at \(Date())")
+        Log.info("Product : \(product.name) removed from basket (\(basket)) at \(Date())")
         
         delegate?.basket(basket, productsRemoved: [product])
         NotificationCenter.default.post(

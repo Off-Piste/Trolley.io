@@ -91,7 +91,7 @@ public class CurrencyConverter: CurrencyConvertable {
             }
             return object
         } catch {
-            Logger.error(
+            Log.error(
                 error.localizedDescription,
                 "Currency rate will be set to 1.0"
             )

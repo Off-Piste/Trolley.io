@@ -62,6 +62,8 @@ public class Trolley {
     func configure() {
         if kAlreadyConfigured { return }
         
+        Log.info("Shutter Doors are opening, coffee is flowing")
+        
         let options = TRLOptions.default
         self.configure(options: options)
     }
@@ -84,13 +86,14 @@ public class Trolley {
             return
         }
         
+        // TODO: Comment this out upon release
         reach.promise().then(on: queue) { (newReach) -> Promise<TRLUser> in
-            print(newReach.currentReachabilityString)
+            Log.debug("Current Reachabilty is " + newReach, showThread: true)
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
-            print(user)
+            Log.debug(user, showThread: true)
         }.catch(on: queue) { error in
-            print(error)
+            Log.error(error)
         }
 
     }
@@ -101,11 +104,11 @@ public class Trolley {
             
             firstly {
                 return LocationManager.promise()
-            }.then(on: zalgo, execute: { (PM) -> Void in
+            }.then(execute: { (PM) -> Void in
                 usr.placemark = PM
                 
                 fullfill(usr)
-            }).catch(on: zalgo, execute: { (error) in
+            }).catch(execute: { (error) in
                 reject(error)
             })
         }
