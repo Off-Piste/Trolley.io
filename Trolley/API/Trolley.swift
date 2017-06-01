@@ -6,7 +6,7 @@
 // TODO: Plist Parser ✓
 // TODO: Global Manager
 // TODO: Exts
-//
+// TO
 
 import Foundation
 import PromiseKit
@@ -87,8 +87,16 @@ public class Trolley {
         }
         
         // TODO: Comment this out upon release
-        reach.promise().then(on: queue) { (newReach) -> Promise<TRLUser> in
+        reach.promise().then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             Log.debug("Current Reachabilty is " + newReach, showThread: true)
+            return self.downloadCurrency()
+        }.then(on: queue) { convertor -> Promise<TRLUser> in
+            Log.debug(
+                convertor.convert(275.0),
+                convertor.conversionRate,
+                Money(275.0),
+                showThread: true
+            )
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
             Log.debug(user, showThread: true)
@@ -111,6 +119,18 @@ public class Trolley {
             }).catch(execute: { (error) in
                 reject(error)
             })
+        }
+    }
+    
+    func downloadCurrency() -> Promise<CurrencyConverter> {
+        return Promise { fullfill, reject in
+            let converter = CurrencyConverter.shared
+            converter.setupJSONUserDefaults()
+            
+            converter.downloadJSON { (error) in
+                if error != nil { reject(error!) }
+                else { fullfill(converter) }
+            }
         }
     }
     

@@ -29,9 +29,11 @@ struct TRLUser: CustomStringConvertible {
     
     var placemark: CLPlacemark = CLPlacemark()
     
+    var locale: Locale = Locale.current
+    
     // 5. Anything else
     
     var description: String {
-        return "FIRUser \(location) : \(placemark)"
+        return "<TRLUser:0x1234567890> locale=\(locale)"
     }
 }

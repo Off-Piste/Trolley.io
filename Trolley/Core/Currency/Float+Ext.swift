@@ -18,7 +18,7 @@ public extension Float {
     ///
     /// - Parameter value: The non convered currency
     public init(convert value: Float) {
-        self.init(CurrencyConverter.shared.convert(value: value))
+        self.init(CurrencyConverter.shared.convert(value))
     }
     
     

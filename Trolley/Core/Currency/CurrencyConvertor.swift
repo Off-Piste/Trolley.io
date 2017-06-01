@@ -25,7 +25,7 @@ public typealias Downloader = (CurrencyError?) -> Void
 /// The CurrencyConvertable protocol that Currency conforms to
 public protocol CurrencyConvertable {
     
-    func convert(value: Float) -> Float
+    func convert(_ value: Float) -> Float
     
 }
 
@@ -70,7 +70,7 @@ public class CurrencyConverter: CurrencyConvertable {
     
     /// The NSDecimalNumber for the conversion rate
     internal var decimalRate: NSDecimalNumber {
-        return NSDecimalNumber(value: conversionRate).rounding(accordingToBehavior: decimalHandler)
+        return NSDecimalNumber(value: conversionRate)
     }
     
     /// The local currency code
@@ -129,7 +129,7 @@ public class CurrencyConverter: CurrencyConvertable {
     ///
     /// - Parameter value: The pre-converted value
     /// - Returns: The converted Value
-    public func convert(value: Float) -> Float {
+    public func convert(_ value: Float) -> Float {
         if conversionRate == 0.0 { // Checks to see if downloaded, if not converts with saved rate
             guard let rate = self._offlineRates[self._localCurrencyCode] else { return value * 1.0 }
             return value * rate
@@ -145,11 +145,10 @@ public class CurrencyConverter: CurrencyConvertable {
     func convert(value: NSDecimalNumber) -> NSDecimalNumber {
         if decimalRate == 0.0 {
             guard let rate = self._offlineRates[self._localCurrencyCode] else { return value }
-            let dc = NSDecimalNumber(value: rate).rounding(accordingToBehavior: decimalHandler)
-            return value.multiplying(by: dc, withBehavior: decimalHandler)
+            let dc = NSDecimalNumber(value: rate)
+            return value.multiplying(by: dc)
         }
-        
-        return value.multiplying(by: decimalRate, withBehavior: decimalHandler)
+        return value.multiplying(by: decimalRate)
     }
     
     /// The Downloader for the currency JSON
@@ -186,6 +185,49 @@ public class CurrencyConverter: CurrencyConvertable {
             }
         })
         task.resume()
+    }
+    
+    internal func setupJSONUserDefaults() {
+        let manager = DefaultsManager(withKey: _offlineRatesUD)
+        do {
+            let values = try manager.retrieveObject()
+            Log.debug("Conversions from `GBP` to", values)
+        } catch {
+            manager.set(object: [
+                "AUD": 1.6231,
+                "BGN": 2.2694,
+                "BRL": 3.8936,
+                "CAD": 1.6616,
+                "CHF": 1.2414,
+                "CNY": 8.5835,
+                "CZK": 31.355,
+                "DKK": 8.6315,
+                "EUR": 1.1604,
+                "HKD": 9.6832,
+                "HRK": 8.6424,
+                "HUF": 358.96,
+                "IDR": 16590,
+                "ILS": 4.5154,
+                "INR": 80.867,
+                "JPY": 138.54,
+                "KRW": 1391.4,
+                "MXN": 23.35,
+                "MYR": 5.5074,
+                "NOK": 10.64,
+                "NZD": 1.7758,
+                "PHP": 62.503,
+                "PLN": 4.9006,
+                "RON": 5.2736,
+                "RUB": 70.014,
+                "SEK": 11.096,
+                "SGD": 1.7379,
+                "THB": 42.877,
+                "TRY": 4.5392,
+                "USD": 1.2459,
+                "ZAR": 16.032
+                ]
+            )
+        }
     }
     
 }

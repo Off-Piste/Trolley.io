@@ -28,7 +28,7 @@ public protocol DecimalType : ExpressibleByFloatLiteral, ExpressibleByIntegerLit
     /// The Initaliser for when using a Decimal value, check `DecimalStorageType` for type
     ///
     /// - Parameter value: The NSDecimalNumber value
-    init(_ value: DecimalStorageType)
+    init(value: DecimalStorageType)
     
     /// The initaliser for using a float value.
     ///
@@ -126,7 +126,7 @@ public struct Money : DecimalType {
     
     public var money: (value: DecimalStorageType, currency: Currency)
     
-    public init(_ value: NSDecimalNumber) {
+    public init(value: NSDecimalNumber) {
         self.money = (value, defaultCurrency)
     }
     
@@ -196,6 +196,9 @@ extension Money: MoneyType, SignedNumber {
         let fmt = NumberFormatter()
         fmt.numberStyle = .currency
         fmt.locale = Locale.current
+//        print(self.currency.convert(value: money.value))
+//        print(fmt.string(from: self.currency.convert(value: money.value)) ?? "")
+        
         return fmt.string(from: self.currency.convert(value: money.value))!
     }
     
@@ -216,7 +219,7 @@ extension Money: MoneyType, SignedNumber {
     }
     
     public var negative: Money {
-        return Money(self.money.value.negate(withBehavior: decimalHandler))
+        return Money(value: self.money.value.negate(withBehavior: decimalHandler))
     }
     
 }
