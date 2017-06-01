@@ -77,7 +77,7 @@ public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection
     ///     public var dateFormat: String
     ///
     public var lastUpdated: String {
-        return Logger.format(for: self._updatedOn)
+        return self._updatedOn.string
     }
     
     /// Items are the number of 'items' in the basket, where as `count` is the quantity of the basket.

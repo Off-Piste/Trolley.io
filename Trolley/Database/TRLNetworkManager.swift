@@ -30,15 +30,29 @@ public struct TRLNetworkManager {
         
     }
     
-    public func fetch(_ items: Databases) -> Networkable {
+    public func fetch(_ db: Databases) -> Networkable {
         let parameters = ["key" : self.shopKey]
         let request = Alamofire.request(
-                internalManagerInfo.addNode(items.name).connectionURL,
+                internalManagerInfo.addNode(db.name).connectionURL,
                 parameters: parameters
             )
         let response = request.validate().response()
         return TRLResponse(promise: response)
     }
+    
+    // TODO: - Change Name
+    
+    internal func fetchItem(with id: String, from db: Databases) -> Networkable {
+        let parameters = ["key" : self.shopKey, "item_id": id]
+        let request = Alamofire.request(
+            internalManagerInfo.addNode(db.name).connectionURL,
+            parameters: parameters
+        )
+        let response = request.validate().response()
+        return TRLResponse(promise: response)
+    }
+    
+    // MARK:
     
     public func post(_ items: Any, to database: Databases) -> Networkable {
         let param = ["key" : self.shopKey]
