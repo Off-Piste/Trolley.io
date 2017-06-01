@@ -12,11 +12,11 @@ import PromiseKit
 import Trolley
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+public class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    public var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // If you are using our API to store your data you should call this.
         // If not then we would reccomend using `Trolley/Core` in your podfile
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         // 4.
         }.catch { (error) in
-            print(error)
+            print(error.localizedDescription)
         }
         
         return true
