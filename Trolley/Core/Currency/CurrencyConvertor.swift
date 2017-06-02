@@ -10,7 +10,7 @@ import Foundation
 
 internal let _offlineRatesUD: String = "OfflineRates"
 
-let decimalHandler = NSDecimalNumberHandler(
+let kDecimalHandler = NSDecimalNumberHandler(
     roundingMode: .plain,
     scale: 2,
     raiseOnExactness: true,

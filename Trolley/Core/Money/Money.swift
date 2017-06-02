@@ -133,7 +133,7 @@ public struct Money : DecimalType {
     public init(_ value: Float) {
         self.money = (
             NSDecimalNumber(value: value)
-                .rounding(accordingToBehavior: decimalHandler),
+                .rounding(accordingToBehavior: kDecimalHandler),
             defaultCurrency
         )
     }
@@ -146,7 +146,7 @@ public struct Money : DecimalType {
         let value: Float = Float(ammount) / 100
         self.money = (
             NSDecimalNumber(value: value)
-                .rounding(accordingToBehavior: decimalHandler),
+                .rounding(accordingToBehavior: kDecimalHandler),
             defaultCurrency
         )
     }
@@ -176,16 +176,16 @@ extension Money: MoneyType, SignedNumber {
     
     public var amount: FloatLiteralType {
         return self.currency.convert(value: money.value)
-            .rounding(accordingToBehavior: decimalHandler).floatValue
+            .rounding(accordingToBehavior: kDecimalHandler).floatValue
     }
     
     public var floatValue: FloatLiteralType {
-        return self.money.value.rounding(accordingToBehavior: decimalHandler).floatValue
+        return self.money.value.rounding(accordingToBehavior: kDecimalHandler).floatValue
     }
     
     public var integerValue: IntegerLiteralType {
         return self.money.value
-            .rounding(accordingToBehavior: decimalHandler).intValue
+            .rounding(accordingToBehavior: kDecimalHandler).intValue
     }
     
     public var stripe: IntegerLiteralType {
@@ -219,7 +219,7 @@ extension Money: MoneyType, SignedNumber {
     }
     
     public var negative: Money {
-        return Money(value: self.money.value.negate(withBehavior: decimalHandler))
+        return Money(value: self.money.value.negate(withBehavior: kDecimalHandler))
     }
     
 }
@@ -251,7 +251,7 @@ public func ==(lhs: Money, rhs: Money) -> Bool {
 }
 
 func +=(lhs: inout Money, rhs: Money) {
-    lhs.money.value.adding(rhs.money.value, withBehavior: decimalHandler)
+    lhs.money.value.adding(rhs.money.value, withBehavior: kDecimalHandler)
 }
 
 // MARK: - Operators
@@ -260,7 +260,7 @@ func +=(lhs: inout Money, rhs: Money) {
 
 public func +(lhs: Money, rhs: Money) -> Money {
     if lhs.currency == rhs.currency {
-        let money = lhs.money.value.adding(rhs.money.value, withBehavior: decimalHandler)
+        let money = lhs.money.value.adding(rhs.money.value, withBehavior: kDecimalHandler)
         return Money(money.floatValue)
     }
     
@@ -286,7 +286,7 @@ public func +(lhs: Money, rhs: Money.IntegerLiteralType) -> Money {
 // MARK: Subtract
 
 public func -(lhs: Money, rhs: Money) -> Money {
-    return Money(lhs.floatValue - rhs.floatValue)
+    return Money(value: lhs.money.value - rhs.money.value)
 }
 
 public func -(lhs: Money.FloatLiteralType, rhs: Money) -> Money {
@@ -303,6 +303,20 @@ public func -(lhs: Money.IntegerLiteralType, rhs: Money) -> Money {
 
 public func -(lhs: Money, rhs: Money.IntegerLiteralType) -> Money {
     return Money(lhs.integerValue - rhs)
+}
+
+// MARK: Multiplication
+// TODO: Add Rest
+
+public func /(lhs: Money, rhs: Money) -> Money {
+    return Money(value: lhs.money.value / rhs.money.value)
+}
+
+// MARK: Division
+// TODO: Add Rest
+
+public func *(lhs: Money, rhs: Int) -> NSDecimalNumber {
+    return lhs.money.value.multiplying(by: NSDecimalNumber(value: rhs))
 }
 
 // MARK: - Comparable

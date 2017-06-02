@@ -27,13 +27,8 @@ public protocol Product : Equatable, Hashable {
     ///     price.currencyValue
     var price: Money { get }
     
-    /// The none currenecy converted discount.
-    ///
-    /// To get a currency formatted string version call the `.currencyValue` variable
-    ///
-    ///     // £4.25
-    ///     discount.currencyValue
-    var discount: Money { get }
+    /// <#Description#>
+    var discount: Percentage { get }
     
     /// The data at which the product was added to your server, this is if you wish to filter your products by data, if not just call `Date()`
     var addedOn: Date { get }
@@ -80,14 +75,14 @@ open class Products : NSObject, Product {
     
     open var price: Money
     
-    open var discount: Money
+    open var discount: Percentage
     
     open var addedOn: Date
     
     open var details: [String : Any]
     
     open var total: Money {
-        return price - discount
+        return self.price - self.discountValue
     }
     
     /// The Main Initaliser to set all the local properties
@@ -105,7 +100,7 @@ open class Products : NSObject, Product {
         name: String,
         company: String,
         price: Money,
-        discount: Money,
+        discount: Percentage,
         addedOn: Date,
         details: [String : Any]
         )
@@ -136,7 +131,7 @@ open class Products : NSObject, Product {
             name: name,
             company: company,
             price: Money(price),
-            discount: Money(discount),
+            discount: Percentage(value: discount),
             timestamp: timestamp,
             details: details
         )
@@ -161,7 +156,7 @@ extension Products {
         name: String,
         company: String,
         price: Money,
-        discount: Money,
+        discount: Percentage,
         timestamp: TimeInterval,
         details: [String : Any]
         )
@@ -190,7 +185,7 @@ extension Products {
         name: String,
         company: String,
         price: Money,
-        discount: Money,
+        discount: Percentage,
         addedOn: Date,
         details: [String : Any]
         )
@@ -219,7 +214,7 @@ extension Products {
         name: String,
         company: String,
         price: Money,
-        discount: Money,
+        discount: Percentage,
         timestamp: TimeInterval,
         details: [String : Any]
         )
@@ -255,7 +250,7 @@ extension Products {
             name: name,
             company: company,
             price: Money(price),
-            discount: Money(discount),
+            discount: Percentage(value: discount),
             timestamp: Date().timeIntervalSince1970,
             details: details
         )
@@ -263,7 +258,7 @@ extension Products {
     }
     
     open override var description: String {
-        return "\(self.name) by \(self.company)"
+        return "\(self.name) : \(self.company) : \(self.price) : \(self.discount) : \(self.discountValue)"
     }
 
 }
@@ -280,7 +275,7 @@ extension Products : NSCoding {
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.company, forKey: "company")
         aCoder.encode(self.price.floatValue, forKey: "price")
-        aCoder.encode(self.discount.floatValue, forKey: "discount")
+        aCoder.encode(self.discount.float, forKey: "discount")
         aCoder.encode(self.details, forKey: "details")
         aCoder.encode(self.addedOn.timeIntervalSince1970, forKey: "timestamp")
     }
@@ -293,6 +288,6 @@ extension Products : NSCoding {
     }
     
     public var itemDescription: String {
-        return "\(self.id) : \(self.name) : \(self.company) : \(self.price.floatValue) : \(self.discount.integerValue)"
+        return "\(self.id) : \(self.name) : \(self.company) : \(self.price) : \(self.discount) : \(self.discountValue)"
     }
 }

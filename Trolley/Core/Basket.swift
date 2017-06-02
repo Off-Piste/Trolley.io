@@ -290,8 +290,8 @@ private extension _Basket {
         self._totalPrice = 0
         
         for item in _products {
-            self._discount += item.discount
-            self._totalPrice += (item.price - item.discount)
+            self._discount += item.price / item.discountValue
+            self._totalPrice += (item.price - item.discountValue)
         }
     }
 }
