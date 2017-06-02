@@ -192,6 +192,7 @@
 		C266DD9813094C3A3AD57E6C5E3FF6A6 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8320D201204FC4426868590F9EA10 /* NSNotificationCenter+Promise.swift */; };
 		C4D0F1EE3305048B59EBABFC28782521 /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = F7419BD116FCA2FF143D8EE5DBDE6E59 /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C56A00715895200C77DA197F7FBF4CC0 /* Pods-Trolley_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB045ABBFFCC1C0FE6F32EC9F61C0533 /* Pods-Trolley_Example-dummy.m */; };
+		C8B796101EE15E77007C99C7 /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B7960F1EE15E77007C99C7 /* Percentage.swift */; };
 		C8C06429FA452270E14F911139650A5A /* Promise+AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE970E1F30E7980D05A54AA5CDBCAB59 /* Promise+AnyPromise.swift */; };
 		C93184E69556226FF638E8627A2FD1D8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F7373D25FCC2723B5561BB53152CC /* SwiftyJSON.swift */; };
 		CB19C8B497556A1FC63DAE29806A5CC8 /* DispatchQueue+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492B9BFA0AF2BE3A796EA20565823F8 /* DispatchQueue+Promise.swift */; };
@@ -540,6 +541,7 @@
 		C6D503268E45C7E2E0ED38FC18427BAF /* World.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = World.swift; path = Sources/Quick/World.swift; sourceTree = "<group>"; };
 		C6DC4B159352699791484BCD51F216EF /* Quick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Quick-dummy.m"; sourceTree = "<group>"; };
 		C88C81DE325F1C78B47AB6CF81AC3212 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		C8B7960F1EE15E77007C99C7 /* Percentage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
 		CBE89719A8CCCF977AD5A298DAAE91F0 /* race.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = race.swift; path = Sources/race.swift; sourceTree = "<group>"; };
 		CCCE0D8D7C308F3CE41DF1D01B8A4C0C /* QuickSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpec.h; path = Sources/QuickObjectiveC/QuickSpec.h; sourceTree = "<group>"; };
 		CDBEC76D2D8AEB0B0BE93B1CEDE1E3DC /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
@@ -993,6 +995,7 @@
 			children = (
 				BC89B4938460B6D82BDE034209B4E612 /* Money.swift */,
 				FE4B92FDA126F7AFA6B13F15BDB0BE39 /* NSDecimalExt.swift */,
+				C8B7960F1EE15E77007C99C7 /* Percentage.swift */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -1754,6 +1757,7 @@
 				2BF5948026913F6EDCEC6C894F0CF51D /* Databases.swift in Sources */,
 				D0695FC9D5CC9269CE9713A3717AD5E9 /* DefaultsManager.swift in Sources */,
 				7831C6D18B65F3C486A6DDD8B0B65798 /* EXT.swift in Sources */,
+				C8B796101EE15E77007C99C7 /* Percentage.swift in Sources */,
 				F60BF4D1F634CDFE58A8107385449A3B /* Float+Ext.swift in Sources */,
 				211F69B38B04A35047E0B273E96F5EC7 /* GeoLocation.swift in Sources */,
 				BC639A115E1ECC3A2510EEDCE2AB1BC9 /* Log.swift in Sources */,

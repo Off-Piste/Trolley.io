@@ -8,12 +8,13 @@
 
 import UIKit
 import Trolley
-import PromiseKit
 
 @available(iOS 10.0, *)
 class BasicVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var datasource: Datasource?
     
@@ -22,14 +23,16 @@ class BasicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.searchBar.placeholder = "\(TRLUser.current.locale)"
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.refreshControl = refreshController()
+        self.tableView.refreshControl = refreshController()
         
         self.datasource = Datasource(tableView: tableView)
-        networkManager = NetworkManager(datasource: self.datasource!, vc: self)
-        networkManager.startDownload {
-            if $0.error == nil { self.datasource?.objects = $0.objects }
+        self.networkManager = NetworkManager(datasource: self.datasource!, vc: self)
+        self.networkManager.startDownload {
+            if !$0.containsError { self.datasource?.objects = $0.objects }
         }
     }
     
@@ -50,7 +53,7 @@ extension BasicVC {
         
         networkManager.startRefresh {
             rc?.endRefreshing()
-            if $0.error == nil { self.datasource?.objects = $0.objects }
+            if !$0.containsError { self.datasource?.objects = $0.objects }
         }
     }
 

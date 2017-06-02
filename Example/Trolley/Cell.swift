@@ -16,6 +16,8 @@ class Cell: UITableViewCell {
     
     @IBOutlet weak var companyTitle: UILabel!
     
+    @IBOutlet weak var priceTitle: UILabel!
+    
     var product: Products? {
         didSet {
             configCell()
@@ -33,6 +35,7 @@ class Cell: UITableViewCell {
     func configCell() {
         self.itemTitle.text = self.product!.name
         self.companyTitle.text = self.product!.company
+        self.priceTitle.text = "\(self.product!.price)"
     }
     
 }

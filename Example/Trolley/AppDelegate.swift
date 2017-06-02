@@ -58,7 +58,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
             
         // 4.
         }.catch { (error) in
-            print(error.localizedDescription)
+            print(error.localizedDescription, error._code, error._domain)
         }
         
         return true
