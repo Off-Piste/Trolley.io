@@ -36,6 +36,8 @@ public protocol Product : Equatable, Hashable {
     /// The Dictionary to hold the rest of the product infomation, this can be empty if you only wish to enter the details above
     var details: [String : Any] { get }
     
+    var type: String { get }
+    
     /// `Equatable` method to return true if the values are equal or false if not
     ///
     /// - Parameters:
@@ -79,6 +81,8 @@ open class Products : NSObject, Product {
     
     open var addedOn: Date
     
+    open var type: String
+    
     open var details: [String : Any]
     
     open var total: Money {
@@ -102,6 +106,7 @@ open class Products : NSObject, Product {
         price: Money,
         discount: Percentage,
         addedOn: Date,
+        type: String,
         details: [String : Any]
         )
     {
@@ -111,6 +116,7 @@ open class Products : NSObject, Product {
         self.price = price
         self.discount = discount
         self.addedOn = addedOn
+        self.type = type
         self.details = details
     }
     
@@ -120,6 +126,7 @@ open class Products : NSObject, Product {
             let company = aDecoder.decodeObject(forKey: "company") as! String?,
             let price = aDecoder.decodeFloat(forKey: "price") as Float?,
             let discount = aDecoder.decodeFloat(forKey: "discount") as Float?,
+            let type = aDecoder.decodeObject(forKey: "type") as? String,
             let details = aDecoder.decodeObject(forKey: "details") as? [String : Any],
             let timestamp = aDecoder.decodeDouble(forKey: "timestamp") as Double?
             else {
@@ -133,6 +140,7 @@ open class Products : NSObject, Product {
             price: Money(price),
             discount: Percentage(value: discount),
             timestamp: timestamp,
+            type: type,
             details: details
         )
     }
@@ -158,6 +166,7 @@ extension Products {
         price: Money,
         discount: Percentage,
         timestamp: TimeInterval,
+        type: String,
         details: [String : Any]
         )
     {
@@ -168,6 +177,7 @@ extension Products {
             price: price,
             discount: discount,
             addedOn: Date(timeIntervalSince1970: timestamp),
+            type: type,
             details: details
         )
     }
@@ -187,6 +197,7 @@ extension Products {
         price: Money,
         discount: Percentage,
         addedOn: Date,
+        type: String,
         details: [String : Any]
         )
     {
@@ -197,6 +208,7 @@ extension Products {
             price: price,
             discount: discount,
             addedOn: addedOn,
+            type: type,
             details: details
         )
     }
@@ -216,6 +228,7 @@ extension Products {
         price: Money,
         discount: Percentage,
         timestamp: TimeInterval,
+        type: String,
         details: [String : Any]
         )
     {
@@ -226,6 +239,7 @@ extension Products {
             price: price,
             discount: discount,
             addedOn: Date(timeIntervalSince1970: timestamp),
+            type: type,
             details: details
         )
     }
@@ -240,7 +254,8 @@ extension Products {
             let company = JSONData["company_name"] as? String,
             let price = JSONData["price"] as? Float,
             let discount = JSONData["discount"] as? Float,
-            let details = JSONData["details"] as? [String : Any]
+            let details = JSONData["details"] as? [String : Any],
+            let type = JSONData["type"] as? String
             else {
                 return nil
         }
@@ -252,13 +267,17 @@ extension Products {
             price: Money(price),
             discount: Percentage(value: discount),
             timestamp: Date().timeIntervalSince1970,
+            type: type,
             details: details
         )
         
     }
     
     open override var description: String {
-        return "\(self.name) : \(self.company) : \(self.price) : \(self.discount) : \(self.discountValue)"
+        return "<Product> { name: \(self.name) " +
+                "company: \(self.company) " +
+                "type: \(self.type) " +
+                "price: \(self.price) }"
     }
 
 }
@@ -287,7 +306,4 @@ extension Products : NSCoding {
             lhs.discount == rhs.discount
     }
     
-    public var itemDescription: String {
-        return "\(self.id) : \(self.name) : \(self.company) : \(self.price) : \(self.discount) : \(self.discountValue)"
-    }
 }

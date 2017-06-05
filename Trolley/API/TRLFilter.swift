@@ -58,6 +58,8 @@ public struct TRLFilter<Value: MutableCollection> {
     
 }
 
+// TODO: - Maybe Changes Names around
+
 public extension TRLFilter where Value == [Products] {
     
     ///
@@ -89,6 +91,25 @@ public extension TRLFilter where Value == [Products] {
         return Promise { fullfill, reject in
             fullfill(self.elements.filter(for: text))
         }
+    }
+    
+    static func split(_ products: Value, for types: String...) -> [String : Value] {
+        return TRLFilter<Value>(elements: products).split(types)
+    }
+    
+    func split(for types: String...) -> [String : Value] {
+        return split(types)
+    }
+    
+    private func split(_ types: [String]) -> [String : Value] {
+        var dict = [String : Value]()
+        
+        for type in types {
+            let productArray = self.elements.filter { return $0.type == type }
+            dict.updateValue(productArray, forKey: type)
+        }
+        
+        return dict
     }
     
 }
