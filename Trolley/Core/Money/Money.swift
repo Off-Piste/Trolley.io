@@ -196,8 +196,6 @@ extension Money: MoneyType, SignedNumber {
         let fmt = NumberFormatter()
         fmt.numberStyle = .currency
         fmt.locale = Locale.current
-//        print(self.currency.convert(value: money.value))
-//        print(fmt.string(from: self.currency.convert(value: money.value)) ?? "")
         
         return fmt.string(from: self.currency.convert(value: money.value))!
     }

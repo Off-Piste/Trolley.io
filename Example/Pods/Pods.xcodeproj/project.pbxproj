@@ -192,6 +192,7 @@
 		C266DD9813094C3A3AD57E6C5E3FF6A6 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8320D201204FC4426868590F9EA10 /* NSNotificationCenter+Promise.swift */; };
 		C4D0F1EE3305048B59EBABFC28782521 /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = F7419BD116FCA2FF143D8EE5DBDE6E59 /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C56A00715895200C77DA197F7FBF4CC0 /* Pods-Trolley_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB045ABBFFCC1C0FE6F32EC9F61C0533 /* Pods-Trolley_Example-dummy.m */; };
+		C82F65511EE562E2007D2B6F /* SearchableProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82F65501EE562E2007D2B6F /* SearchableProduct.swift */; };
 		C8B796101EE15E77007C99C7 /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B7960F1EE15E77007C99C7 /* Percentage.swift */; };
 		C8C06429FA452270E14F911139650A5A /* Promise+AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE970E1F30E7980D05A54AA5CDBCAB59 /* Promise+AnyPromise.swift */; };
 		C93184E69556226FF638E8627A2FD1D8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F7373D25FCC2723B5561BB53152CC /* SwiftyJSON.swift */; };
@@ -540,6 +541,7 @@
 		C6A69229596A84E7D6D62961EB2C97F5 /* Stringers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stringers.swift; path = Sources/Nimble/Utils/Stringers.swift; sourceTree = "<group>"; };
 		C6D503268E45C7E2E0ED38FC18427BAF /* World.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = World.swift; path = Sources/Quick/World.swift; sourceTree = "<group>"; };
 		C6DC4B159352699791484BCD51F216EF /* Quick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Quick-dummy.m"; sourceTree = "<group>"; };
+		C82F65501EE562E2007D2B6F /* SearchableProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableProduct.swift; sourceTree = "<group>"; };
 		C88C81DE325F1C78B47AB6CF81AC3212 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		C8B7960F1EE15E77007C99C7 /* Percentage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
 		CBE89719A8CCCF977AD5A298DAAE91F0 /* race.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = race.swift; path = Sources/race.swift; sourceTree = "<group>"; };
@@ -898,6 +900,7 @@
 				4F187EA6371D4557522D529B3878ECAB /* TRLNetworkManager+TRLOptions.swift */,
 				2B0FDF7DC77978CC752C21D4C26898E5 /* TRLOptions.swift */,
 				C53B2740F80A5A92F1FEE5E5E4C31E4C /* TRLUser.swift */,
+				C82F65501EE562E2007D2B6F /* SearchableProduct.swift */,
 				8732F288EB1ED20F5952B43A09265992 /* Trolley.swift */,
 			);
 			path = API;
@@ -1778,6 +1781,7 @@
 				7FE09631CD1F17ADCD0A7DE0391B96DE /* TRLOptions.swift in Sources */,
 				124B92EFFE18CD6C3BFAE5C388E4E922 /* TRLResponse.swift in Sources */,
 				126AC0F30DD9290632A7ED07D818E989 /* TRLUser.swift in Sources */,
+				C82F65511EE562E2007D2B6F /* SearchableProduct.swift in Sources */,
 				9A9F94AFAC2AED4E026C974837636CDA /* Trolley-dummy.m in Sources */,
 				532CD4FCEDE2D20FDCE94E6F5621917D /* Trolley.swift in Sources */,
 			);

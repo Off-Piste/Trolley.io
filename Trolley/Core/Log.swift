@@ -55,7 +55,7 @@ extension Date {
 }
 
 // MARK: CUSTOM DEBUG FLAG
-fileprivate let isInDebugMode: Bool = true
+fileprivate let isInDebugMode: Bool = false
 
 /** 
  New and improved Log tool.
@@ -93,7 +93,7 @@ struct Log {
         _ type: Log.LogType = .default
         )
     {
-        print("[\(timer)]\(type.string)\(source.isEmpty ? "" : " \(source)") [Trolley] \(items)")
+        print("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [Trolley] \(items)")
     }
     
 }
@@ -106,13 +106,14 @@ extension Log {
     static func debug(
         _ items: Any...,
         showThread: Bool = false,
+        separator: String = " ",
         file: NSString = #file,
         function: StaticString = #function,
         line: Int = #line
         )
     {
         if !isInDebugMode { return }
-        let strItems = self.sortVaradicItems(items)
+        let strItems = self.sortVaradicItems(items, separator: separator)
         let strSource = self.createSourceString(showThread, file, function, line)
         
         self.console(strItems, Date().string, strSource, .debug)
@@ -121,12 +122,13 @@ extension Log {
     static func info(
         _ items: Any...,
         showSource: Bool = false,
+        separator: String = " ",
         file: NSString = #file,
         function: StaticString = #function,
         line: Int = #line
         )
     {
-        let strItems = self.sortVaradicItems(items)
+        let strItems = self.sortVaradicItems(items, separator: separator)
         let date = Date().string
         
         if showSource {
@@ -140,12 +142,13 @@ extension Log {
         _ items: Any...,
         showSource: Bool = false,
         showThread: Bool = false,
+        separator: String = " ",
         file: NSString = #file,
         function: StaticString = #function,
         line: Int = #line
         )
     {
-        let strItems = self.sortVaradicItems(items)
+        let strItems = self.sortVaradicItems(items, separator: separator)
         let date = Date().string
         
         if showSource {
@@ -161,11 +164,14 @@ extension Log {
  */
 extension Log {
 
-    static fileprivate func sortVaradicItems(_ items: [Any]) -> String {
+    static fileprivate func sortVaradicItems(_ items: [Any], separator: String) -> String {
         var stringValue = String()
         for (index, item) in items.enumerated() {
-            if items.count == 1 || index == (items.count - 1) { stringValue.append("\(item)"); break }
-            stringValue.append("\(item)\(" ")")
+            if items.count == 1 || index == (items.count - 1) {
+                stringValue.append("\(item)\(separator)")
+                break
+            }
+            stringValue.append("\(item)\(separator)")
         }
         
         return stringValue

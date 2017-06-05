@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* BasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* BasicVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		658C6777525650BD65BD6B9D /* Pods_Trolley_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */; };
-		C8A0131F1EDECB76008740BC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0131E1EDECB76008740BC /* Cell.swift */; };
-		C8A013211EDECB97008740BC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A013201EDECB96008740BC /* NetworkManager.swift */; };
-		C8A013231EDECCBB008740BC /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A013221EDECCBB008740BC /* Datasource.swift */; };
+		C836884F1EE5A25E00C010F1 /* BasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83688471EE5A25E00C010F1 /* BasicVC.swift */; };
+		C83688501EE5A25E00C010F1 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83688481EE5A25E00C010F1 /* Cell.swift */; };
+		C83688511EE5A25E00C010F1 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83688491EE5A25E00C010F1 /* Datasource.swift */; };
+		C83688521EE5A25E00C010F1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836884A1EE5A25E00C010F1 /* NetworkManager.swift */; };
+		C83688531EE5A25E00C010F1 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836884C1EE5A25E00C010F1 /* SearchCell.swift */; };
+		C83688541EE5A25E00C010F1 /* SearchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836884D1EE5A25E00C010F1 /* SearchedVC.swift */; };
+		C83688551EE5A25E00C010F1 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836884E1EE5A25E00C010F1 /* SearchVC.swift */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		E3F54B2F8A7CA0E4F7CD50B5 /* Pods_Trolley_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -40,7 +43,6 @@
 		607FACD01AFB9204008FA782 /* Trolley_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trolley_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* BasicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVC.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -49,10 +51,14 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C8A0131E1EDECB76008740BC /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		C8A013201EDECB96008740BC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C8A013221EDECCBB008740BC /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
-		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Trolley-Config.plist"; path = "../Trolley/Trolley-Config.plist"; sourceTree = "<group>"; };
+		C83688471EE5A25E00C010F1 /* BasicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVC.swift; sourceTree = "<group>"; };
+		C83688481EE5A25E00C010F1 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		C83688491EE5A25E00C010F1 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		C836884A1EE5A25E00C010F1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C836884C1EE5A25E00C010F1 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		C836884D1EE5A25E00C010F1 /* SearchedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVC.swift; sourceTree = "<group>"; };
+		C836884E1EE5A25E00C010F1 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
 		C9E97A09BDD0E385AC036DCB /* Pods-Trolley_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F68171A0877242EB70CDCF0B /* Pods-Trolley_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Tests/Pods-Trolley_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,10 +107,8 @@
 		607FACD21AFB9204008FA782 /* Example for Trolley */ = {
 			isa = PBXGroup;
 			children = (
-				C8A013251EDECD20008740BC /* Controllers */,
-				C8A013241EDECCEB008740BC /* Datasource */,
-				C8A0131D1EDECB55008740BC /* Networking */,
-				C8A0131C1EDECB41008740BC /* Cells */,
+				C83688461EE5A25E00C010F1 /* Basic Example */,
+				C836884B1EE5A25E00C010F1 /* Search Example */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -117,6 +121,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
@@ -135,7 +140,6 @@
 		607FACE91AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */,
 				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -151,36 +155,25 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		C8A0131C1EDECB41008740BC /* Cells */ = {
+		C83688461EE5A25E00C010F1 /* Basic Example */ = {
 			isa = PBXGroup;
 			children = (
-				C8A0131E1EDECB76008740BC /* Cell.swift */,
+				C83688471EE5A25E00C010F1 /* BasicVC.swift */,
+				C83688481EE5A25E00C010F1 /* Cell.swift */,
+				C83688491EE5A25E00C010F1 /* Datasource.swift */,
+				C836884A1EE5A25E00C010F1 /* NetworkManager.swift */,
 			);
-			name = Cells;
+			path = "Basic Example";
 			sourceTree = "<group>";
 		};
-		C8A0131D1EDECB55008740BC /* Networking */ = {
+		C836884B1EE5A25E00C010F1 /* Search Example */ = {
 			isa = PBXGroup;
 			children = (
-				C8A013201EDECB96008740BC /* NetworkManager.swift */,
+				C836884C1EE5A25E00C010F1 /* SearchCell.swift */,
+				C836884D1EE5A25E00C010F1 /* SearchedVC.swift */,
+				C836884E1EE5A25E00C010F1 /* SearchVC.swift */,
 			);
-			name = Networking;
-			sourceTree = "<group>";
-		};
-		C8A013241EDECCEB008740BC /* Datasource */ = {
-			isa = PBXGroup;
-			children = (
-				C8A013221EDECCBB008740BC /* Datasource.swift */,
-			);
-			name = Datasource;
-			sourceTree = "<group>";
-		};
-		C8A013251EDECD20008740BC /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD71AFB9204008FA782 /* BasicVC.swift */,
-			);
-			name = Controllers;
+			path = "Search Example";
 			sourceTree = "<group>";
 		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
@@ -408,11 +401,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* BasicVC.swift in Sources */,
-				C8A013211EDECB97008740BC /* NetworkManager.swift in Sources */,
-				C8A013231EDECCBB008740BC /* Datasource.swift in Sources */,
+				C83688531EE5A25E00C010F1 /* SearchCell.swift in Sources */,
+				C83688521EE5A25E00C010F1 /* NetworkManager.swift in Sources */,
+				C83688551EE5A25E00C010F1 /* SearchVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				C8A0131F1EDECB76008740BC /* Cell.swift in Sources */,
+				C836884F1EE5A25E00C010F1 /* BasicVC.swift in Sources */,
+				C83688511EE5A25E00C010F1 /* Datasource.swift in Sources */,
+				C83688501EE5A25E00C010F1 /* Cell.swift in Sources */,
+				C83688541EE5A25E00C010F1 /* SearchedVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

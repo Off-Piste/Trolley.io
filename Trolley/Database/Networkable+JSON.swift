@@ -44,11 +44,33 @@ public extension Networkable {
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func responseProduct() -> Promise<Products> {
+        return Promise { fullfill, reject in
+            self.responseJSON().then { json -> Void in
+                guard let product = Products(JSON: json) else {
+                    throw NetworkableError.initFailed(
+                        for: Products.self,
+                        withInput: json
+                    )
+                }
+                
+                fullfill(product)
+            }.catch { error in
+                reject(error)
+            }
+        }
+    }
+    
 }
 
 public typealias JSONResponse = (JSON, Error?) -> Void
 
 public typealias ProductsResponse = ([Products]?, Error?) -> Void
+
+public typealias ProductResponse = (Products?, Error?) -> Void
 
 // MARK: Closure Networkable EXT
 
@@ -75,5 +97,17 @@ public extension Networkable {
             handler(nil, error)
         }
     }
+    
+    /// <#Description#>
+    ///
+    /// - Parameter handler: <#handler description#>
+    func responseProduct(handler: @escaping ProductResponse) {
+        self.responseProduct().then { product -> Void in
+            handler(product, nil)
+            }.catch { error in
+                handler(nil, error)
+        }
+    }
+
     
 }

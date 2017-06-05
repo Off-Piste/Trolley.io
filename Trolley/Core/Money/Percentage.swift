@@ -56,6 +56,10 @@ public extension Percentage {
         return self.value.rounding(accordingToBehavior: kDecimalHandler)
     }
     
+    var decimalValue: NSDecimalNumber {
+        return self.value / 100
+    }
+    
 }
 
 public extension Percentage {
@@ -160,7 +164,7 @@ public func ==(lhs: Percentage, rhs: Percentage) -> Bool {
 }
 
 func /(lhs: Money, rhs: Percentage) -> Money {
-    return Money(value: lhs.money.value.dividing(by: rhs.value))
+    return Money(value: lhs.money.value.multiplying(by: rhs.decimalValue))
 }
 
 func -(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {

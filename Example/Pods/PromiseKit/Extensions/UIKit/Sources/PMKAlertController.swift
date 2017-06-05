@@ -50,7 +50,7 @@ public class PMKAlertController {
     }
 
     /// Attaches an action title to the alert or action sheet.
-    public func addActionWithTitle(title: String, style: UIAlertActionStyle = .default) -> UIAlertAction {
+    public func addActionWithTitle(_ title: String, style: UIAlertActionStyle = .default) -> UIAlertAction {
         let action = UIAlertAction(title: title, style: style) { action in
             if style != .cancel {
                 self.fulfill(action)
@@ -63,7 +63,7 @@ public class PMKAlertController {
     }
 
     /// Adds a text field to an alert.
-    public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField) -> Void)?) {
+    public func addTextFieldWithConfigurationHandler(_ configurationHandler: ((UITextField) -> Void)?) {
         UIAlertController.addTextField(configurationHandler: configurationHandler)
     }
 

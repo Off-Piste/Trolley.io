@@ -140,10 +140,10 @@ public class Reachability {
     }
 }
 
-public extension Reachability {
+extension Reachability: CustomStringConvertible {
     
     // MARK: - *** Notifier methods ***
-    func startNotifier() throws {
+    public func startNotifier() throws {
         
         guard let reachabilityRef = reachabilityRef, !notifierRunning else { return }
         
@@ -167,7 +167,7 @@ public extension Reachability {
         notifierRunning = true
     }
     
-    func stopNotifier() {
+    public func stopNotifier() {
         defer { notifierRunning = false }
         guard let reachabilityRef = reachabilityRef else { return }
         
@@ -176,7 +176,7 @@ public extension Reachability {
     }
     
     // MARK: - *** Connection test methods ***
-    var isReachable: Bool {
+    public var isReachable: Bool {
         
         guard isReachableFlagSet else { return false }
         
@@ -194,12 +194,12 @@ public extension Reachability {
         return true
     }
     
-    var isReachableViaWWAN: Bool {
+    public var isReachableViaWWAN: Bool {
         // Check we're not on the simulator, we're REACHABLE and check we're on WWAN
         return isRunningOnDevice && isReachableFlagSet && isOnWWANFlagSet
     }
     
-    var isReachableViaWiFi: Bool {
+    public var isReachableViaWiFi: Bool {
         
         // Check we're reachable
         guard isReachableFlagSet else { return false }
@@ -211,7 +211,7 @@ public extension Reachability {
         return !isOnWWANFlagSet
     }
     
-    var description: String {
+    public var description: String {
         
         let W = isRunningOnDevice ? (isOnWWANFlagSet ? "W" : "-") : "X"
         let R = isReachableFlagSet ? "R" : "-"

@@ -25,7 +25,6 @@ public extension Array where Element == Products {
 public extension Array where Element == SearchableProducts {
     
     func filter(for text: String) -> [Element] {
-        Log.info(self)
         return self.filter { $0.productName.contains(text) || $0.companyName.contains(text) }
     }
     
@@ -123,8 +122,6 @@ public extension TRLFilter where Value == [SearchableProducts] {
     /// - Returns:
     func filter(for text: String) -> Promise<Value> {
         return Promise { fullfill, reject in
-            Log.info(self.elements)
-            Log.info(self.elements.filter(for: text))
             fullfill(self.elements.filter(for: text))
         }
     }
@@ -134,4 +131,5 @@ public extension TRLFilter where Value == [SearchableProducts] {
 ///
 public typealias TRLProductsFilter = TRLFilter<[Products]>
 
+///
 public typealias TRLSearchFilter = TRLFilter<[SearchableProducts]>

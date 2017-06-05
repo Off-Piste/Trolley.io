@@ -23,7 +23,7 @@ class BasicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.searchBar.placeholder = "\(TRLUser.current.locale)"
+        self.searchBar.placeholder = "\(TRLUser.current.locale.currencyCode ?? "nil")"
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -32,7 +32,9 @@ class BasicVC: UIViewController {
         self.datasource = Datasource(tableView: tableView)
         self.networkManager = NetworkManager(datasource: self.datasource!, vc: self)
         self.networkManager.startDownload {
-            if !$0.containsError { self.datasource?.objects = $0.objects }
+            if !$0.containsError {
+                self.datasource?.objects = $0.objects
+            }
         }
     }
     

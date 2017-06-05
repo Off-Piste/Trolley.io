@@ -23,6 +23,12 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // for the use of the Core functionality without all the heavy stuff
         Trolley.shared.configure()
         
+        // Calling the `configure()` method again will not do anything other than
+        // have our logger letting you know that you have it called twice
+        // this is so we dont override the current shop and have any thread issues
+        Trolley.shared.configure()
+        Trolley.shared.configure(options: TRLOptions(merchantID: "default"))
+        
         // MARK: How to use Promise Kit
         // 1 -> Calling `firstly<T>(execute:) -> Promise<T>`
         // this closure allows you to call any pre-networking call methods,

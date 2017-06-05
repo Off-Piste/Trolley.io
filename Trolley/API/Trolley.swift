@@ -1,18 +1,25 @@
-// TODO: Copy over all the data for the API.
-// TODO: Shop/API Configuration
+// TODO: Copy over all the data for the API. -> 50% Done
+// TODO: Shop/API Configuration -> 50% Done
 // TODO: Reachabilty ✓
 // TODO: Offline storage (Caching IMGs)
 // TODO: Basket Sync
 // TODO: Plist Parser ✓
 // TODO: Global Manager
-// TODO: Exts
-// TO
+// TODO: Exts -> 50% Done
+// TODO: Currency Converter Connection ✓
+// TODO: Connect Search Up -> 50% Done (SDK Code ✓)
+// TODO: Basket Add/Download -> 50% Done (SDK Code ✓)
+//
 
 import Foundation
 import PromiseKit
 import SwiftyJSON
 
 var kAlreadyConfigured: Bool = false
+var kAlreadyConfiguredWarning: String =
+    "You have already configured a Trolley Shop. " +
+    "Please remove any un-required calls to `configure()` " +
+    "or `configure(options:)`, thank you."
 
 /// <#Description#>
 public class Trolley {
@@ -25,7 +32,7 @@ public class Trolley {
     static var shared: Trolley = Trolley()
     
     /// <#Description#>
-    public fileprivate(set)
+    internal fileprivate(set)
     var anOption: TRLOptions!
     
     /// The network manager that is set up to work with our data.
@@ -60,7 +67,7 @@ public class Trolley {
      */
     public
     func configure() {
-        if kAlreadyConfigured { return }
+        if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         
         Log.info("Shutter Doors are opening, coffee is flowing")
         
@@ -73,7 +80,7 @@ public class Trolley {
     /// - Parameter options: <#options description#>
     public
     func configure(options: TRLOptions) {
-        if kAlreadyConfigured { return }
+        if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
         
         self.anOption = options
@@ -86,8 +93,10 @@ public class Trolley {
             return
         }
         
-        // TODO: Comment this out upon release
-        reach.promise().then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
+        
+        firstly {
+            return reach.promise()
+        }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             Log.debug("Current Reachabilty is " + newReach, showThread: true)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in

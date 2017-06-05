@@ -152,9 +152,9 @@ fileprivate extension NetworkManager {
             preferredStyle: .alert
         )
         
-        _ = alert.addActionWithTitle(title: "Okay")
+        _ = alert.addActionWithTitle("Okay")
         vc.promise(alert).tap {
-            self.datasource.tableView.refreshControl?.endRefreshing()
+            self.datasource.tableView?.refreshControl?.endRefreshing()
             print($0)
         }
     }

@@ -16,7 +16,7 @@ import UIKit
 struct Datasource {
     
     /// <#Description#>
-    var tableView: UITableView
+    var tableView: UITableView?
     
     /// <#Description#>
     var error: Error?
@@ -50,6 +50,8 @@ struct Datasource {
         self.objects = objects
     }
     
+    init(objects: [Any] = []) { self.objects = objects }
+    
 }
 
 /**
@@ -59,7 +61,7 @@ extension Datasource {
     
     /// <#Description#>
     func reloadData() {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     /// <#Description#>
