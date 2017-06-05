@@ -30,10 +30,16 @@ public struct TRLNetworkManager {
         
     }
     
-    public func fetch(_ db: Databases) -> Networkable {
+    public func fetch(_ db: Databases, withRoute route: String = "") -> Networkable {
         let parameters = ["key" : self.shopKey]
+        let internalManager = (route.isEmpty) ?
+            internalManagerInfo.addNode(db.name) :
+            internalManagerInfo.addNode(db.name).addNode(route)
+        
+        Log.debug("URL Testing", internalManager.connectionURL.absoluteString)
+        
         let request = Alamofire.request(
-                internalManagerInfo.addNode(db.name).connectionURL,
+                internalManager.connectionURL,
                 parameters: parameters
             )
         let response = request.validate().response()

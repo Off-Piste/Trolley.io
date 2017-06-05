@@ -47,11 +47,12 @@ struct TRLNetworkManagerInfo: CustomStringConvertible {
     }
     
     func addNode(_ node: String) -> TRLNetworkManagerInfo {
+        let route = "\(self.route)/\(node)"
         return TRLNetworkManagerInfo(
             host: self.host,
             internalHost: self.internalHost,
             isLocal: self.isLocal,
-            route: node
+            route: route
         )
     }
     
@@ -75,7 +76,7 @@ extension URL {
     init?(TRLNetworkMangerInfo nm: TRLNetworkManagerInfo) {
         let url = "http\(nm.secure ? "s" : "")://"
             + (nm.isLocal ? nm.internalHost : nm.host) +
-            (nm.route.isEmpty ? "" : "/" + nm.route)
+            (nm.route.isEmpty ? "" : nm.route)
         
         self.init(string: url)
     }
