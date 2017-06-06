@@ -30,6 +30,18 @@ fileprivate extension String {
     
 }
 
+fileprivate extension Array {
+    
+    var filtered: [Element] {
+        return self.filter{ ($0 is String) ? !($0 as! String).isEmpty : true }
+    }
+    
+    var stringArray: [String] {
+        return self.flatMap { "\($0)" }
+    }
+    
+}
+
 extension Date {
 
     /// A `String` property of a formated `Date`, 
@@ -55,7 +67,7 @@ extension Date {
 }
 
 // MARK: CUSTOM DEBUG FLAG
-fileprivate let isInDebugMode: Bool = false
+fileprivate let isInDebugMode: Bool = true
 
 /** 
  New and improved Log tool.
@@ -165,16 +177,7 @@ extension Log {
 extension Log {
 
     static fileprivate func sortVaradicItems(_ items: [Any], separator: String) -> String {
-        var stringValue = String()
-        for (index, item) in items.enumerated() {
-            if items.count == 1 || index == (items.count - 1) {
-                stringValue.append("\(item)\(separator)")
-                break
-            }
-            stringValue.append("\(item)\(separator)")
-        }
-        
-        return stringValue
+        return items.filtered.stringArray.joined(separator: separator)
     }
     
     static fileprivate func createSourceString(
@@ -198,4 +201,79 @@ extension Log {
         return stringValue
     }
     
+}
+
+/// Use me when just checking and don't require an crash
+func _check(
+    _ value: @autoclosure () -> Bool,
+    _ message: String = "",
+    _ file: NSString = #file,
+    _ function: StaticString = #function,
+    _ line: Int =  #line
+    )
+{
+    if value() { return }
+    Log.debug(
+        "_check failed, please assess your code", message,
+        showThread: false,
+        separator: " ",
+        file: file,
+        function: function,
+        line: line
+    )
+}
+
+func _checkForEmpty<C: Collection>(
+    _ value: C,
+    _ message: String = "",
+    _ file: NSString = #file,
+    _ function: StaticString = #function,
+    _ line: Int =  #line
+    )
+{
+    _check(value.isEmpty, message, file, function, line)
+}
+
+func _checkForNotEmpty<C: Collection>(
+    _ value: C,
+    _ message: String = "",
+    _ file: NSString = #file,
+    _ function: StaticString = #function,
+    _ line: Int =  #line
+    )
+{
+    _check(!value.isEmpty, message, file, function, line)
+}
+
+func _checkForNil(
+    _ value: Any?,
+    _ message: String = "",
+    _ file: NSString = #file,
+    _ function: StaticString = #function,
+    _ line: Int =  #line
+    )
+{
+    _check(value == nil, message, file, function, line)
+}
+
+func _checkForNonNil(
+    _ value: Any?,
+    _ message: String = "",
+    _ file: NSString = #file,
+    _ function: StaticString = #function,
+    _ line: Int =  #line
+    )
+{
+    _check(value != nil, message, file, function, line)
+}
+
+/// Use me when wanting to use the assert,
+func _assertCheck(
+    _ value: @autoclosure () -> Bool,
+    _ message: String...,
+    _ file: StaticString = #file,
+    _ line: UInt = #line
+    )
+{
+    assert(value(), Log.sortVaradicItems(message, separator: " "), file: file, line: line)
 }

@@ -191,7 +191,7 @@ public class CurrencyConverter: CurrencyConvertable {
         let manager = DefaultsManager(withKey: _offlineRatesUD)
         do {
             let values = try manager.retrieveObject()
-            Log.debug("Conversions from `GBP` to", values)
+            _checkForNotEmpty(values as! Dictionary<String, Any>, "Should have items inside")
         } catch {
             manager.set(object: [
                 "AUD": 1.6231,

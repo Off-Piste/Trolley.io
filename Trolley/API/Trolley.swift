@@ -97,18 +97,16 @@ public class Trolley {
         firstly {
             return reach.promise()
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
-            Log.debug("Current Reachabilty is " + newReach, showThread: true)
+            _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
-            Log.debug(
-                convertor.convert(275.0),
-                convertor.conversionRate,
-                Money(275.0),
-                showThread: true
+            _check(
+                convertor.convert(value: NSDecimalNumber(value: 100)) ==
+                NSDecimalNumber(value: convertor.convert(100))
             )
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
-            Log.debug(user, showThread: true)
+//            Log.debug(user, showThread: true)
         }.catch(on: queue) { error in
             Log.error(error)
         }
