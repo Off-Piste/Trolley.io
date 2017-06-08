@@ -12,8 +12,8 @@
 //
 
 import Foundation
-import PromiseKit
-import SwiftyJSON
+@_exported import PromiseKit
+@_exported import SwiftyJSON
 
 var kAlreadyConfigured: Bool = false
 var kAlreadyConfiguredWarning: String =
