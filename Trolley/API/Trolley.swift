@@ -15,6 +15,18 @@ import Foundation
 @_exported import PromiseKit
 @_exported import SwiftyJSON
 
+extension Notification.Name {
+    
+    static var basketUpdated = Notification.Name("basketUpdated")
+    
+    static var productsUpdated = Notification.Name("productsUpdated")
+    
+    static var invalidAPIKey = Notification.Name("invalidAPIKey")
+    
+    static var connectionLost = Notification.Name("connectionLost")
+    
+}
+
 var kAlreadyConfigured: Bool = false
 var kAlreadyConfiguredWarning: String =
     "You have already configured a Trolley Shop. " +

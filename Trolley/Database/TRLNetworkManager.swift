@@ -10,6 +10,9 @@ import Foundation
 import PromiseKit
 import Alamofire
 
+// TODO: Work with new API
+// TODO: New Get/Post/Delete/Put Methods
+
 let kOldBaseURL: String = "trolley-io.eu-gb.mybluemix.net/API"
 let kLocalHostURL: String = "localhost:8080/API"
 

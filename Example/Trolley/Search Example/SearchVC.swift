@@ -70,7 +70,7 @@ extension SearchNetworkManager : SearchNetworkable  {
             preferredStyle: .alert
         )
         
-        _ = alert.addActionWithTitle("Okay")
+        _ = alert.addActionWithTitle(title: "Okay")
         vc.promise(alert).tap {
             print($0)
         }
@@ -144,7 +144,7 @@ extension SearchVC: UISearchBarDelegate {
             preferredStyle: .alert
         )
         
-        _ = alert.addActionWithTitle("Okay")
+        _ = alert.addActionWithTitle(title: "Okay")
         self.promise(alert).tap {
             print($0)
         }

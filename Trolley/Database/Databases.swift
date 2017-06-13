@@ -8,6 +8,18 @@
 
 import Foundation
 
+//enum Path {
+//    case database(Databases)
+//    case search(Databases)
+//    
+//    init(_ database: Databases) {
+//        switch self {
+//        case .database(.basket) :
+//            self = .database(.basket)
+//        }
+//    }
+//}
+
 public enum Databases {
     
     case products

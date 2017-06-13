@@ -31,23 +31,23 @@ A short description of Trolley for me to do later
   end
 
   s.subspec 'Networking' do |n|
-      n.source_files = 'Trolley/Networking/**/**/*.swift'
-      n.dependency 'Trolley/Core'
-      # n.dependency 'ReachabilitySwift', '~> 3' // To work Reachabilty with Promise kit, have to insert the reachabilty manually
-      n.dependency 'PromiseKit'
+    n.source_files = 'Trolley/Networking/**/**/*.swift'
+    n.dependency 'Trolley/Core'
+    # n.dependency 'ReachabilitySwift', '~> 3' // To work Reachabilty with Promise kit, have to insert the reachabilty manually
+    n.dependency 'PromiseKit'
   end
 
   s.subspec 'Database' do |d|
-      d.source_files = 'Trolley/Database/**/**/*.swift'
-      d.dependency 'Trolley/Networking'
-      d.dependency 'SwiftyJSON'
-      d.dependency 'PromiseKit/Alamofire'
+    d.source_files = 'Trolley/Database/**/**/*.swift'
+    d.dependency 'Trolley/Networking'
+    d.dependency 'SwiftyJSON'
+    d.dependency 'PromiseKit/Alamofire'
   end
 
   s.subspec 'Default' do |default|
-      default.source_files = 'Trolley/API/**/**/*.swift'
-      default.dependency 'Trolley/Database'
-      default.dependency 'PromiseKit/CoreLocation'
+    default.source_files = 'Trolley/API/**/**/*.swift'
+    default.dependency 'Trolley/Database'
+    default.dependency 'PromiseKit/CoreLocation'
   end
 
 end
