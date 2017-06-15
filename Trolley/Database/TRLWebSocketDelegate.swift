@@ -122,9 +122,11 @@ class TRLWebSocketConnection : NSObject, SRWebSocketDelegate {
                 domain: queue.label,
                 code: code,
                 userInfo: [
-                    NSLocalizedDescriptionKey: reason
+                    // `_bridgeToObjectiveC()` causes a crash here, check for nil
+                    // first before adding a reason.
+                    NSLocalizedDescriptionKey: reason == nil ? "nil" : reason
                 ]
-            ) as Error).localizedDescription
+            ))
         )
     }
 }

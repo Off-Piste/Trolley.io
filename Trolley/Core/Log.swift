@@ -37,7 +37,9 @@ fileprivate extension Array {
     }
     
     var stringArray: [String] {
-        return self.flatMap { "\($0)" }
+        return self.flatMap {
+            ($0 as Any?) == nil ? "" : "\($0)"
+        }
     }
     
 }
