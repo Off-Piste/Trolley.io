@@ -64,6 +64,8 @@ public class Trolley {
         attributes: .concurrent
     )
     
+    private var webSocket: TRLWebSocketConnection!
+    
     fileprivate
     init() { }
     
@@ -81,8 +83,6 @@ public class Trolley {
     func configure() {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         
-        Log.info("Shutter Doors are opening, coffee is flowing")
-        
         let options = TRLOptions.default
         self.configure(options: options)
     }
@@ -95,6 +95,8 @@ public class Trolley {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
         
+        Log.completeDebug("Shutter Doors are opening, coffee is flowing")
+        
         self.anOption = options
         self.anOption.validate()
         
@@ -105,6 +107,24 @@ public class Trolley {
             return
         }
         
+//        let networkInfo = TRLNetworkManagerInfo(host: <#T##String#>, internalHost: <#T##String#>, isLocal: <#T##Bool#>)
+//        let url = TRLUtilities.singleton.parseURL("http://localhost:8080/default/basket")
+//        Log.debug(url)
+        
+        let testURL: ParsedURL = "http://localhost:8080/API/default/basket"
+        Log.debug(testURL)
+        
+        let networkInfo = TRLNetworkInfo(
+            host: "localhost:8080",
+            namespace: "localhost:8080",
+            secure: false,
+            url: nil
+        )
+        let parsedURL = ParsedURL(networkInfo: networkInfo)
+        Log.debug(parsedURL)
+        
+        webSocket = TRLWebSocketConnection(parsedURL: parsedURL, queue: queue)
+        webSocket.open()
         
         firstly {
             return reach.promise()
@@ -112,13 +132,9 @@ public class Trolley {
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
-            _check(
-                convertor.convert(value: NSDecimalNumber(value: 100)) ==
-                NSDecimalNumber(value: convertor.convert(100))
-            )
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
-//            Log.debug(user, showThread: true)
+            //
         }.catch(on: queue) { error in
             Log.error(error)
         }
@@ -165,8 +181,7 @@ private extension Trolley {
         return  Promise { fullfill, reject in
             do {
                 let items = try Parser(forResouceName: file, ofType: "plist").items
-                let xml = XML(items)
-                fullfill(xml)
+                fullfill(XML(items))
             } catch {
                 reject(error)
             }

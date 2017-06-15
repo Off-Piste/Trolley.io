@@ -105,9 +105,12 @@ struct Log {
         _ type: Log.LogType = .default
         )
     {
-        print("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [Trolley] \(items)")
+        self.log("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [Trolley] \(items)")
     }
     
+    static fileprivate func log(_ value: String) {
+        print(value)
+    }
 }
 
 /**
@@ -168,6 +171,20 @@ extension Log {
         } else {
             self.console(strItems, date, .default, .error)
         }
+    }
+    
+    static func completeDebug(
+        _ items: Any...,
+        separator: String = " ",
+        file: NSString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+        )
+    {
+        let strItems = self.sortVaradicItems(items, separator: separator)
+        let date = Date().string
+        
+        self.log("\(date) [DEBUG] \(createSourceString(true, file, function, line)) [\(TRLAppEnviroment.current)] \(strItems)")
     }
 }
 

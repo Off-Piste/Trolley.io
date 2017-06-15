@@ -41,6 +41,7 @@ A short description of Trolley for me to do later
     d.source_files = 'Trolley/Database/**/**/*.swift'
     d.dependency 'Trolley/Networking'
     d.dependency 'SwiftyJSON'
+    d.dependency 'SocketRocket'
     d.dependency 'PromiseKit/Alamofire'
   end
 
