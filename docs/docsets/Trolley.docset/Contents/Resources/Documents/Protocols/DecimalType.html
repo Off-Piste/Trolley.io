@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DecimalType Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/DecimalType" class="dashAnchor"></a>
+    <a title="DecimalType Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Trolley Docs</a> (41% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Trolley Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DecimalType Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyConverter.html">CurrencyConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultsManager.html">DefaultsManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationManager.html">LocationManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PLISTParser.html">PLISTParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C7Trolley6Parser">Parser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Products.html">Products</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability.html">Reachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability/NetworkStatus.html">– NetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reporter.html">Reporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TRLOptions.html">TRLOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Trolley.html">Trolley</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley31ReachabilityChangedNotificationVCSo14NSNotification4Name">ReachabilityChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley10dateFormatSS">dateFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CurrencyError.html">CurrencyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Databases.html">Databases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DefaultsManagerError.html">DefaultsManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkableError.html">NetworkableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityError.html">ReachabilityError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Float.html">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSON.html">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PKPaymentRequest.html">PKPaymentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ShippingManager.html">ShippingManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSfVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSiVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1mFTVS_5MoneySi_CSo15NSDecimalNumber">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSfVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSiVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneyS0__S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySf_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySi_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyop1sFVS_5MoneyS0_">-(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSfVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSiVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneyS0__S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySf_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySi_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1dFTVS_5MoneyS0__S0_">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTCSo15NSDecimalNumberS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTVS_5MoneyS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTCSo15NSDecimalNumberS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_10PercentageS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_5MoneyS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CurrencyConvertable.html">CurrencyConvertable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DecimalType.html">DecimalType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorReportingDelegate.html">ErrorReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MoneyType.html">MoneyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Networkable.html">Networkable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkableDelegate.html">NetworkableDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/_ReportingDelegate.html">_ReportingDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Money.html">Money</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Percentage.html">Percentage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchableProducts.html">SearchableProducts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLFilter.html">TRLFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLNetworkManager.html">TRLNetworkManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLResponse.html">TRLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLUser.html">TRLUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URLQuery.html">URLQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/_Basket.html">_Basket</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley6Basket">Basket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley14DefaultHandler">DefaultHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley10Downloader">Downloader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley12ManagerError">ManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17ReportingDelegate">ReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17TRLProductsFilter">TRLProductsFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley15TRLSearchFilter">TRLSearchFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DecimalType</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DecimalType</span> <span class="p">:</span> <span class="kt">ExpressibleByFloatLiteral</span><span class="p">,</span> <span class="kt">ExpressibleByIntegerLiteral</span></code></pre>
+
+                </div>
+              </div>
+            <p>This is the custom decimal type. </p>
+
+<p>It is a stripped down version of <a href="https://github.com/danthorpe/Money">Money</a> by danthorpe</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley11DecimalType5moneyT5valuewx18DecimalStorageType8currencyOS_8Currency_"></a>
+                    <a name="//apple_ref/swift/Property/money" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley11DecimalType5moneyT5valuewx18DecimalStorageType8currencyOS_8Currency_">money</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The tuple that holds the both the monietary value and the currency being used,
+all <code><a href="../Protocols/MoneyType.html">MoneyType</a></code> properties take the value from this</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">money</span><span class="p">:</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DecimalType.html#/s:P7Trolley11DecimalType18DecimalStorageType">DecimalStorageType</a></span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/Currency.html">Currency</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P7Trolley11DecimalType18DecimalStorageType"></a>
+                    <a name="//apple_ref/swift/Alias/DecimalStorageType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P7Trolley11DecimalType18DecimalStorageType">DecimalStorageType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The pype of Decimal Storage, will be set to <code>NSDecimalNumber</code> but could be <code>Decimal</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">DecimalStorageType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP7Trolley11DecimalTypecFT5valuewx18DecimalStorageType_x"></a>
+                    <a name="//apple_ref/swift/Method/init(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP7Trolley11DecimalTypecFT5valuewx18DecimalStorageType_x">init(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Initaliser for when using a Decimal value, check <code><a href="../Protocols/DecimalType.html#/s:P7Trolley11DecimalType18DecimalStorageType">DecimalStorageType</a></code> for type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DecimalType.html#/s:P7Trolley11DecimalType18DecimalStorageType">DecimalStorageType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The NSDecimalNumber value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP7Trolley11DecimalTypecFSfx"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP7Trolley11DecimalTypecFSfx">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The initaliser for using a float value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The float value for the money</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP7Trolley11DecimalTypecFSix"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP7Trolley11DecimalTypecFSix">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The initaliser for using a Int value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The float value for money</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP7Trolley11DecimalTypecFT11withAmmountSi_x"></a>
+                    <a name="//apple_ref/swift/Method/init(withAmmount:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP7Trolley11DecimalTypecFT11withAmmountSi_x">init(withAmmount:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The initaliser for using an Int value that may have a decimal place,
+the values are then divided by 100 to place them in correct places</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">withAmmount</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The float value for money that is in cents or pennies</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/Off-Piste/Trolley.io" target="_blank" rel="external">harrytwright</a>. All rights reserved. (Last updated: 2017-06-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

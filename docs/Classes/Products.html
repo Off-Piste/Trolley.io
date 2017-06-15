@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Products Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Products" class="dashAnchor"></a>
+    <a title="Products Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Trolley Docs</a> (41% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Trolley Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Products Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyConverter.html">CurrencyConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultsManager.html">DefaultsManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationManager.html">LocationManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PLISTParser.html">PLISTParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C7Trolley6Parser">Parser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Products.html">Products</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability.html">Reachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability/NetworkStatus.html">– NetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reporter.html">Reporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TRLOptions.html">TRLOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Trolley.html">Trolley</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley31ReachabilityChangedNotificationVCSo14NSNotification4Name">ReachabilityChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley10dateFormatSS">dateFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CurrencyError.html">CurrencyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Databases.html">Databases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DefaultsManagerError.html">DefaultsManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkableError.html">NetworkableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityError.html">ReachabilityError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Float.html">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSON.html">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PKPaymentRequest.html">PKPaymentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ShippingManager.html">ShippingManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSfVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSiVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1mFTVS_5MoneySi_CSo15NSDecimalNumber">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSfVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSiVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneyS0__S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySf_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySi_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyop1sFVS_5MoneyS0_">-(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSfVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSiVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneyS0__S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySf_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySi_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1dFTVS_5MoneyS0__S0_">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTCSo15NSDecimalNumberS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTVS_5MoneyS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTCSo15NSDecimalNumberS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_10PercentageS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_5MoneyS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CurrencyConvertable.html">CurrencyConvertable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DecimalType.html">DecimalType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorReportingDelegate.html">ErrorReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MoneyType.html">MoneyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Networkable.html">Networkable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkableDelegate.html">NetworkableDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/_ReportingDelegate.html">_ReportingDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Money.html">Money</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Percentage.html">Percentage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchableProducts.html">SearchableProducts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLFilter.html">TRLFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLNetworkManager.html">TRLNetworkManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLResponse.html">TRLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLUser.html">TRLUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URLQuery.html">URLQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/_Basket.html">_Basket</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley6Basket">Basket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley14DefaultHandler">DefaultHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley10Downloader">Downloader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley12ManagerError">ManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17ReportingDelegate">ReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17TRLProductsFilter">TRLProductsFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley15TRLSearchFilter">TRLSearchFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Products</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product2idSS"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product2idSS">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product7companySS"></a>
+                    <a name="//apple_ref/swift/Property/company" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product7companySS">company</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">company</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product5priceVS_5Money"></a>
+                    <a name="//apple_ref/swift/Property/price" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product5priceVS_5Money">price</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">price</span><span class="p">:</span> <span class="kt"><a href="../Structs/Money.html">Money</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product8discountVS_10Percentage"></a>
+                    <a name="//apple_ref/swift/Property/discount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product8discountVS_10Percentage">discount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Structs/Percentage.html">Percentage</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product7addedOnV10Foundation4Date"></a>
+                    <a name="//apple_ref/swift/Property/addedOn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product7addedOnV10Foundation4Date">addedOn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">addedOn</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7Trolley8Products4typeSS"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7Trolley8Products4typeSS">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP7Trolley7Product7detailsGVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Property/details" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP7Trolley7Product7detailsGVs10DictionarySSP__">details</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The only object that should be inherited from when using custom product classes</p>
+
+<p>Check README.md for examples, should only overwrite <code>JSONData</code> init if using custom JSON data.</p>
+
+<p><a href='#basket' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='basket'>BASKET</h1></p>
+
+<p>All subclasses will automatically work with <code>Basket()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">details</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7Trolley8Products5totalVS_5Money"></a>
+                    <a name="//apple_ref/swift/Property/total" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7Trolley8Products5totalVS_5Money">total</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT2idSS4nameSS7companySS5priceVS_5Money8discountVS_10Percentage7addedOnV10Foundation4Date4typeSS7detailsGVs10DictionarySSP___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(id:name:company:price:discount:addedOn:type:details:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT2idSS4nameSS7companySS5priceVS_5Money8discountVS_10Percentage7addedOnV10Foundation4Date4typeSS7detailsGVs10DictionarySSP___S0_">init(id:name:company:price:discount:addedOn:type:details:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Main Initaliser to set all the local properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">company</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">price</span><span class="p">:</span> <span class="kt"><a href="../Structs/Money.html">Money</a></span><span class="p">,</span>
+        <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Structs/Percentage.html">Percentage</a></span><span class="p">,</span>
+        <span class="nv">addedOn</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span>
+        <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">details</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+        <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The item id</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The product pame</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>company</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The companies name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products price</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>discount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products discount</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addedOn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date at which the product was added</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>details</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The remianing details</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT5coderCSo7NSCoder_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7Trolley8Products6getAllFT_GC10PromiseKit7PromiseGSaS0___"></a>
+                    <a name="//apple_ref/swift/Method/getAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7Trolley8Products6getAllFT_GC10PromiseKit7PromiseGSaS0___">getAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt;#Description#&gt;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getAll</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Products</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>&lt;#return value description#&gt;</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7Trolley8Products10getProductFT4withSS_GC10PromiseKit7PromiseS0__"></a>
+                    <a name="//apple_ref/swift/Method/getProduct(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7Trolley8Products10getProductFT4withSS_GC10PromiseKit7PromiseS0__">getProduct(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt;#Description#&gt;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getProduct</span><span class="p">(</span><span class="n">with</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt">Products</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>&lt;#id description#&gt;</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>&lt;#return value description#&gt;</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT2idSS4nameSS7companySS5priceVS_5Money8discountVS_10Percentage9timestampSd4typeSS7detailsGVs10DictionarySSP___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(id:name:company:price:discount:timestamp:type:details:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT2idSS4nameSS7companySS5priceVS_5Money8discountVS_10Percentage9timestampSd4typeSS7detailsGVs10DictionarySSP___S0_">init(id:name:company:price:discount:timestamp:type:details:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A convenience Initaliser to set all the local properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">company</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">price</span><span class="p">:</span> <span class="kt"><a href="../Structs/Money.html">Money</a></span><span class="p">,</span>
+        <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Structs/Percentage.html">Percentage</a></span><span class="p">,</span>
+        <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
+        <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">details</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+        <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The item id</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The product pame</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>company</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The companies name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products price</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>discount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products discount</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timestamp</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The timestamp for the addedOn date</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>details</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The remianing details</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT4nameSS7companySS5priceVS_5Money8discountVS_10Percentage7addedOnV10Foundation4Date4typeSS7detailsGVs10DictionarySSP___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(name:company:price:discount:addedOn:type:details:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT4nameSS7companySS5priceVS_5Money8discountVS_10Percentage7addedOnV10Foundation4Date4typeSS7detailsGVs10DictionarySSP___S0_">init(name:company:price:discount:addedOn:type:details:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Main Initaliser to set all the local properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">company</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">price</span><span class="p">:</span> <span class="kt"><a href="../Structs/Money.html">Money</a></span><span class="p">,</span>
+        <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Structs/Percentage.html">Percentage</a></span><span class="p">,</span>
+        <span class="nv">addedOn</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span>
+        <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">details</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+        <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The product pame</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>company</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The companies name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products price</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>discount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products discount</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addedOn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date at which the product was added</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>details</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The remianing details</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT4nameSS7companySS5priceVS_5Money8discountVS_10Percentage9timestampSd4typeSS7detailsGVs10DictionarySSP___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(name:company:price:discount:timestamp:type:details:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT4nameSS7companySS5priceVS_5Money8discountVS_10Percentage9timestampSd4typeSS7detailsGVs10DictionarySSP___S0_">init(name:company:price:discount:timestamp:type:details:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A convenience Initaliser to set all the local properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">company</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">price</span><span class="p">:</span> <span class="kt"><a href="../Structs/Money.html">Money</a></span><span class="p">,</span>
+        <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Structs/Percentage.html">Percentage</a></span><span class="p">,</span>
+        <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
+        <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">details</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+        <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The product pame</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>company</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The companies name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products price</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>discount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The products discount</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timestamp</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The timestamp for the addedOn date</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>details</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The remianing details</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT8JSONDataGVs10DictionarySSP___GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(JSONData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT8JSONDataGVs10DictionarySSP___GSqS0__">init(JSONData:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convience init that should be overriten by the devolper when using JSONData.
+Should call another init</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="kt">JSONData</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>JSONData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>JSON data as a dictionary</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7Trolley8Products11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7Trolley8Products11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8Products6encodeFT4withCSo7NSCoder_T_"></a>
+                    <a name="//apple_ref/swift/Method/encode(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8Products6encodeFT4withCSo7NSCoder_T_">encode(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Products</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Product.html">Product</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFP7Trolley7Productoi2eeFTxx_Sb"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFP7Trolley7Productoi2eeFTxx_Sb">==(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>NSCoding Conformity</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Products</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Products</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Self</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Self</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Bool test for if they are equal or not.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7Trolley8ProductscFT4JSONV10SwiftyJSON4JSON_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(JSON:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7Trolley8ProductscFT4JSONV10SwiftyJSON4JSON_GSqS0__">init(JSON:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convenience init to use SwiftyJSON and to call the <code><a href="../Classes/Products.html#/s:FC7Trolley8ProductscFT8JSONDataGVs10DictionarySSP___GSqS0__">init(JSONData:)</a></code> initaliser</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="kt">JSON</span> <span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SwiftyJSON</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/Off-Piste/Trolley.io" target="_blank" rel="external">harrytwright</a>. All rights reserved. (Last updated: 2017-06-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

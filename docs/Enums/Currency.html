@@ -1,0 +1,3823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Currency Enum Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/Currency" class="dashAnchor"></a>
+    <a title="Currency Enum Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Trolley Docs</a> (41% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Trolley Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Currency Enum Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyConverter.html">CurrencyConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultsManager.html">DefaultsManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationManager.html">LocationManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PLISTParser.html">PLISTParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C7Trolley6Parser">Parser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Products.html">Products</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability.html">Reachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reachability/NetworkStatus.html">– NetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reporter.html">Reporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TRLOptions.html">TRLOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Trolley.html">Trolley</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley31ReachabilityChangedNotificationVCSo14NSNotification4Name">ReachabilityChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v7Trolley10dateFormatSS">dateFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CurrencyError.html">CurrencyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Databases.html">Databases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DefaultsManagerError.html">DefaultsManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkableError.html">NetworkableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityError.html">ReachabilityError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Float.html">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSON.html">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PKPaymentRequest.html">PKPaymentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ShippingManager.html">ShippingManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSfVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7TrolleyoP1rFSiVS_10Percentage">%(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1mFTVS_5MoneySi_CSo15NSDecimalNumber">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSfVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTSiVS_5Money_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneyS0__S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySf_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1pFTVS_5MoneySi_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyop1sFVS_5MoneyS0_">-(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSfVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTSiVS_5Money_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneyS0__S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySf_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1sFTVS_5MoneySi_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1dFTVS_5MoneyS0__S0_">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTCSo15NSDecimalNumberS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi1lFTVS_5MoneyS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTCSo15NSDecimalNumberS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_10PercentageS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Trolleyoi2eeFTVS_5MoneyS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CurrencyConvertable.html">CurrencyConvertable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DecimalType.html">DecimalType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorReportingDelegate.html">ErrorReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MoneyType.html">MoneyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Networkable.html">Networkable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkableDelegate.html">NetworkableDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/_ReportingDelegate.html">_ReportingDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Money.html">Money</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Percentage.html">Percentage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchableProducts.html">SearchableProducts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLFilter.html">TRLFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLNetworkManager.html">TRLNetworkManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLResponse.html">TRLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TRLUser.html">TRLUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URLQuery.html">URLQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/_Basket.html">_Basket</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley6Basket">Basket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley14DefaultHandler">DefaultHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley10Downloader">Downloader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley12ManagerError">ManagerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17ReportingDelegate">ReportingDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley17TRLProductsFilter">TRLProductsFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7Trolley15TRLSearchFilter">TRLSearchFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Currency</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AEDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AEDFMS0_S0_">AED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AFNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AFN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AFNFMS0_S0_">AFN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ALLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ALL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ALLFMS0_S0_">ALL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AMDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AMD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AMDFMS0_S0_">AMD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ANGFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ANG" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ANGFMS0_S0_">ANG</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AOAFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AOA" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AOAFMS0_S0_">AOA</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ARSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ARS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ARSFMS0_S0_">ARS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AUDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AUD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AUDFMS0_S0_">AUD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AWGFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AWG" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AWGFMS0_S0_">AWG</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3AZNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/AZN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3AZNFMS0_S0_">AZN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BAMFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BAM" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BAMFMS0_S0_">BAM</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BBDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BBD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BBDFMS0_S0_">BBD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BDTFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BDT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BDTFMS0_S0_">BDT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BGNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BGN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BGNFMS0_S0_">BGN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BHDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BHD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BHDFMS0_S0_">BHD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BIFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BIF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BIFFMS0_S0_">BIF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BMDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BMD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BMDFMS0_S0_">BMD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BNDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BND" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BNDFMS0_S0_">BND</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BOBFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BOB" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BOBFMS0_S0_">BOB</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BRLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BRL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BRLFMS0_S0_">BRL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BSDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BSD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BSDFMS0_S0_">BSD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BWPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BWP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BWPFMS0_S0_">BWP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BYRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BYR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BYRFMS0_S0_">BYR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3BZDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/BZD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3BZDFMS0_S0_">BZD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CADFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CAD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CADFMS0_S0_">CAD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CHFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CHF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CHFFMS0_S0_">CHF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CLPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CLP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CLPFMS0_S0_">CLP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CNYFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CNY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CNYFMS0_S0_">CNY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3COPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/COP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3COPFMS0_S0_">COP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CRCFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CRC" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CRCFMS0_S0_">CRC</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CUPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CUP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CUPFMS0_S0_">CUP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CVEFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CVE" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CVEFMS0_S0_">CVE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3CZKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/CZK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3CZKFMS0_S0_">CZK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3DJFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/DJF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3DJFFMS0_S0_">DJF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3DKKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/DKK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3DKKFMS0_S0_">DKK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3DOPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/DOP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3DOPFMS0_S0_">DOP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3DZDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/DZD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3DZDFMS0_S0_">DZD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3EGPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/EGP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3EGPFMS0_S0_">EGP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ERNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ERN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ERNFMS0_S0_">ERN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ETBFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ETB" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ETBFMS0_S0_">ETB</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3EURFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/EUR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3EURFMS0_S0_">EUR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3FJDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/FJD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3FJDFMS0_S0_">FJD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3FKPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/FKP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3FKPFMS0_S0_">FKP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GBPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GBP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GBPFMS0_S0_">GBP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GELFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GEL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GELFMS0_S0_">GEL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GHSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GHS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GHSFMS0_S0_">GHS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GIPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GIP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GIPFMS0_S0_">GIP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GMDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GMD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GMDFMS0_S0_">GMD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GNFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GNF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GNFFMS0_S0_">GNF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GTQFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GTQ" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GTQFMS0_S0_">GTQ</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3GYDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GYD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3GYDFMS0_S0_">GYD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3HKDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/HKD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3HKDFMS0_S0_">HKD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3HNLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/HNL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3HNLFMS0_S0_">HNL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3HRKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/HRK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3HRKFMS0_S0_">HRK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3HUFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/HUF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3HUFFMS0_S0_">HUF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3IDRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/IDR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3IDRFMS0_S0_">IDR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ILSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ILS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ILSFMS0_S0_">ILS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3INRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/INR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3INRFMS0_S0_">INR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3IQDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/IQD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3IQDFMS0_S0_">IQD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3IRRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/IRR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3IRRFMS0_S0_">IRR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ISKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ISK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ISKFMS0_S0_">ISK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3JMDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/JMD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3JMDFMS0_S0_">JMD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3JODFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/JOD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3JODFMS0_S0_">JOD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3JPYFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/JPY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3JPYFMS0_S0_">JPY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KESFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KES" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KESFMS0_S0_">KES</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KGSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KGS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KGSFMS0_S0_">KGS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KHRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KHR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KHRFMS0_S0_">KHR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KMFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KMF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KMFFMS0_S0_">KMF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KPWFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KPW" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KPWFMS0_S0_">KPW</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KRWFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KRW" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KRWFMS0_S0_">KRW</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KWDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KWD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KWDFMS0_S0_">KWD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KYDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KYD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KYDFMS0_S0_">KYD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3KZTFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/KZT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3KZTFMS0_S0_">KZT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3LAKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/LAK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3LAKFMS0_S0_">LAK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3LBPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/LBP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3LBPFMS0_S0_">LBP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3LKRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/LKR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3LKRFMS0_S0_">LKR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3LRDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/LRD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3LRDFMS0_S0_">LRD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3LYDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/LYD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3LYDFMS0_S0_">LYD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MADFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MAD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MADFMS0_S0_">MAD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MDLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MDL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MDLFMS0_S0_">MDL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MGAFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MGA" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MGAFMS0_S0_">MGA</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MKDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MKD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MKDFMS0_S0_">MKD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MMKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MMK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MMKFMS0_S0_">MMK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MNTFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MNT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MNTFMS0_S0_">MNT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MOPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MOP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MOPFMS0_S0_">MOP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MROFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MRO" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MROFMS0_S0_">MRO</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MURFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MUR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MURFMS0_S0_">MUR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MVRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MVR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MVRFMS0_S0_">MVR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MWKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MWK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MWKFMS0_S0_">MWK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MXNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MXN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MXNFMS0_S0_">MXN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MYRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MYR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MYRFMS0_S0_">MYR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3MZNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/MZN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3MZNFMS0_S0_">MZN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3NGNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NGN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3NGNFMS0_S0_">NGN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3NIOFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NIO" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3NIOFMS0_S0_">NIO</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3NOKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NOK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3NOKFMS0_S0_">NOK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3NPRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NPR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3NPRFMS0_S0_">NPR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3NZDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NZD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3NZDFMS0_S0_">NZD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3OMRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/OMR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3OMRFMS0_S0_">OMR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PENFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PEN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PENFMS0_S0_">PEN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PGKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PGK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PGKFMS0_S0_">PGK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PHPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PHP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PHPFMS0_S0_">PHP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PKRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PKR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PKRFMS0_S0_">PKR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PLNFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PLN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PLNFMS0_S0_">PLN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3PYGFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/PYG" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3PYGFMS0_S0_">PYG</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3QARFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/QAR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3QARFMS0_S0_">QAR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3RONFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/RON" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3RONFMS0_S0_">RON</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3RSDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/RSD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3RSDFMS0_S0_">RSD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3RUBFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/RUB" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3RUBFMS0_S0_">RUB</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3RWFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/RWF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3RWFFMS0_S0_">RWF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SARFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SAR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SARFMS0_S0_">SAR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SBDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SBD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SBDFMS0_S0_">SBD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SCRFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SCR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SCRFMS0_S0_">SCR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SDGFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SDG" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SDGFMS0_S0_">SDG</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SEKFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SEK" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SEKFMS0_S0_">SEK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SGDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SGD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SGDFMS0_S0_">SGD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SHPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SHP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SHPFMS0_S0_">SHP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SLLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SLL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SLLFMS0_S0_">SLL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SOSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SOS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SOSFMS0_S0_">SOS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SRDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SRD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SRDFMS0_S0_">SRD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SSPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SSP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SSPFMS0_S0_">SSP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3STDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/STD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3STDFMS0_S0_">STD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SYPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SYP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SYPFMS0_S0_">SYP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3SZLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/SZL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3SZLFMS0_S0_">SZL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3THBFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/THB" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3THBFMS0_S0_">THB</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TJSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TJS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TJSFMS0_S0_">TJS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TMTFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TMT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TMTFMS0_S0_">TMT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TNDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TND" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TNDFMS0_S0_">TND</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TOPFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TOP" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TOPFMS0_S0_">TOP</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TRYFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TRY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TRYFMS0_S0_">TRY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TTDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TTD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TTDFMS0_S0_">TTD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TWDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TWD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TWDFMS0_S0_">TWD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3TZSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/TZS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3TZSFMS0_S0_">TZS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3UAHFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/UAH" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3UAHFMS0_S0_">UAH</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3UGXFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/UGX" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3UGXFMS0_S0_">UGX</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3USDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/USD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3USDFMS0_S0_">USD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3UYUFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/UYU" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3UYUFMS0_S0_">UYU</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3UZSFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/UZS" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3UZSFMS0_S0_">UZS</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3VEFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/VEF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3VEFFMS0_S0_">VEF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3VNDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/VND" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3VNDFMS0_S0_">VND</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3VUVFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/VUV" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3VUVFMS0_S0_">VUV</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3WSTFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/WST" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3WSTFMS0_S0_">WST</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3XAFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/XAF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3XAFFMS0_S0_">XAF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3XCDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/XCD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3XCDFMS0_S0_">XCD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3XOFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/XOF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3XOFFMS0_S0_">XOF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3XPFFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/XPF" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3XPFFMS0_S0_">XPF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3YERFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/YER" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3YERFMS0_S0_">YER</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ZARFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ZAR" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ZARFMS0_S0_">ZAR</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ZMWFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ZMW" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ZMWFMS0_S0_">ZMW</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency3ZWLFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ZWL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency3ZWLFMS0_S0_">ZWL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8CurrencycFT16localeIdentifierSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(localeIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8CurrencycFT16localeIdentifierSS_S0_">init(localeIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO7Trolley8Currency11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO7Trolley8Currency11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO7Trolley8Currency4codeSS"></a>
+                    <a name="//apple_ref/swift/Property/code" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO7Trolley8Currency4codeSS">code</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO7Trolley8Currency14conversionRateCSo15NSDecimalNumber"></a>
+                    <a name="//apple_ref/swift/Property/conversionRate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO7Trolley8Currency14conversionRateCSo15NSDecimalNumber">conversionRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO7Trolley8Currency7convertFT5valueCSo15NSDecimalNumber_S1_"></a>
+                    <a name="//apple_ref/swift/Method/convert(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO7Trolley8Currency7convertFT5valueCSo15NSDecimalNumber_S1_">convert(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/Off-Piste/Trolley.io" target="_blank" rel="external">harrytwright</a>. All rights reserved. (Last updated: 2017-06-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
