@@ -19,12 +19,15 @@ import Foundation
  
  All URL's entered, wether that be `String` or `URL` or using the 
  ExpressibleByStringLiteral protocol they will be
- parsed by `TRLUtilities.parse(_:)` so that the system can be sure
+ parsed by `TRLUtilities.parse(_:checkingForError:)` so that the system can be sure
  it is hitting the correct location without an issue
  */
 class ParsedURL : ExpressibleByStringLiteral {
     
-    var networkInfo: TRLNetworkInfo
+    // Should never be accessable, by anything!
+    // all changes to the the network info / base url
+    // should be done here
+    fileprivate var networkInfo: TRLNetworkInfo
     
     typealias StringLiteralType = String
     
@@ -55,14 +58,38 @@ class ParsedURL : ExpressibleByStringLiteral {
 
 extension ParsedURL {
 
+    /// The Method for which the url is parsed
+    ///
+    /// This will automatically check the url for errors, 
+    /// so custom errors should use init(_:check:) instead
+    /// if using a custom url
+    ///
+    /// - Parameter url: <#url description#>
     convenience init(_ url: String) {
-        self.init(TRLUtilities.singleton.parseURL(url))
+        self.init(TRLUtilities.singleton.parseURL(url, checkingForError: true))
     }
     
-    convenience init(_ url: URL) {
-        self.init(url.absoluteString)
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - url: <#url description#>
+    ///   - check: <#check description#>
+    convenience init(_ url: URL, check: Bool = true) {
+        self.init(url.absoluteString, check: check)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - url: <#url description#>
+    ///   - check: <#check description#>
+    convenience init(_ url: String, check: Bool) {
+        self.init(TRLUtilities.singleton.parseURL(url, checkingForError: check))
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Parameter parsedURL: <#parsedURL description#>
     private convenience init(_ parsedURL: ParsedURL) {
         self.init(networkInfo: parsedURL.networkInfo)
     }
@@ -93,6 +120,22 @@ extension ParsedURL {
     
     var isARequest: Bool {
         return requestUrl != nil
+    }
+    
+    var path: String {
+        return self.networkInfo.path
+    }
+    
+    var isLocal: Bool {
+        return self.networkInfo.isLocal
+    }
+    
+    var namespace: String {
+        return self.networkInfo.namespace
+    }
+    
+    func addPath(_ path: String) {
+        self.networkInfo.addPath(path)
     }
     
 }

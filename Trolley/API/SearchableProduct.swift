@@ -37,7 +37,9 @@ public struct SearchableProducts {
 public extension SearchableProducts {
     
     public static func getAll() -> Promise<[SearchableProducts]> {
-        return Trolley.shared.networkManager.fetch(.products, withRoute: "search").responseSearch()
+        return Trolley.shared.networkManager
+            .get(.products, with: ["isSearching" : true])
+            .responseSearch()
     }
     
 }

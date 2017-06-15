@@ -8,19 +8,10 @@
 
 import Foundation
 
-//enum Path {
-//    case database(Databases)
-//    case search(Databases)
-//    
-//    init(_ database: Databases) {
-//        switch self {
-//        case .database(.basket) :
-//            self = .database(.basket)
-//        }
-//    }
-//}
+let kProductsDatabaseName: String = "products"
+let kBasketDatabaseName: String = "basket"
 
-public enum Databases {
+public enum Database {
     
     case products
     case basket

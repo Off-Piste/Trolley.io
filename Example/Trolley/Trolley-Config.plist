@@ -4,5 +4,9 @@
 <dict>
 	<key>Merchant-ID</key>
 	<string>default</string>
+	<key>Base-URL</key>
+	<string>http://localhost:8080</string>
+	<key>Default-Route</key>
+	<string>API</string>
 </dict>
 </plist>

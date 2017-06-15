@@ -23,9 +23,9 @@ class NetworkingTest : QuickSpec {
         describe("URL Parsing") {
             let url1String = "http://localhost:8080/API/default/basket"
             let url = TRLUtilities.singleton.parseURL(url1String)
-            expect(url.networkInfo.namespace).to(be("localhost:8080"))
-            expect(url.networkInfo.isLocal).to(be(false))
-            expect(url.networkInfo.path).to(be("API/default/basket"))
+            expect(url.namespace).to(be("localhost"))
+            expect(url.isLocal).to(be(false))
+            expect(url.path).to(be("API/default/basket"))
             
             let url2 = TRLNetworkInfo(
                 host: "localhost:8080", namespace: "localhost:8080", secure: false

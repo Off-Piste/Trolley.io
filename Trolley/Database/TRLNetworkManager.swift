@@ -16,71 +16,37 @@ import Alamofire
 let kOldBaseURL: String = "trolley-io.eu-gb.mybluemix.net/API"
 let kLocalHostURL: String = "localhost:8080/API"
 
+extension ParsedURL {
+    
+    func addPaths(_ items: String...) {
+        
+    }
+    
+}
+
 public struct TRLNetworkManager {
     
-    fileprivate var shopKey: String
+    fileprivate(set) public var network: TRLNetwork
     
-    fileprivate var internalManagerInfo: TRLNetworkManagerInfo
-    
-    public init(withKey key: String, isLocal: Bool = false) {
-        self.shopKey = key
-        
-        self.internalManagerInfo = TRLNetworkManagerInfo(
-            host: kOldBaseURL,
-            internalHost: kLocalHostURL,
-            isLocal: isLocal
-        )
-        
+    public init(network: TRLNetwork) {
+        self.network = network
     }
     
-    public func fetch(_ db: Databases, withRoute route: String = "") -> Networkable {
-        let parameters = ["key" : self.shopKey]
-        let internalManager = (route.isEmpty) ?
-            internalManagerInfo.addNode(db.name) :
-            internalManagerInfo.addNode(db.name).addNode(route)
-        
-        Log.debug("URL Testing", internalManager.connectionURL.absoluteString)
-        
-        let request = Alamofire.request(
-                internalManager.connectionURL,
-                parameters: parameters
-            )
-        let response = request.validate().response()
-        return TRLResponse(promise: response)
+}
+
+public extension TRLNetworkManager {
+    
+    func get(_ database: Database, with parameters: Parameters = [:]) -> TRLResponse {
+        return self.network.get(database, with: parameters)
     }
     
-    // TODO: - Change Name
-    
-    internal func fetchItem(with id: String, from db: Databases) -> Networkable {
-        let parameters = ["key" : self.shopKey, "item_id": id]
-        let request = Alamofire.request(
-            internalManagerInfo.addNode(db.name).connectionURL,
-            parameters: parameters
-        )
-        let response = request.validate().response()
-        return TRLResponse(promise: response)
+    func get(_ route: String, with parameters: Parameters = [:]) -> TRLResponse {
+        return self.network.get(route, with: parameters)
     }
     
-    // MARK:
-    
-    public func post(_ items: Any, to database: Databases) -> Networkable {
-        let param = ["key" : self.shopKey]
-        let request = Alamofire.request(
-            internalManagerInfo.addNode(database.name).connectionURL,
-            parameters: param
-        )
-        let response = request.validate().response()
-        return TRLResponse(promise: response)
-    }
-    
-    public func postData(_ data: Any, to database: Databases) -> Networkable {
-        let param = ["key" : self.shopKey]
-        let request = Alamofire.request(
-            internalManagerInfo.addNode(database.name).connectionURL,
-            parameters: param
-        )
-        let response = request.validate().response()
-        return TRLResponse(promise: response)
+    func get(item: String, in db: Database, with parameters: Parameters = [:]) -> TRLResponse {
+        network.parsedURL.addPaths(db.name, item)
+        return network.get(with: parameters)
     }
     
 }

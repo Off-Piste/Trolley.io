@@ -27,6 +27,8 @@ extension Notification.Name {
     
 }
 
+var kURLBase: String = "http://localhost:8080/API"
+
 var kAlreadyConfigured: Bool = false
 var kAlreadyConfiguredWarning: String =
     "You have already configured a Trolley Shop. " +
@@ -100,7 +102,7 @@ public class Trolley {
         self.anOption = options
         self.anOption.validate()
         
-        self.networkManager = TRLNetworkManager(option: anOption)
+        self.networkManager = TRLNetworkManager(network: TRLNetwork(option: anOption))
         
         guard let reach = Reachability() else {
             NSException.raise("Cannot setup Reachabilty")
@@ -108,11 +110,12 @@ public class Trolley {
         }
         
 //        let networkInfo = TRLNetworkManagerInfo(host: <#T##String#>, internalHost: <#T##String#>, isLocal: <#T##Bool#>)
-//        let url = TRLUtilities.singleton.parseURL("http://localhost:8080/default/basket")
-//        Log.debug(url)
+        let url = TRLUtilities.singleton.parseURL("http://localhost:8080/default/basket")
+        Log.debug(url)
         
         let testURL: ParsedURL = "http://localhost:8080/API/default/basket"
         Log.debug(testURL)
+        testURL.addPath("search")
         
         let networkInfo = TRLNetworkInfo(
             host: "localhost:8080",
@@ -122,6 +125,7 @@ public class Trolley {
         )
         let parsedURL = ParsedURL(networkInfo: networkInfo)
         Log.debug(parsedURL)
+        
         
         webSocket = TRLWebSocketConnection(parsedURL: parsedURL, queue: queue)
         webSocket.open()

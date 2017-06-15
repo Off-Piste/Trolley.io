@@ -27,22 +27,22 @@ public extension _Basket where P == Products {
     
     mutating func add(_ element: Element, withQuantity q: Int) -> Promise<_Basket> {
         return Promise { fullfill, reject in
-            Trolley.shared.networkManager
-                .post(element, to: .basket)
-                .responseJSON()
-                .then { json -> Void in
-                    // validate response
-                    
-                    // Needed to build
-                    DispatchQueue.default.sync {
-                        for _ in 0...q {
-                            self.append(element)
-                        }
-                        fullfill(self)
-                    }
-            }.catch { (error) in
-                reject(error)
-            }
+//            Trolley.shared.networkManager
+//                .post(element, to: .basket)
+//                .responseJSON()
+//                .then { json -> Void in
+//                    // validate response
+//                    
+//                    // Needed to build
+//                    DispatchQueue.default.sync {
+//                        for _ in 0...q {
+//                            self.append(element)
+//                        }
+//                        fullfill(self)
+//                    }
+//            }.catch { (error) in
+//                reject(error)
+//            }
         }
     }
     
@@ -70,7 +70,7 @@ public extension Products {
     ///
     /// - Returns: <#return value description#>
     class func getAll() -> Promise<[Products]> {
-        return networkManager.fetch(.products).responseProducts()
+        return networkManager.get(.products).responseProducts()
     }
     
     /// <#Description#>
@@ -78,7 +78,7 @@ public extension Products {
     /// - Parameter id: <#id description#>
     /// - Returns: <#return value description#>
     class func getProduct(with id: String) -> Promise<Products> {
-        return networkManager.fetchItem(with: id, from: .products).responseProduct()
+        return networkManager.get(item: id, in: .products).responseProduct()
     }
     
 }

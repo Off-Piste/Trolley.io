@@ -50,17 +50,6 @@ class TRLWebSocketConnection : NSObject, SRWebSocketDelegate {
         self.webSocket.delegate = self
     }
     
-    func userDevice() -> String {
-        
-        // When designed for MacOS, need to check for UIDevice
-        let systemVersion: String = TRLAppEnviroment.current.systemVersion
-        let deviceModel: String = TRLAppEnviroment.current.deviceModel
-        let _ : String = UIDevice.current.model
-        let bundleID: String = Bundle.main.bundleIdentifier ?? "null"
-        
-        return "Trolley/5/\(systemVersion)/{\(deviceModel)}/\(bundleID))}"
-    }
-    
     func open() {
         Log.debug()
         
@@ -78,7 +67,7 @@ class TRLWebSocketConnection : NSObject, SRWebSocketDelegate {
         
         if everConnected { return }
         Log.debug("WebSocket timed out")
-        self.webSocket.close()
+        self.webSocket.close(withCode: 1010, reason: "WebSocket timed out")
     }
     
     func nop(timer: Timer) {

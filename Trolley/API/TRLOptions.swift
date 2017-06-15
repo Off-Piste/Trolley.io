@@ -12,6 +12,8 @@ import PromiseKit
 
 let kPlistName: String = "Trolley-Config"
 let kPlistMerchantIDKey: String = "Merchant-ID"
+let kBaseURLKey: String = "Base-URL"
+let kDefaultRouteKey: String = "Default-Route"
 
 typealias XML = JSON
 
@@ -62,6 +64,18 @@ public extension TRLOptions {
     /// <#Description#>
     public var merchantID: String {
         return xml[kPlistMerchantIDKey].stringValue
+    }
+    
+    private var baseURL: String {
+        return xml[kBaseURLKey].stringValue
+    }
+    
+    private var defaultURLRoute: String {
+        return xml[kDefaultRouteKey].stringValue
+    }
+    
+    internal var url: String {
+        return baseURL + "/" + defaultURLRoute
     }
     
 }

@@ -84,7 +84,7 @@ extension NetworkManager : Networkable {
     
     func startDownload(_ handler: @escaping Completion) {
         self.networkCall().then { (products) -> Void in
-            print("Download successfull")
+            print("Download Successful")
             handler(self.handledDatasource(products, nil))
         }.catch { (error) in
             handler(self.handledDatasource([], error))

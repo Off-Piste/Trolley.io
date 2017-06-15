@@ -42,12 +42,14 @@ struct TRLNetworkInfo {
         self.url = url
     }
     
-    func addPath(_ path: String) {
+    mutating func addPath(_ path: String) {
         if url == nil { Log.debug("Paths cannot be added to `connectionURL`"); return }
         let aURL = url!
         let last = aURL.absoluteString.characters.last!
         let newPath = (last == "/") ? path : "/" + path
-    
+        self.url!.appendPathComponent(newPath)
+        
+        Log.debug(self.url!)
     }
     
 }

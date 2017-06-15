@@ -15,6 +15,9 @@ public struct TRLResponse: Networkable {
     
     internal fileprivate(set) var promise: Promise<(URLRequest, HTTPURLResponse, Data)>
     
+    // TODO: Look to see if can be implemented
+    internal var delegate: NetworkableDelegate? = nil
+    
     fileprivate let queue = DispatchQueue(
         label: "io.trolley",
         qos: .userInitiated,
