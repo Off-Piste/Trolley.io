@@ -115,13 +115,13 @@ class SearchVC: UIViewController {
 extension SearchVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        firstly { _ -> Promise<[SearchableProducts]> in
+        firstly { _ -> Promise<SearchResponse> in
             self.activIndicator.startAnimating()
             self.activIndicator.isHidden = false
+            
             return SearchableProducts.getAll()
-        }.then { products -> Promise<[SearchableProducts]> in
-            let search = TRLSearchFilter(elements: products)
-            return search.filter(for: searchText)
+        }.then { response -> Promise<[SearchableProducts]> in
+            return response.search(for: searchText)
         }.then { (items) -> Void in
             self.datasource?.objects = items
         }.always {

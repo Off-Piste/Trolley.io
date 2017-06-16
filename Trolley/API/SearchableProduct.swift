@@ -12,10 +12,11 @@ import SwiftyJSON
 
 extension Networkable {
     
-    func responseSearch() -> Promise<[SearchableProducts]> {
+    func responseSearch() -> Promise<SearchResponse> {
         return Promise { fullfill, reject in
             self.responseJSON().then { (json) -> Void in
-                fullfill(json.searchableProducts)
+                let searchableProducts = json.searchableProducts
+                fullfill(SearchResponse(searchableProducts))
             }.catch { (error) in
                 reject(error)
             }
@@ -24,7 +25,9 @@ extension Networkable {
     
 }
 
-public struct SearchableProducts {
+// TODO: - New Name For This
+
+public class SearchableProducts: NSObject {
     
     public var _id: String
     
@@ -32,11 +35,17 @@ public struct SearchableProducts {
     
     public var productName: String
     
+    init(_ id: String, companyName: String, productName: String) {
+        self._id = id
+        self.companyName = companyName
+        self.productName = productName
+    }
+    
 }
 
 public extension SearchableProducts {
     
-    public static func getAll() -> Promise<[SearchableProducts]> {
+    public static func getAll() -> Promise<SearchResponse> {
         return Trolley.shared.networkManager
             .get(.products, with: ["isSearching" : true])
             .responseSearch()
@@ -44,9 +53,9 @@ public extension SearchableProducts {
     
 }
 
-extension SearchableProducts : CustomStringConvertible {
+extension SearchableProducts {
     
-    public var description: String {
+    public override var description: String {
         return "<SearchableProducts>{ id: \(self._id) name: \(self.productName) }"
     }
     
@@ -57,7 +66,7 @@ public extension SearchableProducts {
     /// Convenience init to use SwiftyJSON and to call the `init(JSONData:)` initaliser
     ///
     /// - Parameter json: SwiftyJSON
-    public init?(JSON json: JSON) {
+    public convenience init?(JSON json: JSON) {
         guard json != JSON.null,
             let dict = json.dictionary,
             let companyName = dict["company_name"]?.string,
@@ -67,7 +76,7 @@ public extension SearchableProducts {
                 return nil
         }
         
-        self.init(_id: id, companyName: companyName, productName: productName)
+        self.init(id, companyName: companyName, productName: productName)
     }
     
 }
