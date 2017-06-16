@@ -16,10 +16,10 @@ import Alamofire
 let kOldBaseURL: String = "trolley-io.eu-gb.mybluemix.net/API"
 let kLocalHostURL: String = "localhost:8080/API"
 
-extension ParsedURL {
+extension String {
     
-    func addPaths(_ items: String...) {
-        
+    static func urlRoute(for items: String...) -> String {
+        return items.joined(separator: "/")
     }
     
 }
@@ -45,8 +45,8 @@ public extension TRLNetworkManager {
     }
     
     func get(item: String, in db: Database, with parameters: Parameters = [:]) -> TRLResponse {
-        network.parsedURL.addPaths(db.name, item)
-        return network.get(with: parameters)
+        let route = String.urlRoute(for: db.name, item)
+        return self.network.get(route, with: parameters)
     }
     
 }

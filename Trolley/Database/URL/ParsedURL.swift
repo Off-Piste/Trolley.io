@@ -134,8 +134,12 @@ extension ParsedURL {
         return self.networkInfo.namespace
     }
     
-    func addPath(_ path: String) {
-        self.networkInfo.addPath(path)
+    func addingPath(_ path: String) -> ParsedURL {
+        return ParsedURL(networkInfo: self.networkInfo.addingPath(path))
+    }
+    
+    func __addPath(_ path: String) {
+        self.networkInfo.__addPath(path)
     }
     
 }

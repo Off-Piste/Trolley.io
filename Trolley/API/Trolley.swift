@@ -55,6 +55,12 @@ public class Trolley {
     public fileprivate(set)
     var networkManager: TRLNetworkManager!
     
+    /// <#Description#>
+    fileprivate
+    var parsedURL: ParsedURL {
+        return networkManager.network.parsedURL
+    }
+    
     /// The queue to be used when not using `zalgo`
     ///
     /// This is due to when using the default `Promise Kit` parameters 
@@ -66,8 +72,10 @@ public class Trolley {
         attributes: .concurrent
     )
     
+    /// <#Description#>
     private var webSocket: TRLWebSocketConnection!
     
+    /// <#Description#>
     fileprivate
     init() { }
     
@@ -78,7 +86,7 @@ public class Trolley {
      * `.shared` singleton. This method should be called after the using 
      * Trolley services.
      *
-     * # Note
+     * - Note
      * This method is thread safe by using `zalgo`.
      */
     public
@@ -89,46 +97,36 @@ public class Trolley {
         self.configure(options: options)
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameter options: <#options description#>
+    /**
+     * Configures a default Trolley.io Shop.
+     *
+     * Raises an exception if any configuration step fails. The saved in the
+     * `.shared` singleton. This method should be called after the using
+     * Trolley services.
+     *
+     * - Note
+     * This method is thread safe by using `zalgo`.
+     *
+     * - Parameter options: The TRLOptions that all the code will look at
+     */
     public
     func configure(options: TRLOptions) {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
         
-        Log.completeDebug("Shutter Doors are opening, coffee is flowing")
+        Log.info("Shutter Doors are opening, coffee is flowing")
         
         self.anOption = options
         self.anOption.validate()
         
         self.networkManager = TRLNetworkManager(network: TRLNetwork(option: anOption))
+        webSocket = TRLWebSocketConnection(parsedURL: parsedURL, queue: queue)
+        webSocket.open()
         
         guard let reach = Reachability() else {
             NSException.raise("Cannot setup Reachabilty")
             return
         }
-        
-//        let networkInfo = TRLNetworkManagerInfo(host: <#T##String#>, internalHost: <#T##String#>, isLocal: <#T##Bool#>)
-        let url = TRLUtilities.singleton.parseURL("http://localhost:8080/default/basket")
-        Log.debug(url)
-        
-        let testURL: ParsedURL = "http://localhost:8080/API/default/basket"
-        Log.debug(testURL)
-        testURL.addPath("search")
-        
-        let networkInfo = TRLNetworkInfo(
-            host: "localhost:8080",
-            namespace: "localhost:8080",
-            secure: false,
-            url: nil
-        )
-        let parsedURL = ParsedURL(networkInfo: networkInfo)
-        Log.debug(parsedURL)
-        
-        
-        webSocket = TRLWebSocketConnection(parsedURL: parsedURL, queue: queue)
-        webSocket.open()
         
         firstly {
             return reach.promise()
@@ -143,34 +141,6 @@ public class Trolley {
             Log.error(error)
         }
 
-    }
-    
-    func setupUser() -> Promise<TRLUser> {
-        return Promise { fullfill, reject in
-            var usr = TRLUser.current
-            
-            firstly {
-                return LocationManager.promise()
-            }.then(execute: { (PM) -> Void in
-                usr.placemark = PM
-                
-                fullfill(usr)
-            }).catch(execute: { (error) in
-                reject(error)
-            })
-        }
-    }
-    
-    func downloadCurrency() -> Promise<CurrencyConverter> {
-        return Promise { fullfill, reject in
-            let converter = CurrencyConverter.shared
-            converter.setupJSONUserDefaults()
-            
-            converter.downloadJSON { (error) in
-                if error != nil { reject(error!) }
-                else { fullfill(converter) }
-            }
-        }
     }
     
 }
@@ -191,5 +161,40 @@ private extension Trolley {
             }
         }
     }
+    
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func setupUser() -> Promise<TRLUser> {
+        return Promise { fullfill, reject in
+            var usr = TRLUser.current
+            
+            firstly {
+                return LocationManager.promise()
+                }.then(execute: { (PM) -> Void in
+                    usr.placemark = PM
+                    
+                    fullfill(usr)
+                }).catch(execute: { (error) in
+                    reject(error)
+                })
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func downloadCurrency() -> Promise<CurrencyConverter> {
+        return Promise { fullfill, reject in
+            let converter = CurrencyConverter.shared
+            converter.setupJSONUserDefaults()
+            
+            converter.downloadJSON { (error) in
+                if error != nil { reject(error!) }
+                else { fullfill(converter) }
+            }
+        }
+    }
+
     
 }

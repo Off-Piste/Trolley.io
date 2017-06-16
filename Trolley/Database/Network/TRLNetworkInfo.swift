@@ -42,14 +42,30 @@ struct TRLNetworkInfo {
         self.url = url
     }
     
-    mutating func addPath(_ path: String) {
-        if url == nil { Log.debug("Paths cannot be added to `connectionURL`"); return }
-        let aURL = url!
+    /// **Only** to be used when adding the API key,
+    /// nothing else should touch this.
+    mutating func __addPath(_ path: String) {
+        if url == nil { fatalError("Paths cannot be added to `connectionURL`") }
+        self.url!.appendPathComponent("/\(path)")
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Parameter path: <#path description#>
+    /// - Returns: <#return value description#>
+    func addingPath(_ path: String) -> TRLNetworkInfo {
+        if url == nil { fatalError("Paths cannot be added to `connectionURL`") }
+        var aURL = url!
         let last = aURL.absoluteString.characters.last!
         let newPath = (last == "/") ? path : "/" + path
-        self.url!.appendPathComponent(newPath)
+        aURL.appendPathComponent(newPath)
         
-        Log.debug(self.url!)
+        return TRLNetworkInfo(
+            host: self.host,
+            namespace: self.namespace,
+            secure: self.secure,
+            url: aURL
+        )
     }
     
 }
@@ -58,7 +74,7 @@ extension TRLNetworkInfo {
 
     /// <#Description#>
     var isLocal: Bool {
-        return self.namespace == "localhost:8080"
+        return self.namespace == "localhost"
     }
     
     /// May move this out of the default implementation and add as an extension
@@ -77,13 +93,17 @@ extension TRLNetworkInfo {
         return url
     }
     
+    /// <#Description#>
     var path: String {
-        if let url = self.url, let urlComp = URLComponents(url: url, resolvingAgainstBaseURL: true) {
-            let path = urlComp.path
-            let range = (path as NSString).range(of: "/").location
-            return (path as NSString).substring(from: range + 1)
+        guard let url = self.url,
+            let urlComp = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            else {
+                return ""
         }
-        return ""
+        
+        let path = urlComp.path
+        let range = (path as NSString).range(of: "/").location
+        return (path as NSString).substring(from: range + 1)
     }
     
 }
