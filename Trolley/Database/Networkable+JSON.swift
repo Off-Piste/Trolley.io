@@ -68,9 +68,9 @@ public extension Networkable {
 
 public typealias JSONResponse = (JSON, Error?) -> Void
 
-public typealias ProductsResponse = ([Products]?, Error?) -> Void
+public typealias ProductsHandler = ([Products]?, Error?) -> Void
 
-public typealias ProductResponse = (Products?, Error?) -> Void
+public typealias ProductHandler = (Products?, Error?) -> Void
 
 // MARK: Closure Networkable EXT
 
@@ -90,7 +90,7 @@ public extension Networkable {
     /// The Method to return the array of `[Products]` from our server using closures
     ///
     /// - Parameter handler: `([Products]?, Error?)`
-    func responseProducts(handler: @escaping ProductsResponse) {
+    func responseProducts(handler: @escaping ProductsHandler) {
         self.responseProducts().then { products -> Void in
             handler(products, nil)
         }.catch { error in
@@ -101,11 +101,11 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Parameter handler: <#handler description#>
-    func responseProduct(handler: @escaping ProductResponse) {
+    func responseProduct(handler: @escaping ProductHandler) {
         self.responseProduct().then { product -> Void in
             handler(product, nil)
-            }.catch { error in
-                handler(nil, error)
+        }.catch { error in
+            handler(nil, error)
         }
     }
 

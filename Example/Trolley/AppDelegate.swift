@@ -57,7 +57,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // 2.
         }.then { (products) -> Void in
             print(String(describing: products))
-            print(TRLProductsFilter(elements: products).split(for: "Bag"))
             
         // 3.
         }.always {

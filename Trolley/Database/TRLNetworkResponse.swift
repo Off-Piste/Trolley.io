@@ -11,7 +11,7 @@ import PromiseKit
 import SwiftyJSON
 import Alamofire
 
-public struct TRLResponse: Networkable {
+public struct TRLNetworkResponse: Networkable {
     
     internal fileprivate(set) var promise: Promise<(URLRequest, HTTPURLResponse, Data)>
     
