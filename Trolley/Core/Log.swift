@@ -69,7 +69,7 @@ extension Date {
 }
 
 // MARK: CUSTOM DEBUG FLAG
-fileprivate let isInDebugMode: Bool = true
+internal var isInDebugMode: Bool = true
 
 /** 
  New and improved Log tool.

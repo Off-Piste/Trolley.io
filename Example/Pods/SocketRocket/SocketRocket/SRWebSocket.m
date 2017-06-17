@@ -71,6 +71,8 @@ typedef struct {
 
 static NSString *const SRWebSocketAppendToSecKeyString = @"258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 
+BOOL kLoggingEnabled = NO;
+
 static inline int32_t validate_dispatch_data_partial_string(NSData *data);
 static inline void SRFastLog(NSString *format, ...);
 
@@ -649,6 +651,8 @@ static __strong NSData *CRLFCRLF;
             break;
         case NSURLNetworkServiceTypeVoice:
             networkServiceType = NSStreamNetworkServiceTypeVoice;
+            break;
+        default:
             break;
     }
     
@@ -1756,16 +1760,18 @@ static const size_t SRFrameHeaderOverhead = 32;
 //#define SR_ENABLE_LOG
 
 static inline void SRFastLog(NSString *format, ...)  {
-#ifdef SR_ENABLE_LOG
-    __block va_list arg_list;
-    va_start (arg_list, format);
+//#ifdef SR_ENABLE_LOG
+    if (kLoggingEnabled) {
+        __block va_list arg_list;
+        va_start (arg_list, format);
     
-    NSString *formattedString = [[NSString alloc] initWithFormat:format arguments:arg_list];
+        NSString *formattedString = [[NSString alloc] initWithFormat:format arguments:arg_list];
     
-    va_end(arg_list);
+        va_end(arg_list);
     
-    NSLog(@"[SR] %@", formattedString);
-#endif
+        NSLog(@"[SR] %@", formattedString);
+    }
+//#endif
 }
 
 

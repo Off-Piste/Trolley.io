@@ -23,6 +23,29 @@ class TRLWebSocketConnection : NSObject {
     
     fileprivate var everConnected: Bool = false
     
+    internal var websocketLoggingEnabled: Bool {
+        get {
+            return kLoggingEnabled.boolValue
+        } set {
+            kLoggingEnabled = ObjCBool(newValue)
+        }
+    }
+    
+    /// Workaround for:
+    ///
+    /// `nw_connection_get_connected_socket_block_invoke 1 Connection has no connected handler`
+    init?(url: String, queue: DispatchQueue = .main) {
+        self.queue = queue
+        
+        guard let url = URL(string: url) else { return nil }
+        self.webSocket = SRWebSocket(url: url)
+        self.webSocket.setDelegateDispatchQueue(queue)
+        
+        super.init()
+        self.webSocket.delegate = self
+        kLoggingEnabled = true
+    }
+    
     init(parsedURL: ParsedURL, queue: DispatchQueue = .main) {
         self.queue = queue
         
@@ -34,6 +57,8 @@ class TRLWebSocketConnection : NSObject {
         // NSObjectProtocol to save this error from occuring
         super.init()
         self.webSocket.delegate = self
+        
+        kLoggingEnabled = true
     }
     
 }
@@ -49,10 +74,10 @@ extension TRLWebSocketConnection {
         self.everConnected = false
         self.webSocket.open()
         
-        let when = DispatchTime.now() + .milliseconds(300)
-        queue.asyncAfter(deadline: when) {
-            self.closeIfNeverConnected()
-        }
+//        let when = DispatchTime.now() + .milliseconds(300)
+//        queue.asyncAfter(deadline: when) {
+//            self.closeIfNeverConnected()
+//        }
     }
     
     func close() {

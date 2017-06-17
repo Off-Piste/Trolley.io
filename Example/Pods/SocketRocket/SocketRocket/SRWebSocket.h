@@ -48,6 +48,8 @@ typedef enum SRStatusCode : NSInteger {
     // 4000–4999: Available for use by applications.
 } SRStatusCode;
 
+extern BOOL kLoggingEnabled;
+
 @class SRWebSocket;
 
 extern NSString *const SRWebSocketErrorDomain;
