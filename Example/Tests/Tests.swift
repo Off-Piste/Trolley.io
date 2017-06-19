@@ -35,4 +35,19 @@ class NetworkingTest : QuickSpec {
         }
     }
     
+    override func spec() {
+        describe("Testing An Oversight") {
+            let mainURL: ParsedURL = "http://localhost:8080/API"
+            
+            let newURL = mainURL.addingPath("default") // http://localhost:8080/API/default
+            Log.debug(newURL)
+            expect(newURL.requestUrl!.absoluteString).to(be("http://localhost:8080/API/default"))
+            
+            let newerURL = mainURL.addingPath("basket") // http://localhost:8080/API/basket
+            Log.debug(newerURL)
+            expect(newerURL.requestUrl!.absoluteString).to(be("http://localhost:8080/API/basket"))
+        }
+
+    }
+    
 }

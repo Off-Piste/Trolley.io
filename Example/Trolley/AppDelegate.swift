@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
-import PromiseKit
 import Trolley
 
 @UIApplicationMain
@@ -23,11 +21,15 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // for the use of the Core functionality without all the heavy stuff
         Trolley.shared.configure()
         
+//        Trolley.shared.networkManager.get(.products).filter("price < 100").JSON { (json, error) in
+//            print(json.rawString() ?? "", error?.localizedDescription ?? "")
+//        }
+        
         // Calling the `configure()` method again will not do anything other than
         // have our logger letting you know that you have it called twice
         // this is so we dont override the current shop and have any thread issues
-        Trolley.shared.configure()
-        Trolley.shared.configure(options: TRLOptions(merchantID: "default"))
+//        Trolley.shared.configure()
+//        Trolley.shared.configure(options: TRLOptions(merchantID: "default"))
         
         // MARK: How to use Promise Kit
         // 1 -> Calling `firstly<T>(execute:) -> Promise<T>`

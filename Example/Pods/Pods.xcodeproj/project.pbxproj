@@ -198,6 +198,13 @@
 		C1AB403727CEC8EA4B644A36675FCAD4 /* Promise+AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0BC8AA773B4BC339DEBA643CF466F /* Promise+AnyPromise.swift */; };
 		C74421B9EAFFA4556A83CFAD69079296 /* Float+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027FB2701C6D81A8301DF1EE402F42 /* Float+Ext.swift */; };
 		C81C680458C790C099D1B2E1155990CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA98C727C030192DCDD7B22D27FC7B13 /* Security.framework */; };
+		C86C09371EF42EB5000B9400 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86C09351EF42E0D000B9400 /* Result.swift */; };
+		C88D210C1EF7CDDC00A121C1 /* TRLNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D21041EF7CA3100A121C1 /* TRLNotification.swift */; };
+		C88D210D1EF7CDDE00A121C1 /* TRLNotificationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D21061EF7CA3F00A121C1 /* TRLNotificationResult.swift */; };
+		C88D210E1EF7CDE200A121C1 /* TRLWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D21081EF7CA5500A121C1 /* TRLWebSocketManager.swift */; };
+		C88D210F1EF7CDE600A121C1 /* TRLNotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D210A1EF7CA7900A121C1 /* TRLNotificationTypes.swift */; };
+		C8ACD0A91EF56D300061704F /* TRLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACD0A81EF56D300061704F /* TRLRequest.swift */; };
+		C8E8DB111EF7DE1000AB2767 /* TRLNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E8DB0F1EF7DDE100AB2767 /* TRLNotificationManager.swift */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3055D410F0DB5C5008F47EA831500 /* Response.swift */; };
 		CB7558CCDD935C9E82BBF454022ED1D3 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55934D97274562235CFF3C7029164 /* Expectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CC35074A4CCEE6A46CCDEDCB5FE041D3 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0504B67F8D7A8D80D8A76D0940B588E8 /* Database.swift */; };
@@ -599,6 +606,13 @@
 		C73AB005A81B4CA167470F857E311BA6 /* URLDataPromise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLDataPromise.swift; path = Extensions/Foundation/Sources/URLDataPromise.swift; sourceTree = "<group>"; };
 		C7583BEC97F80A6FDCE173EC41FA9532 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
 		C75AF16C449C4F1CE20336715BF50775 /* PromiseKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromiseKit-umbrella.h"; sourceTree = "<group>"; };
+		C86C09351EF42E0D000B9400 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		C88D21041EF7CA3100A121C1 /* TRLNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLNotification.swift; sourceTree = "<group>"; };
+		C88D21061EF7CA3F00A121C1 /* TRLNotificationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLNotificationResult.swift; sourceTree = "<group>"; };
+		C88D21081EF7CA5500A121C1 /* TRLWebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLWebSocketManager.swift; sourceTree = "<group>"; };
+		C88D210A1EF7CA7900A121C1 /* TRLNotificationTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLNotificationTypes.swift; sourceTree = "<group>"; };
+		C8ACD0A81EF56D300061704F /* TRLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLRequest.swift; sourceTree = "<group>"; };
+		C8E8DB0F1EF7DDE100AB2767 /* TRLNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLNotificationManager.swift; sourceTree = "<group>"; };
 		CA961B75F0F66DE9EF798E1F8676193D /* SocketRocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SocketRocket.h; path = SocketRocket/SocketRocket.h; sourceTree = "<group>"; };
 		CB8580069F971779BE4AED765C849EAD /* Basket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		CBBBBB313D0F64EFA9EAE45A18EF79A5 /* ErrorUtility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ErrorUtility.swift; path = Sources/Quick/ErrorUtility.swift; sourceTree = "<group>"; };
@@ -800,6 +814,7 @@
 		1B7F3719C739CB91D52C40EA6DF60CB8 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				C86C09351EF42E0D000B9400 /* Result.swift */,
 				0504B67F8D7A8D80D8A76D0940B588E8 /* Database.swift */,
 				BA27CFCF2A28E52FF0671E448EA2907E /* Networkable+JSON.swift */,
 				F58D2D9C4330F6C325471B07FAF87CBC /* SwiftyJSON+Products.swift */,
@@ -838,6 +853,11 @@
 			children = (
 				B114E6BB29D596C4D0F05786757C0944 /* TRLWebSocketConnection.swift */,
 				E6E21A42A2042CDD4C525D0A1711FD90 /* TRLWebSocketDelegate.swift */,
+				C88D21081EF7CA5500A121C1 /* TRLWebSocketManager.swift */,
+				C88D21041EF7CA3100A121C1 /* TRLNotification.swift */,
+				C88D21061EF7CA3F00A121C1 /* TRLNotificationResult.swift */,
+				C88D210A1EF7CA7900A121C1 /* TRLNotificationTypes.swift */,
+				C8E8DB0F1EF7DDE100AB2767 /* TRLNotificationManager.swift */,
 			);
 			path = Realtime;
 			sourceTree = "<group>";
@@ -1446,6 +1466,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBFD9170A60651A8612F77E795305C4 /* TRLNetwork.swift */,
+				C8ACD0A81EF56D300061704F /* TRLRequest.swift */,
 				B1DD2D1A299AC8C348959CC227A06FC4 /* TRLNetworkResponse.swift */,
 				4C4C866463D2E32E04A8CCA7632EC15D /* TRLNetworkInfo.swift */,
 			);
@@ -2008,6 +2029,7 @@
 				C74421B9EAFFA4556A83CFAD69079296 /* Float+Ext.swift in Sources */,
 				CDEFB2F43DD86AE9BAFB6C54708D00B8 /* GeoLocation.swift in Sources */,
 				07EC5E1A5342213F189C69C2BC0B8A95 /* Log.swift in Sources */,
+				C8E8DB111EF7DE1000AB2767 /* TRLNotificationManager.swift in Sources */,
 				62BBF037A50E918D9AA06DED4DBE1201 /* Money.swift in Sources */,
 				862E85984774FB21A1EFF7680532FF95 /* Networkable+JSON.swift in Sources */,
 				D5C83AB713965315ABE3551F21AD3EAA /* Networking.swift in Sources */,
@@ -2015,6 +2037,8 @@
 				73F7F3BF59915823849FE237692BF0E7 /* NSException+Never.swift in Sources */,
 				84F008C00F06006909244B3D3893D7FD /* ParsedURL.swift in Sources */,
 				18FBB5224968CF235990249EA47CA43C /* Parser.swift in Sources */,
+				C86C09371EF42EB5000B9400 /* Result.swift in Sources */,
+				C88D210F1EF7CDE600A121C1 /* TRLNotificationTypes.swift in Sources */,
 				9391D667EC118BA6ABDC2CA4877E46FD /* Percentage.swift in Sources */,
 				5F4080BA42CC45BDBB42D06753A49FD6 /* Product.swift in Sources */,
 				332BC971D4B64463B9EE941DA8CFA258 /* Reachability.swift in Sources */,
@@ -2025,9 +2049,13 @@
 				04D2FC1D394A833F7AD06140E8EC440A /* Response.swift in Sources */,
 				F1EF0E8CDEC71D5BCDB274AADCCAA96A /* TRLNetwork.swift in Sources */,
 				17D138AC8C33C1B5628C98A8FC0A61A1 /* TRLNetworkInfo.swift in Sources */,
+				C88D210E1EF7CDE200A121C1 /* TRLWebSocketManager.swift in Sources */,
+				C8ACD0A91EF56D300061704F /* TRLRequest.swift in Sources */,
 				82B286D678FCC40805A312934209C5C3 /* TRLNetworkManager+TRLOptions.swift in Sources */,
 				453BA69A5C84BAF3ABAE489CCB3E0441 /* TRLNetworkManager.swift in Sources */,
 				B2C6A1519D3293CB8C581B76D487EAD6 /* TRLOptions.swift in Sources */,
+				C88D210D1EF7CDDE00A121C1 /* TRLNotificationResult.swift in Sources */,
+				C88D210C1EF7CDDC00A121C1 /* TRLNotification.swift in Sources */,
 				34D3D2D387DFDE84D6E421BF27909B33 /* TRLNetworkResponse.swift in Sources */,
 				E67D4276A8776AD72E55B53F3ADA8D61 /* TRLUser.swift in Sources */,
 				FBC5AE5DA225F3952D5FD198950BDFA7 /* TRLUtilities+Alamofire.swift in Sources */,

@@ -37,6 +37,8 @@ public class _Response<T: NSObjectProtocol> : ExpressibleByArrayLiteral {
     /// <#Description#>
     public var objects: [T]
     
+    internal var block: Any?
+    
     /// <#Description#>
     public var count: Int {
         return objects.count
