@@ -17,10 +17,10 @@ public extension Networkable {
     ///
     /// - Returns: Promise with value of `JSON`,
     ///   check [Promise Kit](https://github.com/mxcl/PromiseKit) on how to use
-    func responseJSON() -> Promise<JSON> {
+    func JSON() -> Promise<JSON> {
         return Promise { fullfil, rejct in
-            self.response().then { item -> Void in
-                let json = JSON(item)
+            self.default().then { item -> Void in
+                let json = SwiftyJSON.JSON(item)
                 fullfil(json)
             }.catch { error in
                 rejct(error)
@@ -34,9 +34,9 @@ public extension Networkable {
     ///
     /// - Returns: Promise with the value of `[Products]`
     ///   check [Promise Kit](https://github.com/mxcl/PromiseKit) on how to use
-    func responseProducts() -> Promise<[Products]> {
+    func products() -> Promise<[Products]> {
         return Promise { fullfill, reject in
-            self.responseJSON().then { json -> Void in
+            self.JSON().then { json -> Void in
                 fullfill(json.products)
             }.catch { error in
                 reject(error)
@@ -47,9 +47,9 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-    func responseProduct() -> Promise<Products> {
+    func product() -> Promise<Products> {
         return Promise { fullfill, reject in
-            self.responseJSON().then { json -> Void in
+            self.JSON().then { json -> Void in
                 guard let product = Products(JSON: json) else {
                     throw NetworkableError.initFailed(
                         for: Products.self,
@@ -79,19 +79,19 @@ public extension Networkable {
     /// The Method to return the `JSON` from our server using closures
     ///
     /// - Parameter handler: `(JSON, Error?)` JSON will be JSON.null if empty
-    func responseJSON(handler: @escaping JSONResponse) {
-        self.responseJSON().then { json -> Void in
+    func JSON(handler: @escaping JSONResponse) {
+        self.JSON().then { json -> Void in
             handler(json, nil)
         }.catch { (error) in
-            handler(JSON.null, error)
+            handler(SwiftyJSON.JSON.null, error)
         }
     }
     
     /// The Method to return the array of `[Products]` from our server using closures
     ///
     /// - Parameter handler: `([Products]?, Error?)`
-    func responseProducts(handler: @escaping ProductsHandler) {
-        self.responseProducts().then { products -> Void in
+    func products(handler: @escaping ProductsHandler) {
+        self.products().then { products -> Void in
             handler(products, nil)
         }.catch { error in
             handler(nil, error)
@@ -101,8 +101,8 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Parameter handler: <#handler description#>
-    func responseProduct(handler: @escaping ProductHandler) {
-        self.responseProduct().then { product -> Void in
+    func product(handler: @escaping ProductHandler) {
+        self.product().then { product -> Void in
             handler(product, nil)
         }.catch { error in
             handler(nil, error)

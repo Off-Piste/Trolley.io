@@ -10,11 +10,14 @@ import Foundation
 import Alamofire
 import SocketRocket
 
-protocol TRLWebSocketDelegate: class {
+protocol TRLWebSocketDelegate {
     
     func webSocket(_ connection: TRLWebSocketConnection, onMessage message: Dictionary<String, Any>)
     
     func webSocketOnDisconnect(_ connection: TRLWebSocketConnection, wasEverConnected connected: Bool)
+
+    func webSocketOnLostConnection(_ connection: TRLWebSocketConnection)
     
+    func webSocketOnConnection(_ connection: TRLWebSocketConnection)
 }
 

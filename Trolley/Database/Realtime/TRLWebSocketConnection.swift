@@ -13,7 +13,7 @@ import SocketRocket
 /// Due to ObjectiveC framework, NSObject is required.
 class TRLWebSocketConnection : NSObject {
     
-    weak var delegate: TRLWebSocketDelegate?
+    var delegate: TRLWebSocketDelegate?
     
     fileprivate private(set) var webSocket: SRWebSocket
     
@@ -69,7 +69,7 @@ class TRLWebSocketConnection : NSObject {
 extension TRLWebSocketConnection {
 
     func open() {
-        Log.debug()
+        assert(delegate != nil)
         
         self.everConnected = false
         self.webSocket.open()
@@ -94,6 +94,7 @@ extension TRLWebSocketConnection : SRWebSocketDelegate {
     func webSocket(_ webSocket: SRWebSocket!, didReceiveMessage message: Any!) {
         Log.debug(message)
         self.restartTimer()
+        delegate?.webSocket(self, onMessage: [Date().string : message])
     }
     
     func webSocketDidOpen(_ webSocket: SRWebSocket!) {
@@ -111,6 +112,7 @@ extension TRLWebSocketConnection : SRWebSocketDelegate {
     
     func webSocket(_ webSocket: SRWebSocket!, didFailWithError error: Error!) {
         Log.error(error.localizedDescription, showSource: true, showThread: true)
+        delegate?.webSocketOnDisconnect(self, wasEverConnected: self.everConnected)
     }
     
     func webSocket(
@@ -124,6 +126,7 @@ extension TRLWebSocketConnection : SRWebSocketDelegate {
         // first before adding a reason.
         let reason = (reason == nil) ? "nil" : reason
         Log.debug(self.createError(withReason: reason, code: code))
+        delegate?.webSocketOnDisconnect(self, wasEverConnected: self.everConnected)
     }
     
 }

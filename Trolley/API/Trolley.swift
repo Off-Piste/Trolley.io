@@ -74,7 +74,7 @@ public class Trolley {
     )
     
     /// <#Description#>
-    private var webSocket: TRLWebSocketConnection!
+    private var webSocketManager: TRLWebSocketManager!
     
     /// <#Description#>
     fileprivate
@@ -134,14 +134,14 @@ public class Trolley {
             let url = try! dm.retrieveObject() as! String
             
             // `⎇ click` for why this is needed for local testing
-            webSocket = TRLWebSocketConnection(url: url, queue: socketQueue)!
-            webSocket.open()
+            webSocketManager = TRLWebSocketManager(url: url, queue: socketQueue)
+            webSocketManager.open()
         } else {
-            webSocket = TRLWebSocketConnection(
-                parsedURL: networkManager.network.parsedURL,
+            webSocketManager = TRLWebSocketManager(
+                networkManager.network.parsedURL,
                 queue: socketQueue
             )
-            webSocket.open()
+            webSocketManager.open()
         }
         
         guard let reach = Reachability() else {
@@ -166,7 +166,7 @@ public class Trolley {
     
     func setLoggingEnabled(_ enabled: Bool) {
         isInDebugMode = enabled
-        webSocket.websocketLoggingEnabled = enabled
+        webSocketManager.setLogging(enabled)
     }
     
 }
