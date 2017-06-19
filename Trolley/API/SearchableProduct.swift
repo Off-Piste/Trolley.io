@@ -12,9 +12,9 @@ import SwiftyJSON
 
 extension Networkable {
     
-    func responseSearch() -> Promise<SearchResponse> {
+    func search() -> Promise<SearchResponse> {
         return Promise { fullfill, reject in
-            self.responseJSON().then { (json) -> Void in
+            self.JSON().then { (json) -> Void in
                 let searchableProducts = json.searchableProducts
                 fullfill(SearchResponse(searchableProducts))
             }.catch { (error) in
@@ -48,7 +48,8 @@ public extension SearchableProducts {
     public static func getAll() -> Promise<SearchResponse> {
         return Trolley.shared.networkManager
             .get(.products, with: ["isSearching" : true])
-            .responseSearch()
+            .response
+            .search()
     }
     
 }

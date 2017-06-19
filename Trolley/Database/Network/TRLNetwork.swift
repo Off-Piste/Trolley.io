@@ -58,7 +58,7 @@ extension TRLNetwork {
     ///   - database: The required database
     ///   - parameters: The parameters of the url
     /// - Returns: The `TRLResponse` for the request
-    internal func get(_ database: Database, with parameters: Parameters) -> TRLNetworkResponse {
+    internal func get(_ database: Database, with parameters: Parameters) -> TRLRequest {
         let anURL = self.parsedURL.addingPath(database.name)
         
         return self._get(anURL, with: parameters)
@@ -72,7 +72,7 @@ extension TRLNetwork {
     ///   - route: The required route
     ///   - parameters: The parameters of the url
     /// - Returns: The `TRLResponse` for the request
-    internal func get(_ route: String, with parameters: Parameters) -> TRLNetworkResponse {
+    internal func get(_ route: String, with parameters: Parameters) -> TRLRequest {
         let anURL = self.parsedURL.addingPath(route)
         
         return self._get(anURL, with: parameters)
@@ -84,11 +84,8 @@ extension TRLNetwork {
     ///   - url: <#url description#>
     ///   - parameters: <#parameters description#>
     /// - Returns: <#return value description#>
-    private func _get(_ url: URLConvertible, with parameters: Parameters) -> TRLNetworkResponse {
-        let request = Alamofire.request(url, method: .get, parameters: parameters)
-        let response = request.validate().response()
-        
-        return TRLNetworkResponse(promise: response, delegate: nil)
+    private func _get(_ url: URLConvertible, with parameters: Parameters) -> TRLRequest {
+        return TRLRequest(url, method: .get, parameters: parameters)
     }
     
 }

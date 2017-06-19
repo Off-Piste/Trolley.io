@@ -24,7 +24,7 @@ public struct TRLNetworkResponse: Networkable {
         attributes: .concurrent
     )
     
-    public func response() -> Promise<Any> {
+    public func `default`() -> Promise<Any> {
         return Promise { fullfil, reject in
             self.promise.then(on: queue) { (req, res, data) in
                 fullfil(data)
@@ -34,8 +34,8 @@ public struct TRLNetworkResponse: Networkable {
         }
     }
     
-    public func response(handler: @escaping DefaultHandler) {
-        self.response().then(on: queue) { (Item) in
+    public func `default`(handler: @escaping DefaultHandler) {
+        self.default().then(on: queue) { (Item) in
             handler(Item, nil)
         }.catch(on: queue) { (error) in
             handler(nil, error)

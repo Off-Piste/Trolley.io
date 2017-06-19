@@ -142,7 +142,7 @@ private extension TRLUtilities {
                 // we have a port, use the provided scheme
                 secure = (scheme == "https")
             } else {
-                secure = true
+                secure = false
             }
             
             namespace = parts[0].lowercased()

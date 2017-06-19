@@ -77,11 +77,11 @@ public protocol Networkable {
     ///     }
     ///
     /// - Returns: A Promise that can be anything
-    func response() -> Promise<Any>
+    func `default`() -> Promise<Any>
     
     /// The response for when the user may want to work with closures rather than `Promise Kit`
     ///
     /// - Parameter handler: The default completion handler
-    func response(handler: @escaping DefaultHandler)
+    func `default`(handler: @escaping DefaultHandler)
     
 }

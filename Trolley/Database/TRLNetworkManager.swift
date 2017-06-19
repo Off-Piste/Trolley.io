@@ -36,15 +36,15 @@ public struct TRLNetworkManager {
 
 public extension TRLNetworkManager {
     
-    func get(_ database: Database, with parameters: Parameters = [:]) -> TRLNetworkResponse {
+    func get(_ database: Database, with parameters: Parameters = [:]) -> TRLRequest {
         return self.network.get(database, with: parameters)
     }
     
-    func get(_ route: String, with parameters: Parameters = [:]) -> TRLNetworkResponse {
+    func get(_ route: String, with parameters: Parameters = [:]) -> TRLRequest {
         return self.network.get(route, with: parameters)
     }
     
-    func get(item: String, in db: Database, with parameters: Parameters = [:]) -> TRLNetworkResponse {
+    func get(item: String, in db: Database, with parameters: Parameters = [:]) -> TRLRequest {
         let route = String.urlRoute(for: db.name, item)
         return self.network.get(route, with: parameters)
     }

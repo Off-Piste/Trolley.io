@@ -70,7 +70,7 @@ public extension Products {
     ///
     /// - Returns: <#return value description#>
     class func getAll() -> Promise<[Products]> {
-        return networkManager.get(.products).responseProducts()
+        return self.networkManager.get(.products).response.products()
     }
     
     /// <#Description#>
@@ -78,7 +78,7 @@ public extension Products {
     /// - Parameter id: <#id description#>
     /// - Returns: <#return value description#>
     class func getProduct(with id: String) -> Promise<Products> {
-        return networkManager.get(item: id, in: .products).responseProduct()
+        return networkManager.get(item: id, in: .products).response.product()
     }
     
 }
