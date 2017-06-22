@@ -34,7 +34,7 @@ internal struct ParsedURL {
 internal extension ParsedURL {
 
     internal var url: URL? {
-        return try? self.asURL()
+        return parsedURLInfo.url
     }
     
     internal var webSocketURL: URL {

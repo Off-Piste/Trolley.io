@@ -20,7 +20,6 @@ extension String {
     
 }
 
-
 public struct TRLNetworkManager {
     
     var network: TRLNetwork

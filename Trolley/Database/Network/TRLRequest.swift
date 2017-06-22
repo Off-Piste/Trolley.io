@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+import PromiseKit
 
 //public func request(_ url: URLConvertible, method: Alamofire.HTTPMethod = default, parameters: Parameters? = default, encoding: ParameterEncoding = default, headers: HTTPHeaders? = default) ->
 
@@ -50,9 +50,9 @@ public class TRLRequest {
     
 }
 
-extension TRLRequest {
+fileprivate extension TRLRequest {
     
-    fileprivate var `default`: TRLRequest {
+    var `default`: TRLRequest {
         return TRLRequest(
             url: url,
             method: method,
@@ -62,8 +62,12 @@ extension TRLRequest {
         )
     }
     
-    fileprivate var dataRequest: DataRequest {
+    var dataRequest: DataRequest {
         return request(self)
+    }
+    
+    var promise: Promise<(URLRequest, HTTPURLResponse, Data)> {
+        return dataRequest.response()
     }
     
 }
@@ -88,6 +92,11 @@ public extension TRLRequest {
     func search(for value: String) -> TRLRequest {
         self.parameters?.updateValue(value, forKey: "search")
         return self.default
+    }
+    
+    func validate() -> Networkable {
+        self.dataRequest.validate()
+        return self
     }
     
 }
@@ -119,6 +128,16 @@ extension TRLRequest : Networkable {
     public func responseData(handler: @escaping DefaultHandler) {
         self.dataRequest.responseData { (response) in
             handler(response.data, response.error)
+        }
+    }
+    
+    public func responseData() -> Promise<Data> {
+        return Promise { fullfill, reject in
+            self.promise.then(execute: { (_, _, data) -> Void in
+                fullfill(data)
+            }).catch(execute: { (error) in
+                reject(error)
+            })
         }
     }
     

@@ -119,6 +119,17 @@ public class Trolley {
         
         self.anOption = options
         self.anOption.validate()
+        do {
+            self.networkManager = try TRLNetworkManager(option: anOption)
+        } catch {
+            Log.error(
+                "Reason:", error.localizedDescription, "What will happen next?",
+                "Trolley will now return this configure so some elements will not work as expected",
+                "What to do next?",
+                "Please rasie an issue on out github with all the details",
+                "https://github.com/Off-Piste/Trolley.io"
+            )
+        }
         
 //        let socketQueue = DispatchQueue(
 //            label: "io.trolley.ws",
@@ -153,13 +164,15 @@ public class Trolley {
             return reach.promise()
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
+            Log.info(newReach)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
+            Log.info(convertor.conversionRate)
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
             //
         }.catch(on: queue) { error in
-            Log.error(error)
+            Log.error(error.localizedDescription)
         }
 
     }
@@ -222,5 +235,13 @@ private extension Trolley {
         }
     }
 
+    
+}
+
+public extension TRLNetworkManager {
+    
+    static var shared: TRLNetworkManager {
+        return Trolley.shared.networkManager
+    }
     
 }

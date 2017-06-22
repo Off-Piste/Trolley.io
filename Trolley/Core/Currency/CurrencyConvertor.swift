@@ -29,6 +29,18 @@ public protocol CurrencyConvertable {
     
 }
 
+class JSONDecoder {
+    
+    static func object(
+        from data: Data,
+        withOptions options: JSONSerialization.ReadingOptions = .allowFragments
+        ) throws -> Any
+    {
+        return try JSONSerialization.jsonObject(with: data, options: options)
+    }
+    
+}
+
 /// The Custom Currency Errors that can occur when downloading the JSON
 ///
 /// - couldNotWorkWithJSON: An error when the JSON cannot be converted
@@ -39,6 +51,8 @@ public enum CurrencyError: Error {
     case couldNotWorkWithJSON
     case guardFail(for: Int)
     case error(_ : Error)
+    case ratesNil(_ : [String : AnyObject])
+    case invalidURL(_ : String)
     
     var localizedDescription: String {
         switch self {
@@ -48,6 +62,10 @@ public enum CurrencyError: Error {
             return "Guard failed on line: \(line)"
         case .error(let error) :
             return error.localizedDescription
+        case .ratesNil(let json):
+            return "Invalid JSON \(json)"
+        case .invalidURL(let url):
+            return "Invalid URL \(url)"
         }
     }
 }
@@ -115,6 +133,10 @@ public class CurrencyConverter: CurrencyConvertable {
         return Currency(localeIdentifier: currencyCode).description
     }
     
+    fileprivate var _newAPIURL: String {
+        return "http://api.fixer.io/latest?base=\(self._baseCurrency)&symbols=\(self._localCurrencyCode)"
+    }
+    
     /// Private init, only used for shared instance
     private init() { }
     
@@ -155,10 +177,16 @@ public class CurrencyConverter: CurrencyConvertable {
     ///
     /// - Parameter completion: Check `Downloader` for details
     internal func downloadJSON(_ completion: @escaping Downloader) {
-        guard let url = URL(string: _apiUrl) else { return }
+        // No need to convert from say GBP to GBP
+        if self._localCurrencyCode == self._baseCurrency { return }
+        
+        guard let url = URL(string: _newAPIURL) else {
+            completion(CurrencyError.invalidURL(_newAPIURL))
+            return
+        }
+        
         let urlRequest = URLRequest(url: url)
         let session = URLSession.shared
-        
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if error != nil { completion(CurrencyError.error(error!)); return }
             guard let responseData = data as Data? else {
@@ -167,21 +195,29 @@ public class CurrencyConverter: CurrencyConvertable {
             }
             
             do {
-                if let jsonData = try? JSONSerialization
-                    .jsonObject(with: responseData, options: .allowFragments) as! [String: AnyObject] {
-                    guard let rates = jsonData["rates"] else { return }
-                    self.newManager.set(object: rates)
-                    
-                    if let rate = self._offlineRates[self._localCurrencyCode] {
-                        self.conversionRate = rate
+                if let json = try JSONDecoder.object(from: responseData) as? [String : AnyObject] {
+                    guard let rates = json["rates"] as? [String : AnyObject] else {
+                        completion(CurrencyError.ratesNil(json))
+                        return
                     }
                     
-                    completion(nil)
-                    return
+                    if let rate = self._offlineRates[self._localCurrencyCode] {
+                        self.newManager.set(object: rates)
+                        self.conversionRate = rate
+                        
+                        completion(nil)
+                        return
+                    } else {
+                        completion(CurrencyError.ratesNil([:]))
+                        return
+                    }
                 } else {
                     completion(CurrencyError.couldNotWorkWithJSON)
                     return
                 }
+            } catch {
+                completion((error as! CurrencyError))
+                return
             }
         })
         task.resume()

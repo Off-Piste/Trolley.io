@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import PromiseKit
 
 public typealias DefaultHandler = (Data?, Error?) -> Void
 
 public protocol Networkable {
     
     func responseData(handler: @escaping DefaultHandler)
+    
+    func responseData() -> Promise<Data>
     
 }
