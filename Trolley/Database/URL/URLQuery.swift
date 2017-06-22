@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /**
  Easier to use URLQueryItems, the way it should have been written, 
@@ -15,20 +16,13 @@ import Foundation
 public struct URLQuery {
     
     /// <#Description#>
-    public var url: String
+    public var url: URLConvertible
     
     /// <#Description#>
     ///
     /// - Parameter url: <#url description#>
-    internal init(_ url: String) {
+    internal init(_ url: URLConvertible) {
         self.url = url
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameter url: <#url description#>
-    internal init(_ url: URL) {
-        self.url = url.absoluteString
     }
     
 }
@@ -42,18 +36,19 @@ public extension URLQuery {
     
     /// <#Description#>
     fileprivate var internalURL: URL? {
-        return URL(string: url)
+        return try? self.url.asURL()
     }
     
     /// <#Description#>
     ///
     /// - Parameter parameter: <#parameter description#>
-    subscript(_ parameter: String) -> String {
-        return self.getQueryStringParameter(parameter) ?? ""
-    }
-    
-    func append(_ value: String, forKey key: String) {
-        
+    subscript(_ parameter: String) -> String? {
+        do {
+            return try self.getQueryStringParameter(parameter)
+        } catch {
+            Log.info("[\(self)] throw an error -> \(error.localizedDescription) ")
+            return nil
+        }
     }
     
 }
@@ -64,9 +59,11 @@ private extension URLQuery {
     ///
     /// - Parameter param: <#param description#>
     /// - Returns: <#return value description#>
-    func getQueryStringParameter(_ param: String) -> String? {
-        guard let url = URLComponents(string: url) else { fatalError() }
-        return url.queryItems?.first(where: { $0.name == param })?.value
+    func getQueryStringParameter(_ param: String) throws -> String? {
+        guard let url = internalURL,
+            let comp = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            else { throw createError("Invalid URL") }
+        return comp.queryItems?.first(where: { $0.name == param })?.value
     }
     
 }

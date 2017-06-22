@@ -60,26 +60,26 @@ public extension _Basket where P == Products {
 
 public extension Products {
     
-    /// To save writing out `Trolley.shared.networkManager`
+    /// To save writing out `TRLNetworkManager.shared`
     /// everytime. **LAZY IS KEY**
     private static var networkManager: TRLNetworkManager {
-        return Trolley.shared.networkManager
+        return TRLNetworkManager.shared
     }
     
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-//    class func getAll() -> Promise<[Products]> {
-//        return self.networkManager.get(.products).response.products()
-//    }
+    class func getAll() -> Promise<TRLProductsPromise> {
+        return self.networkManager.get(.products).validate().responseProducts()
+    }
     
     /// <#Description#>
     ///
     /// - Parameter id: <#id description#>
     /// - Returns: <#return value description#>
-//    class func getProduct(with id: String) -> Promise<Products> {
-//        return networkManager.get(item: id, in: .products).response.product()
-//    }
+    class func getProduct(with id: String) -> Promise<Products> {
+        return self.networkManager.get(id, in: .products).validate().responseProduct()
+    }
     
 }
 

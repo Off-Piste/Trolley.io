@@ -20,20 +20,12 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // If not then we would reccomend using `Trolley/Core` in your podfile
         // for the use of the Core functionality without all the heavy stuff
         Trolley.shared.configure()
-//        TRLNetworkManager.shared
-//            .get("/products")
-//            .progress { print($0) }
-//            .responseData { print($1?.localizedDescription ?? "") }
-        
-//        Trolley.shared.networkManager.get(.products).filter("price < 100").JSON { (json, error) in
-//            print(json.rawString() ?? "", error?.localizedDescription ?? "")
-//        }
         
         // Calling the `configure()` method again will not do anything other than
         // have our logger letting you know that you have it called twice
         // this is so we dont override the current shop and have any thread issues
 //        Trolley.shared.configure()
-//        Trolley.shared.configure(options: TRLOptions(merchantID: "default"))
+//        Trolley.shared.configure(options: TRLOptions(merchantID: "qwertyuiop"))
         
         // MARK: How to use Promise Kit
         // 1 -> Calling `firstly<T>(execute:) -> Promise<T>`
@@ -56,22 +48,21 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // seperated out if you need to vary your response.
         
         // 1.
-//        firstly { _ -> Promise<[Products]> in
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//            return Products.getAll()
-//            
-//        // 2.
-//        }.then { (products) -> Void in
-//            print(String(describing: products))
-//            
-//        // 3.
-//        }.always {
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            
-//        // 4.
-//        }.catch { (error) in
-//            print(error.localizedDescription, error._code, error._domain)
-//        }
+        firstly { _ -> Promise<TRLProductsPromise> in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            return Products.getAll()
+            
+        // 2.
+        }.then { (products) -> Void in
+            print(String(describing: products))
+        // 3.
+        }.always {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+        // 4.
+        }.catch { (error) in
+            print(error.localizedDescription, error._code, error._domain)
+        }
         
         return true
     }

@@ -27,87 +27,99 @@ import SwiftyJSON
 //            }
 //        }
 //    }
-//    
-//    /// Method to return the Products response from the server using Promise Kit.
-//    ///
-//    /// To get the array of products, the `.products` property from the JSON is used
-//    ///
-//    /// - Returns: Promise with the value of `[Products]`
-//    ///   check [Promise Kit](https://github.com/mxcl/PromiseKit) on how to use
-//    func products() -> Promise<[Products]> {
-//        return Promise { fullfill, reject in
-//            self.JSON().then { json -> Void in
-//                fullfill(json.products)
-//            }.catch { error in
-//                reject(error)
-//            }
-//        }
-//    }
-//    
-//    /// <#Description#>
-//    ///
-//    /// - Returns: <#return value description#>
-//    func product() -> Promise<Products> {
-//        return Promise { fullfill, reject in
-//            self.JSON().then { json -> Void in
-//                guard let product = Products(JSON: json) else {
-//                    throw NetworkableError.initFailed(
-//                        for: Products.self,
-//                        withInput: json
-//                    )
-//                }
-//                
-//                fullfill(product)
-//            }.catch { error in
-//                reject(error)
-//            }
-//        }
-//    }
-//    
 //}
-//
-//public typealias JSONResponse = (JSON, Error?) -> Void
-//
-//public typealias ProductsHandler = ([Products]?, Error?) -> Void
-//
-//public typealias ProductHandler = (Products?, Error?) -> Void
-//
-//// MARK: Closure Networkable EXT
-//
-//public extension Networkable {
-//    
-//    /// The Method to return the `JSON` from our server using closures
-//    ///
-//    /// - Parameter handler: `(JSON, Error?)` JSON will be JSON.null if empty
-//    func JSON(handler: @escaping JSONResponse) {
-//        self.JSON().then { json -> Void in
-//            handler(json, nil)
-//        }.catch { (error) in
-//            handler(SwiftyJSON.JSON.null, error)
-//        }
-//    }
-//    
-//    /// The Method to return the array of `[Products]` from our server using closures
-//    ///
-//    /// - Parameter handler: `([Products]?, Error?)`
-//    func products(handler: @escaping ProductsHandler) {
-//        self.products().then { products -> Void in
-//            handler(products, nil)
-//        }.catch { error in
-//            handler(nil, error)
-//        }
-//    }
-//    
-//    /// <#Description#>
-//    ///
-//    /// - Parameter handler: <#handler description#>
-//    func product(handler: @escaping ProductHandler) {
-//        self.product().then { product -> Void in
-//            handler(product, nil)
-//        }.catch { error in
-//            handler(nil, error)
-//        }
-//    }
-//
-//    
-//}
+
+public extension Networkable {
+    
+    // MARK: JSON
+    
+    /// <#Description#>
+    ///
+    /// - Parameter handler: <#handler description#>
+    func responseJSON(handler: @escaping (JSON, Error?) -> Void) {
+        self.responseData { (data, error) in
+            if data == nil, error != nil {
+                handler(JSON.null, error)
+            } else {
+                handler(JSON(data: data!), nil)
+            }
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func responseJSON() -> Promise<JSON> {
+        return Promise { fullfill, reject in
+            self.responseData()
+                .then { fullfill(JSON($0)) }
+                .catch { reject($0) }
+        }
+    }
+    
+    // MARK: JSON -> Array of Products
+    
+    /// <#Description#>
+    ///
+    /// - Parameter handler: <#handler description#>
+    func responseProducts(handler: @escaping (_TRLResponse<Products>) -> Void) {
+        self.responseJSON { (json, err) in
+            let response: _TRLResponse<Products>
+            if json == JSON.null, err != nil {
+                response = _TRLResponse(err!)
+                handler(response)
+            } else {
+                response = _TRLResponse(json.products)
+                handler(response)
+                
+            }
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func responseProducts() -> Promise<TRLProductsPromise> {
+        return Promise { fullfill, reject in
+            self.responseJSON().then {
+                fullfill(TRLProductsPromise($0.products))
+                }.catch {
+                    reject($0)
+            }
+        }
+    }
+    
+    // MARK: Single Product
+    
+    /// <#Description#>
+    ///
+    /// - Parameter handler: <#handler description#>
+    func responseProduct(handler: @escaping (Products?, Error?) -> Void) {
+        self.responseProducts { (response) in
+            switch response {
+            case .response(let objects):
+                if objects.count > 1 { handler(nil, createError("To Many Products Downloaded")) }
+                if objects.count == 0 { handler(nil, createError("Product is empty")) }
+                handler(objects.first!, nil)
+            case .error(let err):
+                handler(nil, err)
+            }
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func responseProduct() -> Promise<Products> {
+        return Promise { fullfill, reject in
+            self.responseJSON().then { json -> Void in
+                if json.arrayValue.count > 1 { throw createError("To Many Products Downloaded") }
+                if json.arrayValue.count == 0 { throw createError("Product is empty") }
+                fullfill(json.products.first!)
+                }.catch {
+                    reject($0)
+            }
+        }
+    }
+    
+}

@@ -9,8 +9,6 @@
 import Foundation
 import PromiseKit
 
-//public func request(_ url: URLConvertible, method: Alamofire.HTTPMethod = default, parameters: Parameters? = default, encoding: ParameterEncoding = default, headers: HTTPHeaders? = default) ->
-
 func request(_ request: TRLRequest) -> DataRequest {
     return Alamofire.request(
         request.url,
@@ -20,6 +18,11 @@ func request(_ request: TRLRequest) -> DataRequest {
         headers: request.headers
     )
 }
+
+let kFilterQueryKey: String = "filter"
+let kSearchQueryKey: String = "search"
+let kRateQueryKey: String = "limit"
+let kPageQueryKey: String = "next-page"
 
 public class TRLRequest {
     
@@ -75,28 +78,61 @@ fileprivate extension TRLRequest {
 public extension TRLRequest {
     
     func rate(_ value: Int) -> TRLRequest {
-        self.parameters?.updateValue(value, forKey: "limit")
+        assert(self.method == .get, "\(#function) can only be used by .get requests")
+        assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
+        
+        self.parameters?.updateValue(value, forKey: kRateQueryKey)
         return self.default
     }
     
+    func page(_ value: Int) -> TRLRequest {
+        assert(self.method == .get, "\(#function) can only be used by .get requests")
+        assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
+        
+        self.parameters?.updateValue(value, forKey: kPageQueryKey)
+        return self.default
+
+    }
+    
     func filter(_ predicateFormat: String) -> TRLRequest {
+        assert(self.method == .get, "\(#function) can only be used by .get requests")
+        assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
+        
         let _ = NSPredicate(format: predicateFormat)
         guard let data = predicateFormat.data(using: .utf8) else {
+            Log.info("The NSPredicate format could not be converted to Data so the request will not be carried out")
             return self.default
         }
         
-        self.parameters?.updateValue(data, forKey: "filter")
+        self.parameters?.updateValue(data, forKey: kFilterQueryKey)
         return self.default
     }
     
     func search(for value: String) -> TRLRequest {
-        self.parameters?.updateValue(value, forKey: "search")
+        assert(self.method == .get, "\(#function) can only be used by .get requests")
+        assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
+        
+        self.parameters?.updateValue(value, forKey: kSearchQueryKey)
         return self.default
     }
     
     func validate() -> Networkable {
+        Log.debug("Validating the request")
+        
         self.dataRequest.validate()
         return self
+    }
+    
+    /// Method to check the query parameters
+    func _validateRequest() -> Error? {
+        let queryParameters = URLQuery(self.url)
+        
+        if queryParameters[kPageQueryKey] == nil,
+            queryParameters[kRateQueryKey] == nil {
+            return createError("page(_:) needs to be called with rate(_:)")
+        }
+        
+        return nil
     }
     
 }
@@ -126,6 +162,10 @@ extension TRLRequest : Networkable {
     }
     
     public func responseData(handler: @escaping DefaultHandler) {
+        if let error = self._validateRequest() {
+            handler(nil, error)
+        }
+        
         self.dataRequest.responseData { (response) in
             handler(response.data, response.error)
         }
@@ -133,6 +173,10 @@ extension TRLRequest : Networkable {
     
     public func responseData() -> Promise<Data> {
         return Promise { fullfill, reject in
+            if let error = self._validateRequest() {
+                reject(error)
+            }
+            
             self.promise.then(execute: { (_, _, data) -> Void in
                 fullfill(data)
             }).catch(execute: { (error) in

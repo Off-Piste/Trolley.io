@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+import PromiseKit
 
 public class Object: NSObject {
     
@@ -103,11 +103,11 @@ public extension _TRLResponse {
     
 }
 
-public extension _TRLResponse {
+extension _TRLResponse : Responsable {
     
     public typealias Element = T
     
-    func sort(by value: (Element, Element) -> Bool) -> _TRLResponse {
+    public func sort(by value: (Element, Element) -> Bool) -> _TRLResponse {
         switch self {
         case .error(_):
             return self
@@ -116,17 +116,7 @@ public extension _TRLResponse {
         }
     }
     
-    func filter(_ predicateFormat: String, _ args: Any...) -> _TRLResponse {
-        switch self {
-        case .error:
-            return self
-        case .response:
-            let predicate = NSPredicate(format: predicateFormat, argumentArray: args)
-            return self.filter(predicate)
-        }
-    }
-    
-    func filter(_ predicate: NSPredicate) -> _TRLResponse {
+    public func filter(_ predicate: NSPredicate) -> _TRLResponse {
         switch self {
         case .error:
             return self

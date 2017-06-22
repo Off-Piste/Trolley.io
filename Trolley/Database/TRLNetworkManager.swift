@@ -24,14 +24,16 @@ public struct TRLNetworkManager {
     
     var network: TRLNetwork
     
+    var error: Error?
+    
     internal init(network: TRLNetwork, key: String) {
         self.network = network
         self.network.parsedURL._addPath(key)
     }
     
     internal init(_ url: URLConvertible, key: String) throws {
-        self.network = try TRLNetwork(url)
-        self.network.parsedURL._addPath(key)
+            self.network = try TRLNetwork(url)
+            self.network.parsedURL._addPath(key)
     }
     
     internal init?(url: URLConvertible, key: String) {
@@ -53,13 +55,13 @@ extension TRLNetworkManager : CustomStringConvertible {
     
 }
 
-public extension TRLNetworkManager {
+extension TRLNetworkManager {
     
     func get(
         _ route: String,
-        with parameters: Parameters? = nil,
-        encoding: ParameterEncoding = URLEncoding.default,
-        headers: HTTPHeaders? = nil
+        with parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: HTTPHeaders?
         ) -> TRLRequest
     {
         return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
@@ -68,9 +70,9 @@ public extension TRLNetworkManager {
     func get(
         item: String,
         in route: String,
-        with parameters: Parameters? = nil,
-        encoding: ParameterEncoding = URLEncoding.default,
-        headers: HTTPHeaders? = nil
+        with parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: HTTPHeaders?
         ) -> TRLRequest
     {
         let route = String.urlRoute(for: route, item)
@@ -81,13 +83,13 @@ public extension TRLNetworkManager {
 
 // TODO: Make sure this works
 
-public extension TRLNetworkManager {
+extension TRLNetworkManager {
     
     func post(
         _ object: Object,
         in route: String,
-        with parameters: Parameters = [:],
-        headers: HTTPHeaders? = [:]
+        with parameters: Parameters,
+        headers: HTTPHeaders?
         ) -> TRLRequest
     {
         return self.network.post(route, with: parameters, encoding: object, headers: headers)
