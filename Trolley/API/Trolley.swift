@@ -120,29 +120,29 @@ public class Trolley {
         self.anOption = options
         self.anOption.validate()
         
-        let socketQueue = DispatchQueue(
-            label: "io.trolley.ws",
-            qos: .background,
-            attributes: .concurrent
-        )
-        self.networkManager = TRLNetworkManager(network: TRLNetwork(option: anOption))
-        
-        if self.networkManager.network.parsedURL.isLocal {
-            // Will hide this on this device so that its not known
-            let dm = DefaultsManager(withKey: "_local_websocket")
-            dm.set(object: "ws://127.0.0.1:8080/.ws")
-            let url = try! dm.retrieveObject() as! String
-            
-            // `⎇ click` for why this is needed for local testing
-            webSocketManager = TRLWebSocketManager(url: url, queue: socketQueue)
-            webSocketManager.open()
-        } else {
-            webSocketManager = TRLWebSocketManager(
-                networkManager.network.parsedURL,
-                queue: socketQueue
-            )
-            webSocketManager.open()
-        }
+//        let socketQueue = DispatchQueue(
+//            label: "io.trolley.ws",
+//            qos: .background,
+//            attributes: .concurrent
+//        )
+//        self.networkManager = TRLNetworkManager(network: TRLNetwork(option: anOption))
+//        
+//        if self.networkManager.network.parsedURL.isLocal {
+//            // Will hide this on this device so that its not known
+//            let dm = DefaultsManager(withKey: "_local_websocket")
+//            dm.set(object: "ws://127.0.0.1:8080/.ws")
+//            let url = try! dm.retrieveObject() as! String
+//            
+//            // `⎇ click` for why this is needed for local testing
+//            webSocketManager = TRLWebSocketManager(url: url, queue: socketQueue)
+//            webSocketManager.open()
+//        } else {
+//            webSocketManager = TRLWebSocketManager(
+//                networkManager.network.parsedURL,
+//                queue: socketQueue
+//            )
+//            webSocketManager.open()
+//        }
         
         guard let reach = Reachability() else {
             NSException.raise("Cannot setup Reachabilty")

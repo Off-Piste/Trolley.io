@@ -12,16 +12,16 @@ import SwiftyJSON
 
 extension Networkable {
     
-    func search() -> Promise<SearchResponse> {
-        return Promise { fullfill, reject in
-            self.JSON().then { (json) -> Void in
-                let searchableProducts = json.searchableProducts
-                fullfill(SearchResponse(searchableProducts))
-            }.catch { (error) in
-                reject(error)
-            }
-        }
-    }
+//    func search() -> Promise<SearchResponse> {
+//        return Promise { fullfill, reject in
+//            self.JSON().then { (json) -> Void in
+//                let searchableProducts = json.searchableProducts
+//                fullfill(SearchResponse(searchableProducts))
+//            }.catch { (error) in
+//                reject(error)
+//            }
+//        }
+//    }
     
 }
 
@@ -45,12 +45,12 @@ public class SearchableProducts: NSObject {
 
 public extension SearchableProducts {
     
-    public static func getAll() -> Promise<SearchResponse> {
-        return Trolley.shared.networkManager
-            .get(.products, with: ["isSearching" : true])
-            .response
-            .search()
-    }
+//    public static func getAll() -> Promise<SearchResponse> {
+//        return Trolley.shared.networkManager
+//            .get(.products, with: ["isSearching" : true])
+//            .response
+//            .search()
+//    }
     
 }
 

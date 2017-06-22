@@ -34,7 +34,7 @@ class TRLWebSocketConnection : NSObject {
     /// Workaround for:
     ///
     /// `nw_connection_get_connected_socket_block_invoke 1 Connection has no connected handler`
-    init?(url: String, queue: DispatchQueue = .main) {
+    init?(url: String, queue: DispatchQueue) {
         self.queue = queue
         
         guard let url = URL(string: url) else { return nil }
@@ -49,8 +49,8 @@ class TRLWebSocketConnection : NSObject {
     init(parsedURL: ParsedURL, queue: DispatchQueue = .main) {
         self.queue = queue
         
-        Log.debug("Connecting to: \(parsedURL.connectionURL)")
-        self.webSocket = SRWebSocket(url: parsedURL.connectionURL)
+        Log.debug("Connecting to: \(parsedURL.webSocketURL)")
+        self.webSocket = SRWebSocket(url: parsedURL.webSocketURL)
         self.webSocket.setDelegateDispatchQueue(queue)
         
         // needed to satisfy an error, may swap NSObject to

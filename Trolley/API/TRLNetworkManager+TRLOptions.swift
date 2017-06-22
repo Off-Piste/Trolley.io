@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension TRLNetwork {
+extension TRLNetworkManager {
     
-    init(option: TRLOptions) {
-        self.init(option.url, APIKey: option.merchantID)
+    init(option: TRLOptions) throws {
+        try self.init(option.url, key: option.merchantID)
     }
     
 }

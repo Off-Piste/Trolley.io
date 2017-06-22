@@ -1,91 +1,98 @@
 //
-//  TRLNetwork.swift
-//  Pods
+//  Network.swift
+//  Network
 //
-//  Created by Harry Wright on 15.06.17.
-//
+//  Created by Harry Wright on 19.06.17.
+//  Copyright © 2017 Trolley. All rights reserved.
 //
 
 import Foundation
-import PromiseKit
-
-// TODO: - Check to see if removing Custom URL's is a good idea
-// this is becasue we wouldn't want any random calls been used
-// and clogging up anything, so could keep to save them using
-// Alamofire and then so i can weign my self off them
+@_exported import Alamofire
 
 public struct TRLNetwork {
     
-    /// The URL that has been parsed and validated
-    fileprivate(set) var parsedURL: ParsedURL
+    var parsedURL: ParsedURL
     
-    /// The default notification center
-    fileprivate var notificationCenter: NotificationCenter {
-        return NotificationCenter.default
+    internal init(_ url: URLConvertible) throws {
+        self.parsedURL = try ParsedURL(url)
     }
     
-    /// <#Description#>
-    var delegate: NetworkableDelegate?
-    
-    /// An Initaliser that will allow the device to create a network that
-    /// all calls will be made from.
-    ///
-    /// - Parameters:
-    ///   - url: The string URL, will cause a fatal error if the url is invalid,
-    ///          this should never happen
-    ///   - APIKey: The Current Developers API key, will never be entered
-    ///             by them, always done internally
-    internal init(_ url: ParsedURL, APIKey: String) {
-        self.parsedURL = url
-        self.parsedURL.__addPath(APIKey)
-        
-        // May look at changing this
-        TRLUtilities.singleton.validate(self.parsedURL, key: APIKey)
+    internal init?(url: URLConvertible) {
+        do {
+            self.parsedURL = try ParsedURL(url)
+        } catch {
+            return nil
+        }
     }
     
-    internal init(_ url: String, APIKey: String) {
-        let parsedURL: ParsedURL = ParsedURL(url)
-        self.init(parsedURL, APIKey: APIKey)
+}
+
+extension TRLNetwork: CustomStringConvertible {
+    
+    public var description: String {
+        return "\(parsedURL)"
     }
     
 }
 
 extension TRLNetwork {
+    
+    internal func get(
+        _ route: String,
+        with parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: HTTPHeaders?
+        ) -> TRLRequest
+    {
+        return self._get(route, parameters, encoding, headers)
+    }
+    
+    private func _get(
+        _ route: String,
+        _ parameters: Parameters?,
+        _ encoding: ParameterEncoding,
+        _ headers: HTTPHeaders?
+        ) -> TRLRequest
+    {
+        let aURL = parsedURL.addingPath(route)
+        return TRLRequest(
+            url: aURL,
+            method: .get,
+            parameters: parameters,
+            encoding: encoding,
+            headers: headers
+        )
+    }
+    
+}
 
-    /// The method to get the items in the database
-    ///
-    /// - Parameters:
-    ///   - database: The required database
-    ///   - parameters: The parameters of the url
-    /// - Returns: The `TRLResponse` for the request
-    internal func get(_ database: Database, with parameters: Parameters) -> TRLRequest {
-        let anURL = self.parsedURL.addingPath(database.name)
-        
-        return self._get(anURL, with: parameters)
+extension TRLNetwork {
+    
+    internal func post(
+        _ route: String,
+        with parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: HTTPHeaders?
+        ) -> TRLRequest
+    {
+        return self._post(route, parameters, encoding, headers)
     }
     
-    /// The method to call a get request on a custom route,
-    /// this could be for a request that uses "/<something>/<something>"
-    /// that the `get(_:Database,with:)` could not hit
-    ///
-    /// - Parameters:
-    ///   - route: The required route
-    ///   - parameters: The parameters of the url
-    /// - Returns: The `TRLResponse` for the request
-    internal func get(_ route: String, with parameters: Parameters) -> TRLRequest {
-        let anURL = self.parsedURL.addingPath(route)
-        
-        return self._get(anURL, with: parameters)
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - url: <#url description#>
-    ///   - parameters: <#parameters description#>
-    /// - Returns: <#return value description#>
-    private func _get(_ url: URLConvertible, with parameters: Parameters) -> TRLRequest {
-        return TRLRequest(url, method: .get, parameters: parameters)
+    private func _post(
+        _ route: String,
+        _ parameters: Parameters?,
+        _ encoding: ParameterEncoding,
+        _ headers: HTTPHeaders?
+        ) -> TRLRequest
+    {
+        let aURL = parsedURL.addingPath(route)
+        return TRLRequest(
+            url: aURL,
+            method: .post,
+            parameters: parameters,
+            encoding: encoding,
+            headers: headers
+        )
     }
     
 }

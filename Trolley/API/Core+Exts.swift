@@ -69,17 +69,17 @@ public extension Products {
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-    class func getAll() -> Promise<[Products]> {
-        return self.networkManager.get(.products).response.products()
-    }
+//    class func getAll() -> Promise<[Products]> {
+//        return self.networkManager.get(.products).response.products()
+//    }
     
     /// <#Description#>
     ///
     /// - Parameter id: <#id description#>
     /// - Returns: <#return value description#>
-    class func getProduct(with id: String) -> Promise<Products> {
-        return networkManager.get(item: id, in: .products).response.product()
-    }
+//    class func getProduct(with id: String) -> Promise<Products> {
+//        return networkManager.get(item: id, in: .products).response.product()
+//    }
     
 }
 

@@ -42,19 +42,19 @@ extension TRLWebSocketManager: TRLWebSocketDelegate {
         onMessage message: Dictionary<String, Any>
         )
     {
-        for (key, value) in message {
-            if (value as! String) == kProductUpdatedKey {
-                let notif = TRLNotification<Any>(
-                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
-                )
-                notif.post(value)
-            } else if key == kProductUpdatedKey {
-                let notif = TRLNotification<Any>(
-                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
-                )
-                notif.post(key)
-            }
-        }
+//        for (key, value) in message {
+//            if (value as! String) == kProductUpdatedKey {
+//                let notif = TRLNotification<Any>(
+//                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
+//                )
+//                notif.post(value)
+//            } else if key == kProductUpdatedKey {
+//                let notif = TRLNotification<Any>(
+//                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
+//                )
+//                notif.post(key)
+//            }
+//        }
     }
     
     func webSocketOnDisconnect(

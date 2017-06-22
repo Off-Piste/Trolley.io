@@ -1,145 +1,78 @@
 //
 //  ParsedURL.swift
-//  Pods
+//  Network
 //
-//  Created by Harry Wright on 14.06.17.
-//
+//  Created by Harry Wright on 19.06.17.
+//  Copyright © 2017 Trolley. All rights reserved.
 //
 
 import Foundation
+import Alamofire
 
-/**
- Parsed URL is the class that holds the `URL` for any request,
- wether that be for the websocket or a normal rest request.
- 
- This will be what is passed rather than `URL` when using URLs.
- It also contains the info the for network call it will make,
- so if its secure, or the namespace or host or path and also 
- the querys.
- 
- All URL's entered, wether that be `String` or `URL` or using the 
- ExpressibleByStringLiteral protocol they will be
- parsed by `TRLUtilities.parse(_:checkingForError:)` so that the system can be sure
- it is hitting the correct location without an issue
- */
-class ParsedURL : ExpressibleByStringLiteral {
+enum InternalNetworkError: Error {
     
-    // Should never be accessable, by anything!
-    // all changes to the the network info / base url
-    // should be done here
-    fileprivate var networkInfo: TRLNetworkInfo
+    case urlIsNil
     
-    typealias StringLiteralType = String
+}
+
+// Work it like alamofire, and use the error in the handler
+
+internal struct ParsedURL {
     
-    typealias UnicodeScalarLiteralType = String
+    internal var parsedURLInfo: TRLNetworkInfo
     
-    typealias ExtendedGraphemeClusterLiteralType = String
-    
-    init(networkInfo: TRLNetworkInfo) {
-        self.networkInfo = networkInfo
+    internal init(_ urlInfo: TRLNetworkInfo) {
+        self.parsedURLInfo = urlInfo
     }
     
-    required convenience init(stringLiteral value: ParsedURL.StringLiteralType) {
-        self.init(value)
-    }
-    
-    required convenience init(unicodeScalarLiteral value: ParsedURL.UnicodeScalarLiteralType) {
-        self.init(value)
-    }
-    
-    required convenience init(
-        extendedGraphemeClusterLiteral value: ParsedURL.ExtendedGraphemeClusterLiteralType
-        )
-    {
-        self.init(value)
+    internal init(_ url: URLConvertible) throws {
+        self.parsedURLInfo = try TRLNetworkInfo(url: url)
     }
     
 }
 
-extension ParsedURL {
+internal extension ParsedURL {
 
-    /// The Method for which the url is parsed
-    ///
-    /// This will automatically check the url for errors, 
-    /// so custom errors should use init(_:check:) instead
-    /// if using a custom url
-    ///
-    /// - Parameter url: <#url description#>
-    convenience init(_ url: String) {
-        self.init(TRLUtilities.singleton.parseURL(url, checkingForError: true))
+    internal var url: URL? {
+        return try? self.asURL()
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - url: <#url description#>
-    ///   - check: <#check description#>
-    convenience init(_ url: URL, check: Bool = true) {
-        self.init(url.absoluteString, check: check)
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - url: <#url description#>
-    ///   - check: <#check description#>
-    convenience init(_ url: String, check: Bool) {
-        self.init(TRLUtilities.singleton.parseURL(url, checkingForError: check))
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameter parsedURL: <#parsedURL description#>
-    private convenience init(_ parsedURL: ParsedURL) {
-        self.init(networkInfo: parsedURL.networkInfo)
+    internal var webSocketURL: URL {
+        return parsedURLInfo.connectionURL
     }
     
 }
 
 extension ParsedURL : CustomStringConvertible {
-
+    
     var description: String {
-        return requestUrl != nil ? requestUrl!.absoluteString : connectionURL.absoluteString
+        return (url == nil) ? self.webSocketURL.absoluteString : self.url!.absoluteString
     }
     
 }
 
-extension ParsedURL {
+internal extension ParsedURL {
     
-    var requestUrl: URL? {
-        return networkInfo.url
+    internal func addingPath(_ path: String) -> ParsedURL {
+        return try! ParsedURL(self.parsedURLInfo.addingPath(path))
     }
     
-    var connectionURL: URL {
-        return networkInfo.connectionURL
+    internal mutating func _addPath(_ path: String) {
+        do {
+            try self.parsedURLInfo._addPath(path)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
     }
     
-    var query: URLQuery {
-        return URLQuery(self.isARequest ? requestUrl! : connectionURL)
-    }
+}
+
+/// this is so we can pass this in alamofire
+extension ParsedURL : URLConvertible {
     
-    var isARequest: Bool {
-        return requestUrl != nil
-    }
-    
-    var path: String {
-        return self.networkInfo.path
-    }
-    
-    var isLocal: Bool {
-        return self.networkInfo.isLocal
-    }
-    
-    var namespace: String {
-        return self.networkInfo.namespace
-    }
-    
-    func addingPath(_ path: String) -> ParsedURL {
-        return ParsedURL(networkInfo: self.networkInfo.addingPath(path))
-    }
-    
-    func __addPath(_ path: String) {
-        self.networkInfo.__addPath(path)
+    func asURL() throws -> URL {
+        guard let urlURl = self.url else { throw InternalNetworkError.urlIsNil }
+        return urlURl
     }
     
 }

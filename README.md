@@ -20,6 +20,10 @@ it, simply add the following line to your Podfile:
 pod "Trolley"
 ```
 
+## How To Use
+
+Making Requests:
+
 ## Author
 
 harrytwright, haroldtomwright@gmail.com

@@ -1,20 +1,16 @@
 //
 //  NetworkManager.swift
-//  Pods
+//  Network
 //
-//  Created by Harry Wright on 22.05.17.
-//
+//  Created by Harry Wright on 19.06.17.
+//  Copyright © 2017 Trolley. All rights reserved.
 //
 
 import Foundation
-import PromiseKit
 import Alamofire
 
-// TODO: Work with new API
-// TODO: New Get/Post/Delete/Put Methods
-
-let kOldBaseURL: String = "trolley-io.eu-gb.mybluemix.net/API"
-let kLocalHostURL: String = "localhost:8080/API"
+let kLocalURL: String = "http://localhost:8080/API"
+let kLocalIPURL: String = "http://127.0.0.1:8080/API"
 
 extension String {
     
@@ -24,29 +20,78 @@ extension String {
     
 }
 
+
 public struct TRLNetworkManager {
     
-    fileprivate(set) public var network: TRLNetwork
+    var network: TRLNetwork
     
-    public init(network: TRLNetwork) {
+    internal init(network: TRLNetwork, key: String) {
         self.network = network
+        self.network.parsedURL._addPath(key)
+    }
+    
+    internal init(_ url: URLConvertible, key: String) throws {
+        self.network = try TRLNetwork(url)
+        self.network.parsedURL._addPath(key)
+    }
+    
+    internal init?(url: URLConvertible, key: String) {
+        do {
+            self.network = try TRLNetwork(url)
+            self.network.parsedURL._addPath(key)
+        } catch {
+            return nil
+        }
+    }
+    
+}
+
+extension TRLNetworkManager : CustomStringConvertible {
+    
+    public var description: String {
+        return self.network.parsedURL.description
     }
     
 }
 
 public extension TRLNetworkManager {
     
-    func get(_ database: Database, with parameters: Parameters = [:]) -> TRLRequest {
-        return self.network.get(database, with: parameters)
+    func get(
+        _ route: String,
+        with parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil
+        ) -> TRLRequest
+    {
+        return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
     }
     
-    func get(_ route: String, with parameters: Parameters = [:]) -> TRLRequest {
-        return self.network.get(route, with: parameters)
+    func get(
+        item: String,
+        in route: String,
+        with parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil
+        ) -> TRLRequest
+    {
+        let route = String.urlRoute(for: route, item)
+        return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
     }
     
-    func get(item: String, in db: Database, with parameters: Parameters = [:]) -> TRLRequest {
-        let route = String.urlRoute(for: db.name, item)
-        return self.network.get(route, with: parameters)
+}
+
+// TODO: Make sure this works
+
+public extension TRLNetworkManager {
+    
+    func post(
+        _ object: Object,
+        in route: String,
+        with parameters: Parameters = [:],
+        headers: HTTPHeaders? = [:]
+        ) -> TRLRequest
+    {
+        return self.network.post(route, with: parameters, encoding: object, headers: headers)
     }
     
 }

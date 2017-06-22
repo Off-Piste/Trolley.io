@@ -7,6 +7,15 @@
 //
 
 import Foundation
+import Alamofire
+
+func createError(_ reason: String) -> Error {
+    return NSError(
+        domain: "io.trolley.database",
+        code: 0,
+        userInfo: [NSLocalizedDescriptionKey: reason]
+    ) as Error
+}
 
 struct TRLUtilities {
     
@@ -14,123 +23,56 @@ struct TRLUtilities {
     
     fileprivate var kRequiredPath: String = "API"
     
-    typealias URLReturn = (String, String, Bool, String, URL?)
+    /// (Host, Namespace, Secure, URL?)
+    typealias URLReturn = (String, String, Bool, URL?)
     
-    /// The method to split the URL down to its key
-    /// components, using both URLComponents and
-    /// `getNamspaceAndSecure(inHost:scheme:)`
+    /// The Method to split down the URL to get its parts
     ///
-    /// - Parameter url: The url as `String` to be split
-    /// - Returns: `(Host, Namespace, Secure, Path, URL?)`
-    func split(url: String) -> URLReturn {
-        guard let url = URL(string: url),
-            let comp = URLComponents(url: url, resolvingAgainstBaseURL: true),
-            let scheme = comp.scheme,
-            let host = comp.host
-            else { fatalError("Invalid URL") }
-        
-        let (namespace, secure) = self.getNamspaceAndSecure(inHost: host, scheme: scheme)
-        return (host, namespace, secure, comp.path, url)
-    }
-    
-    /// The method called to check the URL to make sure
-    /// it is fit for API calls and consumption
-    ///
-    /// - Parameters:
-    ///   - url: The URL making the calls
-    ///   - checkingForError: Wether tha URL should be checked for any more errors
-    /// - Returns: A new ParsedURL that has been checked out
-    func parseURL(_ url: String, checkingForError: Bool = false) -> ParsedURL {
-        let (host, namespace, secure, path, url) = self.split(url: url)
-        
-        if checkingForError {
-            if !self.checkForAPIPath(inPath: path) { fatalError("Invalid API Path") }
-        }
-        
-        let info = TRLNetworkInfo(host: host, namespace: namespace, secure: secure, url: url)
-        return ParsedURL(networkInfo: info)
-    }
-    
-    /// The method called to check the URL to make sure
-    /// it is fit for API calls and consumption
-    ///
-    /// - Parameters:
-    ///   - url: The URL making the calls
-    ///   - checkingForError: Wether tha URL should be checked for any more errors
-    /// - Returns: A new ParsedURL that has been checked out
-    func parseURL(_ url: URL, checkingForError check: Bool = false) -> ParsedURL {
-        return self.parseURL(url.absoluteString, checkingForError: check)
+    /// - Parameter url: The URL to be split up and checked
+    /// - Returns: (Host, Namespace, Secure, URL?)
+    /// - Throws: An Error, mainly invalid URL
+    func split(_ url: URLConvertible) throws -> URLReturn {
+        let stringURL = try url.asURL().absoluteString
+        return try self._split(stringURL)
     }
     
     /// Method to valid the url and check it contains the right
-    /// APIKey, this should never fail but will soon move the fatalErrors 
+    /// APIKey, this should never fail but will soon move the fatalErrors
     /// to actual errors and maybe have a docatch system in place
     ///
     /// - Parameters:
     ///   - url: The URL making the calls
     ///   - APIKey: The URL key that the url is set to contain
-    func validate(_ url: ParsedURL, key APIKey: String) {
-        if url.requestUrl == nil { fatalError("Failed Validation Check 1 : No request URL") }
-        let (_, _, _, path, _) = self.split(url: url.requestUrl!.absoluteString)
-        if !self.checkForAPIPath(inPath: path) {
-            fatalError("Failed Validation Check 2 : No request /API in the request")
+    func validate(_ url: ParsedURL, key APIKey: String) throws {
+        if url.url == nil { throw createError("No request URL") }
+        let (_, _, _, _) = try self.split(url)
+        let path = url.url!.path
+        
+        if !self.checkForAPIInPath(path) {
+            throw createError("No request /API in the request")
         }
         
-        if checkAPIKey(APIKey, in: path) { return }
-        else { fatalError("Failed Validation Check 3 : No/Invalid API Key") }
+        if try checkAPIKey(APIKey, in: path) { return }
+        else { throw createError("No/Invalid API Key") }
     }
+
     
 }
 
 private extension TRLUtilities {
-    
-    /// Method to check the path for /API/ or /API
-    func checkForAPIPath(inPath path: String) -> Bool {
-        var mutatingPath: String
-        
-        if (path.characters.first == "/") { mutatingPath = (path as NSString).substring(from: 1) }
-        else { mutatingPath = path }
-        
-        let slashIndex = (mutatingPath as NSString).range(of: "/").location
-        if slashIndex != NSNotFound {
-            mutatingPath = (mutatingPath as NSString).substring(to: slashIndex)
-            if mutatingPath != self.kRequiredPath { return false }
-            else { return true }
-        } else {
-            if mutatingPath != self.kRequiredPath { return false }
-            else { return true }
-        }
-    }
-    
-    /// Method to check the API in the path
-    func checkAPIKey(_ APIKey: String, in path: String) -> Bool {
-        var mutatingPath: String
-        
-        if (path.characters.first == "/") { mutatingPath = (path as NSString).substring(from: 1) }
-        else { mutatingPath = path }
-        
-        // Should never fail as a previous check checks for this
-        var slashIndex = (mutatingPath as NSString).range(of: "/").location
-        mutatingPath = (mutatingPath as NSString).substring(from: slashIndex + 1)
-        
-        // Checks the API Key
-        let key: String
-        if APIKey.isEmpty { fatalError("API Key is rquired for calls to the database") }
-        slashIndex = (mutatingPath as NSString).range(of: "/").location
-        if slashIndex == NSNotFound { // the url is only "API/id"
-            key = mutatingPath
-        } else {
-            key = (mutatingPath as NSString).substring(to: slashIndex)
-        }
-        
-        if key != APIKey { return false }
-        return true
-    }
 
+    func _split(_ urlString: String) throws -> URLReturn {
+        guard let url = URL(string: urlString),
+            let comp = URLComponents(url: url, resolvingAgainstBaseURL: true),
+            let scheme = comp.scheme,
+            let host = comp.host
+            else { throw createError("Invalid URL \(urlString)") }
+        
+        let (namespace, secure) = try self._stripURLForNamespaceAndSecure(host: host, scheme: scheme)
+        return (host, namespace, secure, url)
+    }
     
-    /// Method to get both the namespace and secure from both the
-    /// host and scheme
-    func getNamspaceAndSecure(inHost host: String, scheme: String) -> (String, Bool) {
+    func _stripURLForNamespaceAndSecure(host: String, scheme: String) throws -> (String, Bool) {
         let secure: Bool
         var namespace: String
         
@@ -162,11 +104,56 @@ private extension TRLUtilities {
                 namespace = parts[0].lowercased()
             }
         } else {
-            fatalError("Invalid URL")
+            throw createError("Invalid URL")
         }
         
         return (namespace, secure)
+
+    }
+}
+
+private extension TRLUtilities {
+    
+    /// Method to check the path for /API/ or /API
+    func checkForAPIInPath(_ path: String) -> Bool {
+        var mutatingPath: String
+        
+        if (path.characters.first == "/") { mutatingPath = (path as NSString).substring(from: 1) }
+        else { mutatingPath = path }
+        
+        let slashIndex = (mutatingPath as NSString).range(of: "/").location
+        if slashIndex != NSNotFound {
+            mutatingPath = (mutatingPath as NSString).substring(to: slashIndex)
+            if mutatingPath != self.kRequiredPath { return false }
+            else { return true }
+        } else {
+            if mutatingPath != self.kRequiredPath { return false }
+            else { return true }
+        }
     }
     
-    
+    /// Method to check the API in the path
+    func checkAPIKey(_ APIKey: String, in path: String) throws -> Bool {
+        var mutatingPath: String
+        
+        if (path.characters.first == "/") { mutatingPath = (path as NSString).substring(from: 1) }
+        else { mutatingPath = path }
+        
+        // Should never fail as a previous check checks for this
+        var slashIndex = (mutatingPath as NSString).range(of: "/").location
+        mutatingPath = (mutatingPath as NSString).substring(from: slashIndex + 1)
+        
+        // Checks the API Key
+        let key: String
+        if APIKey.isEmpty { throw createError("API Key is rquired for calls to the database") }
+        slashIndex = (mutatingPath as NSString).range(of: "/").location
+        if slashIndex == NSNotFound { // the url is only "API/id"
+            key = mutatingPath
+        } else {
+            key = (mutatingPath as NSString).substring(to: slashIndex)
+        }
+        
+        if key != APIKey { return false }
+        return true
+    }
 }

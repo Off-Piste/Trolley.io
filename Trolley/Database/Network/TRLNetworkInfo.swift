@@ -1,83 +1,55 @@
 //
-//  TRLNetworkInfo.swift
-//  Pods
+//  URLInfo.swift
+//  Network
 //
-//  Created by Harry Wright on 14.06.17.
-//
+//  Created by Harry Wright on 19.06.17.
+//  Copyright © 2017 Trolley. All rights reserved.
 //
 
 import Foundation
-/**
- TRLNetworkInfo is a struct that holds all the info on 
- the current network calls.
- 
- So that when you call a request you can know some details about it.
- It also is used to creat
- */
-struct TRLNetworkInfo {
+import Alamofire
+
+
+internal struct TRLNetworkInfo {
     
-    /// <#Description#>
-    var host: String
+    internal private(set) var host: String
     
-    /// <#Description#>
-    var namespace: String
+    internal private(set) var namespace: String
     
-    /// <#Description#>
-    var secure: Bool
+    internal private(set) var secure: Bool
     
-    /// <#Description#>
-    var url: URL?
+    internal fileprivate(set) var url: URL?
     
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - host: <#host description#>
-    ///   - namespace: <#namespace description#>
-    ///   - secure: <#secure description#>
-    ///   - url: <#url description#>
-    init(host: String, namespace: String, secure: Bool, url: URL? = nil) {
+    internal init(host: String, namespace: String, secure: Bool, url: URL? = nil) {
         self.host = host
         self.namespace = namespace
         self.secure = secure
         self.url = url
     }
     
-    /// **Only** to be used when adding the API key,
-    /// nothing else should touch this.
-    mutating func __addPath(_ path: String) {
-        if url == nil { fatalError("Paths cannot be added to `connectionURL`") }
-        self.url!.appendPathComponent("/\(path)")
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameter path: <#path description#>
-    /// - Returns: <#return value description#>
-    func addingPath(_ path: String) -> TRLNetworkInfo {
-        if url == nil { fatalError("Paths cannot be added to `connectionURL`") }
-        var aURL = url!
-        let last = aURL.absoluteString.characters.last!
-        let newPath = (last == "/") ? path : "/" + path
-        aURL.appendPathComponent(newPath)
-        
-        return TRLNetworkInfo(
-            host: self.host,
-            namespace: self.namespace,
-            secure: self.secure,
-            url: aURL
-        )
+    internal init(url: URLConvertible) throws {
+        let (host, namespace, secure, url) = try TRLUtilities.singleton.split(url)
+        self.init(host: host, namespace: namespace, secure: secure, url: url)
     }
     
 }
 
-extension TRLNetworkInfo {
-
-    /// <#Description#>
-    var isLocal: Bool {
-        return self.namespace == "localhost"
+internal extension TRLNetworkInfo {
+    
+    mutating func _addPath(_ path: String) throws {
+        if url == nil { throw InternalNetworkError.urlIsNil }
+        self.url!.appendPathComponent("/\(path)")
     }
     
-    /// May move this out of the default implementation and add as an extension
+    func addingPath(_ path: String) throws -> TRLNetworkInfo {
+        if url == nil { throw InternalNetworkError.urlIsNil }
+        var aURL = url!
+        let last = aURL.absoluteString.characters.last!
+        let newPath = (last == "/") ? path : "/" + path
+        aURL.appendPathComponent(newPath)
+        return TRLNetworkInfo(host: host, namespace: namespace, secure: secure, url: aURL)
+    }
+    
     var connectionURL: URL {
         var scheme: String
         if self.secure {
@@ -93,17 +65,5 @@ extension TRLNetworkInfo {
         return url
     }
     
-    /// <#Description#>
-    var path: String {
-        guard let url = self.url,
-            let urlComp = URLComponents(url: url, resolvingAgainstBaseURL: true)
-            else {
-                return ""
-        }
-        
-        let path = urlComp.path
-        let range = (path as NSString).range(of: "/").location
-        return (path as NSString).substring(from: range + 1)
-    }
     
 }
