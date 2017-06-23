@@ -20,6 +20,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // If not then we would reccomend using `Trolley/Core` in your podfile
         // for the use of the Core functionality without all the heavy stuff
         Trolley.shared.configure()
+        Trolley.shared.setLoggingEnabled(true)
         
         // Calling the `configure()` method again will not do anything other than
         // have our logger letting you know that you have it called twice

@@ -9,6 +9,7 @@
 // MARK: This will hold all the Notifications and route them
 
 import Foundation
+import Alamofire
 
 let kProductUpdatedKey: String = "product-updated"
 
@@ -16,18 +17,19 @@ struct TRLWebSocketManager {
     
     private var connection: TRLWebSocketConnection
     
-    init(_ url: ParsedURL, queue: DispatchQueue = .main) {
-        self.connection = TRLWebSocketConnection(parsedURL: url, queue: queue)
+    /// Note:
+    ///
+    /// For ->
+    /// nw_connection_get_connected_socket_block_invoke 1 Connection has no connected handler
+    /// please use a `String` input of your ip address rather than the `ParsedURL`
+    ///
+    /// - Parameters:
+    ///   - url: The url to be used
+    ///   - protocols:
+    /// - Throws: An error of invalid URL if the url is invalid
+    init(url: URLConvertible, protocols: [String]?) throws {
+        self.connection = try TRLWebSocketConnection(url: url, protocols: protocols)
         self.connection.delegate = self
-    }
-    
-    init(url: String, queue: DispatchQueue = .main) {
-        self.connection = TRLWebSocketConnection(url: url, queue: queue)!
-        self.connection.delegate = self
-    }
-    
-    func setLogging(_ value: Bool) {
-        self.connection.websocketLoggingEnabled = value
     }
     
     func open() {
@@ -42,19 +44,7 @@ extension TRLWebSocketManager: TRLWebSocketDelegate {
         onMessage message: Dictionary<String, Any>
         )
     {
-//        for (key, value) in message {
-//            if (value as! String) == kProductUpdatedKey {
-//                let notif = TRLNotification<Any>(
-//                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
-//                )
-//                notif.post(value)
-//            } else if key == kProductUpdatedKey {
-//                let notif = TRLNotification<Any>(
-//                    TRLNotificationTypes.productUpdated.internalNotificationName.rawValue
-//                )
-//                notif.post(key)
-//            }
-//        }
+        
     }
     
     func webSocketOnDisconnect(

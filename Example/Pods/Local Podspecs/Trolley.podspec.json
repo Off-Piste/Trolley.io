@@ -28,7 +28,9 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Trolley/Core/**/**/*.swift"
+      "source_files": [
+        "Trolley/Core/**/**/*.swift"
+      ]
     },
     {
       "name": "Networking",
@@ -44,15 +46,12 @@
     },
     {
       "name": "Database",
-      "source_files": "Trolley/Database/**/**/*.swift",
+      "source_files": "Trolley/Database/**/**/*.{swift, h, m}",
       "dependencies": {
         "Trolley/Networking": [
 
         ],
         "SwiftyJSON": [
-
-        ],
-        "SocketRocket": [
 
         ],
         "PromiseKit/Alamofire": [

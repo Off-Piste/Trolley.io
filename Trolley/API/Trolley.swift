@@ -121,6 +121,12 @@ public class Trolley {
         self.anOption.validate()
         do {
             self.networkManager = try TRLNetworkManager(option: anOption)
+            
+            let dm = DefaultsManager(withKey: "_local_websocket")
+            let url = try! dm.retrieveObject() as! String
+            
+            self.webSocketManager = try TRLWebSocketManager(url: url, protocols: nil)
+            self.webSocketManager.open()
         } catch {
             Log.error(
                 "Reason:", error.localizedDescription, "What will happen next?",
@@ -131,30 +137,6 @@ public class Trolley {
             )
         }
         
-//        let socketQueue = DispatchQueue(
-//            label: "io.trolley.ws",
-//            qos: .background,
-//            attributes: .concurrent
-//        )
-//        self.networkManager = TRLNetworkManager(network: TRLNetwork(option: anOption))
-//        
-//        if self.networkManager.network.parsedURL.isLocal {
-//            // Will hide this on this device so that its not known
-//            let dm = DefaultsManager(withKey: "_local_websocket")
-//            dm.set(object: "ws://127.0.0.1:8080/.ws")
-//            let url = try! dm.retrieveObject() as! String
-//            
-//            // `⎇ click` for why this is needed for local testing
-//            webSocketManager = TRLWebSocketManager(url: url, queue: socketQueue)
-//            webSocketManager.open()
-//        } else {
-//            webSocketManager = TRLWebSocketManager(
-//                networkManager.network.parsedURL,
-//                queue: socketQueue
-//            )
-//            webSocketManager.open()
-//        }
-        
         guard let reach = Reachability() else {
             NSException.raise("Cannot setup Reachabilty")
             return
@@ -164,10 +146,10 @@ public class Trolley {
             return reach.promise()
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
-            Log.info(newReach)
+            Log.debug("Reachability", newReach, true)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
-            Log.info(convertor.conversionRate)
+            Log.debug("Conversion rate:", convertor.conversionRate)
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
             //
@@ -177,9 +159,9 @@ public class Trolley {
 
     }
     
+    public
     func setLoggingEnabled(_ enabled: Bool) {
         isInDebugMode = enabled
-        webSocketManager.setLogging(enabled)
     }
     
 }

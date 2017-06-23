@@ -7,159 +7,75 @@
 //
 
 import Foundation
-import SocketRocket
+import Alamofire
 
-/// - Note 
-/// Due to ObjectiveC framework, NSObject is required.
-class TRLWebSocketConnection : NSObject {
+var kUserAgent: String {
+    let systemVersion = TRLAppEnviroment.current.systemVersion
+    let deviceName = UIDevice.current.model
+    let bundleIdentifier: String? = Bundle.main.bundleIdentifier
+    
+    let ua: String = "Firebase/13/\(systemVersion)/\(deviceName)_\((bundleIdentifier) ?? "unknown")"
+    return ua
+}
+
+class TRLWebSocketConnection {
+    
+    fileprivate private(set) var webSocket: WebSocket
     
     var delegate: TRLWebSocketDelegate?
     
-    fileprivate private(set) var webSocket: SRWebSocket
+    var wasEverConnected: Bool = false
     
-    fileprivate private(set) var queue: DispatchQueue
-    
-    fileprivate var keepAlive: Timer?
-    
-    fileprivate var everConnected: Bool = false
-    
-    internal var websocketLoggingEnabled: Bool {
-        get {
-            return kLoggingEnabled.boolValue
-        } set {
-            kLoggingEnabled = ObjCBool(newValue)
-        }
-    }
-    
-    /// Workaround for:
-    ///
-    /// `nw_connection_get_connected_socket_block_invoke 1 Connection has no connected handler`
-    init?(url: String, queue: DispatchQueue) {
-        self.queue = queue
-        
-        guard let url = URL(string: url) else { return nil }
-        self.webSocket = SRWebSocket(url: url)
-        self.webSocket.setDelegateDispatchQueue(queue)
-        
-        super.init()
+    init(url: URLConvertible, protocols: [String]?) throws {
+        self.webSocket = WebSocket(
+            url: try url.asURL(),
+            QOS: .background,
+            protocols: protocols,
+            userAgent: kUserAgent
+        )
         self.webSocket.delegate = self
-        kLoggingEnabled = true
-    }
-    
-    init(parsedURL: ParsedURL, queue: DispatchQueue = .main) {
-        self.queue = queue
-        
-        Log.debug("Connecting to: \(parsedURL.webSocketURL)")
-        self.webSocket = SRWebSocket(url: parsedURL.webSocketURL)
-        self.webSocket.setDelegateDispatchQueue(queue)
-        
-        // needed to satisfy an error, may swap NSObject to
-        // NSObjectProtocol to save this error from occuring
-        super.init()
-        self.webSocket.delegate = self
-        
-        kLoggingEnabled = true
     }
     
 }
 
-/**
- 
- */
 extension TRLWebSocketConnection {
-
+    
     func open() {
-        assert(delegate != nil)
+        assert(delegate != nil, "TRLWebSocketDelegate must be set")
+        self.webSocket.connect()
         
-        self.everConnected = false
-        self.webSocket.open()
-        
-//        let when = DispatchTime.now() + .milliseconds(300)
-//        queue.asyncAfter(deadline: when) {
-//            self.closeIfNeverConnected()
-//        }
+        self.waitForTimeout(300)
     }
     
     func close() {
-        self.webSocket.close()
-    }
-
-}
-
-/**
- 
- */
-extension TRLWebSocketConnection : SRWebSocketDelegate {
-
-    func webSocket(_ webSocket: SRWebSocket!, didReceiveMessage message: Any!) {
-        Log.debug(message)
-        self.restartTimer()
-        delegate?.webSocket(self, onMessage: [Date().string : message])
+        self.webSocket.disconnect()
     }
     
-    func webSocketDidOpen(_ webSocket: SRWebSocket!) {
-        Log.debug(webSocket.protocol)
-        self.everConnected = true
-        
-        self.keepAlive = Timer.scheduledTimer(
-            timeInterval: 45,
-            target: self,
-            selector: #selector(nop(_:)),
-            userInfo: nil,
-            repeats: true
+    func waitForTimeout(_ time: TimeInterval) {
+        self.webSocket.disconnect(
+            forceTimeout: time,
+            closeCode: WebSocket.CloseCode.noStatusReceived.rawValue
         )
     }
-    
-    func webSocket(_ webSocket: SRWebSocket!, didFailWithError error: Error!) {
-        Log.error(error.localizedDescription, showSource: true, showThread: true)
-        delegate?.webSocketOnDisconnect(self, wasEverConnected: self.everConnected)
-    }
-    
-    func webSocket(
-        _ webSocket: SRWebSocket!,
-        didCloseWithCode code: Int,
-        reason: String!,
-        wasClean: Bool
-        )
-    {
-        // `_bridgeToObjectiveC()` causes a crash here, check for nil
-        // first before adding a reason.
-        let reason = (reason == nil) ? "nil" : reason
-        Log.debug(self.createError(withReason: reason, code: code))
-        delegate?.webSocketOnDisconnect(self, wasEverConnected: self.everConnected)
-    }
-    
 }
 
-/**
- 
- */
-private extension TRLWebSocketConnection {
+extension TRLWebSocketConnection : WebSocketDelegate {
     
-    func createError(withReason reason: String?, code: Int) -> NSError {
-        let userInfo = [NSLocalizedDescriptionKey: reason ?? "nil"]
-        return NSError(domain: self.queue.label, code: code, userInfo: userInfo)
+    func webSocketDidConnect(_ socket: WebSocket) {
+        self.wasEverConnected = true
+        self.delegate?.webSocketOnConnection(self)
     }
     
-    func closeIfNeverConnected() {
-        Log.debug()
-        
-        if everConnected { return }
-        Log.debug("WebSocket timed out")
-        self.webSocket.close(withCode: 1010, reason: "WebSocket timed out")
+    func webSocket(_ socket: WebSocket, didReceiveData data: Data) {
+        self.delegate?.webSocket(self, onMessage: ["Data" : data])
     }
     
-    @objc func nop(_ timer: Timer) {
-        self.webSocket.send("0")
+    func webSocket(_ socket: WebSocket, didReceiveMessage message: String) {
+        self.delegate?.webSocket(self, onMessage: ["Message" : message])
     }
     
-    func restartTimer() {
-        if keepAlive == nil { return }
-        
-        let newTime = Date(timeIntervalSinceNow: 45)
-        if newTime.timeIntervalSince(keepAlive!.fireDate) > 5 {
-            keepAlive!.fireDate = newTime
-        }
+    func webSocket(_ socket: WebSocket, didDisconnect error: NSError?) {
+        self.delegate?.webSocketOnDisconnect(self, wasEverConnected: self.wasEverConnected)
     }
     
 }

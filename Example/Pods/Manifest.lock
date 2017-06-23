@@ -18,14 +18,12 @@ PODS:
   - PromiseKit/UIKit (4.2.0):
     - PromiseKit/CorePromise
   - Quick (1.0.0)
-  - SocketRocket (0.5.1)
   - SwiftyJSON (3.1.4)
   - Trolley (0.1.0):
     - Trolley/Default (= 0.1.0)
   - Trolley/Core (0.1.0)
   - Trolley/Database (0.1.0):
     - PromiseKit/Alamofire
-    - SocketRocket
     - SwiftyJSON
     - Trolley/Networking
   - Trolley/Default (0.1.0):
@@ -49,9 +47,8 @@ SPEC CHECKSUMS:
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Trolley: dddcdcaf85c4bff93ab968c9719279af0eadfea9
+  Trolley: 3d507c936d46b67a7e08dabaab8060513d0ad203
 
 PODFILE CHECKSUM: fe52414c8d50f328d0654fb507de600b3e3bdf34
 

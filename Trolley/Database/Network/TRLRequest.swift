@@ -9,6 +9,13 @@
 import Foundation
 import PromiseKit
 
+precedencegroup BooleanPrecedence { associativity: left }
+infix operator ^^ : BooleanPrecedence
+
+func ^^(lhs: Bool, rhs: Bool) -> Bool {
+    return lhs != rhs
+}
+
 func request(_ request: TRLRequest) -> DataRequest {
     return Alamofire.request(
         request.url,
@@ -127,8 +134,8 @@ public extension TRLRequest {
     func _validateRequest() -> Error? {
         let queryParameters = URLQuery(self.url)
         
-        if queryParameters[kPageQueryKey] == nil,
-            queryParameters[kRateQueryKey] == nil {
+        if (queryParameters[kPageQueryKey] == nil) ^^
+            (queryParameters[kRateQueryKey] == nil) {
             return createError("page(_:) needs to be called with rate(_:)")
         }
         

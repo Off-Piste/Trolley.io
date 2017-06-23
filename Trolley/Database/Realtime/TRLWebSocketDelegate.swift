@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Alamofire
-import SocketRocket
 
 protocol TRLWebSocketDelegate {
     
@@ -19,5 +17,6 @@ protocol TRLWebSocketDelegate {
     func webSocketOnLostConnection(_ connection: TRLWebSocketConnection)
     
     func webSocketOnConnection(_ connection: TRLWebSocketConnection)
+    
 }
 
