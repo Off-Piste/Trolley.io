@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'Trolley_Example' do
   pod 'Trolley', :path => '../'
+  pod 'Trolley/Database', :path => '../'
 
   target 'Trolley_Tests' do
     inherit! :search_paths

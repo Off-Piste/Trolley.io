@@ -6,13 +6,15 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 
+# TODO: Change Names
+
 Pod::Spec.new do |s|
   s.name             = 'Trolley'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Trolley For Life fite me'
+  s.summary          = 'Trolley is everything I could wish for'
 
   s.description      = <<-DESC
-A short description of Trolley for me to do later
+A very very very very very very very short description of Trolley for me to do later
                        DESC
 
   s.homepage         = 'https://github.com/Off-Piste/Trolley.io'
@@ -21,33 +23,28 @@ A short description of Trolley for me to do later
   s.source           = { :git => 'https://github.com/Off-Piste/Trolley.io.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'Trolley/**/**/*'
   s.frameworks = 'Foundation', 'UIKit', 'PassKit'
-  s.default_subspecs = 'Default'
+  s.default_subspecs = 'Core'
 
-  s.subspec 'Core' do |core|
-    cc = ['Trolley/Core/**/**/*.swift']
-    core.source_files = cc
-  end
+  s.subspec 'Core' do |c|
+      networking = ['Trolley/Core/Networking/**/**/*.swift']
+      core = ['Trolley/Core/Core/**/**/*.swift']
+      core += networking
+      c.source_files = core
 
-  s.subspec 'Networking' do |n|
-    n.source_files = 'Trolley/Networking/**/**/*.swift'
-    n.dependency 'Trolley/Core'
-    n.dependency 'PromiseKit'
+      c.dependency 'PromiseKit/CoreLocation'
+      c.dependency 'PromiseKit'
+      c.dependency 'SwiftyJSON'
+      c.dependency 'PromiseKit/Alamofire'
   end
 
   s.subspec 'Database' do |d|
-    d.source_files = 'Trolley/Database/**/**/*.{swift, h, m}'
-    d.dependency 'Trolley/Networking'
-    d.dependency 'SwiftyJSON'
-    d.dependency 'PromiseKit/Alamofire'
-  end
+      networking = ['Trolley/Database/TRLDatabaseNetworking/**/**/*.swift']
+      core = ['Trolley/Database/TRLDatabaseCore/**/**/*.swift']
+      core += networking
 
-  s.subspec 'Default' do |default|
-    default.source_files = 'Trolley/API/**/**/*.swift'
-    default.dependency 'Trolley/Database'
-    default.dependency 'PromiseKit/CoreLocation'
+      d.source_files = core
+      d.dependency 'Trolley/Core'
   end
 
 end
