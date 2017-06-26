@@ -29,7 +29,9 @@ A very very very very very very very short description of Trolley for me to do l
   s.subspec 'Core' do |c|
       networking = ['Trolley/Core/Networking/**/**/*.swift']
       core = ['Trolley/Core/Core/**/**/*.swift']
+      required = ['Trolley/Core/Root/**/**/*.swift']
       core += networking
+      core += required
       c.source_files = core
 
       c.dependency 'PromiseKit/CoreLocation'

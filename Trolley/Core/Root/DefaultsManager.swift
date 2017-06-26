@@ -7,16 +7,25 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+public protocol JSONCoding {
+    
+    func encode() throws -> Data
+    
+    func decode(_ data: Data) throws -> JSON
+    
+}
 
 /// The errors that will be thrown
 ///
 /// - returnValueNil: The value that is being requested is nil
 /// - couldNotUnarchive: The encoder could not encode the data
 public enum DefaultsManagerError: Error {
-
+    
     case returnValueNil(forKey: String)
     case couldNotUnarchive(forKey: String)
-
+    
     var localizedDescription: String {
         switch self {
         case .returnValueNil(let key):
@@ -30,54 +39,54 @@ public enum DefaultsManagerError: Error {
 /// Shorter name for `DefaultsManagerError`
 public typealias ManagerError = DefaultsManagerError
 
-/**
-
- */
 public class DefaultsManager {
-
+    
     /// The standard UserDefaults shared instance
     private let defaults = UserDefaults.standard
-
+    
     /// The key for the UserDefaults object
     private let _key: String
-
+    
     /// Initaliser to set up the key
     ///
     /// - Parameter key: The string key for UD
     public init(withKey key: String) {
         self._key = key
     }
-
-    /// The method to try and retrive the object from storage
-    ///
-    /// - Returns: The object in Any form, you can convert after
-    /// - Throws: Throws and error if the data is nil or can't be decoded
+    
     public func retrieveObject() throws -> Any {
         guard let data = defaults.data(forKey: _key) else {
             throw ManagerError.returnValueNil(forKey: _key)
         }
-
+        
         return try Encoder.decode(data: data, forKey: _key)
     }
-
-    /// The method to set the object in UserDefaults
-    ///
-    /// - Parameter object: The object, will be encoded and converted to data
-    public func set(object: Any) {
-        defaults.set(Encoder(withObject: object).data, forKey: _key)
+    
+    public func retriveJSON<JSONCodable: JSONCoding>(
+        for object: JSONCodable
+        ) throws -> JSON
+    {
+        guard let data = defaults.data(forKey: self._key) else {
+            throw ManagerError.returnValueNil(forKey: self._key)
+        }
+        
+        return try object.decode(data)
     }
-
+    
+    public func set(_ object: Any) {
+        let data = Encoder(withObject: object).data
+        self.defaults.set(data, forKey: self._key)
+    }
+    
+    public func set<JSONCodable: JSONCoding>(object: JSONCodable) throws {
+        try self.defaults.set(object.encode(), forKey: self._key)
+    }
+    
     /// The method to remove objects for the key
     public func clear() {
         defaults.removeObject(forKey: _key)
     }
-
-    /** Testing Method */
-    internal func setAndGet(object: Any) throws -> Any {
-        self.set(object: object)
-        return try retrieveObject()
-    }
-
+    
 }
 
 fileprivate class Encoder {
@@ -92,12 +101,7 @@ fileprivate class Encoder {
     ///
     /// - Parameter object: Any object, please confom custom objects to `NSCoding`
     init(withObject object: Any) {
-        // if object is Basket {
-        //     let basket = object as! Basket
-        //     self.data = basket.data()
-        // } else {
-            self.data = NSKeyedArchiver.archivedData(withRootObject: object)
-        // }
+        self.data = NSKeyedArchiver.archivedData(withRootObject: object)
     }
 
     /// The method for whichh objects are attemped to be decoded
@@ -113,11 +117,6 @@ fileprivate class Encoder {
         guard let object = NSKeyedUnarchiver.unarchiveObject(with: data) else {
             throw ManagerError.couldNotUnarchive(forKey: key)
         }
-
-        // Structs are different and require a helper class to be archived
-        // if object is Basket.Helper {
-        //     return Basket.decode(for: data)
-        // }
         
         return object
     }

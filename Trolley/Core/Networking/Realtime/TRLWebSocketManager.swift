@@ -35,6 +35,10 @@ struct TRLWebSocketManager {
     func open() {
         self.connection.open()
     }
+    
+    func send(_ message: String) {
+        self.connection.send(message)
+    }
 }
 
 extension TRLWebSocketManager: TRLWebSocketDelegate {

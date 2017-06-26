@@ -202,7 +202,7 @@ public class CurrencyConverter: CurrencyConvertable {
                     }
                     
                     if let rate = self._offlineRates[self._localCurrencyCode] {
-                        self.newManager.set(object: rates)
+                        self.newManager.set(rates)
                         self.conversionRate = rate
                         
                         completion(nil)
@@ -229,7 +229,7 @@ public class CurrencyConverter: CurrencyConvertable {
             let values = try manager.retrieveObject()
             _checkForNotEmpty(values as! Dictionary<String, Any>, "Should have items inside")
         } catch {
-            manager.set(object: [
+            manager.set([
                 "AUD": 1.6231,
                 "BGN": 2.2694,
                 "BRL": 3.8936,

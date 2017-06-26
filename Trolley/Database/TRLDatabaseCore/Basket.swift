@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 /** The default basket, is others are used with custom products that conform to `Product` */
 public typealias Basket = _Basket<Products>
@@ -53,7 +54,7 @@ public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection
     ///     print(money.floatValue) // prints "145.24"
     ///
     public var total: Money {
-        return _totalPrice + (ShippingManager.shared.shippingPrice ?? 0.0)
+        return _totalPrice + (/* ShippingManager.shared.shippingPrice ?? */ 0.0)
     }
 
     /// The total discount
@@ -296,62 +297,29 @@ private extension _Basket {
     }
 }
 
-extension _Basket {
-
-    /** */
-    public func data() -> Data {
-        let helper = Helper(products: self._products as! [Products])
-        let data = NSKeyedArchiver.archivedData(withRootObject: helper)
-        return data
+extension _Basket : JSONCoding {
+    
+    public func encode() throws -> Data {
+        var json: JSON = []
+        var jsonArr: [JSON] = []
+        for product in self._products {
+            jsonArr.append(product.toJSON())
+        }
+        
+        json.arrayObject = jsonArr
+        Log.debug(json.rawString() ?? "")
+        return try json.rawData()
     }
-
-    /** */
-    public mutating func decode(for data: Data) -> _Basket {
-        let object = NSKeyedUnarchiver.unarchiveObject(with: data) as? Helper
-        self._products = object?.products as! [Element]
-
-        return _Basket(indexes: self._products)
+    
+    public func decode(_ data: Data) throws -> JSON {
+        let json = JSON(data: data)
+        if json == JSON.null && json.error != nil {
+            throw json.error!
+        }
+        
+        return json
     }
-
-    /** */
-    public static func decode(for data: Data) -> _Basket {
-        let object = NSKeyedUnarchiver.unarchiveObject(with: data) as? Helper
-        let basket = object?.products as! [Element]
-
-        return _Basket(indexes: basket)
-    }
-
-    /** */
-    class Helper: NSObject, NSCoding, NSKeyedUnarchiverDelegate {
-
-        var products = [Products]()
-
-        init(products: [Products]) {
-            self.products = products
-            super.init()
-        }
-
-        required init?(coder aDecoder: NSCoder) {
-            guard let products = aDecoder.decodeObject(forKey: "products") as? [Products] else { return nil }
-            self.products = products
-            super.init()
-        }
-
-        class func path() -> String{
-            let documentsPath =  NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-            let path = documentsPath?.appending("/Basket")
-            return path!
-        }
-
-        func encode(with aCoder: NSCoder) {
-            aCoder.encode(self.products, forKey: "products")
-        }
-
-        func unarchiver(_ unarchiver: NSKeyedUnarchiver, cannotDecodeObjectOfClassName name: String, originalClasses classNames: [String]) -> AnyClass? {
-            print(#function)
-            return nil
-        }
-    }
+    
 }
 
 // MARK: - Operators

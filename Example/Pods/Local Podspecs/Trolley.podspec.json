@@ -29,7 +29,8 @@
       "name": "Core",
       "source_files": [
         "Trolley/Core/Core/**/**/*.swift",
-        "Trolley/Core/Networking/**/**/*.swift"
+        "Trolley/Core/Networking/**/**/*.swift",
+        "Trolley/Core/Root/**/**/*.swift"
       ],
       "dependencies": {
         "PromiseKit/CoreLocation": [

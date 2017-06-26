@@ -49,23 +49,19 @@ public class Trolley {
     /// <#Description#>
     internal fileprivate(set)
     var anOption: TRLOptions!
-
-    /// The network manager that is set up to work with our data.
-    ///
-    /// Calls for downloads should be made through this.
+    
     public fileprivate(set)
     var networkManager: TRLNetworkManager!
+    
+    fileprivate(set)
+    var reporter: Reporting! = TRLReporter()
 
     /// <#Descripvarn#>
     fileprivate
     var parsedURL: ParsedURL {
         return networkManager.network.parsedURL
     }
-
-    /// The queue to be used when not using `zalgo`
-    ///
-    /// This is due to when using the default `Promise Kit` parameters
-    /// the closures are never called. So its a workaround
+    
     fileprivate
     let queue = DispatchQueue(
         label: "io.trolley",
@@ -74,7 +70,7 @@ public class Trolley {
     )
 
     /// <#Description#>
-    fileprivate var webSocketManager: TRLWebSocketManager!
+    internal var webSocketManager: TRLWebSocketManager!
 
     /// <#Description#>
     fileprivate
@@ -91,11 +87,11 @@ public class Trolley {
      * This method is thread safe by using `zalgo`.
      */
     public
-    func configure() {
+    func configure<R: Reporting>(withCustomReporter reporter: R? = nil) {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
 
         let options = TRLOptions.default
-        self.configure(options: options)
+        self.configure(options: options, customReporter: reporter)
     }
 
     /**
@@ -111,12 +107,16 @@ public class Trolley {
      * - Parameter options: The TRLOptions that all the code will look at
      */
     public
-    func configure(options: TRLOptions) {
+    func configure<R: Reporting>(options: TRLOptions, customReporter reporter: R? = nil) {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
 
         Log.info("Shutter Doors are opening, coffee is flowing")
 
+        if reporter != nil {
+            self.reporter = reporter!
+        }
+        
         self.anOption = options
         self.anOption.validate()
         do {
@@ -171,16 +171,16 @@ private extension Trolley {
     /// - Returns: <#return value description#>
     func setupUser() -> Promise<TRLUser> {
         return Promise { fullfill, reject in
-            var usr = TRLUser.current
-
-            firstly {
-                return LocationManager.promise()
-            }.then { (PM) -> Void in
-                usr.placemark = PM
-                fullfill(usr)
-            }.catch { (error) in
-                reject(error)
-            }
+            let usr = TRLUser.current
+            fullfill(usr)
+//            firstly {
+//                return LocationManager.promise()
+//            }.then { (PM) -> Void in
+//                usr.placemark = PM
+//                fullfill(usr)
+//            }.catch { (error) in
+//                reject(error)
+//            }
         }
     }
 

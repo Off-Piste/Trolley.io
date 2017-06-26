@@ -152,6 +152,9 @@ public func ==(lhs: Percentage, rhs: Percentage) -> Bool {
 }
 
 func /(lhs: Money, rhs: Percentage) -> Money {
+    if rhs.decimalValue == .zero {
+        return lhs
+    }
     return Money(value: lhs.money.value.multiplying(by: rhs.decimalValue))
 }
 

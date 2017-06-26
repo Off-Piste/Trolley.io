@@ -51,6 +51,10 @@ extension TRLWebSocketConnection {
         self.webSocket.disconnect()
     }
     
+    func send(_ message: String) {
+        self.webSocket.write(string: message)
+    }
+    
     func waitForTimeout(_ time: TimeInterval) {
         self.webSocket.disconnect(
             forceTimeout: time,
