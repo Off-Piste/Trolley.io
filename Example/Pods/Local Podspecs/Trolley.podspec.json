@@ -1,8 +1,8 @@
 {
   "name": "Trolley",
   "version": "0.1.0",
-  "summary": "A short description of Trolley For Life fite me",
-  "description": "A short description of Trolley for me to do later",
+  "summary": "Trolley is everything I could wish for",
+  "description": "A very very very very very very very short description of Trolley for me to do later",
   "homepage": "https://github.com/Off-Piste/Trolley.io",
   "license": {
     "type": "MIT",
@@ -18,41 +18,28 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Trolley/**/**/*",
   "frameworks": [
     "Foundation",
     "UIKit",
     "PassKit"
   ],
-  "default_subspecs": "Default",
+  "default_subspecs": "Core",
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Trolley/Core/**/**/*.swift"
-    },
-    {
-      "name": "Networking",
-      "source_files": "Trolley/Networking/**/**/*.swift",
+      "source_files": [
+        "Trolley/Core/Core/**/**/*.swift",
+        "Trolley/Core/Networking/**/**/*.swift",
+        "Trolley/Core/Root/**/**/*.swift"
+      ],
       "dependencies": {
-        "Trolley/Core": [
+        "PromiseKit/CoreLocation": [
 
         ],
         "PromiseKit": [
 
-        ]
-      }
-    },
-    {
-      "name": "Database",
-      "source_files": "Trolley/Database/**/**/*.swift",
-      "dependencies": {
-        "Trolley/Networking": [
-
         ],
         "SwiftyJSON": [
-
-        ],
-        "SocketRocket": [
 
         ],
         "PromiseKit/Alamofire": [
@@ -61,13 +48,13 @@
       }
     },
     {
-      "name": "Default",
-      "source_files": "Trolley/API/**/**/*.swift",
+      "name": "Database",
+      "source_files": [
+        "Trolley/Database/TRLDatabaseCore/**/**/*.swift",
+        "Trolley/Database/TRLDatabaseNetworking/**/**/*.swift"
+      ],
       "dependencies": {
-        "Trolley/Database": [
-
-        ],
-        "PromiseKit/CoreLocation": [
+        "Trolley/Core": [
 
         ]
       }

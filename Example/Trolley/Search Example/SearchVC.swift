@@ -8,7 +8,6 @@
 
 import Foundation
 import Trolley
-import PromiseKit
 
 protocol SearchNetworkable {
     

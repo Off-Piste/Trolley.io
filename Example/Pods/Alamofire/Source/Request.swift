@@ -241,7 +241,7 @@ open class Request {
 extension Request: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes the HTTP method and URL, as
     /// well as the response status code if a response has been received.
-    open var description: String {
+    open var description : String {
         var components: [String] = []
 
         if let HTTPMethod = request?.httpMethod {

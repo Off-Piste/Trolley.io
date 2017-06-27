@@ -18,27 +18,22 @@ PODS:
   - PromiseKit/UIKit (4.2.0):
     - PromiseKit/CorePromise
   - Quick (1.0.0)
-  - SocketRocket (0.5.1)
   - SwiftyJSON (3.1.4)
   - Trolley (0.1.0):
-    - Trolley/Default (= 0.1.0)
-  - Trolley/Core (0.1.0)
-  - Trolley/Database (0.1.0):
-    - PromiseKit/Alamofire
-    - SocketRocket
-    - SwiftyJSON
-    - Trolley/Networking
-  - Trolley/Default (0.1.0):
-    - PromiseKit/CoreLocation
-    - Trolley/Database
-  - Trolley/Networking (0.1.0):
+    - Trolley/Core (= 0.1.0)
+  - Trolley/Core (0.1.0):
     - PromiseKit
+    - PromiseKit/Alamofire
+    - PromiseKit/CoreLocation
+    - SwiftyJSON
+  - Trolley/Database (0.1.0):
     - Trolley/Core
 
 DEPENDENCIES:
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
   - Trolley (from `../`)
+  - Trolley/Database (from `../`)
 
 EXTERNAL SOURCES:
   Trolley:
@@ -49,10 +44,9 @@ SPEC CHECKSUMS:
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Trolley: dddcdcaf85c4bff93ab968c9719279af0eadfea9
+  Trolley: 465190d8d3dcd0df14861abe9bc7a45fddf4dd6b
 
-PODFILE CHECKSUM: fe52414c8d50f328d0654fb507de600b3e3bdf34
+PODFILE CHECKSUM: db3f907eb66c6ce463bf2cab4540df4303a88e84
 
 COCOAPODS: 1.2.0.beta.3
