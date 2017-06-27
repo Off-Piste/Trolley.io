@@ -14,18 +14,18 @@ public protocol Reporting {
         _ itemID: String,
         withPrice money: Money,
         toBasket basket: Collection?,
-        userInfo: Dictionary<AnyHashable, Any>?
+        userInfo: [AnyHashable : Any]?
     )
     
     func logCheckout<Collection: MutableCollection>(
         of basket: Collection,
         withPrice money: Money,
-        userInfo: Dictionary<AnyHashable, Any>?
+        userInfo: [AnyHashable : Any]?
     )
     
     func logSearchQuery(
         _ query: String,
-        userInfo: Dictionary<AnyHashable, Any>?
+        userInfo: [AnyHashable : Any]?
     )
     
 }

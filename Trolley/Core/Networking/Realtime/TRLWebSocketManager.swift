@@ -37,6 +37,7 @@ struct TRLWebSocketManager {
     }
     
     func send(_ message: String) {
+        if message.isEmpty { return }
         self.connection.send(message)
     }
 }

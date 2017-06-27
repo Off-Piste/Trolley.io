@@ -15,13 +15,12 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     public var window: UIWindow?
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        
-//        // If you are using our API to store your data you should call this.
-//        // If not then we would reccomend using `Trolley/Core` in your podfile
-//        // for the use of the Core functionality without all the heavy stuff
-//        Trolley.shared.configure()
-//        Trolley.shared.setLoggingEnabled(true)
-//        
+        
+        // If you are using our API to store your data you should call this.
+        // If not then we would reccomend using `Trolley/Core` in your podfile
+        // for the use of the Core functionality without all the heavy stuff
+        Trolley.shared.configure(withLogging: false)
+//
 //        // Calling the `configure()` method again will not do anything other than
 //        // have our logger letting you know that you have it called twice
 //        // this is so we dont override the current shop and have any thread issues
@@ -67,6 +66,11 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
         return true
     }
+    
+    public func applicationDidBecomeActive(_ application: UIApplication) {
+        TRLAnalytics.shared.logSearchQuery("\(application)", userInfo: nil)
+    }
+    
 //
 //    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 //        <#code#>

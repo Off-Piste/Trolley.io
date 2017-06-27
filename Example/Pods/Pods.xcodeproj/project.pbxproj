@@ -229,6 +229,8 @@
 		C05AEDC688AF95DB703B971A384A06AC /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = B43CA0FAB3F0D390C3CFA067AC705821 /* NSTask+AnyPromise.m */; };
 		C278DCB689A0356DFD9FBA8456B94351 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA7F2BAECB21A91612D6C388EA78ED7 /* WebSocket.swift */; };
 		C331C86E12361F9FAC551D96F47707E6 /* TRLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AB9EF3E19B9F3D80EA95324C4B7B /* TRLUser.swift */; };
+		C80E0FD31F024FF900287073 /* TRLAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E0FD21F024FF900287073 /* TRLAnalytics.swift */; };
+		C80E0FD41F024FF900287073 /* TRLAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E0FD21F024FF900287073 /* TRLAnalytics.swift */; };
 		C887E33D1F01628C0051EBC9 /* TRLReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33C1F01628C0051EBC9 /* TRLReporter.swift */; };
 		C887E33E1F01628C0051EBC9 /* TRLReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33C1F01628C0051EBC9 /* TRLReporter.swift */; };
 		C887E3411F0164360051EBC9 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33F1F0164360051EBC9 /* Products.swift */; };
@@ -652,6 +654,7 @@
 		C6D503268E45C7E2E0ED38FC18427BAF /* World.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = World.swift; path = Sources/Quick/World.swift; sourceTree = "<group>"; };
 		C6DC4B159352699791484BCD51F216EF /* Quick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Quick-dummy.m"; sourceTree = "<group>"; };
 		C716D3EA0304CFE22AD28DA0FA5BA768 /* NSException+Never.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSException+Never.swift"; sourceTree = "<group>"; };
+		C80E0FD21F024FF900287073 /* TRLAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLAnalytics.swift; sourceTree = "<group>"; };
 		C887E33C1F01628C0051EBC9 /* TRLReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLReporter.swift; sourceTree = "<group>"; };
 		C887E33F1F0164360051EBC9 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		C88C81DE325F1C78B47AB6CF81AC3212 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
@@ -1093,6 +1096,7 @@
 				0329AB9EF3E19B9F3D80EA95324C4B7B /* TRLUser.swift */,
 				C887E33C1F01628C0051EBC9 /* TRLReporter.swift */,
 				8D61C9619CE6B0DA8EFB785936B86733 /* Trolley.swift */,
+				C80E0FD21F024FF900287073 /* TRLAnalytics.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1882,6 +1886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80E0FD41F024FF900287073 /* TRLAnalytics.swift in Sources */,
 				FBB0DAA171B3D208EF47FEF8D139B5D3 /* ApplePay.swift in Sources */,
 				B06B3FCC3269964D96A6B471CE18FF6E /* Basket.swift in Sources */,
 				D73F429FA07B1DACCE4EEB010CE2528B /* Core+Exts.swift in Sources */,
@@ -2068,6 +2073,7 @@
 				B50007BF0BB9E23AA6AA578E31F2FBAE /* SSLSecurity.swift in Sources */,
 				2BE82841EC4565AFCD16D70D772674BC /* TRLAppEnviroment.swift in Sources */,
 				3EFE6AA91C681B8290B890666FF015F1 /* TRLNetwork.swift in Sources */,
+				C80E0FD31F024FF900287073 /* TRLAnalytics.swift in Sources */,
 				5CF2811D7B4A7A03D417DF28154C4D38 /* TRLNetworkInfo.swift in Sources */,
 				3E50CFDB1AB45112D3C385ED7EC9457C /* TRLNetworkManager+TRLOptions.swift in Sources */,
 				5A52FAF9A880BDEA9DD69DA742CAEBC0 /* TRLNetworkManager.swift in Sources */,

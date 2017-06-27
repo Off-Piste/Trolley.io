@@ -9,6 +9,8 @@
 import Foundation
 import Dispatch
 
+let kTrolleyVersionNumber: String = "0.1.0"
+
 func +(lhs: String, rhs: Any) -> String {
     return lhs + String(describing: rhs)
 }
@@ -67,7 +69,7 @@ extension Date {
 }
 
 // MARK: CUSTOM DEBUG FLAG
-internal var isInDebugMode: Bool = true
+internal var isInDebugMode: Bool = false
 
 /** 
  New and improved Log tool.
@@ -155,7 +157,7 @@ extension Log {
     
     static func error(
         _ items: Any...,
-        showSource: Bool = false,
+        showSource: Bool = true,
         showThread: Bool = false,
         separator: String = " ",
         file: NSString = #file,
