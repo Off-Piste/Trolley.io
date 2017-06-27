@@ -50,11 +50,15 @@ public class Trolley {
     internal fileprivate(set)
     var anOption: TRLOptions!
     
-    public fileprivate(set)
+    fileprivate
     var networkManager: TRLNetworkManager!
     
-    fileprivate(set)
-    var reporter: Reporting! = TRLReporter()
+    fileprivate
+    var analytics: TRLAnalytics!
+    
+    /// <#Description#>
+    internal
+    var webSocketManager: TRLWebSocketManager!
 
     /// <#Descripvarn#>
     fileprivate
@@ -68,9 +72,6 @@ public class Trolley {
         qos: .userInitiated,
         attributes: .concurrent
     )
-
-    /// <#Description#>
-    internal var webSocketManager: TRLWebSocketManager!
 
     /// <#Description#>
     fileprivate
@@ -87,11 +88,11 @@ public class Trolley {
      * This method is thread safe by using `zalgo`.
      */
     public
-    func configure<R: Reporting>(withCustomReporter reporter: R? = nil) {
+    func configure(withLogging log: Bool = false) {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
 
         let options = TRLOptions.default
-        self.configure(options: options, customReporter: reporter)
+        self.configure(options: options, withLogging: log)
     }
 
     /**
@@ -107,18 +108,17 @@ public class Trolley {
      * - Parameter options: The TRLOptions that all the code will look at
      */
     public
-    func configure<R: Reporting>(options: TRLOptions, customReporter reporter: R? = nil) {
+    func configure(options: TRLOptions, withLogging log: Bool = false) {
         if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
-
-        Log.info("Shutter Doors are opening, coffee is flowing")
-
-        if reporter != nil {
-            self.reporter = reporter!
-        }
         
+        Log.info("Shutter Doors are opening, coffee is flowing")
+        self.setLoggingEnabled(log, function: #function)
+        
+        self.analytics = TRLAnalytics()
         self.anOption = options
         self.anOption.validate()
+        
         do {
             try self.setupNetworking(self.anOption)
         } catch {
@@ -126,8 +126,7 @@ public class Trolley {
         }
 
         guard let reach = Reachability() else {
-            NSException.raise("Cannot setup Reachabilty")
-            return
+            NSException.fatal("Cannot setup Reachabilty")
         }
 
         firstly {
@@ -147,14 +146,18 @@ public class Trolley {
 
     }
 
-    public
-    func setLoggingEnabled(_ enabled: Bool) {
+    private
+    func setLoggingEnabled(_ enabled: Bool, function: String) {
+        if enabled {
+            Log.info("[DEBUG] tags will be now shown in the console, please set `withLogging` parameter back to true")
+        }
         isInDebugMode = enabled
     }
 
 }
 
-private extension Trolley {
+private
+extension Trolley {
 
     func setupNetworking(_ anOption: TRLOptions) throws {
         self.networkManager = try TRLNetworkManager(option: anOption)
@@ -217,4 +220,12 @@ public extension TRLNetworkManager {
         return Trolley.shared.networkManager
     }
 
+}
+
+public extension TRLAnalytics {
+    
+    static var shared: TRLAnalytics {
+        return Trolley.shared.analytics
+    }
+    
 }

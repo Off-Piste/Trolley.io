@@ -198,6 +198,8 @@ open class WebSocket : NSObject, StreamDelegate {
         guard !isConnecting else { return }
         didDisconnect = false
         isConnecting = true
+        
+        Log.debug("Connecting to \(self.url.absoluteString)")
         createHTTPRequest()
     }
     
@@ -214,6 +216,7 @@ open class WebSocket : NSObject, StreamDelegate {
         case .some(let seconds) where seconds > 0:
             let milliseconds = Int(seconds * 1_000)
             callbackQueue.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) { [weak self] in
+                Log.debug("WebSocket timed out after \(seconds) seconds")
                 self?.disconnectStream(nil)
             }
             fallthrough
@@ -273,23 +276,31 @@ open class WebSocket : NSObject, StreamDelegate {
                 port = 80
             }
         }
+        
         addHeader(urlRequest, key: headerWSUpgradeName, val: headerWSUpgradeValue)
         addHeader(urlRequest, key: headerWSConnectionName, val: headerWSConnectionValue)
+        
         if let protocols = optionalProtocols {
             addHeader(urlRequest, key: headerWSProtocolName, val: protocols.joined(separator: ","))
         }
+        
         if let userAgent = self.userAgent {
             addHeader(urlRequest, key: "User-Agent", val: userAgent)
         }
+        
         addHeader(urlRequest, key: headerWSVersionName, val: headerWSVersionValue)
         addHeader(urlRequest, key: headerWSKeyName, val: generateWebSocketKey())
+        
         if let origin = origin {
             addHeader(urlRequest, key: headerOriginName, val: origin)
         }
+        
         addHeader(urlRequest, key: headerWSHostName, val: "\(url.host!):\(port!)")
         for (key, value) in headers {
             addHeader(urlRequest, key: key, val: value)
         }
+        
+        Log.debug("Created request: \(urlRequest)")
         if let cfHTTPMessage = CFHTTPMessageCopySerializedMessage(urlRequest) {
             let serializedRequest = cfHTTPMessage.takeRetainedValue()
             initStreamsWithData(serializedRequest as Data, Int(port!))
@@ -326,6 +337,7 @@ open class WebSocket : NSObject, StreamDelegate {
         //NSStream.getStreamsToHostWithName(url.host, port: url.port.integerValue, inputStream: &inputStream, outputStream: &outputStream)
         // Disconnect and clean up any existing streams before setting up a new pair
         disconnectStream(nil, runDelegate: false)
+        Log.debug("Initalisting Stream on port: \(port)")
         
         var readStream: Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
@@ -935,6 +947,10 @@ open class WebSocket : NSObject, StreamDelegate {
      */
     private func doDisconnect(_ error: NSError?) {
         guard !didDisconnect else { return }
+        
+        let err: String = (error == nil) ? "" : "[Error: \(error!.localizedDescription)]"
+        Log.debug("Stream disconnected", err)
+        
         didDisconnect = true
         isConnecting = false
         connected = false

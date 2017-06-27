@@ -23,8 +23,8 @@ class TRLAppEnviroment : AnyObject, CustomStringConvertible {
         return UIDevice.current.systemVersion
     }
     
-    var isAppExtension: Bool {
-        return Bundle.main.bundlePath.hasSuffix(".appex")
+    var appVersionNumber: String {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     }
     
     var isSimulator: Bool {
