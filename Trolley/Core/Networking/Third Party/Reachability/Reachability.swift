@@ -43,6 +43,8 @@ public enum ReachabilityError: Error {
     
     case guardFailed(String)
     
+    case objectNil(Any?)
+    
 }
 
 public let ReachabilityChangedNotification = NSNotification.Name("ReachabilityChangedNotification")
@@ -176,6 +178,7 @@ extension Reachability: CustomStringConvertible {
     public func stopNotifier() {
         defer { notifierRunning = false }
         guard let reachabilityRef = reachabilityRef else { return }
+        TRLCoreLogger.debug("Stopping Reachability Notifier")
         
         SCNetworkReachabilitySetCallback(reachabilityRef, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachabilityRef, nil)
@@ -244,6 +247,7 @@ fileprivate extension Reachability {
         let block = isReachable ? whenReachable : whenUnreachable
         block?(self)
         
+        TRLCoreLogger.debug("Reachability Changed", self.currentReachabilityString)
         NotificationCenter.default.post(name: ReachabilityChangedNotification, object:self)
         
         previousFlags = flags

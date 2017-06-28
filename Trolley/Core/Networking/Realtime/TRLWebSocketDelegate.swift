@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol TRLWebSocketDelegate {
     
-    func webSocket(_ connection: TRLWebSocketConnection, onMessage message: Dictionary<String, Any>)
+    func webSocket(_ connection: TRLWebSocketConnection, onMessage message: JSON)
+    
+    func webSocket(_ connection: TRLWebSocketConnection, onTextMessage message: String)
     
     func webSocketOnDisconnect(_ connection: TRLWebSocketConnection, wasEverConnected connected: Bool)
 

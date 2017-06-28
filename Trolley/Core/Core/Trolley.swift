@@ -27,6 +27,14 @@ extension Notification.Name {
 
 }
 
+extension NotificationCenter {
+    
+    func addObserver(_ observer: Notification.Name, object: Any?, block: @escaping (Notification) -> Void) {
+        self.addObserver(forName: observer, object: object, queue: .main, using: block)
+    }
+    
+}
+
 var kURLBase: String = "http://localhost:8080/API"
 
 var kAlreadyConfigured: Bool = false
@@ -61,7 +69,11 @@ public class Trolley {
     var webSocketManager: TRLWebSocketManager!
     
     internal
-    var reachability: Reachability!
+    var reachability: Reachability! {
+        didSet {
+            TRLCoreLogger.debug("Reachabilty has been set")
+        }
+    }
 
     /// <#Descripvarn#>
     fileprivate
@@ -128,17 +140,13 @@ public class Trolley {
             self.fatalError(error)
         }
 
-        guard let reach = Reachability() else {
-            NSException.fatal("Cannot setup Reachabilty")
-        }
-
         firstly {
-            return reach.promise()
+            return self.setupReachability()
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
             self.reachability = newReach
             
-            TRLCoreLogger.debug("Reachability", newReach, true)
+            TRLCoreLogger.debug("Reachability", self.reachability, true)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
             TRLCoreLogger.debug("Conversion rate:", convertor.conversionRate)
@@ -163,6 +171,20 @@ public class Trolley {
 
 private
 extension Trolley {
+    
+    func setupReachability() -> Promise<Reachability> {
+        NotificationCenter.default.addObserver(ReachabilityChangedNotification, object: nil) {
+            if $0.object != nil, $0.object is Reachability {
+                self.reachability = $0.object as! Reachability
+            }
+        }
+        
+        guard let aReachabilty = Reachability() else {
+            NSException.fatal("Cannot setup Reachabilty")
+        }
+        
+        return aReachabilty.promise()
+    }
 
     func setupNetworking(_ anOption: TRLOptions) throws {
         self.networkManager = try TRLNetworkManager(option: anOption)

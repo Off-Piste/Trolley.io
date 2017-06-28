@@ -10,12 +10,12 @@ import Foundation
 import PromiseKit
 import SwiftyJSON
 
-private let kTimeSpentInApp: String = "totalUsageTime"
-private let kDeviceToken: String = "appleDeviceToken"
+private let kTimeSpentInApp: String = "TotalUsageTime"
+private let kDeviceToken: String = "AppleDeviceToken"
 
 extension Notification.Name {
     
-    static let analyticsRecivedDeviceID = Notification.Name(rawValue: "analyticsRecivedDeviceID")
+    static let analyticsRecivedDeviceID = Notification.Name(rawValue: "AnalyticsRecivedDeviceID")
     
 }
 
@@ -34,13 +34,18 @@ public class TRLAnalytics {
     internal init() {
         self.start = Date()
         
-        TRLCoreLogger.debug("Testing Analytics JSON, \(self.toJSON("default", withKey: userDefaultsKey))")
-        
         let notification: Notification.Name = .UIApplicationWillTerminate
         NotificationCenter.default.observe(once: notification).then { _ in
             self.applicationWillTerminate()
         }.catch { (error) in
             TRLCoreLogger.error(error.localizedDescription)
+        }
+        
+        // Should not only observe this once as we need to send this everytime
+        // the socket is created, after crashes or wifi lost
+        NotificationCenter.default.addObserver(.websocketCreated, object: nil) {
+            TRLCoreLogger.debug("\($0.name.rawValue) Observed")
+            self.websocketConnected()
         }
     }
     
@@ -48,11 +53,15 @@ public class TRLAnalytics {
 
 // when using public will be testing `applicationWillTerminate()`
 private /* public */ extension TRLAnalytics {
+    
+    func websocketConnected() {
+        self.applicationDidFinishLaunching()
+    }
 
     func applicationDidFinishLaunching() {
         do {
             let object = try defaultsManager.retrieveObject()
-            let json = self.toJSON(object, withKey: kDeviceToken)
+            let json : JSON = self.toJSON(["DeviceData" : [kDeviceToken : object, "NewDevice" : false]])
             self.sendToServer(json)
         } catch let error as DefaultsManagerError {
             switch error {
@@ -129,7 +138,10 @@ private extension TRLAnalytics {
     
     func createDeviceToken() {
         // Create the UUID for the device and send it to the server
-        let json = self.toJSON(UUID().uuidString, withKey: kDeviceToken)
+        let json = self.toJSON([
+            "DeviceData" : [ kDeviceToken : UUID().uuidString, "NewDevice" : true ]
+            ]
+        )
         self.sendToServer(json)
         
         // Observe for the Servers Request
@@ -160,7 +172,7 @@ private extension TRLAnalytics {
     func toJSON(_ dictionary : [String : Any]) -> JSON {
         return JSON([
             "TRLAnalytics" : kTrolleyVersionNumber,
-            "data" : dictionary
+            "Data" : dictionary
             ]
         )
     }

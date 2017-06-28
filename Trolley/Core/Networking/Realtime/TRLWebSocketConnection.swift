@@ -44,7 +44,7 @@ extension TRLWebSocketConnection {
         assert(delegate != nil, "TRLWebSocketDelegate must be set")
         self.webSocket.connect()
         
-        self.waitForTimeout(30)
+        self.waitForTimeout(10)
     }
     
     func close() {
@@ -56,12 +56,12 @@ extension TRLWebSocketConnection {
     }
     
     func waitForTimeout(_ time: TimeInterval) {
-        let milliseconds = Int(time * 1_000)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) {
+        TRLTimer(for: time).once {
+            if self.wasEverConnected { return }
+            
             TRLCoreLogger.debug("WebSocket timed out after \(time) seconds")
             self.webSocket.disconnect()
         }
-        
     }
 }
 
@@ -77,13 +77,16 @@ extension TRLWebSocketConnection : WebSocketDelegate {
     }
     
     func webSocket(_ socket: WebSocket, didReceiveMessage message: String) {
-        self.delegate?.webSocket(self, onMessage: ["Message" : message])
+        if message == "0" { self.delegate?.webSocket(self, onTextMessage: message) }
+        else if let data = message.data(using: .utf8, allowLossyConversion: true) {
+            self.delegate?.webSocket(self, onMessage: JSON(data: data))
+        } else { self.delegate?.webSocket(self, onMessage: JSON(message)) }
     }
     
     func webSocket(_ socket: WebSocket, didDisconnect error: NSError?) {
         if error != nil, (error!.code == 61 && Trolley.shared.reachability.isReachable) {
-            let errorResponse = "Server is down [(url: \(socket.currentURL)),( error: \(error!.localizedDescription)) (reachability: \(Trolley.shared.reachability.currentReachabilityString))]"
-            TRLCoreLogger.fatalError(errorResponse)
+            let errorResponse = "Server is down [(url: \(socket.currentURL)) ( error: \(error!.localizedDescription)) (reachability: \(Trolley.shared.reachability.currentReachabilityString))]"
+            TRLCoreLogger.error(errorResponse)
         }
         self.delegate?.webSocketOnDisconnect(self, wasEverConnected: self.wasEverConnected)
     }

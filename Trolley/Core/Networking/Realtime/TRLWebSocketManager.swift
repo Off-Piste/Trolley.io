@@ -9,7 +9,14 @@
 // MARK: This will hold all the Notifications and route them
 
 import Foundation
+import SwiftyJSON
 import Alamofire
+
+extension Notification.Name {
+    
+    static let websocketCreated = Notification.Name(rawValue: "WebSocketCreated")
+    
+}
 
 let kProductUpdatedKey: String = "product-updated"
 
@@ -17,7 +24,7 @@ class TRLWebSocketManager {
     
     private var connection: TRLWebSocketConnection
     
-    fileprivate var reconnection: Timer?
+    fileprivate var connected: Bool = false
     
     /// Note:
     ///
@@ -35,6 +42,7 @@ class TRLWebSocketManager {
     }
     
     func open() {
+        if self.connected { return }
         self.connection.open()
     }
     
@@ -46,12 +54,13 @@ class TRLWebSocketManager {
 
 extension TRLWebSocketManager: TRLWebSocketDelegate {
     
-    func webSocket(
-        _ connection: TRLWebSocketConnection,
-        onMessage message: Dictionary<String, Any>
-        )
-    {
+    func webSocket(_ connection: TRLWebSocketConnection, onTextMessage message: String) {
         TRLCoreLogger.debug("onMessage: \(message)")
+    }
+    
+    func webSocket(_ connection: TRLWebSocketConnection, onMessage message: JSON) {
+        TRLCoreLogger.debug("onMessage: \(message.rawString() ?? "")")
+        self.manageResponse(message)
     }
     
     func webSocketOnDisconnect(
@@ -59,37 +68,46 @@ extension TRLWebSocketManager: TRLWebSocketDelegate {
         wasEverConnected connected: Bool
         )
     {
-        if !connected {
-            if #available(iOS 10.0, *) {
-                reconnection = Timer(timeInterval: 30, repeats: true, block: { (timer) in
-                    self.attemptToRestablishConnection(timer)
-                })
-            } else {
-                let aSelector: Selector = #selector(attemptToRestablishConnection(_:))
-                reconnection = Timer(timeInterval: 30, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            }
-        }
         TRLCoreLogger.debug("onDisconnect [wasEverConnected: \(connected)]")
+        TRLTimer.after(10, if: !connected) {
+            self.attemptToRestablishConnection()
+            return .stop
+        }
     }
     
     func webSocketOnConnection(_ connection: TRLWebSocketConnection) {
-        self.reconnection?.invalidate()
+        self.connected = true
+        
         TRLCoreLogger.debug("onConnection \(connection)")
+        NotificationCenter.default.post(name: .websocketCreated, object: nil)
     }
     
     func webSocketOnLostConnection(_ connection: TRLWebSocketConnection) {
         TRLCoreLogger.debug("onLostConnection \(connection)")
     }
     
-    @objc func attemptToRestablishConnection(_ timer: Timer) {
-        Trolley.shared.reachability.promise().then { reach -> Void in
-            if reach.isReachable {
-                self.reconnection?.invalidate()
-                self.open()
+    func manageResponse(_ json: JSON) {
+        if json["Connections"].exists() && json["Limit"].exists() {
+            //
+        }
+        
+        if json["AnalyticsRecivedDeviceID"].exists() {
+            if let json = json["AnalyticsRecivedDeviceID"].dictionary {
+                NotificationCenter.default.post(name: .analyticsRecivedDeviceID, object: json)
             }
-        }.catch { (error) in
-            TRLCoreLogger.error(error)
-            return
+        }
+    }
+    
+    func attemptToRestablishConnection() {
+        if self.connected { return }
+        
+        TRLCoreLogger.debug("Attempting to reconnect to server")
+        if Trolley.shared.reachability.isReachable {
+            self.open()
+        } else {
+            TRLTimer(for: 10).once {
+                self.attemptToRestablishConnection()
+            }
         }
     }
     

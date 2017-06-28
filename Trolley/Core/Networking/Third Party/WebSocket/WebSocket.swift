@@ -841,7 +841,7 @@ class WebSocket : NSObject, StreamDelegate {
                     }
                 }
             } else if response.code == .binaryFrame {
-                TRLCoreLogger.debug("Recived Data Message", showThread: true)
+                TRLCoreLogger.debug("Recived Data Message")
                 if canDispatch {
                     let data = response.buffer! // local copy so it is perverse for writing
                     callbackQueue.async { [weak self] in
