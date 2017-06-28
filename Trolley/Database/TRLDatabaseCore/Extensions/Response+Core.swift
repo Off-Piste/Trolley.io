@@ -10,7 +10,11 @@ import Foundation
 import PromiseKit
 
 public extension Array where Element == Products {
-
+    
+    /// <#Description#>
+    ///
+    /// - Parameter text: <#text description#>
+    /// - Returns: <#return value description#>
     func filter(for text: String) -> [Element] {
         return self.filter { $0.name.contains(text) || $0.company.contains(text)}
     }
@@ -19,6 +23,10 @@ public extension Array where Element == Products {
 
 public extension Array where Element == SearchableProducts {
 
+    /// <#Description#>
+    ///
+    /// - Parameter text: <#text description#>
+    /// - Returns: <#return value description#>
     func filter(for text: String) -> [Element] {
         return self.filter { $0.productName.contains(text) || $0.companyName.contains(text) }
     }

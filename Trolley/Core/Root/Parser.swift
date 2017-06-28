@@ -28,7 +28,7 @@ struct ParserError {
 typealias PError = ParserError.error
 typealias PlistFormat = PropertyListSerialization.PropertyListFormat
 
-public class Parser {
+class Parser {
     
     var items = [String : Any]()
     
@@ -42,15 +42,15 @@ public class Parser {
     }
 }
 
-open class PLISTParser {
+class PLISTParser {
     
-    open private(set) var plist = [String: AnyObject]() {
+    private(set) var plist = [String: AnyObject]() {
         didSet {
             self.headers = headers(fromXML: self.plist)
         }
     }
     
-    open private(set) var headers: [String] = []
+    private(set) var headers: [String] = []
     
     private init(xmlData: Data?, format: PlistFormat) throws {
         if let data = xmlData {

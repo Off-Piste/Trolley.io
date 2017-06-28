@@ -9,6 +9,7 @@
 import Foundation
 import PromiseKit
 
+/// <#Description#>
 public class _Response<T: NSObjectProtocol> : ExpressibleByArrayLiteral {
     
     /// <#Description#>

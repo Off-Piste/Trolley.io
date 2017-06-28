@@ -34,13 +34,13 @@ public class TRLAnalytics {
     internal init() {
         self.start = Date()
         
-        Log.debug("Testing Analytics JSON, \(self.toJSON("default", withKey: userDefaultsKey))")
+        TRLCoreLogger.debug("Testing Analytics JSON, \(self.toJSON("default", withKey: userDefaultsKey))")
         
         let notification: Notification.Name = .UIApplicationWillTerminate
         NotificationCenter.default.observe(once: notification).then { _ in
             self.applicationWillTerminate()
         }.catch { (error) in
-            Log.error(error.localizedDescription)
+            TRLCoreLogger.error(error.localizedDescription)
         }
     }
     
@@ -70,7 +70,7 @@ private /* public */ extension TRLAnalytics {
         let end = Date()
         let timeInterval = end.timeIntervalSince(start)
         
-        Log.debug("Device was running for: \(timeInterval) seconds")
+        TRLCoreLogger.debug("Device was running for: \(timeInterval) seconds")
         let json = self.toJSON(timeInterval, withKey: kTimeSpentInApp)
         self.sendToServer(json)
     }
@@ -78,14 +78,26 @@ private /* public */ extension TRLAnalytics {
 
 extension TRLAnalytics :  Reporting {
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - query: <#query description#>
+    ///   - userInfo: <#userInfo description#>
     public func logSearchQuery(
         _ query: String,
         userInfo: [AnyHashable : Any]?
         )
     {
-        Log.debug("\(#function) query: \(query) userInfo: \(userInfo as Any)")
+        TRLCoreLogger.debug("\(#function) query: \(query) userInfo: \(userInfo as Any)")
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - itemID: <#itemID description#>
+    ///   - money: <#money description#>
+    ///   - basket: <#basket description#>
+    ///   - userInfo: <#userInfo description#>
     public func logAddItem<Collection>(
         _ itemID: String,
         withPrice money: Money,
@@ -96,6 +108,12 @@ extension TRLAnalytics :  Reporting {
         //
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - basket: <#basket description#>
+    ///   - money: <#money description#>
+    ///   - userInfo: <#userInfo description#>
     public func logCheckout<Collection>(
         of basket: Collection,
         withPrice money: Money,

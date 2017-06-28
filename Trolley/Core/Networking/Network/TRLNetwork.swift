@@ -9,7 +9,7 @@
 import Foundation
 @_exported import Alamofire
 
-public struct TRLNetwork {
+internal struct TRLNetwork {
     
     var parsedURL: ParsedURL
     

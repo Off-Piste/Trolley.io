@@ -10,6 +10,13 @@ import Foundation
 
 public protocol Reporting {
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - itemID: <#itemID description#>
+    ///   - money: <#money description#>
+    ///   - basket: <#basket description#>
+    ///   - userInfo: <#userInfo description#>
     func logAddItem<Collection: MutableCollection>(
         _ itemID: String,
         withPrice money: Money,
@@ -17,12 +24,23 @@ public protocol Reporting {
         userInfo: [AnyHashable : Any]?
     )
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - basket: <#basket description#>
+    ///   - money: <#money description#>
+    ///   - userInfo: <#userInfo description#>
     func logCheckout<Collection: MutableCollection>(
         of basket: Collection,
         withPrice money: Money,
         userInfo: [AnyHashable : Any]?
     )
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - query: <#query description#>
+    ///   - userInfo: <#userInfo description#>
     func logSearchQuery(
         _ query: String,
         userInfo: [AnyHashable : Any]?

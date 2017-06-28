@@ -234,6 +234,8 @@
 		C887E33D1F01628C0051EBC9 /* TRLReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33C1F01628C0051EBC9 /* TRLReporter.swift */; };
 		C887E33E1F01628C0051EBC9 /* TRLReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33C1F01628C0051EBC9 /* TRLReporter.swift */; };
 		C887E3411F0164360051EBC9 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E33F1F0164360051EBC9 /* Products.swift */; };
+		C8FDBB241F03BD5F00181B04 /* TRLTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FDBB231F03BD5F00181B04 /* TRLTimer.swift */; };
+		C8FDBB251F03BD5F00181B04 /* TRLTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FDBB231F03BD5F00181B04 /* TRLTimer.swift */; };
 		C970F749919262CFE4F0FCC148373EC4 /* URLQuery+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66E94E964C5AA93930A69E1DAB61F9 /* URLQuery+Exts.swift */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F59B6C39A638F22C494497CC7B606B /* Response.swift */; };
 		CB7558CCDD935C9E82BBF454022ED1D3 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B4910E6729FEDE8F6497916FE7BE /* Expectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -658,6 +660,7 @@
 		C887E33C1F01628C0051EBC9 /* TRLReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLReporter.swift; sourceTree = "<group>"; };
 		C887E33F1F0164360051EBC9 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		C88C81DE325F1C78B47AB6CF81AC3212 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		C8FDBB231F03BD5F00181B04 /* TRLTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLTimer.swift; sourceTree = "<group>"; };
 		C9CA4FAA739C5D4CABB2496B59D9A8C1 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3AA2E86D95BD82B2E6E579117F3D12 /* TRLWebSocketDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TRLWebSocketDelegate.swift; sourceTree = "<group>"; };
 		CBE89719A8CCCF977AD5A298DAAE91F0 /* race.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = race.swift; path = Sources/race.swift; sourceTree = "<group>"; };
@@ -1040,6 +1043,7 @@
 			isa = PBXGroup;
 			children = (
 				829B327274BBAB0B0E85C2804FA6A393 /* Parser.swift */,
+				C8FDBB231F03BD5F00181B04 /* TRLTimer.swift */,
 				073F55D2393F06CC20C0B823979D8BE4 /* DefaultsManager.swift */,
 				96990D661843DC79FE61922F570D0743 /* GeoLocation.swift */,
 				FEDD5CFECF865EDBE16F665DBE4DAA49 /* Log.swift */,
@@ -1902,6 +1906,7 @@
 				5BB23388785FBD04B0BB67F75574DC5E /* Networkable.swift in Sources */,
 				A5BCF547BCEF4F7145B0315E6A4ED78E /* NetworkableError.swift in Sources */,
 				F6B6B24664F92984DFDD6830EC965E54 /* NSDecimalExt.swift in Sources */,
+				C8FDBB251F03BD5F00181B04 /* TRLTimer.swift in Sources */,
 				1CAF1A38FACE21B8E0E594083C20B2B5 /* NSException+Never.swift in Sources */,
 				F039C5EAD209B7E948B1AADF760DDDBD /* ParsedURL.swift in Sources */,
 				78D89108EED84DFABB11254A1E7F6307 /* Parser.swift in Sources */,
@@ -2052,6 +2057,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8FDBB241F03BD5F00181B04 /* TRLTimer.swift in Sources */,
 				BEE31A96C9CC93A24365585548E3E08F /* Currency.swift in Sources */,
 				883F6FF31A8FA911C8D5BF7AE506816A /* CurrencyConvertor.swift in Sources */,
 				39CF48771B72B43C652553AE1743F489 /* DefaultsManager.swift in Sources */,

@@ -44,7 +44,7 @@ extension TRLWebSocketConnection {
         assert(delegate != nil, "TRLWebSocketDelegate must be set")
         self.webSocket.connect()
         
-        self.waitForTimeout(300)
+        self.waitForTimeout(30)
     }
     
     func close() {
@@ -56,10 +56,12 @@ extension TRLWebSocketConnection {
     }
     
     func waitForTimeout(_ time: TimeInterval) {
-        self.webSocket.disconnect(
-            forceTimeout: time,
-            closeCode: WebSocket.CloseCode.noStatusReceived.rawValue
-        )
+        let milliseconds = Int(time * 1_000)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) {
+            TRLCoreLogger.debug("WebSocket timed out after \(time) seconds")
+            self.webSocket.disconnect()
+        }
+        
     }
 }
 
@@ -79,7 +81,19 @@ extension TRLWebSocketConnection : WebSocketDelegate {
     }
     
     func webSocket(_ socket: WebSocket, didDisconnect error: NSError?) {
+        if error != nil, (error!.code == 61 && Trolley.shared.reachability.isReachable) {
+            let errorResponse = "Server is down [(url: \(socket.currentURL)),( error: \(error!.localizedDescription)) (reachability: \(Trolley.shared.reachability.currentReachabilityString))]"
+            TRLCoreLogger.fatalError(errorResponse)
+        }
         self.delegate?.webSocketOnDisconnect(self, wasEverConnected: self.wasEverConnected)
+    }
+    
+}
+
+extension TRLWebSocketConnection : CustomStringConvertible {
+    
+    var description: String {
+        return self.webSocket.description
     }
     
 }

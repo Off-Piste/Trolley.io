@@ -50,6 +50,12 @@ public protocol Product : Equatable, Hashable {
 
 extension Product {
 
+    /// `Equatable` method to return true if the values are equal or false if not
+    ///
+    /// - Parameters:
+    ///   - lhs: Self
+    ///   - rhs: Self
+    /// - Returns: Bool test for if they are equal or not.
     public static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.name == rhs.name &&
             lhs.company == rhs.company &&
@@ -64,11 +70,14 @@ extension Product {
  */
 public extension Product {
 
-    /// <#Description#>
+    /// The Price / Discount
     var discountValue: Money {
         return self.price / self.discount
     }
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
     func toJSON() -> JSON {
         let dictionary: Dictionary<String, Any> = [
             "local_id" : self.id,

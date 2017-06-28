@@ -146,7 +146,7 @@ extension Products {
         return "<Product> { name: \(self.name) " +
             "company: \(self.company) " +
             "type: \(self.type) " +
-        "price: \(self.price) }"
+            "price: \(self.price) }"
     }
     
 }

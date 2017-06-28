@@ -59,6 +59,9 @@ public class Trolley {
     /// <#Description#>
     internal
     var webSocketManager: TRLWebSocketManager!
+    
+    internal
+    var reachability: Reachability!
 
     /// <#Descripvarn#>
     fileprivate
@@ -89,7 +92,7 @@ public class Trolley {
      */
     public
     func configure(withLogging log: Bool = false) {
-        if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
+        if kAlreadyConfigured { TRLDefaultLogger.info(kAlreadyConfiguredWarning); return }
 
         let options = TRLOptions.default
         self.configure(options: options, withLogging: log)
@@ -109,10 +112,10 @@ public class Trolley {
      */
     public
     func configure(options: TRLOptions, withLogging log: Bool = false) {
-        if kAlreadyConfigured { Log.info(kAlreadyConfiguredWarning); return }
+        if kAlreadyConfigured { TRLCoreLogger.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
         
-        Log.info("Shutter Doors are opening, coffee is flowing")
+        TRLDefaultLogger.info("Shutter Doors are opening, coffee is flowing")
         self.setLoggingEnabled(log, function: #function)
         
         self.analytics = TRLAnalytics()
@@ -133,15 +136,17 @@ public class Trolley {
             return reach.promise()
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
-            Log.debug("Reachability", newReach, true)
+            self.reachability = newReach
+            
+            TRLCoreLogger.debug("Reachability", newReach, true)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
-            Log.debug("Conversion rate:", convertor.conversionRate)
+            TRLCoreLogger.debug("Conversion rate:", convertor.conversionRate)
             return self.setupUser()
         }.then(on: queue)  { (user) -> Void in
             //
         }.catch(on: queue) { error in
-            Log.error(error.localizedDescription)
+            TRLCoreLogger.error(error.localizedDescription)
         }
 
     }
@@ -149,7 +154,7 @@ public class Trolley {
     private
     func setLoggingEnabled(_ enabled: Bool, function: String) {
         if enabled {
-            Log.info("[DEBUG] tags will be now shown in the console, please set `withLogging` parameter back to true")
+            TRLDefaultLogger.info("[DEBUG] tags will be now shown in the console, please set `withLogging` parameter back to true")
         }
         isInDebugMode = enabled
     }

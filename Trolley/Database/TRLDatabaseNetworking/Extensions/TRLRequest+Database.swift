@@ -15,7 +15,6 @@ func ^^(lhs: Bool, rhs: Bool) -> Bool {
     return lhs != rhs
 }
 
-
 let kFilterQueryKey: String = "filter"
 let kSearchQueryKey: String = "search"
 let kRateQueryKey: String = "limit"
@@ -23,6 +22,10 @@ let kPageQueryKey: String = "next-page"
 
 public extension TRLRequest {
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
+    /// - Returns: <#return value description#>
     func rate(_ value: Int) -> TRLRequest {
         assert(self.method == .get, "\(#function) can only be used by .get requests")
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
@@ -31,6 +34,10 @@ public extension TRLRequest {
         return self.default
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
+    /// - Returns: <#return value description#>
     func page(_ value: Int) -> TRLRequest {
         assert(self.method == .get, "\(#function) can only be used by .get requests")
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
@@ -40,13 +47,17 @@ public extension TRLRequest {
         
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter predicateFormat: <#predicateFormat description#>
+    /// - Returns: <#return value description#>
     func filter(_ predicateFormat: String) -> TRLRequest {
         assert(self.method == .get, "\(#function) can only be used by .get requests")
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
         
         let _ = NSPredicate(format: predicateFormat)
         guard let data = predicateFormat.data(using: .utf8) else {
-            Log.info("The NSPredicate format could not be converted to Data so the request will not be carried out")
+            TRLDatabaseLogger.info("The NSPredicate format could not be converted to Data so the request will not be carried out")
             return self.default
         }
         
@@ -54,6 +65,10 @@ public extension TRLRequest {
         return self.default
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
+    /// - Returns: <#return value description#>
     func search(for value: String) -> TRLRequest {
         assert(self.method == .get, "\(#function) can only be used by .get requests")
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
@@ -62,8 +77,11 @@ public extension TRLRequest {
         return self.default
     }
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
     func validate() -> Networkable {
-        Log.debug("Validating the request")
+        TRLDatabaseLogger.debug("Validating the request")
         
         self.dataRequest.validate()
         return self

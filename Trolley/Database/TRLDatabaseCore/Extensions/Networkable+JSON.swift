@@ -9,26 +9,6 @@
 import PromiseKit
 import SwiftyJSON
 
-// MARK: Promises Networkable EXT
-
-//public extension Networkable {
-//    
-//    /// Method to return the JSON response from the server using Promise Kit
-//    ///
-//    /// - Returns: Promise with value of `JSON`,
-//    ///   check [Promise Kit](https://github.com/mxcl/PromiseKit) on how to use
-//    func JSON() -> Promise<JSON> {
-//        return Promise { fullfil, rejct in
-//            self.default().then { item -> Void in
-//                let json = SwiftyJSON.JSON(item)
-//                fullfil(json)
-//            }.catch { error in
-//                rejct(error)
-//            }
-//        }
-//    }
-//}
-
 public extension Networkable {
     
     // MARK: JSON

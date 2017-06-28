@@ -46,7 +46,7 @@ public extension URLQuery {
         do {
             return try self.getQueryStringParameter(parameter)
         } catch {
-            Log.info("[\(self)] throw an error -> \(error.localizedDescription) ")
+            TRLCoreLogger.info("[\(self)] throw an error -> \(error.localizedDescription) ")
             return nil
         }
     }

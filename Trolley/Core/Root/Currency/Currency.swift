@@ -475,14 +475,20 @@ public extension Currency {
         }
     }
     
+    /// <#Description#>
     public var code: String {
         return self.description
     }
     
+    /// <#Description#>
     public var conversionRate: NSDecimalNumber {
         return CurrencyConverter.shared.decimalRate
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
+    /// - Returns: <#return value description#>
     public func convert(value: NSDecimalNumber) -> NSDecimalNumber {
         return CurrencyConverter.shared.convert(value: value)
     }

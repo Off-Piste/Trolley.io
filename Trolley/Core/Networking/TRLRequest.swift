@@ -83,6 +83,12 @@ extension TRLRequest : CustomStringConvertible {
 
 extension TRLRequest : Networkable {
 
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - queue: <#queue description#>
+    ///   - handler: <#handler description#>
+    /// - Returns: <#return value description#>
     public func progress(
         queue: DispatchQueue = .main,
         handler: @escaping (Progress) -> Void
@@ -94,12 +100,18 @@ extension TRLRequest : Networkable {
         return self
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter handler: <#handler description#>
     public func responseData(handler: @escaping DefaultHandler) {
         self.dataRequest.responseData { (response) in
             handler(response.data, response.error)
         }
     }
 
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
     public func responseData() -> Promise<Data> {
         return Promise { fullfill, reject in
             self.promise.then(execute: { (_, _, data) -> Void in

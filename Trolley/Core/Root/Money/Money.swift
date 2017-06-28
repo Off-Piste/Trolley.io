@@ -118,18 +118,27 @@ public protocol MoneyType {
  */
 public struct Money : DecimalType {
     
+    /// <#Description#>
     public typealias DecimalStorageType = NSDecimalNumber
     
+    /// <#Description#>
     public typealias FloatLiteralType = Float
     
+    /// <#Description#>
     public typealias IntegerLiteralType = Int
     
     public var money: (value: DecimalStorageType, currency: Currency)
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(value: NSDecimalNumber) {
         self.money = (value, defaultCurrency)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(_ value: Float) {
         self.money = (
             NSDecimalNumber(value: value)
@@ -138,10 +147,16 @@ public struct Money : DecimalType {
         )
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(_ value: Int) {
         self.money = (NSDecimalNumber(value: value), defaultCurrency)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter ammount: <#ammount description#>
     public init(withAmmount ammount: Int) {
         let value: Float = Float(ammount) / 100
         self.money = (
@@ -151,10 +166,16 @@ public struct Money : DecimalType {
         )
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(floatLiteral value: Money.FloatLiteralType) {
         self.init(value)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(integerLiteral value: Money.IntegerLiteralType) {
         switch value {
         case 0:
@@ -174,24 +195,29 @@ public struct Money : DecimalType {
  */
 extension Money: MoneyType, SignedNumber {
     
+    /// <#Description#>
     public var amount: FloatLiteralType {
         return self.currency.convert(value: money.value)
             .rounding(accordingToBehavior: kDecimalHandler).floatValue
     }
     
+    /// <#Description#>
     public var floatValue: FloatLiteralType {
         return self.money.value.rounding(accordingToBehavior: kDecimalHandler).floatValue
     }
     
+    /// <#Description#>
     public var integerValue: IntegerLiteralType {
         return self.money.value
             .rounding(accordingToBehavior: kDecimalHandler).intValue
     }
     
+    /// <#Description#>
     public var stripe: IntegerLiteralType {
         return Int(self.floatValue * 100)
     }
     
+    /// <#Description#>
     public var string: String {
         let fmt = NumberFormatter()
         fmt.numberStyle = .currency
@@ -200,22 +226,27 @@ extension Money: MoneyType, SignedNumber {
         return fmt.string(from: self.currency.convert(value: money.value))!
     }
     
+    /// <#Description#>
     public var currency: Currency {
         return self.money.currency
     }
     
+    /// <#Description#>
     public var decimalValue: NSDecimalNumber {
         return self.currency.convert(value: money.value)
     }
     
+    /// <#Description#>
     public var nonConvertedDecimal: NSDecimalNumber {
         return self.money.value
     }
     
+    /// <#Description#>
     public var isNegative: Bool {
         return self.money.value.isNegative
     }
     
+    /// <#Description#>
     public var negative: Money {
         return Money(value: self.money.value.negate(withBehavior: kDecimalHandler))
     }
@@ -227,14 +258,17 @@ extension Money: MoneyType, SignedNumber {
  */
 extension Money: CustomStringConvertible, CustomDebugStringConvertible, Hashable {
     
+    /// <#Description#>
     public var description: String {
         return self.string
     }
     
+    /// <#Description#>
     public var debugDescription: String {
         return "(\(self.money.value), \(self.money.currency.code))"
     }
     
+    /// <#Description#>
     public var hashValue: Int {
         return self.money.value.hashValue
     }

@@ -13,7 +13,6 @@ var DEFAULT_LOCALE: String = "en_UK"
 
 public extension Float {
     
-    
     /// Convenience Init, that converts the value inputted to the new float.
     ///
     /// - Parameter value: The non convered currency

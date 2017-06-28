@@ -54,6 +54,10 @@ public class DefaultsManager {
         self._key = key
     }
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    /// - Throws: <#throws value description#>
     public func retrieveObject() throws -> Any {
         guard let data = defaults.data(forKey: _key) else {
             throw ManagerError.returnValueNil(forKey: _key)
@@ -62,6 +66,11 @@ public class DefaultsManager {
         return try Encoder.decode(data: data, forKey: _key)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter object: <#object description#>
+    /// - Returns: <#return value description#>
+    /// - Throws: <#throws value description#>
     public func retriveJSON<JSONCodable: JSONCoding>(
         for object: JSONCodable
         ) throws -> JSON
@@ -73,11 +82,18 @@ public class DefaultsManager {
         return try object.decode(data)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter object: <#object description#>
     public func set(_ object: Any) {
         let data = Encoder(withObject: object).data
         self.defaults.set(data, forKey: self._key)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter object: <#object description#>
+    /// - Throws: <#throws value description#>
     public func set<JSONCodable: JSONCoding>(object: JSONCodable) throws {
         try self.defaults.set(object.encode(), forKey: self._key)
     }

@@ -11,11 +11,16 @@ import Foundation
 let kProductsDatabaseName: String = "products"
 let kBasketDatabaseName: String = "basket"
 
+/// <#Description#>
 public enum Database {
     
+    /// <#Description#>
     case products
+    
+    /// <#Description#>
     case basket
     
+    /// <#Description#>
     var name: String {
         switch self {
         case .products:

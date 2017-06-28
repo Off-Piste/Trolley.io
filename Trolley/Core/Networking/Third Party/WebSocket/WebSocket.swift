@@ -27,7 +27,7 @@ public let WebsocketDidConnectNotification = "WebsocketDidConnectNotification"
 public let WebsocketDidDisconnectNotification = "WebsocketDidDisconnectNotification"
 public let WebsocketDisconnectionErrorKeyName = "WebsocketDisconnectionErrorKeyName"
 
-public protocol WebSocketDelegate: class {
+protocol WebSocketDelegate: class {
     
     func webSocketDidConnect(_ socket: WebSocket)
     
@@ -39,11 +39,11 @@ public protocol WebSocketDelegate: class {
     
 }
 
-public protocol WebSocketPongDelegate: class {
+protocol WebSocketPongDelegate: class {
     func websocketDidReceivePong(socket: WebSocket, data: Data?)
 }
 
-open class WebSocket : NSObject, StreamDelegate {
+class WebSocket : NSObject, StreamDelegate {
     
     enum OpCode : UInt8 {
         case continueFrame = 0x0
@@ -199,7 +199,7 @@ open class WebSocket : NSObject, StreamDelegate {
         didDisconnect = false
         isConnecting = true
         
-        Log.debug("Connecting to \(self.url.absoluteString)")
+        TRLCoreLogger.debug("Connecting to \(self.url.absoluteString)")
         createHTTPRequest()
     }
     
@@ -216,7 +216,7 @@ open class WebSocket : NSObject, StreamDelegate {
         case .some(let seconds) where seconds > 0:
             let milliseconds = Int(seconds * 1_000)
             callbackQueue.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) { [weak self] in
-                Log.debug("WebSocket timed out after \(seconds) seconds")
+                TRLCoreLogger.debug("WebSocket timed out after \(seconds) seconds")
                 self?.disconnectStream(nil)
             }
             fallthrough
@@ -300,7 +300,7 @@ open class WebSocket : NSObject, StreamDelegate {
             addHeader(urlRequest, key: key, val: value)
         }
         
-        Log.debug("Created request: \(urlRequest)")
+        TRLCoreLogger.debug("Created request: \(urlRequest)")
         if let cfHTTPMessage = CFHTTPMessageCopySerializedMessage(urlRequest) {
             let serializedRequest = cfHTTPMessage.takeRetainedValue()
             initStreamsWithData(serializedRequest as Data, Int(port!))
@@ -337,7 +337,7 @@ open class WebSocket : NSObject, StreamDelegate {
         //NSStream.getStreamsToHostWithName(url.host, port: url.port.integerValue, inputStream: &inputStream, outputStream: &outputStream)
         // Disconnect and clean up any existing streams before setting up a new pair
         disconnectStream(nil, runDelegate: false)
-        Log.debug("Initalisting Stream on port: \(port)")
+        TRLCoreLogger.debug("Initalisting Stream on port: \(port)")
         
         var readStream: Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
@@ -568,7 +568,7 @@ open class WebSocket : NSObject, StreamDelegate {
             if canDispatch {
                 callbackQueue.async { [weak self] in
                     guard let s = self else { return }
-                    Log.debug("Connected to", s.url, showThread: true)
+                    TRLCoreLogger.debug("Connected to", s.url, showThread: true)
                     
                     s.onConnect?()
                     s.delegate?.webSocketDidConnect(s)
@@ -832,7 +832,7 @@ open class WebSocket : NSObject, StreamDelegate {
                     writeError(CloseCode.encoding.rawValue)
                     return false
                 }
-                Log.debug("Recived String Message", showThread: true)
+                TRLCoreLogger.debug("Recived String Message", showThread: true)
                 if canDispatch {
                     callbackQueue.async { [weak self] in
                         guard let s = self else { return }
@@ -841,7 +841,7 @@ open class WebSocket : NSObject, StreamDelegate {
                     }
                 }
             } else if response.code == .binaryFrame {
-                Log.debug("Recived Data Message", showThread: true)
+                TRLCoreLogger.debug("Recived Data Message", showThread: true)
                 if canDispatch {
                     let data = response.buffer! // local copy so it is perverse for writing
                     callbackQueue.async { [weak self] in
@@ -949,7 +949,7 @@ open class WebSocket : NSObject, StreamDelegate {
         guard !didDisconnect else { return }
         
         let err: String = (error == nil) ? "" : "[Error: \(error!.localizedDescription)]"
-        Log.debug("Stream disconnected", err)
+        TRLCoreLogger.debug("Stream disconnected", err)
         
         didDisconnect = true
         isConnecting = false
@@ -971,6 +971,14 @@ open class WebSocket : NSObject, StreamDelegate {
         mutex.unlock()
         cleanupStream()
         writeQueue.cancelAllOperations()
+    }
+    
+}
+
+extension WebSocket {
+    
+    override var description: String {
+        return "WebSocket { url: \(self.self.currentURL) isConnected: \(self.isConnected) }"
     }
     
 }

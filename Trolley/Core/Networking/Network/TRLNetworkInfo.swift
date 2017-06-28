@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-
 internal struct TRLNetworkInfo {
     
     internal private(set) var host: String

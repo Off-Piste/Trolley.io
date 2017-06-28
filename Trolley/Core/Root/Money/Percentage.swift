@@ -10,32 +10,53 @@ import Foundation
 
 public struct Percentage : ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
 
+    /// <#Description#>
     public var value: NSDecimalNumber
 
+    /// <#Description#>
     public typealias IntegerLiteralType = Int
 
+    /// <#Description#>
     public typealias FloatLiteralType = Float
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(value: Int) {
         self.value = NSDecimalNumber(value: value)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(value: Float) {
         self.value = NSDecimalNumber(value: value)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(value: NSDecimalNumber) {
         self.value = value
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(calculation value: @autoclosure () -> Float) {
         self.init(value: value() * 100)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(integerLiteral value: Percentage.IntegerLiteralType) {
         self.value = NSDecimalNumber(value: value)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
     public init(floatLiteral value: Percentage.FloatLiteralType) {
         self.value = NSDecimalNumber(value: value)
     }
@@ -44,18 +65,22 @@ public struct Percentage : ExpressibleByIntegerLiteral, ExpressibleByFloatLitera
 
 public extension Percentage {
 
+    /// <#Description#>
     var integer: Int {
         return Int(self.value)
     }
 
+    /// <#Description#>
     var float: Float {
         return Float(self.value)
     }
 
+    /// <#Description#>
     var roundedValue: NSDecimalNumber {
         return self.value.rounding(accordingToBehavior: kDecimalHandler)
     }
 
+    /// <#Description#>
     var decimalValue: NSDecimalNumber {
         return self.value / 100
     }

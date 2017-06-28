@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: Add Alamofire and work like the other URL calls
+
 internal let _offlineRatesUD: String = "OfflineRates"
 
 let kDecimalHandler = NSDecimalNumberHandler(
@@ -109,7 +111,7 @@ public class CurrencyConverter: CurrencyConvertable {
             }
             return object
         } catch {
-            Log.error(
+            TRLCoreLogger.error(
                 error.localizedDescription,
                 "Currency rate will be set to 1.0"
             )

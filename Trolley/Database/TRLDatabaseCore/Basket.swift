@@ -12,10 +12,13 @@ import SwiftyJSON
 /** The default basket, is others are used with custom products that conform to `Product` */
 public typealias Basket = _Basket<Products>
 
+/** The Basket Type */
 public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection {
 
+    /// The type of the elements of an array literal.
     public typealias Element = P
 
+    /// A type that represents a position in the collection.
     public typealias Index = Array<P>.Index
 
     /// The total of the products before tax (if not preadded) and shipping.
@@ -87,14 +90,17 @@ public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection
         return items.count
     }
 
+    /// The number of elements in the collection.
     public var count: Int {
         return _products.count
     }
 
+    /// The position of the first element in a nonempty collection.
     public var startIndex: Index {
         return _products.startIndex
     }
 
+    /// The collection’s “past the end” position—that is, the position one greater than the last valid subscript argument.
     public var endIndex: Index {
         return _products.endIndex
     }
@@ -162,6 +168,9 @@ public extension _Basket {
         updateFigures()
     }
 
+    /// Accesses the element at the specified position.
+    ///
+    /// - Parameter index: The position of the element to access. position must be a valid index of the collection that is not equal to the endIndex property.
     public subscript(index: Index) -> Element {
         get { return _products[index] }
         set { _products[index] = newValue }
@@ -173,10 +182,18 @@ public extension _Basket {
 
 public extension _Basket {
 
+    /// <#Description#>
+    ///
+    /// - Parameter i: <#i description#>
+    /// - Returns: <#return value description#>
     public func index(before i: Index) -> Index {
         return _products.index(before: i)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameter i: <#i description#>
+    /// - Returns: <#return value description#>
     public func index(after i: Index) -> Index {
         return _products.index(after: i)
     }
@@ -307,7 +324,7 @@ extension _Basket : JSONCoding {
         }
         
         json.arrayObject = jsonArr
-        Log.debug(json.rawString() ?? "")
+        TRLDatabaseLogger.debug(json.rawString() ?? "")
         return try json.rawData()
     }
     
@@ -326,10 +343,20 @@ extension _Basket : JSONCoding {
 
 extension _Basket : Equatable {
 
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: A value to compare.
     public static func ==(lhs: _Basket, rhs: _Basket) -> Bool {
         return lhs._products == rhs._products
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - lhs: <#lhs description#>
+    ///   - rhs: <#rhs description#>
     public static func +=(lhs: inout _Basket, rhs: _Basket) {
         lhs.append(rhs)
     }
@@ -340,14 +367,17 @@ extension _Basket : Equatable {
 
 extension _Basket : CustomStringConvertible, CustomDebugStringConvertible, CustomReflectable {
 
+    /// A textual representation of this instance.
     public var description: String {
         return self._products.description
     }
 
+    /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
         return self.description
     }
 
+    /// The custom mirror for this instance.
     public var customMirror: Mirror {
         return _products.customMirror
     }

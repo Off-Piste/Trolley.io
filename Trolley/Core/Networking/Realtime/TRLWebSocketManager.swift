@@ -13,9 +13,11 @@ import Alamofire
 
 let kProductUpdatedKey: String = "product-updated"
 
-struct TRLWebSocketManager {
+class TRLWebSocketManager {
     
     private var connection: TRLWebSocketConnection
+    
+    fileprivate var reconnection: Timer?
     
     /// Note:
     ///
@@ -49,7 +51,7 @@ extension TRLWebSocketManager: TRLWebSocketDelegate {
         onMessage message: Dictionary<String, Any>
         )
     {
-        
+        TRLCoreLogger.debug("onMessage: \(message)")
     }
     
     func webSocketOnDisconnect(
@@ -57,16 +59,38 @@ extension TRLWebSocketManager: TRLWebSocketDelegate {
         wasEverConnected connected: Bool
         )
     {
-        
+        if !connected {
+            if #available(iOS 10.0, *) {
+                reconnection = Timer(timeInterval: 30, repeats: true, block: { (timer) in
+                    self.attemptToRestablishConnection(timer)
+                })
+            } else {
+                let aSelector: Selector = #selector(attemptToRestablishConnection(_:))
+                reconnection = Timer(timeInterval: 30, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            }
+        }
+        TRLCoreLogger.debug("onDisconnect [wasEverConnected: \(connected)]")
     }
     
     func webSocketOnConnection(_ connection: TRLWebSocketConnection) {
-        //
+        self.reconnection?.invalidate()
+        TRLCoreLogger.debug("onConnection \(connection)")
     }
     
     func webSocketOnLostConnection(_ connection: TRLWebSocketConnection) {
-        //
+        TRLCoreLogger.debug("onLostConnection \(connection)")
     }
     
+    @objc func attemptToRestablishConnection(_ timer: Timer) {
+        Trolley.shared.reachability.promise().then { reach -> Void in
+            if reach.isReachable {
+                self.reconnection?.invalidate()
+                self.open()
+            }
+        }.catch { (error) in
+            TRLCoreLogger.error(error)
+            return
+        }
+    }
     
 }

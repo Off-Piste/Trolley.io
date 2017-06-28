@@ -36,6 +36,10 @@ import Foundation
 //    
 //}
 
+/// <#Description#>
+///
+/// - response: <#response description#>
+/// - error: <#error description#>
 public enum _TRLResponse<T: NSObjectProtocol> {
     
     case response([T])
@@ -50,14 +54,23 @@ public enum _TRLResponse<T: NSObjectProtocol> {
  */
 extension _TRLResponse {
 
+    /// <#Description#>
+    ///
+    /// - Parameter element: <#element description#>
     init(_ element: T) {
         self = .response([element])
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter elements: <#elements description#>
     init(_ elements: [T]) {
         self = .response(elements)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter error: <#error description#>
     init(_ error: Error) {
         self = .error(error)
     }
@@ -66,6 +79,7 @@ extension _TRLResponse {
 
 public extension _TRLResponse {
     
+    /// <#Description#>
     public var count: Int {
         switch self {
         case .response(let objects):
@@ -75,6 +89,7 @@ public extension _TRLResponse {
         }
     }
     
+    /// <#Description#>
     var values: [T]? {
         switch self {
         case .response(let objects):
@@ -84,6 +99,7 @@ public extension _TRLResponse {
         }
     }
     
+    /// <#Description#>
     var error: Error? {
         switch self {
         case .response:
@@ -93,10 +109,12 @@ public extension _TRLResponse {
         }
     }
     
+    /// <#Description#>
     var containsResponse: Bool {
         return values != nil
     }
     
+    /// <#Description#>
     var containsError: Bool {
         return !containsResponse
     }
@@ -105,8 +123,13 @@ public extension _TRLResponse {
 
 extension _TRLResponse : Responsable {
     
+    /// <#Description#>
     public typealias Element = T
     
+    /// <#Description#>
+    ///
+    /// - Parameter value: <#value description#>
+    /// - Returns: <#return value description#>
     public func sort(by value: (Element, Element) -> Bool) -> _TRLResponse {
         switch self {
         case .error(_):
@@ -116,6 +139,10 @@ extension _TRLResponse : Responsable {
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter predicate: <#predicate description#>
+    /// - Returns: <#return value description#>
     public func filter(_ predicate: NSPredicate) -> _TRLResponse {
         switch self {
         case .error:
@@ -128,12 +155,3 @@ extension _TRLResponse : Responsable {
     
 }
 
-//public extension Networkable {
-//    
-//    func responseObject(handler: @escaping (_TRLResponse<Object>) -> Void) {
-//        let error = InternalNetworkError.urlIsNil
-//        let response: _TRLResponse<Object> = _TRLResponse(error)
-//        handler(response)
-//    }
-//    
-//}

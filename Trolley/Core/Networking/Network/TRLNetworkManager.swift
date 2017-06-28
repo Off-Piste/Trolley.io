@@ -20,6 +20,7 @@ extension String {
 
 }
 
+/// <#Description#>
 public struct TRLNetworkManager {
 
     var network: TRLNetwork
@@ -57,6 +58,14 @@ extension TRLNetworkManager : CustomStringConvertible {
 
 extension TRLNetworkManager {
 
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - route: <#route description#>
+    ///   - parameters: <#parameters description#>
+    ///   - encoding: <#encoding description#>
+    ///   - headers: <#headers description#>
+    /// - Returns: <#return value description#>
     func get(
         _ route: String,
         with parameters: Parameters?,
@@ -67,6 +76,15 @@ extension TRLNetworkManager {
         return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
     }
 
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - item: <#item description#>
+    ///   - route: <#route description#>
+    ///   - parameters: <#parameters description#>
+    ///   - encoding: <#encoding description#>
+    ///   - headers: <#headers description#>
+    /// - Returns: <#return value description#>
     func get(
         item: String,
         in route: String,
