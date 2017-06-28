@@ -108,7 +108,7 @@ struct Log {
         case fatalError = "FATAL ERROR | FATAL ERROR"
         
         var string: String {
-            return (self.rawValue == "" ? "" : " [\(self.rawValue)] " )
+            return (self.rawValue == "" ? "" : " [\(self.rawValue)]" )
         }
     }
     
@@ -120,7 +120,7 @@ struct Log {
         )
     {
         let name = (location.isEmpty) ? "Trolley" : "Trolley/\(location)"
-        self.log("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [\(name)] \(items)")
+        self.log("\(timer) [\(name)]\(type.string)\(source.isEmpty ? "" : " \(source)") \(items)")
     }
     
     fileprivate func log(_ value: String) {
