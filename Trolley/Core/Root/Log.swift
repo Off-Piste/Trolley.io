@@ -8,6 +8,7 @@
 
 import Foundation
 import Dispatch
+import asl
 
 let kTrolleyVersionNumber: String = "0.1.0"
 
@@ -71,6 +72,10 @@ extension Date {
 // MARK: CUSTOM DEBUG FLAG
 internal var isInDebugMode: Bool = false
 
+let TRLCoreLogger = Log("Core")
+let TRLDatabaseLogger = Log("Database")
+let TRLDefaultLogger = Log("")
+
 /** 
  New and improved Log tool.
  
@@ -90,27 +95,35 @@ internal var isInDebugMode: Bool = false
  */
 struct Log {
     
+    fileprivate var location: String
+    
+    fileprivate init(_ location: String) {
+        self.location = location
+    }
+    
     fileprivate enum LogType: String {
         case `default` = ""
         case error = "ERROR"
         case debug = "DEBUG"
+        case fatalError = "FATAL ERROR | FATAL ERROR"
         
         var string: String {
             return (self.rawValue == "" ? "" : " [\(self.rawValue)] " )
         }
     }
     
-    static fileprivate func console(
+    fileprivate func console(
         _ items: String,
         _ timer: String,
         _ source: String = .default,
         _ type: Log.LogType = .default
         )
     {
-        self.log("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [Trolley] \(items)")
+        let name = (location.isEmpty) ? "Trolley" : "Trolley/\(location)"
+        self.log("\(timer)\(type.string)\(source.isEmpty ? "" : " \(source)") [\(name)] \(items)")
     }
     
-    static fileprivate func log(_ value: String) {
+    fileprivate func log(_ value: String) {
         print(value)
     }
 }
@@ -120,7 +133,7 @@ struct Log {
  */
 extension Log {
     
-    static func debug(
+    func debug(
         _ items: Any...,
         showThread: Bool = false,
         separator: String = " ",
@@ -136,7 +149,7 @@ extension Log {
         self.console(strItems, Date().string, strSource, .debug)
     }
     
-    static func info(
+    func info(
         _ items: Any...,
         showSource: Bool = false,
         separator: String = " ",
@@ -155,7 +168,7 @@ extension Log {
         }
     }
     
-    static func error(
+    func error(
         _ items: Any...,
         showSource: Bool = true,
         showThread: Bool = false,
@@ -175,7 +188,27 @@ extension Log {
         }
     }
     
-    static func completeDebug(
+    func fatalError(
+        _ items: Any...,
+        showSource: Bool = true,
+        showThread: Bool = false,
+        separator: String = " ",
+        file: NSString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+        )
+    {
+        let strItems = self.sortVaradicItems(items, separator: separator)
+        let date = Date().string
+        
+        if showSource {
+            self.console(strItems, date, createSourceString(showThread, file, function, line), .fatalError)
+        } else {
+            self.console(strItems, date, .default, .fatalError)
+        }
+    }
+    
+    func completeDebug(
         _ items: Any...,
         separator: String = " ",
         file: NSString = #file,
@@ -195,11 +228,11 @@ extension Log {
  */
 extension Log {
 
-    static fileprivate func sortVaradicItems(_ items: [Any], separator: String) -> String {
+    fileprivate func sortVaradicItems(_ items: [Any], separator: String) -> String {
         return items.filtered.stringArray.joined(separator: separator)
     }
     
-    static fileprivate func createSourceString(
+    fileprivate func createSourceString(
         _ showThread: Bool,
         _ file: NSString,
         _ function: StaticString,
@@ -232,7 +265,7 @@ func _check(
     )
 {
     if value() { return }
-    Log.debug(
+    TRLDefaultLogger.debug(
         "_check failed, please assess your code", message,
         showThread: false,
         separator: " ",
@@ -294,5 +327,6 @@ func _assertCheck(
     _ line: UInt = #line
     )
 {
-    assert(value(), Log.sortVaradicItems(message, separator: " "), file: file, line: line)
+    
+    assert(value(), TRLDefaultLogger.sortVaradicItems(message, separator: " "), file: file, line: line)
 }
