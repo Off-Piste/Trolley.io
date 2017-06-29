@@ -12,7 +12,7 @@ class TRLReporter : Reporting {
     
     func logSearchQuery(
         _ query: String,
-        userInfo: Dictionary<AnyHashable, Any>?
+        customAttributes: Dictionary<AnyHashable, Any>?
         )
     {
         // Convert to JSON and send
@@ -21,7 +21,7 @@ class TRLReporter : Reporting {
     func logCheckout<Collection>(
         of basket: Collection,
         withPrice money: Money,
-        userInfo: Dictionary<AnyHashable, Any>?
+        customAttributes: Dictionary<AnyHashable, Any>?
         ) where Collection : MutableCollection
     {
         // Convert to JSON and send
@@ -31,7 +31,7 @@ class TRLReporter : Reporting {
         _ itemID: String,
         withPrice money: Money,
         toBasket basket: Collection?,
-        userInfo: Dictionary<AnyHashable, Any>?
+        customAttributes: Dictionary<AnyHashable, Any>?
         ) where Collection : MutableCollection
     {
         // Convert to JSON and send

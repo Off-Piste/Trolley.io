@@ -38,7 +38,7 @@ public class TRLAnalytics {
         NotificationCenter.default.observe(once: notification).then { _ in
             self.applicationWillTerminate()
         }.catch { (error) in
-            TRLCoreLogger.error(error.localizedDescription)
+            TRLAnalyticsLogger.error(error.localizedDescription)
         }
         
         // Should not only observe this once as we need to send this everytime
@@ -79,7 +79,7 @@ private /* public */ extension TRLAnalytics {
         let end = Date()
         let timeInterval = end.timeIntervalSince(start)
         
-        TRLCoreLogger.debug("Device was running for: \(timeInterval) seconds")
+        TRLAnalyticsLogger.debug("Device was running for: \(timeInterval) seconds")
         let json = self.toJSON(timeInterval, withKey: kTimeSpentInApp)
         self.sendToServer(json)
     }
@@ -94,10 +94,13 @@ extension TRLAnalytics :  Reporting {
     ///   - userInfo: <#userInfo description#>
     public func logSearchQuery(
         _ query: String,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]? = nil
         )
     {
-        TRLCoreLogger.debug("\(#function) query: \(query) userInfo: \(userInfo as Any)")
+        TRLAnalyticsLogger.debug("\(#function) query: \(query)")
+        let jsonDict = ["AnalyticEvent": [ "name": "searchQuery", "attributes": [ "searchValue" : query ], "customAttributes": customAttributes as Any, "date" : Date().timeIntervalSince1970]]
+        
+        self.sendToServer(self.toJSON(jsonDict))
     }
     
     /// <#Description#>
@@ -111,7 +114,7 @@ extension TRLAnalytics :  Reporting {
         _ itemID: String,
         withPrice money: Money,
         toBasket basket: Collection?,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]? = nil
         ) where Collection : MutableCollection
     {
         //
@@ -126,7 +129,7 @@ extension TRLAnalytics :  Reporting {
     public func logCheckout<Collection>(
         of basket: Collection,
         withPrice money: Money,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]? = nil
         ) where Collection : MutableCollection
     {
         //

@@ -72,8 +72,29 @@ extension Date {
 // MARK: CUSTOM DEBUG FLAG
 internal var isInDebugMode: Bool = false
 
+// For Easier Log Reading
+
+///
+///
+/// - Note:
+/// Yes Technically Analytics is in Core but I want it to feel
+/// like a seperate subspec
+let TRLAnalyticsLogger = Log("Analytics")
+
+///
+let TRLRootLogger = Log("Core/Root")
+
+///
+let TRLCoreNetworking = Log("Core/Networking")
+
+///
 let TRLCoreLogger = Log("Core")
+
+///
 let TRLDatabaseLogger = Log("Database")
+
+/// For All Calls that say "Trolley", 
+/// should only call `.info`
 let TRLDefaultLogger = Log("")
 
 /** 
@@ -105,7 +126,6 @@ struct Log {
         case `default` = ""
         case error = "ERROR"
         case debug = "DEBUG"
-        case fatalError = "FATAL ERROR | FATAL ERROR"
         
         var string: String {
             return (self.rawValue == "" ? "" : " [\(self.rawValue)]" )
@@ -185,26 +205,6 @@ extension Log {
             self.console(strItems, date, createSourceString(showThread, file, function, line), .error)
         } else {
             self.console(strItems, date, .default, .error)
-        }
-    }
-    
-    func fatalError(
-        _ items: Any...,
-        showSource: Bool = true,
-        showThread: Bool = false,
-        separator: String = " ",
-        file: NSString = #file,
-        function: StaticString = #function,
-        line: Int = #line
-        )
-    {
-        let strItems = self.sortVaradicItems(items, separator: separator)
-        let date = Date().string
-        
-        if showSource {
-            self.console(strItems, date, createSourceString(showThread, file, function, line), .fatalError)
-        } else {
-            self.console(strItems, date, .default, .fatalError)
         }
     }
     

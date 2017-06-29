@@ -21,7 +21,7 @@ public protocol Reporting {
         _ itemID: String,
         withPrice money: Money,
         toBasket basket: Collection?,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]?
     )
     
     /// <#Description#>
@@ -33,7 +33,7 @@ public protocol Reporting {
     func logCheckout<Collection: MutableCollection>(
         of basket: Collection,
         withPrice money: Money,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]?
     )
     
     /// <#Description#>
@@ -43,7 +43,7 @@ public protocol Reporting {
     ///   - userInfo: <#userInfo description#>
     func logSearchQuery(
         _ query: String,
-        userInfo: [AnyHashable : Any]?
+        customAttributes: [AnyHashable : Any]?
     )
     
 }

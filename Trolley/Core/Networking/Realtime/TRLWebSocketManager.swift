@@ -12,6 +12,15 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+extension JSON {
+    
+    init(dataArray: [Data]) {
+        let arr = dataArray.map { JSON(data: $0) }
+        self.init(arr)
+    }
+    
+}
+
 extension Notification.Name {
     
     static let websocketCreated = Notification.Name(rawValue: "WebSocketCreated")
@@ -26,6 +35,8 @@ class TRLWebSocketManager {
     
     fileprivate var connected: Bool = false
     
+    var volitileQueue: [String] = []
+    
     /// Note:
     ///
     /// For ->
@@ -39,6 +50,8 @@ class TRLWebSocketManager {
     init(url: URLConvertible, protocols: [String]?) throws {
         self.connection = try TRLWebSocketConnection(url: url, protocols: protocols)
         self.connection.delegate = self
+        
+        self.queueManager()
     }
     
     func open() {
@@ -48,7 +61,62 @@ class TRLWebSocketManager {
     
     func send(_ message: String) {
         if message.isEmpty { return }
+        if !self.connected { self.addToQueue(message) }
         self.connection.send(message)
+    }
+    
+    func queueManager() {
+        NotificationCenter.default.addObserver(.websocketCreated, object: nil) {
+            TRLCoreLogger.debug("\($0.name.rawValue) Observed")
+            self.sendQueue()
+        }
+    }
+    
+    func sendQueue() {
+        let dm = DefaultsManager(withKey: "WebSocketQueue")
+        TRLCoreLogger.debug("Attempting to send queue")
+        
+        do {
+            var queue = try dm.retrieveObject() as! [String]
+            queue.reverse()
+            
+            if self.connected {
+                // send first
+                if !self.volitileQueue.isEmpty {
+                    self.connection.send(JSON(volitileQueue).rawString() ?? "")
+                }
+                
+                let data = queue
+                    .map { $0.data(using: .utf8, allowLossyConversion: true) }
+                    .flatMap { $0 }
+                
+                let json = JSON(dataArray: data)
+                TRLCoreLogger.debug(json.rawString() ?? "")
+                self.connection.send(json.rawString() ?? "")
+                dm.clear()
+            }
+        } catch {
+            TRLCoreLogger.debug("Queue Is Empty")
+        }
+    }
+    
+    func addToQueue(_ message: String) {
+        let dm = DefaultsManager(withKey: "WebSocketQueue")
+        TRLCoreLogger.debug("Adding Message [\(message)] to queue")
+        
+        // This only needs to be sent upon connection and not mulitple times
+        // Technically this should never be hit as its only sent
+        // after .websocketCreated is observed
+        if message.contains("DeviceData") {
+            self.volitileQueue.append(message); return
+        }
+        
+        do {
+            var queue = try dm.retrieveObject() as! [String]
+            queue.append(message)
+        } catch {
+            dm.set([message])
+        }
     }
 }
 

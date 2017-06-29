@@ -18,6 +18,8 @@ var kUserAgent: String {
     return ua
 }
 
+public let ServerDown: Notification.Name = Notification.Name(rawValue: "ServerDown")
+
 class TRLWebSocketConnection {
     
     fileprivate private(set) var webSocket: WebSocket
@@ -25,6 +27,8 @@ class TRLWebSocketConnection {
     var delegate: TRLWebSocketDelegate?
     
     var wasEverConnected: Bool = false
+    
+    var serverDown: Bool = false
     
     init(url: URLConvertible, protocols: [String]?) throws {
         self.webSocket = WebSocket(
@@ -42,8 +46,10 @@ extension TRLWebSocketConnection {
     
     func open() {
         assert(delegate != nil, "TRLWebSocketDelegate must be set")
-        self.webSocket.connect()
         
+        if self.serverDown { return }
+        
+        self.webSocket.connect()
         self.waitForTimeout(10)
     }
     
@@ -87,6 +93,10 @@ extension TRLWebSocketConnection : WebSocketDelegate {
         if error != nil, (error!.code == 61 && Trolley.shared.reachability.isReachable) {
             let errorResponse = "Server is down [(url: \(socket.currentURL)) ( error: \(error!.localizedDescription)) (reachability: \(Trolley.shared.reachability.currentReachabilityString))]"
             TRLCoreLogger.error(errorResponse)
+            
+            // In the TRLUIComponents we will have some view watching
+            // this to display an error
+            NotificationCenter.default.post(name: ServerDown, object: nil)
         }
         self.delegate?.webSocketOnDisconnect(self, wasEverConnected: self.wasEverConnected)
     }
