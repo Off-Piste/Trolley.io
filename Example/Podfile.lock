@@ -28,12 +28,18 @@ PODS:
     - SwiftyJSON
   - Trolley/Database (0.1.0):
     - Trolley/Core
+  - Trolley/Delivery (0.1.0):
+    - Trolley/Core
+  - Trolley/Notification (0.1.0):
+    - Trolley/Core
 
 DEPENDENCIES:
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
   - Trolley (from `../`)
   - Trolley/Database (from `../`)
+  - Trolley/Delivery (from `../`)
+  - Trolley/Notification (from `../`)
 
 EXTERNAL SOURCES:
   Trolley:
@@ -45,8 +51,8 @@ SPEC CHECKSUMS:
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Trolley: 465190d8d3dcd0df14861abe9bc7a45fddf4dd6b
+  Trolley: e5c3595c57e9b0d18781b466ba324c3688063c16
 
-PODFILE CHECKSUM: db3f907eb66c6ce463bf2cab4540df4303a88e84
+PODFILE CHECKSUM: 58f9928ceee32fca523d908cd7ead9a28f4bd211
 
 COCOAPODS: 1.2.0.beta.3

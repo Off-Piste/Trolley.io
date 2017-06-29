@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		021E7C4E4B07911CE084D518 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		258AFA98A96BF24620684C63 /* Trolley.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Trolley.podspec; path = ../Trolley.podspec; sourceTree = "<group>"; };
+		258AFA98A96BF24620684C63 /* Trolley.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Trolley.podspec; path = ../Trolley.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		343FAAB3A9DF43688772895F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4AC9BEA1C108A493EA988E93 /* Pods-Trolley_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Tests/Pods-Trolley_Tests.debug.xcconfig"; sourceTree = "<group>"; };

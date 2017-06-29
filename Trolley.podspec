@@ -49,4 +49,20 @@ A very very very very very very very short description of Trolley for me to do l
       d.dependency 'Trolley/Core'
   end
 
+  s.subspec 'Notification' do |n|
+      n.source_files = 'Trolley/Notification/**/**/*.swift'
+      n.dependency 'Trolley/Core'
+  end
+
+  s.subspec 'Delivery' do |d|
+      d.source_files = 'Trolley/Delivery/**/**/*.swift'
+      d.dependency 'Trolley/Core'
+  end
+
+  s.subspec 'UI' do |d|
+      d.source_files = 'Trolley/Delivery/**/**/*.swift'
+      d.dependency 'Trolley/Database'
+      d.dependency 'Trolley/Delivery'
+  end
+
 end

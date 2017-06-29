@@ -16,15 +16,12 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        DefaultsManager(withKey: "WebSocketQueue").clear()
+        
         // If you are using our API to store your data you should call this.
         // If not then we would reccomend using `Trolley/Core` in your podfile
         // for the use of the Core functionality without all the heavy stuff
-        Trolley.shared.configure(withLogging: true)
-        let startDate = Date()
-        _ = TRLTimer(for: 20, repeats: false) { (timer) in
-            let endDate = Date(), ti = endDate.timeIntervalSince(startDate)
-            print(ti)
-        }
+        Trolley.shared.configure()
 //
 //        // Calling the `configure()` method again will not do anything other than
 //        // have our logger letting you know that you have it called twice
@@ -73,7 +70,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public func applicationDidBecomeActive(_ application: UIApplication) {
-        TRLAnalytics.shared.logSearchQuery("\(application)", userInfo: nil)
+        TRLAnalytics.shared.logSearchQuery("Ripped Jeans")
     }
     
 //

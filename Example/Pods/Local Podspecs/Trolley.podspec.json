@@ -58,6 +58,36 @@
 
         ]
       }
+    },
+    {
+      "name": "Notification",
+      "source_files": "Trolley/Notification/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Delivery",
+      "source_files": "Trolley/Delivery/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Trolley/Delivery/**/**/*.swift",
+      "dependencies": {
+        "Trolley/Database": [
+
+        ],
+        "Trolley/Delivery": [
+
+        ]
+      }
     }
   ]
 }
