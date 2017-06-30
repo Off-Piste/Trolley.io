@@ -199,7 +199,7 @@ class WebSocket : NSObject, StreamDelegate {
         didDisconnect = false
         isConnecting = true
         
-        TRLCoreLogger.debug("Connecting to \(self.url.absoluteString)")
+        TRLCoreNetworkingLogger.debug("Connecting to \(self.url.absoluteString)")
         createHTTPRequest()
     }
     
@@ -216,7 +216,7 @@ class WebSocket : NSObject, StreamDelegate {
         case .some(let seconds) where seconds > 0:
             let milliseconds = Int(seconds * 1_000)
             callbackQueue.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) { [weak self] in
-                TRLCoreLogger.debug("WebSocket timed out after \(seconds) seconds")
+                TRLCoreNetworkingLogger.debug("WebSocket timed out after \(seconds) seconds")
                 self?.disconnectStream(nil)
             }
             fallthrough
@@ -300,7 +300,7 @@ class WebSocket : NSObject, StreamDelegate {
             addHeader(urlRequest, key: key, val: value)
         }
         
-        TRLCoreLogger.debug("Created request: \(urlRequest)")
+        TRLCoreNetworkingLogger.debug("Created request: \(urlRequest)")
         if let cfHTTPMessage = CFHTTPMessageCopySerializedMessage(urlRequest) {
             let serializedRequest = cfHTTPMessage.takeRetainedValue()
             initStreamsWithData(serializedRequest as Data, Int(port!))
@@ -337,7 +337,7 @@ class WebSocket : NSObject, StreamDelegate {
         //NSStream.getStreamsToHostWithName(url.host, port: url.port.integerValue, inputStream: &inputStream, outputStream: &outputStream)
         // Disconnect and clean up any existing streams before setting up a new pair
         disconnectStream(nil, runDelegate: false)
-        TRLCoreLogger.debug("Initalisting Stream on port: \(port)")
+        TRLCoreNetworkingLogger.debug("Initalisting Stream on port: \(port)")
         
         var readStream: Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
@@ -568,7 +568,7 @@ class WebSocket : NSObject, StreamDelegate {
             if canDispatch {
                 callbackQueue.async { [weak self] in
                     guard let s = self else { return }
-                    TRLCoreLogger.debug("Connected to", s.url, showThread: true)
+                    TRLCoreNetworkingLogger.debug("Connected to", s.url, showThread: true)
                     
                     s.onConnect?()
                     s.delegate?.webSocketDidConnect(s)
@@ -832,7 +832,7 @@ class WebSocket : NSObject, StreamDelegate {
                     writeError(CloseCode.encoding.rawValue)
                     return false
                 }
-                TRLCoreLogger.debug("Recived String Message", showThread: true)
+                TRLCoreNetworkingLogger.debug("Recived String Message", showThread: true)
                 if canDispatch {
                     callbackQueue.async { [weak self] in
                         guard let s = self else { return }
@@ -841,7 +841,7 @@ class WebSocket : NSObject, StreamDelegate {
                     }
                 }
             } else if response.code == .binaryFrame {
-                TRLCoreLogger.debug("Recived Data Message")
+                TRLCoreNetworkingLogger.debug("Recived Data Message")
                 if canDispatch {
                     let data = response.buffer! // local copy so it is perverse for writing
                     callbackQueue.async { [weak self] in
@@ -880,6 +880,8 @@ class WebSocket : NSObject, StreamDelegate {
      Used to write things to the stream
      */
     private func dequeueWrite(_ data: Data, code: OpCode, writeCompletion: (() -> ())? = nil) {
+        TRLCoreNetworkingLogger.debug("Attempting to send Message, with code [\(code)]")
+        
         let operation = BlockOperation()
         operation.addExecutionBlock { [weak self, weak operation] in
             //stream isn't ready, let's wait
@@ -949,7 +951,7 @@ class WebSocket : NSObject, StreamDelegate {
         guard !didDisconnect else { return }
         
         let err: String = (error == nil) ? "" : "[Error: \(error!.localizedDescription)]"
-        TRLCoreLogger.debug("Stream disconnected", err)
+        TRLCoreNetworkingLogger.debug("Stream disconnected", err)
         
         didDisconnect = true
         isConnecting = false

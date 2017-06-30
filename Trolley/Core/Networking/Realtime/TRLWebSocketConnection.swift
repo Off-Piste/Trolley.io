@@ -14,7 +14,7 @@ var kUserAgent: String {
     let deviceName = UIDevice.current.model
     let bundleIdentifier: String? = Bundle.main.bundleIdentifier
     
-    let ua: String = "Firebase/13/\(systemVersion)/\(deviceName)_\((bundleIdentifier) ?? "unknown")"
+    let ua: String = "Trolley/13/\(systemVersion)/\(deviceName)_\((bundleIdentifier) ?? "unknown")"
     return ua
 }
 
@@ -29,6 +29,8 @@ class TRLWebSocketConnection {
     var wasEverConnected: Bool = false
     
     var serverDown: Bool = false
+    
+    var attempts: Int = 0
     
     init(url: URLConvertible, protocols: [String]?) throws {
         self.webSocket = WebSocket(
@@ -49,6 +51,9 @@ extension TRLWebSocketConnection {
         
         if self.serverDown { return }
         
+        attempts += 1
+        TRLCoreLogger.debug("This is WebSocket attempt #\(attempts)")
+        
         self.webSocket.connect()
         self.waitForTimeout(10)
     }
@@ -65,7 +70,7 @@ extension TRLWebSocketConnection {
         TRLTimer(for: time).once {
             if self.wasEverConnected { return }
             
-            TRLCoreLogger.debug("WebSocket timed out after \(time) seconds")
+            TRLCoreNetworkingLogger.debug("WebSocket timed out after \(time) seconds")
             self.webSocket.disconnect()
         }
     }
@@ -92,12 +97,14 @@ extension TRLWebSocketConnection : WebSocketDelegate {
     func webSocket(_ socket: WebSocket, didDisconnect error: NSError?) {
         if error != nil, (error!.code == 61 && Trolley.shared.reachability.isReachable) {
             let errorResponse = "Server is down [(url: \(socket.currentURL)) ( error: \(error!.localizedDescription)) (reachability: \(Trolley.shared.reachability.currentReachabilityString))]"
-            TRLCoreLogger.error(errorResponse)
+            TRLCoreNetworkingLogger.error(errorResponse)
             
             // In the TRLUIComponents we will have some view watching
             // this to display an error
             NotificationCenter.default.post(name: ServerDown, object: nil)
         }
+        
+        
         self.delegate?.webSocketOnDisconnect(self, wasEverConnected: self.wasEverConnected)
     }
     

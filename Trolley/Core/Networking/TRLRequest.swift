@@ -104,6 +104,8 @@ extension TRLRequest : Networkable {
     ///
     /// - Parameter handler: <#handler description#>
     public func responseData(handler: @escaping DefaultHandler) {
+        TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
+        
         self.dataRequest.responseData { (response) in
             handler(response.data, response.error)
         }
@@ -113,6 +115,8 @@ extension TRLRequest : Networkable {
     ///
     /// - Returns: <#return value description#>
     public func responseData() -> Promise<Data> {
+        TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
+        
         return Promise { fullfill, reject in
             self.promise.then(execute: { (_, _, data) -> Void in
                 fullfill(data)

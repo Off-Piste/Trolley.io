@@ -33,17 +33,14 @@ public struct TRLNetworkManager {
     }
 
     internal init(_ url: URLConvertible, key: String) throws {
-            self.network = try TRLNetwork(url)
-            self.network.parsedURL._addPath(key)
+        self.network = try TRLNetwork(url)
+        self.network.parsedURL._addPath(key)
     }
 
+    @available(*, unavailable, renamed: "init(_:key:)")
     internal init?(url: URLConvertible, key: String) {
-        do {
-            self.network = try TRLNetwork(url)
-            self.network.parsedURL._addPath(key)
-        } catch {
-            return nil
-        }
+        TRLCoreNetworkingLogger.info("Please use `init(_:key:) throws` instead")
+        return nil
     }
 
 }

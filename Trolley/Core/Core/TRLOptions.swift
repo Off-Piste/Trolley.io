@@ -12,11 +12,11 @@ import PromiseKit
 
 let kPlistName: String = "Trolley-Config"
 let kPlistMerchantIDKey: String = "Merchant-ID"
+let kPlistLocalCurrencyCode: String = "Shop-Currency-Code"
 let kBaseURLKey: String = "Base-URL"
 let kDefaultRouteKey: String = "Default-Route"
 
 typealias XML = JSON
-// typealias XML = Dictionary<String, Any>
 
 public class TRLOptions {
 
@@ -63,21 +63,24 @@ public extension TRLOptions {
     }
 
     /// <#Description#>
-   public var merchantID: String {
-       return xml[kPlistMerchantIDKey].stringValue
-   }
+    public var merchantID: String {
+        return xml[kPlistMerchantIDKey].stringValue
+    }
+    
+    public var currencyCode: String {
+        return xml[kPlistLocalCurrencyCode].stringValue
+    }
 
-   private var baseURL: String {
-       return xml[kBaseURLKey].stringValue
-   }
+    private var baseURL: String {
+        return xml[kBaseURLKey].stringValue
+    }
 
-   private var defaultURLRoute: String {
-       return xml[kDefaultRouteKey].stringValue
-   }
+    private var defaultURLRoute: String {
+        return xml[kDefaultRouteKey].stringValue
+    }
 
     internal var url: String {
-       return baseURL + "/" + defaultURLRoute
-
+        return baseURL + "/" + defaultURLRoute
     }
 
 }
@@ -85,19 +88,23 @@ public extension TRLOptions {
 internal extension TRLOptions {
 
     func validate() {
-       if self.containsError {
-           let err = self.error!
-           switch err {
-           case ParserError.error.pathCannotBeFound:
-               NSException.raise("The required plist cannot be found, please download from <url>")
-           default:
-               NSException.raise(err.localizedDescription)
-           }
-       }
+        if self.containsError {
+            let err = self.error!
+            switch err {
+            case ParserError.error.pathCannotBeFound:
+                NSException.raise("The required plist cannot be found, please download from <url>")
+            default:
+                NSException.raise(err.localizedDescription)
+            }
+        }
 
-       if self.merchantID.isEmpty {
-           NSException.raise("The Merchant ID is nil, please re-download the plist")
-       }
+        if self.merchantID.isEmpty {
+            NSException.raise("The Merchant ID is nil, please re-download the plist")
+        }
+
+        if self.currencyCode.isEmpty {
+            NSException.raise("The Currency Code is nil, please re-download the plist")
+        }
     }
 
 }
@@ -108,15 +115,15 @@ private extension TRLOptions {
     ///
     /// - Parameter file: <#file description#>
     /// - Returns: <#return value description#>
-   func parsePLIST(in file: String) -> Promise<XML> {
-       return  Promise { fullfill, reject in
-           do {
-               let items = try Parser(forResouceName: file, ofType: "plist").items
-               let xml = XML(items)
-               fullfill(xml)
-           } catch {
-               reject(error)
-           }
-       }
-   }
+    func parsePLIST(in file: String) -> Promise<XML> {
+        return  Promise { fullfill, reject in
+            do {
+                let items = try Parser(forResouceName: file, ofType: "plist").items
+                let xml = XML(items)
+                fullfill(xml)
+            } catch {
+                reject(error)
+            }
+        }
+    }
 }

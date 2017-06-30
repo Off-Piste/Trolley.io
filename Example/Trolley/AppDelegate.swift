@@ -21,7 +21,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are using our API to store your data you should call this.
         // If not then we would reccomend using `Trolley/Core` in your podfile
         // for the use of the Core functionality without all the heavy stuff
-        Trolley.shared.configure()
+        Trolley.shared.configure(withLogging: true)
 //
 //        // Calling the `configure()` method again will not do anything other than
 //        // have our logger letting you know that you have it called twice

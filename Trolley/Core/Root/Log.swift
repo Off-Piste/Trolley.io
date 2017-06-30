@@ -85,7 +85,7 @@ let TRLAnalyticsLogger = Log("Analytics")
 let TRLRootLogger = Log("Core/Root")
 
 ///
-let TRLCoreNetworking = Log("Core/Networking")
+let TRLCoreNetworkingLogger = Log("Core/Networking")
 
 ///
 let TRLCoreLogger = Log("Core")
@@ -265,7 +265,7 @@ func _check(
     )
 {
     if value() { return }
-    TRLDefaultLogger.debug(
+    TRLDefaultLogger.error(
         "_check failed, please assess your code", message,
         showThread: false,
         separator: " ",
