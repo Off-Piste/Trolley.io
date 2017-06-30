@@ -45,7 +45,7 @@ var kAlreadyConfiguredWarning: String =
     "or `configure(options:)`, thank you."
 
 /// <#Description#>
-public class Trolley {
+@objc public class Trolley : NSObject {
 
     /// The singleton that ever user should access
     ///
@@ -90,7 +90,7 @@ public class Trolley {
 
     /// <#Description#>
     fileprivate
-    init() { }
+    override init() { }
 
     /**
      * Configures a default Trolley.io Shop.
@@ -133,6 +133,8 @@ public class Trolley {
         self.analytics = TRLAnalytics()
         self.anOption = options
         self.anOption.validate()
+        
+        SHOP_CURRENCY_CODE = self.anOption.currencyCode
         
         do {
             try self.setupNetworking(self.anOption)
@@ -222,7 +224,7 @@ extension Trolley {
             let converter = CurrencyConverter.shared
             converter.setupJSONUserDefaults()
 
-            converter.downloadJSON { (error) in
+            converter.downloadCurrencyData { (error) in
                 if error != nil { reject(error!) }
                 else { fullfill(converter) }
             }

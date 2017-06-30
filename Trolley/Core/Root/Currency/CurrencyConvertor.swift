@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
-// TODO: Add Alamofire and work like the other URL calls
+internal let _offlineRatesUD: String = "OfflineRate"
 
-internal let _offlineRatesUD: String = "OfflineRates"
+internal var SHOP_CURRENCY_CODE: String = "GBP"
 
 let kDecimalHandler = NSDecimalNumberHandler(
     roundingMode: .plain,
@@ -21,25 +23,10 @@ let kDecimalHandler = NSDecimalNumberHandler(
     raiseOnDivideByZero: true
 )
 
-/// Completion handler to send an error if an error is recived.
-public typealias Downloader = (CurrencyError?) -> Void
-
 /// The CurrencyConvertable protocol that Currency conforms to
 public protocol CurrencyConvertable {
     
     func convert(_ value: Float) -> Float
-    
-}
-
-class JSONDecoder {
-    
-    static func object(
-        from data: Data,
-        withOptions options: JSONSerialization.ReadingOptions = .allowFragments
-        ) throws -> Any
-    {
-        return try JSONSerialization.jsonObject(with: data, options: options)
-    }
     
 }
 
@@ -53,7 +40,7 @@ public enum CurrencyError: Error {
     case couldNotWorkWithJSON
     case guardFail(for: Int)
     case error(_ : Error)
-    case ratesNil(_ : [String : AnyObject])
+    case ratesNil(_ : [String : Any])
     case invalidURL(_ : String)
     
     var localizedDescription: String {
@@ -76,87 +63,68 @@ public enum CurrencyError: Error {
  Currency Conversion Class, this will download the JSON for the rates and can be initalised with a custom value.
  
  # Note
- Money inside of the basket or Products are not automatically converted, 
+ Money inside of the basket or Products are not automatically converted,
  as users may not required that.
  */
 public class CurrencyConverter: CurrencyConvertable {
     
-    /// The shared instance of CurrencyConverter, 
-    /// this is so all parts of the framework acces the same rates
-    public static var shared = CurrencyConverter()
+    public static let shared = CurrencyConverter()
     
-    /// The conversion rate that is used by the framework
-    public private(set) var conversionRate: Float = 0.0
+    public fileprivate(set) var conversionRate: Float = 0.0
     
-    /// The NSDecimalNumber for the conversion rate
-    internal var decimalRate: NSDecimalNumber {
+    public var decimalRate: NSDecimalNumber {
         return NSDecimalNumber(value: conversionRate)
     }
     
-    /// The local currency code
-    public var localeCurrencyCode: String {
-        return _localCurrencyCode
-    }
-    
-    /// The Defaults Manager that holds the required UD Key
-    private let newManager: DefaultsManager = {
+    fileprivate var defaultsManager: DefaultsManager {
         return DefaultsManager(withKey: _offlineRatesUD)
-    }()
-    
-    /// Setup with rates that will be used if the JSON hasn't downloaded
-    private var _offlineRates: [String : Float] {
-        do {
-            guard let object = try newManager.retrieveObject() as? [String : Float] else {
-                fatalError("Cannot cast to dictionary")
-            }
-            return object
-        } catch {
-            TRLCoreLogger.error(
-                error.localizedDescription,
-                "Currency rate will be set to 1.0"
-            )
-            return ["Error" : 404]
-        }
     }
     
-    /// The Currency of the vendor, can be set in the `ECommerce-info.plist`
-    private var _baseCurrency: String = DEFAULT_CURRENCY_TYPE
+    private init() { }
     
-    /// The url for the api
-    private var _apiUrl: String {
-        return "http://api.fixer.io/latest?base=\(self._baseCurrency)"
+    public init(withCovertionRate cr: Float) { self.conversionRate = cr }
+    
+}
+
+private extension CurrencyConverter {
+    
+    var _baseCurrency: String {
+        return SHOP_CURRENCY_CODE
     }
     
-    /// The currency code that is send through Currency so that currencys 
-    /// that aren't supported by the api can't crash the code
-    private var _localCurrencyCode: String {
+    var _localCurrencyCode: String {
         let locale = Locale.current
         guard let currencyCode = locale.currencyCode else { return "GBP" }
         return Currency(localeIdentifier: currencyCode).description
     }
     
-    fileprivate var _newAPIURL: String {
-        return "http://api.fixer.io/latest?base=\(self._baseCurrency)&symbols=\(self._localCurrencyCode)"
+    var _url: URLConvertible {
+        return "http://api.fixer.io/latest?base=\(_baseCurrency)&symbols=\(_localCurrencyCode)"
     }
     
-    /// Private init, only used for shared instance
-    private init() { }
+    var _offlineRate: Float {
+        if _baseCurrency == _localCurrencyCode { return 1.0 }
+        
+        do {
+            let rates = try defaultsManager.retrieveObject() as! [String : Float]
+            return rates[_localCurrencyCode] ?? 1.0
+        } catch {
+            return 1.0
+        }
+    }
     
-    /// Initaliser for if the user wishes to use a custom conversion rate
-    /// or downloads there rate differently and wishes to work with our methods
-    ///
-    /// - Parameter cr: The Conversion rate as a Float
-    public init(withCovertionRate cr: Float) { self.conversionRate = cr }
-    
-    /// The conversion method, this returns the converted rate, 
+}
+
+public extension CurrencyConverter {
+
+    /// The conversion method, this returns the converted rate,
     /// in low internet zones it will used a saved value
     ///
     /// - Parameter value: The pre-converted value
     /// - Returns: The converted Value
     public func convert(_ value: Float) -> Float {
-        if conversionRate == 0.0 { // Checks to see if downloaded, if not converts with saved rate
-            guard let rate = self._offlineRates[self._localCurrencyCode] else { return value * 1.0 }
-            return value * rate
+        if conversionRate == 0.0 {
+            return value * self._offlineRate
         }
         
         return value * conversionRate
@@ -168,64 +136,40 @@ public class CurrencyConverter: CurrencyConvertable {
     /// - Returns: <#return value description#>
     func convert(value: NSDecimalNumber) -> NSDecimalNumber {
         if decimalRate == 0.0 {
-            guard let rate = self._offlineRates[self._localCurrencyCode] else { return value }
-            let dc = NSDecimalNumber(value: rate)
+            let dc = NSDecimalNumber(value: self._offlineRate)
             return value.multiplying(by: dc)
         }
+        
         return value.multiplying(by: decimalRate)
     }
     
-    /// The Downloader for the currency JSON
-    ///
-    /// - Parameter completion: Check `Downloader` for details
-    internal func downloadJSON(_ completion: @escaping Downloader) {
-        // No need to convert from say GBP to GBP
-        if self._localCurrencyCode == self._baseCurrency { return }
-        
-        guard let url = URL(string: _newAPIURL) else {
-            completion(CurrencyError.invalidURL(_newAPIURL))
-            return
+}
+
+internal extension CurrencyConverter {
+
+    func downloadCurrencyData(handler: @escaping (Error?) -> Void) {
+        if self._baseCurrency == self._localCurrencyCode {
+            self.conversionRate = 1.0; handler(nil); return
         }
         
-        let urlRequest = URLRequest(url: url)
-        let session = URLSession.shared
-        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            if error != nil { completion(CurrencyError.error(error!)); return }
-            guard let responseData = data as Data? else {
-                completion(CurrencyError.guardFail(for: #line - 1))
-                return
+        Alamofire.request(self._url).responseData { (response) in
+            if response.error != nil, response.data == nil { handler(response.error); return }
+            let json = JSON(data: response.data!)
+            
+            if json["rates"].isEmpty { handler(CurrencyError.couldNotWorkWithJSON); return }
+            guard let rates = json["rates"].dictionaryObject as [String : AnyObject]?,
+                let rate = rates[self._localCurrencyCode] as? Float
+                else {
+                    handler(CurrencyError.ratesNil(json.dictionaryValue)); return
             }
             
-            do {
-                if let json = try JSONDecoder.object(from: responseData) as? [String : AnyObject] {
-                    guard let rates = json["rates"] as? [String : AnyObject] else {
-                        completion(CurrencyError.ratesNil(json))
-                        return
-                    }
-                    
-                    if let rate = self._offlineRates[self._localCurrencyCode] {
-                        self.newManager.set(rates)
-                        self.conversionRate = rate
-                        
-                        completion(nil)
-                        return
-                    } else {
-                        completion(CurrencyError.ratesNil([:]))
-                        return
-                    }
-                } else {
-                    completion(CurrencyError.couldNotWorkWithJSON)
-                    return
-                }
-            } catch {
-                completion((error as! CurrencyError))
-                return
-            }
-        })
-        task.resume()
+            self.conversionRate = rate
+            self.defaultsManager.set(rates)
+            handler(nil)
+        }
     }
     
-    internal func setupJSONUserDefaults() {
+    func setupJSONUserDefaults() {
         let manager = DefaultsManager(withKey: _offlineRatesUD)
         do {
             let values = try manager.retrieveObject()
