@@ -19,7 +19,7 @@ extension Notification.Name {
     
 }
 
-public class TRLAnalytics {
+@objc public class TRLAnalytics : NSObject {
     
     fileprivate var start: Date
     
@@ -31,8 +31,9 @@ public class TRLAnalytics {
         return DefaultsManager(withKey: userDefaultsKey)
     }
     
-    internal init() {
+    internal override init() {
         self.start = Date()
+        super.init()
         
         let notification: Notification.Name = .UIApplicationWillTerminate
         NotificationCenter.default.observe(once: notification).then { _ in
@@ -91,8 +92,8 @@ extension TRLAnalytics :  Reporting {
     ///
     /// - Parameters:
     ///   - query: <#query description#>
-    ///   - userInfo: <#userInfo description#>
-    public func logSearchQuery(
+    ///   - customAttributes: <#userInfo description#>
+    @objc public func logSearchQuery(
         _ query: String,
         customAttributes: [AnyHashable : Any]? = nil
         )
@@ -109,7 +110,7 @@ extension TRLAnalytics :  Reporting {
     ///   - itemID: <#itemID description#>
     ///   - money: <#money description#>
     ///   - basket: <#basket description#>
-    ///   - userInfo: <#userInfo description#>
+    ///   - customAttributes: <#userInfo description#>
     public func logAddItem<Collection>(
         _ itemID: String,
         withPrice money: Money,
@@ -125,7 +126,7 @@ extension TRLAnalytics :  Reporting {
     /// - Parameters:
     ///   - basket: <#basket description#>
     ///   - money: <#money description#>
-    ///   - userInfo: <#userInfo description#>
+    ///   - customAttributes: <#userInfo description#>
     public func logCheckout<Collection>(
         of basket: Collection,
         withPrice money: Money,

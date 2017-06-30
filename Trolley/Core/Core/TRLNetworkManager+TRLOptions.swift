@@ -10,7 +10,7 @@ import Foundation
 
 extension TRLNetworkManager {
     
-    init(option: TRLOptions) throws {
+    convenience init(option: TRLOptions) throws {
         try self.init(option.url, key: option.merchantID)
     }
     

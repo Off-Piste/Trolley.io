@@ -7,7 +7,7 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the swift example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
@@ -20,9 +20,15 @@ it, simply add the following line to your Podfile:
 pod "Trolley"
 ```
 
+## Features
+
+- ObjectiveC Support
+- Swift Built
+
 ## How To Use
 
-Making Requests:
+- [Making Requests Swift](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/How%20To%20Use%20-%20Making%20API%20Calls.md)
+- Making Requests ObjectiveC
 
 ## Author
 

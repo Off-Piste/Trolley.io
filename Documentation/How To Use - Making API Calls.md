@@ -1,4 +1,4 @@
-# How To Use
+# How To Use - Swift
 
 The networking of the framework has been done using [Alamofire](https://github.com/Alamofire/Alamofire). Why you might ask? Well because it's hands-down the best networking tool out there, and allows for easy connectivity.
 

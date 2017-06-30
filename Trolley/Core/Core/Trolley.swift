@@ -44,8 +44,10 @@ var kAlreadyConfiguredWarning: String =
     "Please remove any un-required calls to `configure()` " +
     "or `configure(options:)`, thank you."
 
-/// <#Description#>
-@objc public class Trolley : NSObject {
+// Might Remove the (TRLShop) from the Objc but the idea is
+// that the ObjC version of Basket will be called Trolley
+/// Add Desc
+@objc(TRLShop) public class Trolley : NSObject {
 
     /// The singleton that ever user should access
     ///
@@ -91,7 +93,7 @@ var kAlreadyConfiguredWarning: String =
     /// <#Description#>
     fileprivate
     override init() { }
-
+    
     /**
      * Configures a default Trolley.io Shop.
      *
@@ -103,7 +105,23 @@ var kAlreadyConfiguredWarning: String =
      * This method is thread safe by using `zalgo`.
      */
     public
-    func configure(withLogging log: Bool = false) {
+    func configure() {
+        self.configure(withLogging: false)
+    }
+
+    /**
+     * Configures a default Trolley.io Shop.
+     *
+     * Raises an exception if any configuration step fails. The saved in the
+     * `.shared` singleton. This method should be called after the using
+     * Trolley services.
+     *
+     * - Note
+     * This method is thread safe by using `zalgo`.
+     */
+
+    public
+    func configure(withLogging log: Bool) {
         if kAlreadyConfigured { TRLDefaultLogger.info(kAlreadyConfiguredWarning); return }
 
         let options = TRLOptions.default
@@ -192,6 +210,7 @@ extension Trolley {
         self.networkManager = try TRLNetworkManager(option: anOption)
 
         let dm = DefaultsManager(withKey: "_local_websocket")
+        dm.set("http://127.0.0.1:8080/API")
         let url = try! dm.retrieveObject() as! String
 
         self.webSocketManager = try TRLWebSocketManager(url: url, protocols: nil)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Reporting {
+public protocol Reporting : class {
     
     /// <#Description#>
     ///

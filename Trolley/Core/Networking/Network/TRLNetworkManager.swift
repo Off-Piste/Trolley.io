@@ -21,7 +21,7 @@ extension String {
 }
 
 /// <#Description#>
-public struct TRLNetworkManager {
+@objc public class TRLNetworkManager : NSObject {
 
     var network: TRLNetwork
 
@@ -45,15 +45,15 @@ public struct TRLNetworkManager {
 
 }
 
-extension TRLNetworkManager : CustomStringConvertible {
+extension TRLNetworkManager {
 
-    public var description: String {
+    public override var description: String {
         return self.network.parsedURL.description
     }
 
 }
 
-extension TRLNetworkManager {
+public extension TRLNetworkManager {
 
     /// <#Description#>
     ///
@@ -93,7 +93,7 @@ extension TRLNetworkManager {
         let route = String.urlRoute(for: route, item)
         return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
     }
-
+    
 }
 
 // TODO: Add Post/Put/Delete

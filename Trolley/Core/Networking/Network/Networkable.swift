@@ -11,7 +11,7 @@ import PromiseKit
 
 public typealias DefaultHandler = (Data?, Error?) -> Void
 
-public protocol Networkable {
+public protocol Networkable : class {
     
     func responseData(handler: @escaping DefaultHandler)
     

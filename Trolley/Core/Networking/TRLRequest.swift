@@ -19,7 +19,7 @@ func request(_ request: TRLRequest) -> DataRequest {
     )
 }
 
-public class TRLRequest {
+@objc public class TRLRequest : NSObject {
 
     internal var url: URLConvertible
 
@@ -70,9 +70,9 @@ internal extension TRLRequest {
 
 }
 
-extension TRLRequest : CustomStringConvertible {
+extension TRLRequest {
 
-    public var description: String {
+    public override var description: String {
         var values: [String] = []
         values.append(try! self.url.asURL().absoluteString)
         values.append(self.method.rawValue)
@@ -103,14 +103,14 @@ extension TRLRequest : Networkable {
     /// <#Description#>
     ///
     /// - Parameter handler: <#handler description#>
-    public func responseData(handler: @escaping DefaultHandler) {
+    @objc public func responseData(handler: @escaping DefaultHandler) {
         TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
         
         self.dataRequest.responseData { (response) in
             handler(response.data, response.error)
         }
     }
-
+    
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
@@ -125,5 +125,5 @@ extension TRLRequest : Networkable {
             })
         }
     }
-
+    
 }

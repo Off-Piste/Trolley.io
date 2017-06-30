@@ -30,8 +30,10 @@ A very very very very very very very short description of Trolley for me to do l
       networking = ['Trolley/Core/Networking/**/**/*.swift']
       core = ['Trolley/Core/Core/**/**/*.swift']
       required = ['Trolley/Core/Root/**/**/*.swift']
+      objc = ['Trolley/Core/Core-Objc/**/**/*.swift']
       core += networking
       core += required
+      core += objc
       c.source_files = core
 
       c.dependency 'PromiseKit/CoreLocation'
