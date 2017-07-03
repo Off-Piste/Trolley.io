@@ -6,7 +6,7 @@ Calls are easy to create and can be however wish. Simple or complicated, your ch
 
 ```swift
 TRLNetworkManager.shared
-    .get("products")
+    .get(.products)
     .responseProducts { products in
         switch products {
         case .response(let objects):
@@ -19,7 +19,7 @@ TRLNetworkManager.shared
 // OR as complicated as you like
 
 TRLNetworkManager.shared
-    .get("products")
+    .get(.products)
     .filter("price > 100")
     .rate(20)
     .responseProducts { products in
