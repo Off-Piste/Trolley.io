@@ -16,6 +16,7 @@ extension TRLNetworkManager {
     /// - Parameters:
     ///   - database: <#database description#>
     /// - Returns: <#return value description#>
+    @objc(getDatabase:)
     public func get(_ database: Database) -> TRLRequest {
         return self.get(
             database.name,
@@ -31,6 +32,7 @@ extension TRLNetworkManager {
     ///   - item: <#item description#>
     ///   - database: <#database description#>
     /// - Returns: <#return value description#>
+    @objc(getItem:inDatabase:)
     public func get(_ item: String, in database: Database) -> TRLRequest {
         return self.get(
             item: item,

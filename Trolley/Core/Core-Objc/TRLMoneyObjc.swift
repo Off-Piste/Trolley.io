@@ -8,93 +8,77 @@
 
 import Foundation
 
-#if _runtime(_ObjC)
-
 @objc public final class TRLMoney : NSObject {
     
-    public var money: (value: NSDecimalNumber, currency: Currency)
+    internal var _core: Money
+    
+    public var money: (value: NSDecimalNumber, currency: Currency) {
+        return self._core.money
+    }
     
     public init(withDecimal value: NSDecimalNumber) {
-        self.money = (value, defaultCurrency)
-        super.init()
+        self._core = Money(value: value)
     }
     
-    public init(withNumber value: NSNumber) {
-        self.money = (NSDecimalNumber(decimal: value.decimalValue), defaultCurrency)
-        super.init()
+    public convenience init(withNumber value: NSNumber) {
+        let decimal = NSDecimalNumber(decimal: value.decimalValue)
+        self.init(withDecimal: decimal)
     }
     
-}
-
-extension TRLMoney : MoneyType {
-    
-    public typealias `Self` = TRLMoney
+    internal init(_core: Money) { self._core = _core }
     
     /// <#Description#>
     public var amount: Float {
-        return self.currency.convert(value: money.value)
-            .rounding(accordingToBehavior: kDecimalHandler).floatValue
+        return self._core.amount
     }
     
     /// <#Description#>
     public var floatValue: Float {
-        return self.money.value.rounding(accordingToBehavior: kDecimalHandler).floatValue
+        return self._core.floatValue
     }
     
     /// <#Description#>
     public var integerValue: Int {
-        return self.money.value
-            .rounding(accordingToBehavior: kDecimalHandler).intValue
+        return self._core.integerValue
     }
     
     /// <#Description#>
     public var stripe: Int {
-        return Int(self.floatValue * 100)
+        return self._core.stripe
     }
     
     /// <#Description#>
     public var string: String {
-        let fmt = NumberFormatter()
-        fmt.numberStyle = .currency
-        fmt.locale = Locale.current
-        
-        return fmt.string(from: self.currency.convert(value: money.value))!
+        return self._core.string
     }
     
     /// <#Description#>
     public var currency: Currency {
-        return self.money.currency
+        return self._core.currency
     }
     
     /// <#Description#>
     public var decimalValue: NSDecimalNumber {
-        return self.currency.convert(value: money.value)
+        return self._core.decimalValue
     }
     
     /// <#Description#>
     public var nonConvertedDecimal: NSDecimalNumber {
-        return self.money.value
+        return self._core.nonConvertedDecimal
     }
     
     /// <#Description#>
     public var isNegative: Bool {
-        return self.money.value.isNegative
+        return self._core.isNegative
     }
     
     /// <#Description#>
-    public var negative: TRLMoney {
-        return TRLMoney(withDecimal: self.money.value.negate(withBehavior: kDecimalHandler))
+    public var negative: NSDecimalNumber {
+        return self._core.decimalValue.negate(withBehavior: kDecimalHandler)
     }
-    
-    
-}
-
-extension TRLMoney {
     
     public override var description: String {
-        return self.string
+        return self._core.description
     }
     
 }
-
-#endif

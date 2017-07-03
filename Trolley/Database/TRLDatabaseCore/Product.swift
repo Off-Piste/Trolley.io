@@ -26,10 +26,10 @@ public protocol Product : Equatable, Hashable {
     ///
     ///     // £20.00
     ///     price.currencyValue
-    var price: Money { get }
+    @nonobjc var price: Money { get }
 
     /// <#Description#>
-    var discount: Percentage { get }
+    @nonobjc var discount: Percentage { get }
 
     /// The data at which the product was added to your server, this is if you wish to filter your products by data, if not just call `Date()`
     var addedOn: Date { get }

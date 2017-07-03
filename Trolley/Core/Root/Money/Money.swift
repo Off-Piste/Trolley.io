@@ -186,6 +186,13 @@ public struct Money : DecimalType {
             self.money = (NSDecimalNumber(value: value), defaultCurrency)
         }
     }
+    
+}
+
+extension Money {
+    init(_ objc: TRLMoney) {
+        self = objc._core
+    }
 }
 
 /**

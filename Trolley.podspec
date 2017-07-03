@@ -45,6 +45,8 @@ A very very very very very very very short description of Trolley for me to do l
   s.subspec 'Database' do |d|
       networking = ['Trolley/Database/TRLDatabaseNetworking/**/**/*.swift']
       core = ['Trolley/Database/TRLDatabaseCore/**/**/*.swift']
+      objc = ['Trolley/Database/TRLDatabase-Objc/**/**/*.swift']
+      core += objc
       core += networking
 
       d.source_files = core

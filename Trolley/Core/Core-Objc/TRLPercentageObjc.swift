@@ -8,52 +8,45 @@
 
 import Foundation
 
-#if _runtime(_ObjC)
-
 @objc public final class TRLPercentage: NSObject {
     
-    var value: NSDecimalNumber
+    internal var _percentageCore: Percentage
+    
+    public var value: NSDecimalNumber {
+        return self._percentageCore.value
+    }
     
     public init(withDecimal decimal: NSDecimalNumber) {
-        self.value = decimal
+        self._percentageCore = Percentage(value: decimal)
     }
     
-    public init(withNumber number: NSNumber) {
-        self.value = NSDecimalNumber(decimal: number.decimalValue)
+    public convenience init(withNumber number: NSNumber) {
+        let decimal = NSDecimalNumber(decimal: number.decimalValue)
+        self.init(withDecimal: decimal)
     }
     
-}
-
-public extension TRLPercentage {
+    internal init(core: Percentage) {
+        self._percentageCore = core
+    }
     
-    /// <#Description#>
     var integer: Int {
-        return Int(self.value)
+        return self._percentageCore.integer
     }
     
-    /// <#Description#>
     var float: Float {
-        return Float(self.value)
+        return self._percentageCore.float
     }
     
-    /// <#Description#>
     var roundedValue: NSDecimalNumber {
-        return self.value.rounding(accordingToBehavior: kDecimalHandler)
+        return self._percentageCore.roundedValue
     }
     
-    /// <#Description#>
     var decimalValue: NSDecimalNumber {
-        return self.value / 100
+        return self._percentageCore.decimalValue
     }
-    
-}
-
-extension TRLPercentage {
     
     public override var description: String {
-        return "\(self.roundedValue)%"
+        return self._percentageCore.description
     }
     
 }
-
-#endif

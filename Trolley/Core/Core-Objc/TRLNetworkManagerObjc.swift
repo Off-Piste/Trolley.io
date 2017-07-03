@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-#if _runtime(_ObjC)
+@available(swift, introduced: 1.0, obsoleted: 1.0)
 public extension TRLNetworkManager {
     
     @objc func get(
@@ -35,4 +35,4 @@ public extension TRLNetworkManager {
     }
     
 }
-#endif
+

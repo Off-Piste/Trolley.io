@@ -111,7 +111,7 @@ public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection
 
     fileprivate var _discount: Money = 0
 
-    fileprivate var _products = [Element]() {
+    internal var _products = [Element]() {
         didSet {
             updateFigures()
             self._updatedOn = Date()

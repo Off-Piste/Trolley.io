@@ -25,6 +25,7 @@ public enum DefaultsManagerError: Error {
     
     case returnValueNil(forKey: String)
     case couldNotUnarchive(forKey: String)
+    case couldNotConvert(Any, to: Any)
     
     var localizedDescription: String {
         switch self {
@@ -32,6 +33,8 @@ public enum DefaultsManagerError: Error {
             return "Cannot retrive the data, please check the key(\(key)) used to set and retrive are the same"
         case .couldNotUnarchive(let key):
             return "NSKeyedUnarchiver cannot unarchive the value for key: \(key). Please report this toy use via gitbug"
+        case .couldNotConvert(let first, let second):
+            return "Could not convert \(first) to \(second)"
         }
     }
 }
@@ -39,7 +42,8 @@ public enum DefaultsManagerError: Error {
 /// Shorter name for `DefaultsManagerError`
 public typealias ManagerError = DefaultsManagerError
 
-public class DefaultsManager {
+@objc(TRLDefaultsManager)
+public class DefaultsManager : NSObject {
     
     /// The standard UserDefaults shared instance
     private let defaults = UserDefaults.standard
@@ -58,6 +62,7 @@ public class DefaultsManager {
     ///
     /// - Returns: <#return value description#>
     /// - Throws: <#throws value description#>
+    @objc(retriveObject:)
     public func retrieveObject() throws -> Any {
         guard let data = defaults.data(forKey: _key) else {
             throw ManagerError.returnValueNil(forKey: _key)
@@ -69,36 +74,14 @@ public class DefaultsManager {
     /// <#Description#>
     ///
     /// - Parameter object: <#object description#>
-    /// - Returns: <#return value description#>
-    /// - Throws: <#throws value description#>
-    public func retriveJSON<JSONCodable: JSONCoding>(
-        for object: JSONCodable
-        ) throws -> JSON
-    {
-        guard let data = defaults.data(forKey: self._key) else {
-            throw ManagerError.returnValueNil(forKey: self._key)
-        }
-        
-        return try object.decode(data)
-    }
-    
-    /// <#Description#>
-    ///
-    /// - Parameter object: <#object description#>
+    @objc(setObject:)
     public func set(_ object: Any) {
         let data = Encoder(withObject: object).data
         self.defaults.set(data, forKey: self._key)
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameter object: <#object description#>
-    /// - Throws: <#throws value description#>
-    public func set<JSONCodable: JSONCoding>(object: JSONCodable) throws {
-        try self.defaults.set(object.encode(), forKey: self._key)
-    }
-    
     /// The method to remove objects for the key
+    @objc(clearObject)
     public func clear() {
         defaults.removeObject(forKey: _key)
     }

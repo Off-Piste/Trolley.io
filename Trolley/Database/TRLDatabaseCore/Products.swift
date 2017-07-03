@@ -18,6 +18,7 @@ import SwiftyJSON
  
  All subclasses will automatically work with `Basket()`
  */
+@objc(TRLProducts)
 open class Products : NSObject, Product {
     
     open var id: String
@@ -26,9 +27,9 @@ open class Products : NSObject, Product {
     
     open var company: String
     
-    open var price: Money
+    @nonobjc open var price: Money
     
-    open var discount: Percentage
+    @nonobjc open var discount: Percentage
     
     open var addedOn: Date
     
@@ -36,7 +37,7 @@ open class Products : NSObject, Product {
     
     open var details: [String : Any]
     
-    open var total: Money {
+    @nonobjc open var total: Money {
         return self.price - self.discountValue
     }
     
