@@ -18,6 +18,13 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Trolley"
+pod "Trolley/Database" # For the Product/Basket Management
+
+# Coming Soon
+pod "Trolley/Notification" # For Notifications
+pod "Trolley/Delivery" # For Delivery Tracking
+pod "Trolley/UI" # For UI Elements and nice items
+pod "Trolley/ARKit" # Name is the clue
 ```
 
 ## Features
