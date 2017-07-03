@@ -8,18 +8,18 @@ Calls can be done using normal call backs or with Promise Kit's AnyPromise
 > With AnyPromise you will need to `@import PromiseKit` in the file
 
 ```objective-c
-TRLRequest *request = [[TRLNetworkManager shared] get:TRLProductsRoute with:nil headers:nil];
-[request responseDataWithHandler:^(NSData *data, NSError *error) {
-    /* */
+TRLRequest *request = [[TRLNetworkManager shared] getDatabase:TRLDatabaseProducts];
+[request responseJSONWithBlock:^(NSDictionary<NSString *,id> *json, NSError *error) {
+    /** ... */
 }];
 
-// OR
+// OR using PromiseKit
 
-TRLRequest *request = [[TRLNetworkManager shared] get:TRLProductsRoute with:nil headers:nil];
-[request responseDataPromise].then(^(NSData *data){
-    /* */
+TRLRequest *request = [[TRLNetworkManager shared] getDatabase:TRLDatabaseProducts];
+[request responseJSON].then(^(NSDictionary<NSString *,id> *json){
+    /* ... */
 }).catch(^(NSError *error){
-   /* */
+    /* ... */
 });
 
 ```
