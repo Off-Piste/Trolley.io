@@ -37,6 +37,10 @@ pod "Trolley/ARKit" # Name is the clue
 - [Making Requests Swift](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/How%20To%20Use%20-%20Making%20API%20Calls.md)
 - [Making Requests ObjectiveC](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/How%20To%20Use%20-%20Making%20API%20Calls%20Objc.md)
 
+## Contributing
+
+See [CONTRIBUTING.md](https://github.com/Off-Piste/Trolley.io/blob/master/CONTRIBUTING.md) for more details!
+
 ## Author
 
 harrytwright, haroldtomwright@gmail.com
