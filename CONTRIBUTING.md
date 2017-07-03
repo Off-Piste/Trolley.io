@@ -6,13 +6,13 @@ Whether you find a bug, typo or an API call that could be clarified or our SDK r
 
 When filing an issue, please provide as much of the following information as possible in order to help others fix it:
 
-1. A Simple Overview Of The Error
-2. Expected Results
-3. Actual Results
-4. Steps to Reproduce
-5. Code Sample (full project links are ideal)
-6. Version of Trolley / Xcode / OS
-7. CocoaPod Version
+1. **A Simple Overview Of The Error**
+2. **Expected Results**
+3. **Actual Results**
+4. **Steps to Reproduce**
+5. **Code Sample (full project links are ideal)**
+6. **Version of Trolley / Xcode / OS**
+7. **CocoaPod Version**
 
 ### Speeding things up 🏃
 
