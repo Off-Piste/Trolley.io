@@ -29,9 +29,8 @@
         describe(@"Fix For #4", ^{
             context(@"Server Is Down", ^{
                 it(@"Error Should Not Be Nil", ^{
+                    TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
                     waitUntil(^(void (^done)(void)){
-                        TRLRequest *request = [[TRLNetworkManager shared]
-                                               getDatabase:TRLDatabaseProducts];
                         [request responseProductsWithBlock:^(NSArray<TRLProducts *> *products, NSError *error) {
                             expect(error).toNot(beNil());
                             done();

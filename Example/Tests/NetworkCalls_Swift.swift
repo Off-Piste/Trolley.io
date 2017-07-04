@@ -6,15 +6,6 @@ import Nimble
 @testable import Pods_Trolley_Tests
 @testable import Pods_Trolley_Example
 
-extension Trolley {
-    
-    func configure(forBundle bundle: Bundle) {
-        let anOption = TRLOptions(withBundle: bundle)
-        self.configure(options: anOption)
-    }
-    
-}
-
 class NetworkCalls_Swift: QuickSpec {
     
     override func spec() {
