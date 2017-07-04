@@ -1,6 +1,0 @@
-framework module Trolley {
-  umbrella header "Trolley.default-Database-Delivery-Notification-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -20,7 +20,7 @@ A very very very very very very very short description of Trolley for me to do l
   s.homepage         = 'https://github.com/Off-Piste/Trolley.io'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'harrytwright' => 'haroldtomwright@gmail.com' }
-  s.source           = { :git => 'https://github.com/Off-Piste/Trolley.io.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Off-Piste/Trolley.io.git', :tag => 'v0.1.0-alpha' }
 
   s.ios.deployment_target = '8.0'
   s.frameworks = 'Foundation', 'UIKit', 'PassKit'

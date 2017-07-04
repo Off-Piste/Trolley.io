@@ -12,6 +12,9 @@ target 'Trolley_Example' do
     pod 'Quick', '~> 1.0.0'
     pod 'Nimble', '~> 5.1.1'
     pod 'Trolley', :path => '../'
+    pod 'Trolley/Database', :path => '../'
+    pod 'Trolley/Delivery', :path => '../'
+    pod 'Trolley/Notification', :path => '../'
   end
 
 end
