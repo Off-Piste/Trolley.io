@@ -9,7 +9,7 @@
 import Foundation
 
 @available(swift, introduced: 1.0, obsoleted: 1.0)
-public extension Products {
+public extension Product {
     
     @objc(price) var objc_price: TRLMoney {
         return TRLMoney(_core: self.price)

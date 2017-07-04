@@ -51,13 +51,13 @@ public extension TRLRequest {
     
     @objc(responseProducts)
     func responseProductsPromise() -> AnyPromise {
-        let promise = Promise<Array<Products>> { fullfill, reject in
+        let promise = Promise<[Product]> { fullfill, reject in
             self.responseProducts(handler: { (response) in
                 switch response {
                 case .error(let error):
                     reject(error)
-                case .response(let objects):
-                    fullfill(objects)
+                case .response(let rawres):
+                    fullfill(rawres.objects)
                 }
             })
         }
@@ -66,13 +66,13 @@ public extension TRLRequest {
     }
     
     @objc
-    func responseProducts(withBlock block: @escaping ([Products], Error?) -> Void) {
+    func responseProducts(withBlock block: @escaping ([Product], Error?) -> Void) {
         self.responseProducts(handler: { (response) in
             switch response {
             case .error(let error):
                 block([], error)
-            case .response(let objects):
-                block(objects, nil)
+            case .response(let rawres):
+                block(rawres.objects, nil)
             }
         })
     }

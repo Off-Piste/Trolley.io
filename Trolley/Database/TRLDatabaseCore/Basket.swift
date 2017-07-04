@@ -10,10 +10,10 @@ import Foundation
 import SwiftyJSON
 
 /** The default basket, is others are used with custom products that conform to `Product` */
-public typealias Basket = _Basket<Products>
+public typealias Basket = _Basket<Product>
 
 /** The Basket Type */
-public struct _Basket<P: Product> : ExpressibleByArrayLiteral, MutableCollection {
+public struct _Basket<P: _Product> : ExpressibleByArrayLiteral, MutableCollection {
 
     /// The type of the elements of an array literal.
     public typealias Element = P

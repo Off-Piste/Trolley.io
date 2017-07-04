@@ -31,7 +31,7 @@
                 it(@"Error Should Not Be Nil", ^{
                     TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
                     waitUntil(^(void (^done)(void)){
-                        [request responseProductsWithBlock:^(NSArray<TRLProducts *> *products, NSError *error) {
+                        [request responseProductsWithBlock:^(NSArray<TRLProduct *> *products, NSError *error) {
                             expect(error).toNot(beNil());
                             done();
                         }];

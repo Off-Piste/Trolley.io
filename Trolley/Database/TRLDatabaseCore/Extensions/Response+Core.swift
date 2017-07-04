@@ -9,7 +9,7 @@
 import Foundation
 import PromiseKit
 
-public extension Array where Element == Products {
+public extension Array where Element == Product {
     
     /// <#Description#>
     ///
@@ -33,37 +33,37 @@ public extension Array where Element == SearchableProducts {
 
 }
 
-public typealias SearchResponse = _Response<SearchableProducts>
-
-public typealias ProductResponse = _Response<Products>
-
-/**
- Extension to show the functions that only work for SearchableProducts;
-
- A devoloper can easier copy this and change `T == Products` if they wish
- to add `search(_:)` to `Products`
- */
-public extension _Response where T == SearchableProducts {
-
-    /// <#Description#>
-    ///
-    /// - Parameter value: <#value description#>
-    /// - Returns: <#return value description#>
-    func search(for value: String) -> _Response {
-        let newObjects = self.objects.filter(for: value)
-        return _Response(newObjects)
-    }
-
-    /// <#Description#>
-    ///
-    /// - Parameter value: <#value description#>
-    /// - Returns: <#return value description#>
-    func search(for value: String) -> Promise<[SearchableProducts]> {
-        let promise = Promise { fullfill, reject in
-            fullfill(self.objects.filter(for: value))
-        }
-
-        return promise
-    }
-
-}
+//public typealias SearchResponse = _Response<SearchableProducts>
+//
+//public typealias ProductResponse = _Response<Product>
+//
+///**
+// Extension to show the functions that only work for SearchableProducts;
+//
+// A devoloper can easier copy this and change `T == Products` if they wish
+// to add `search(_:)` to `Products`
+// */
+//public extension _Response where T == SearchableProducts {
+//
+//    /// <#Description#>
+//    ///
+//    /// - Parameter value: <#value description#>
+//    /// - Returns: <#return value description#>
+//    func search(for value: String) -> _Response {
+//        let newObjects = self.objects.filter(for: value)
+//        return _Response(newObjects)
+//    }
+//
+//    /// <#Description#>
+//    ///
+//    /// - Parameter value: <#value description#>
+//    /// - Returns: <#return value description#>
+//    func search(for value: String) -> Promise<[SearchableProducts]> {
+//        let promise = Promise { fullfill, reject in
+//            fullfill(self.objects.filter(for: value))
+//        }
+//
+//        return promise
+//    }
+//
+//}

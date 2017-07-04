@@ -42,16 +42,15 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Parameter handler: <#handler description#>
-    func responseProducts(handler: @escaping (_TRLResponse<Products>) -> Void) {
+    func responseProducts(handler: @escaping (_TRLDefaultResponse<Product>) -> Void) {
         self.responseJSON { (json, err) in
-            let response: _TRLResponse<Products>
-            if json == JSON.null, err != nil {
-                response = _TRLResponse(err!)
+            let response: _TRLDefaultResponse<Product>
+            if let error = err  {
+                response = _TRLDefaultResponse(error)
                 handler(response)
             } else {
-                response = _TRLResponse(json.products)
+                response = _TRLDefaultResponse(json.products)
                 handler(response)
-                
             }
         }
     }
@@ -59,12 +58,12 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-    func responseProducts() -> Promise<TRLProductsPromise> {
-        return Promise { fullfill, reject in
+    func responseProducts() -> ProductsPromise {
+        return ProductsPromise.go { (resolve) in
             self.responseJSON().then {
-                fullfill(TRLProductsPromise($0.products))
-                }.catch {
-                    reject($0)
+                resolve($0.products, nil)
+            }.catch {
+                resolve(nil, $0)
             }
         }
     }
@@ -74,10 +73,11 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Parameter handler: <#handler description#>
-    func responseProduct(handler: @escaping (Products?, Error?) -> Void) {
+    func responseProduct(handler: @escaping (Product?, Error?) -> Void) {
         self.responseProducts { (response) in
             switch response {
-            case .response(let objects):
+            case .response(let rawres):
+                let objects = rawres.objects
                 if objects.count > 1 { handler(nil, createError("To Many Products Downloaded")) }
                 if objects.count == 0 { handler(nil, createError("Product is empty")) }
                 handler(objects.first!, nil)
@@ -90,7 +90,7 @@ public extension Networkable {
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-    func responseProduct() -> Promise<Products> {
+    func responseProduct() -> Promise<Product> {
         return Promise { fullfill, reject in
             self.responseJSON().then { json -> Void in
                 if json.arrayValue.count > 1 { throw createError("To Many Products Downloaded") }

@@ -18,8 +18,8 @@ import SwiftyJSON
  
  All subclasses will automatically work with `Basket()`
  */
-@objc(TRLProducts)
-open class Products : NSObject, Product {
+@objc(TRLProduct)
+open class Product : NSObject, _Product {
     
     open var id: String
     
@@ -79,7 +79,7 @@ open class Products : NSObject, Product {
 }
 
 // MARK: - Convience Inits
-extension Products {
+extension Product {
     
     /// A convenience Initaliser to set all the local properties
     ///
@@ -154,9 +154,9 @@ extension Products {
 
 // MARK: Equatable
 
-extension Products {
+extension Product {
     
-    public static func ==(lhs: Products, rhs: Products) -> Bool {
+    public static func ==(lhs: Product, rhs: Product) -> Bool {
         return lhs.name == rhs.name &&
             lhs.company == rhs.company &&
             lhs.price == rhs.price &&

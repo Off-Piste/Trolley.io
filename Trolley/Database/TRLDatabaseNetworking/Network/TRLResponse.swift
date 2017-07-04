@@ -7,42 +7,21 @@
 //
 
 import Foundation
-//import PromiseKit
 
-//public class Object: NSObject {
-//    
-//    var name: String
-//    
-//    var age: Int
-//    
-//    init(name: String, age: Int) {
-//        self.name = name
-//        self.age = age
-//    }
-//    
-//}
-//
-//// Work it though alamofire
-//extension Object : ParameterEncoding {
-//    
-//    public func encode(
-//        _ urlRequest: URLRequestConvertible,
-//        with parameters: Parameters?
-//        ) throws -> URLRequest
-//    {
-//        let urlRequest = try urlRequest.asURLRequest()
-//        return urlRequest
-//    }
-//    
-//}
+typealias TRLProductsResponse = _TRLDefaultResponse<Product>
 
 /// <#Description#>
 ///
 /// - response: <#response description#>
 /// - error: <#error description#>
-public enum _TRLResponse<T: NSObjectProtocol> {
+public enum _TRLDefaultResponse<T: NSObjectProtocol> {
     
-    case response([T])
+    // why use `_PromiseResponse`? Well it is the
+    // exact same as `_TRLDefaultResponse` but the
+    // value is never nil so will never
+    // have any issues, also makes it easier for
+    // me to justify having both
+    case response(_PromiseResponse<T>)
     
     case error(Error)
     
@@ -52,20 +31,22 @@ public enum _TRLResponse<T: NSObjectProtocol> {
  These cannot be created by anyone outside our framework, 
  so the init's will be kept internal
  */
-extension _TRLResponse {
+extension _TRLDefaultResponse {
 
     /// <#Description#>
     ///
     /// - Parameter element: <#element description#>
     init(_ element: T) {
-        self = .response([element])
+        let response = _PromiseResponse(element)
+        self = .response(response)
     }
     
     /// <#Description#>
     ///
     /// - Parameter elements: <#elements description#>
     init(_ elements: [T]) {
-        self = .response(elements)
+        let response = _PromiseResponse(elements)
+        self = .response(response)
     }
     
     /// <#Description#>
@@ -75,15 +56,19 @@ extension _TRLResponse {
         self = .error(error)
     }
     
+    init(_ core: _PromiseResponse<T>) {
+        self = .response(core)
+    }
+    
 }
 
-public extension _TRLResponse {
+public extension _TRLDefaultResponse {
     
     /// <#Description#>
     public var count: Int {
         switch self {
-        case .response(let objects):
-            return objects.count
+        case .response(let rawres):
+            return rawres.count
         case .error:
             return 0
         }
@@ -92,8 +77,8 @@ public extension _TRLResponse {
     /// <#Description#>
     var values: [T]? {
         switch self {
-        case .response(let objects):
-            return objects
+        case .response(let rawres):
+            return rawres.objects
         case .error:
             return nil
         }
@@ -121,7 +106,7 @@ public extension _TRLResponse {
     
 }
 
-extension _TRLResponse : Responsable {
+extension _TRLDefaultResponse : Responsable {
     
     /// <#Description#>
     public typealias Element = T
@@ -130,12 +115,12 @@ extension _TRLResponse : Responsable {
     ///
     /// - Parameter value: <#value description#>
     /// - Returns: <#return value description#>
-    public func sort(by value: (Element, Element) -> Bool) -> _TRLResponse {
+    public func sort(by value: (Element, Element) -> Bool) -> _TRLDefaultResponse {
         switch self {
         case .error(_):
             return self
-        case .response(let objects):
-            return _TRLResponse(objects.sorted(by: value))
+        case .response(let rawres):
+            return _TRLDefaultResponse(rawres.sort(by: value))
         }
     }
     
@@ -143,13 +128,12 @@ extension _TRLResponse : Responsable {
     ///
     /// - Parameter predicate: <#predicate description#>
     /// - Returns: <#return value description#>
-    public func filter(_ predicate: NSPredicate) -> _TRLResponse {
+    public func filter(_ predicate: NSPredicate) -> _TRLDefaultResponse {
         switch self {
         case .error:
             return self
-        case .response(let objects):
-            let newObjects = (objects as NSArray).filtered(using: predicate) as! [T]
-            return _TRLResponse(newObjects)
+        case .response(let rawres):
+            return _TRLDefaultResponse(rawres.filter(predicate))
         }
     }
     

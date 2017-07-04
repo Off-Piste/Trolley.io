@@ -10,11 +10,11 @@ import Foundation
 
 @objc public class TRLBasket : NSObject {
     
-    internal typealias Core = _Basket<Products>
+    internal typealias Core = _Basket<Product>
     
     fileprivate var core: Core
     
-    public var products: [Products] {
+    public var products: [Product] {
         return core._products
     }
     
@@ -23,12 +23,12 @@ import Foundation
         super.init()
     }
     
-    public init(withProducts products: Array<Products>) {
+    public init(withProducts products: Array<Product>) {
         self.core = Core(indexes: products)
         super.init()
     }
     
-    public init(withProduct product: Products) {
+    public init(withProduct product: Product) {
         self.core = Core(index: product)
         super.init()
     }
@@ -43,23 +43,23 @@ import Foundation
 public extension TRLBasket {
     
     @objc(productForIndex:)
-    func product(for index: Int) -> Products {
+    func product(for index: Int) -> Product {
         assert(index > self.core.endIndex, "\(index) should not be larger than \(self.core.count)")
         return self.core[index]
     }
     
     @objc(productForID:)
-    func product(for id: String) -> Products? {
+    func product(for id: String) -> Product? {
         return self.core.getProduct(for: id)
     }
     
     @objc(appendProduct:)
-    func append(_ product: Products) {
+    func append(_ product: Product) {
         self.core.append(product)
     }
     
     @objc(appendingProduct:)
-    func appending(_ product: Products) -> TRLBasket {
+    func appending(_ product: Product) -> TRLBasket {
         return TRLBasket(self.core.appending(product))
     }
     
@@ -69,24 +69,24 @@ public extension TRLBasket {
     
     @objc(addProduct:withQuantity:block:)
     func add(
-        _ products: Products,
+        _ product: Product,
         withQuantity q: NSNumber,
         block: @escaping (TRLBasket, Error?) -> Void
         )
     {
         let quantity = Int(q)
-        self.core.add(products, withQuantity: quantity) {
+        self.core.add(product, withQuantity: quantity) {
             block(TRLBasket($0.0), $0.1)
         }
     }
     
     @objc(addProduct:withBlock:)
     func append(
-        _ products: Products,
+        _ product: Product,
         block: @escaping (TRLBasket, Error?) -> Void
         )
     {
-        self.core.add(products, withQuantity: 1) {
+        self.core.add(product, withQuantity: 1) {
             block(TRLBasket($0.0), $0.1)
         }
     }

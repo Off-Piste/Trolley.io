@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-public protocol Product : Equatable, Hashable {
+public protocol _Product : Equatable, Hashable {
 
     /// The products id, this is set to a default of `NSUUID().uuidString` if not set
     var id: String { get }
@@ -48,7 +48,7 @@ public protocol Product : Equatable, Hashable {
     static func ==(lhs: Self, rhs: Self) -> Bool
 }
 
-extension Product {
+extension _Product {
 
     /// `Equatable` method to return true if the values are equal or false if not
     ///
@@ -68,7 +68,7 @@ extension Product {
 /**
 
  */
-public extension Product {
+public extension _Product {
 
     /// The Price / Discount
     var discountValue: Money {

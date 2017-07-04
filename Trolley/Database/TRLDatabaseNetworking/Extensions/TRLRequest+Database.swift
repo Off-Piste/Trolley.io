@@ -81,14 +81,4 @@ public extension TRLRequest {
         return self.default
     }
     
-    /// <#Description#>
-    ///
-    /// - Returns: <#return value description#>
-    func validate() -> Networkable {
-        TRLDatabaseLogger.debug("Validating the request")
-        
-        self.dataRequest.validate()
-        return self
-    }
-    
 }

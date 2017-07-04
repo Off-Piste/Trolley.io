@@ -9,16 +9,15 @@
 import Foundation
 import PromiseKit
 
-/// <#Description#>
-public class _Response<T: NSObjectProtocol> : ExpressibleByArrayLiteral {
+typealias ProductsPromiseResponse = _PromiseResponse<Product>
+
+public class _PromiseResponse<T: NSObjectProtocol> {
     
     /// <#Description#>
     public typealias Element = T
     
     /// <#Description#>
     public var objects: [T]
-    
-    internal var block: Any?
     
     /// <#Description#>
     public var count: Int {
@@ -46,22 +45,16 @@ public class _Response<T: NSObjectProtocol> : ExpressibleByArrayLiteral {
         self.objects = objects
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameter elements: <#elements description#>
-    public required init(arrayLiteral elements: _Response.Element...) {
-        self.objects = elements
-    }
 }
 
-public extension _Response {
+public extension _PromiseResponse {
     
     /// <#Description#>
     ///
     /// - Parameter value: <#value description#>
     /// - Returns: <#return value description#>
-    func sort(by value: (Element, Element) -> Bool) -> _Response {
-        return _Response(self.objects.sorted(by: value))
+    func sort(by value: (Element, Element) -> Bool) -> _PromiseResponse {
+        return _PromiseResponse(self.objects.sorted(by: value))
     }
     
     /// <#Description#>
@@ -70,7 +63,7 @@ public extension _Response {
     ///   - predicateFormat: <#predicateFormat description#>
     ///   - args: <#args description#>
     /// - Returns: <#return value description#>
-    func filter(_ predicateFormat: String, _ args: Any...) -> _Response {
+    func filter(_ predicateFormat: String, _ args: Any...) -> _PromiseResponse {
         let predicate = NSPredicate(format: predicateFormat, argumentArray: args)
         return self.filter(predicate)
     }
@@ -79,9 +72,9 @@ public extension _Response {
     ///
     /// - Parameter predicate: <#predicate description#>
     /// - Returns: <#return value description#>
-    func filter(_ predicate: NSPredicate) -> _Response {
+    func filter(_ predicate: NSPredicate) -> _PromiseResponse {
         let newObjects = (self.objects as NSArray).filtered(using: predicate) as! [T]
-        return _Response(newObjects)
+        return _PromiseResponse(newObjects)
     }
     
 }

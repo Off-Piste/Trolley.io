@@ -16,7 +16,7 @@ import CoreLocation
 
 
  */
-public extension _Basket where P == Products {
+public extension _Basket where P == Product {
 
     /// <#Description#>
     ///
@@ -58,7 +58,7 @@ public extension _Basket where P == Products {
 
 }
 
-public extension Products {
+public extension Product {
 
     /// To save writing out `TRLNetworkManager.shared`
     /// everytime. **LAZY IS KEY**
@@ -69,16 +69,16 @@ public extension Products {
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
-    class func getAll() -> Promise<TRLProductsPromise> {
-        return self.networkManager.get(.products).validate().responseProducts()
+    class func getAll() -> ProductsPromise {
+        return self.networkManager.get(.products).responseProducts()
     }
 
     /// <#Description#>
     ///
     /// - Parameter id: <#id description#>
     /// - Returns: <#return value description#>
-    class func getProduct(with id: String) -> Promise<Products> {
-        return self.networkManager.get(id, in: .products).validate().responseProduct()
+    class func getProduct(with id: String) -> Promise<Product> {
+        return self.networkManager.get(id, in: .products).responseProduct()
     }
 
 }

@@ -12,7 +12,7 @@ import SwiftyJSON
 extension JSON {
     
     /// Property to turn the JSON into an array of products
-    public var products: [Products] {
+    public var products: [Product] {
         
         // Not required now, but maybe useful later on so will keep commented 
         // for now.
@@ -24,7 +24,7 @@ extension JSON {
         //     return (Products(JSON: self) != nil) ? [Products(JSON: self)!] : []
         // }
         
-        return arrayValue.flatMap { return try? Products(json: $0) }
+        return arrayValue.flatMap { return try? Product(json: $0) }
     }
     
 }
