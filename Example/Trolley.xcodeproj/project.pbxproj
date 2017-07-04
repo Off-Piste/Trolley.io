@@ -11,8 +11,10 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */; };
 		658C6777525650BD65BD6B9D /* Pods_Trolley_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */; };
+		C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
+		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		E3F54B2F8A7CA0E4F7CD50B5 /* Pods_Trolley_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -41,9 +43,11 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Trolley_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Trolley_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls_Swift.swift; sourceTree = "<group>"; };
 		86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
 		C9E97A09BDD0E385AC036DCB /* Pods-Trolley_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F68171A0877242EB70CDCF0B /* Pods-Trolley_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Tests/Pods-Trolley_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +119,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				C84CF4E91F0B9C4000FD9A47 /* Swift */,
+				C84CF4E81F0B9C3A00FD9A47 /* Objc */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -124,6 +129,7 @@
 		607FACE91AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */,
 				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -137,6 +143,22 @@
 				021E7C4E4B07911CE084D518 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C84CF4E81F0B9C3A00FD9A47 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */,
+			);
+			name = Objc;
+			sourceTree = "<group>";
+		};
+		C84CF4E91F0B9C4000FD9A47 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */,
+			);
+			name = Swift;
 			sourceTree = "<group>";
 		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
@@ -221,7 +243,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = FVT8X28ANV;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -261,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +395,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */,
+				607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AC9BEA1C108A493EA988E93 /* Pods-Trolley_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FVT8X28ANV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -542,6 +567,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Trolley_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -550,6 +577,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F68171A0877242EB70CDCF0B /* Pods-Trolley_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FVT8X28ANV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -559,6 +587,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Trolley_Tests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

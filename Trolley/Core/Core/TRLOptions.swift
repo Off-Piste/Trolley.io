@@ -53,6 +53,17 @@ public class TRLOptions {
     public init(merchantID: String) {
         self.xml = [kPlistMerchantIDKey: merchantID]
     }
+    
+    /* Testing */
+    internal init(withBundle bundle: Bundle) {
+        firstly {
+            return self.parsePlist(kPlistName, inBundle: bundle)
+        }.then(on: zalgo) { (xml) -> Void in
+            self.xml = xml
+        }.catch(on: zalgo) { (error) in
+            self.error = error
+        }
+    }
 
 }
 
@@ -109,13 +120,13 @@ internal extension TRLOptions {
 
 }
 
-private extension TRLOptions {
+/** private */ extension TRLOptions {
 
     /// <#Description#>
     ///
     /// - Parameter file: <#file description#>
     /// - Returns: <#return value description#>
-    func parsePLIST(in file: String) -> Promise<XML> {
+    fileprivate func parsePLIST(in file: String) -> Promise<XML> {
         return  Promise { fullfill, reject in
             do {
                 let items = try Parser(forResouceName: file, ofType: "plist").items
@@ -125,5 +136,19 @@ private extension TRLOptions {
                 reject(error)
             }
         }
+    }
+    
+    /* Testing */
+    internal func parsePlist(_ name: String, inBundle bundle: Bundle) -> Promise<XML> {
+        let promise: Promise<XML>
+        do {
+            let items = try Parser(bundle: bundle, name: name, type: "plist").items
+            let xml = XML(items)
+            promise = Promise(value: xml)
+        } catch {
+            promise = Promise(error: error)
+        }
+        
+        return promise
     }
 }

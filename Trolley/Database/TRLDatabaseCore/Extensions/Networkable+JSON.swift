@@ -18,10 +18,10 @@ public extension Networkable {
     /// - Parameter handler: <#handler description#>
     func responseJSON(handler: @escaping (JSON, Error?) -> Void) {
         self.responseData { (data, error) in
-            if data == nil, error != nil {
+            if error != nil {
                 handler(JSON.null, error)
             } else {
-                handler(JSON(data: data!), nil)
+                handler(JSON(data: data!), error)
             }
         }
     }

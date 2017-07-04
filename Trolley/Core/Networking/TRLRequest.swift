@@ -64,8 +64,11 @@ internal extension TRLRequest {
         return request(self)
     }
 
+    // Make sure this calls `validate()` becasue if not the code will
+    // never hit any errors and will seem like its all fine. Errors will
+    // be sent back by JSON also so the code will think it is all clear.
     var promise: Promise<(URLRequest, HTTPURLResponse, Data)> {
-        return dataRequest.response()
+        return dataRequest.validate().response()
     }
 
 }
@@ -104,10 +107,10 @@ extension TRLRequest : Networkable {
     ///
     /// - Parameter handler: <#handler description#>
     @objc public func responseData(handler: @escaping DefaultHandler) {
-        TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
-        
-        self.dataRequest.responseData { (response) in
-            handler(response.data, response.error)
+        self.responseData().then {
+            handler($0, nil)
+        }.catch {
+            handler(nil, $0)
         }
     }
     
@@ -118,11 +121,11 @@ extension TRLRequest : Networkable {
         TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
         
         return Promise { fullfill, reject in
-            self.promise.then(execute: { (_, _, data) -> Void in
-                fullfill(data)
-            }).catch(execute: { (error) in
-                reject(error)
-            })
+            self.promise.then {
+                fullfill($0.2)
+            }.catch {
+                reject($0)
+            }
         }
     }
     

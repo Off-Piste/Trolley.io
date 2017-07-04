@@ -11,7 +11,8 @@ import Foundation
 let kProductsDatabaseName: String = "products"
 let kBasketDatabaseName: String = "basket"
 
-@objc(TRLDatabase) public enum Database: Int {
+@objc(TRLDatabase)
+public enum Database: Int {
     
     case products = 0, basket
     

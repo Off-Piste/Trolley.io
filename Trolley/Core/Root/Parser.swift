@@ -32,8 +32,13 @@ class Parser {
     
     var items = [String : Any]()
     
-    init(forResouceName name: String, ofType type: String) throws {
-        guard let bundle = Bundle.main.path(forResource: name, ofType: type) else {
+    convenience init(forResouceName name: String, ofType type: String) throws {
+        try self.init(bundle: Bundle.main, name: name, type: type)
+    }
+    
+    /* Testable */
+    init(bundle: Bundle, name: String, type: String) throws {
+        guard let bundle = bundle.path(forResource: name, ofType: type) else {
             throw PError.pathCannotBeFound(forResource: name)
         }
         

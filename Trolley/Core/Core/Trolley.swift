@@ -47,7 +47,8 @@ var kAlreadyConfiguredWarning: String =
 // Might Remove the (TRLShop) from the Objc but the idea is
 // that the ObjC version of Basket will be called Trolley
 /// Add Desc
-@objc(TRLShop) public class Trolley : NSObject {
+@objc(TRLShop)
+public class Trolley : NSObject {
 
     /// The singleton that ever user should access
     ///
