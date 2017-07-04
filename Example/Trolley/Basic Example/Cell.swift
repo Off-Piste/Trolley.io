@@ -18,7 +18,7 @@ class Cell: UITableViewCell {
     
     @IBOutlet weak var priceTitle: UILabel!
     
-    var product: Products? {
+    var product: Product? {
         didSet {
             configCell()
         }

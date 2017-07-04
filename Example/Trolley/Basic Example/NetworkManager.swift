@@ -83,9 +83,9 @@ class NetworkManager {
 extension NetworkManager : Networkable {
     
     func startDownload(_ handler: @escaping Completion) {
-        self.networkCall().then { (products) -> Void in
+        self.networkCall().then { (response) -> Void in
             print("Download Successful")
-            handler(self.handledDatasource(products, nil))
+            handler(self.handledDatasource(response.objects, nil))
         }.catch { (error) in
             handler(self.handledDatasource([], error))
             self.postAlert(for: error, to: self.viewController)
@@ -119,13 +119,13 @@ fileprivate extension NetworkManager {
     /// a step by step walkthrough
     ///
     /// - Returns: A Promise of `[Products]`
-    func networkCall() -> Promise<[Products]> {
+    func networkCall() -> Promise<ProductsPromiseResponse> {
         return Promise { fullfill, reject in
-            firstly { _ -> Promise<[Products]> in
+            firstly { _ -> Promise<ProductsPromiseResponse> in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                return Products.getAll()
-            }.then { (products) -> Void in
-                fullfill(products)
+                return Product.getAll().asResponse()
+            }.then { (response) -> Void in
+                fullfill(response)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }.catch { (error) in
@@ -134,7 +134,7 @@ fileprivate extension NetworkManager {
         }
     }
     
-    func handledDatasource(_ products: [Products], _ error: Error?) -> Datasource {
+    func handledDatasource(_ products: [Product], _ error: Error?) -> Datasource {
         self.datasource.objects = products
         self.datasource.error = error
         return self.datasource

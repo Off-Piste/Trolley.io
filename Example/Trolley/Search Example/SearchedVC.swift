@@ -27,7 +27,7 @@ class SearchedVC: UIViewController {
     
     var searchableProduct: SearchableProducts?
     
-    var product: Products? {
+    var product: Product? {
         didSet {
             self.activityIndicator.stopAnimating()
             print(product as Any)
@@ -44,7 +44,7 @@ class SearchedVC: UIViewController {
         networkManager = SearchNetworkManager(searchableProduct: sp, vc: self)
         networkManager.downloadProduct {
             if $0.containsError && !$0.containsItem { print($0.error!); return }
-            self.product = $0.item as? Products
+            self.product = $0.item as? Product
         }
     }
     

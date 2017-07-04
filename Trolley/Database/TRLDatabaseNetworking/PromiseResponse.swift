@@ -9,8 +9,6 @@
 import Foundation
 import PromiseKit
 
-typealias ProductsPromiseResponse = _PromiseResponse<Product>
-
 public class _PromiseResponse<T: NSObjectProtocol> {
     
     /// <#Description#>
@@ -75,6 +73,17 @@ public extension _PromiseResponse {
     func filter(_ predicate: NSPredicate) -> _PromiseResponse {
         let newObjects = (self.objects as NSArray).filtered(using: predicate) as! [T]
         return _PromiseResponse(newObjects)
+    }
+    
+}
+
+public typealias ProductsPromiseResponse = _PromiseResponse<Product>
+public typealias SearchablePromiseReponse = _PromiseResponse<SearchableProducts>
+
+public extension _PromiseResponse where T == SearchableProducts {
+    
+    func search(for value: String) -> Promise<[T]> {
+        return Promise(value: self.objects.filter(for: value))
     }
     
 }

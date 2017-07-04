@@ -47,7 +47,7 @@ extension SearchNetworkManager : SearchNetworkable  {
     
     func downloadProduct(callback: @escaping (DatasourceItem) -> Void) {
         print(searchableProduct._id)
-        Products.getProduct(with: searchableProduct._id).then { (item) -> Void in
+        Product.getProduct(with: searchableProduct._id).then { (item) -> Void in
             callback(DatasourceItem(item: item, error: nil))
         }.catch { (error) in
             let item = DatasourceItem(item: nil, error: error)
@@ -114,7 +114,7 @@ class SearchVC: UIViewController {
 extension SearchVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        firstly { _ -> Promise<SearchResponse> in
+        firstly { _ -> Promise<SearchablePromiseReponse> in
             self.activIndicator.startAnimating()
             self.activIndicator.isHidden = false
             

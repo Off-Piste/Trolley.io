@@ -220,7 +220,7 @@
 		CB7558CCDD935C9E82BBF454022ED1D3 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B4910E6729FEDE8F6497916FE7BE /* Expectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CB7899E64CB3895C150D0EF219CF79EE /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 385C55DD9A465585C912B5FBA4A289B4 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CCF92B6F8D63D46B26F1A9BEA454C1C1 /* TRLWebSocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6A0B12139B508BDC2E53B526CC16FD /* TRLWebSocketDelegate.swift */; };
-		CD6CFA68959FE1120D7D20706DDF2E1E /* Response+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934DFA56731BBE21CB71772524CC623 /* Response+Core.swift */; };
+		CD6CFA68959FE1120D7D20706DDF2E1E /* Array+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934DFA56731BBE21CB71772524CC623 /* Array+Core.swift */; };
 		CE3FA6AE0944D4AE737F0E57CFF4A615 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702AC084AEEF9888530355BA68BC2C29 /* HaveCount.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CE4CEF6328E255B380E2B2692B351CF8 /* MatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0376246CAE4625EA0FDF18193ADB93 /* MatchError.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CE77BE198412D2610B9BC006D7327D0F /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94923A3A37866A629B13A68C6D61BE2C /* Money.swift */; };
@@ -556,7 +556,7 @@
 		A5E5B265C48CE7BE0A30CEF8879237AE /* Core+Exts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Core+Exts.swift"; sourceTree = "<group>"; };
 		A87C6D42968383AEF31245561A5D1676 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		A8CAA31E798A48DB84BC4B75201DCF73 /* mach_excServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mach_excServer.h; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.h; sourceTree = "<group>"; };
-		A934DFA56731BBE21CB71772524CC623 /* Response+Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Response+Core.swift"; sourceTree = "<group>"; };
+		A934DFA56731BBE21CB71772524CC623 /* Array+Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Core.swift"; sourceTree = "<group>"; };
 		A95181482DE1615D2C547625FE657450 /* PMKFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKFoundation.h; path = Extensions/Foundation/Sources/PMKFoundation.h; sourceTree = "<group>"; };
 		A9B6D9DBF47FDCBE8BBA00C0A93BDA69 /* Reporting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reporting.swift; sourceTree = "<group>"; };
 		AAFE4A8184A55DB5ADDD74C9023CC7CD /* TRLNetworkManager+TRLOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "TRLNetworkManager+TRLOptions.swift"; sourceTree = "<group>"; };
@@ -996,7 +996,7 @@
 			children = (
 				A5E5B265C48CE7BE0A30CEF8879237AE /* Core+Exts.swift */,
 				0A9B03FC822B26C1C89DFB0E75F473C6 /* Networkable+JSON.swift */,
-				A934DFA56731BBE21CB71772524CC623 /* Response+Core.swift */,
+				A934DFA56731BBE21CB71772524CC623 /* Array+Core.swift */,
 				436550A91BC6F1389AB2BEC5B50D396B /* SwiftyJSON+Products.swift */,
 			);
 			path = Extensions;
@@ -1967,7 +1967,7 @@
 				254FB9E995DF2D6F873890FB4E3C5AAB /* Reachability.swift in Sources */,
 				16FF0C34F04049F4633AE8814CFE5FE1 /* Reporting.swift in Sources */,
 				C41D2CC1C3A3129815DCE1890A990252 /* Responsable.swift in Sources */,
-				CD6CFA68959FE1120D7D20706DDF2E1E /* Response+Core.swift in Sources */,
+				CD6CFA68959FE1120D7D20706DDF2E1E /* Array+Core.swift in Sources */,
 				282D0FF98256370E96E0142A50AC501A /* PromiseResponse.swift in Sources */,
 				4D633DAD86AAD96F3CD0FDE8E17C999B /* SearchableProduct.swift in Sources */,
 				E9E312294D104BA313D22D36F7C2907F /* SSLSecurity.swift in Sources */,

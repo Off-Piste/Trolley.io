@@ -11,7 +11,7 @@ import PromiseKit
 
 public class ProductsPromise : Promise<[Product]> {
     
-    func asResponse() -> Promise<ProductsPromiseResponse> {
+    public func asResponse() -> Promise<ProductsPromiseResponse> {
         return then(on: zalgo) { _ in return self.response }
     }
     

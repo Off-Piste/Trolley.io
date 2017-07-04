@@ -23,8 +23,6 @@ class BasicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.searchBar.placeholder = "\(TRLUser.current.locale.currencyCode ?? "nil")"
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.refreshControl = refreshController()
@@ -75,7 +73,7 @@ extension BasicVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: Cell
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cell
-        cell.product = datasource?.item(at: indexPath) as? Products
+        cell.product = datasource?.item(at: indexPath) as? Product
         
         return cell
     }

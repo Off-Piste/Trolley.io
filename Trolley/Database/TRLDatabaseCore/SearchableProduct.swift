@@ -36,31 +36,31 @@ extension SearchableProducts {
     
 }
 
-//public extension SearchableProducts {
-//    
-//    /// Convenience init to use SwiftyJSON and to call the `init(JSONData:)` initaliser
-//    ///
-//    /// - Parameter json: SwiftyJSON
-//    public convenience init?(JSON json: JSON) {
-//        guard json != JSON.null,
-//            let dict = json.dictionary,
-//            let companyName = dict["company_name"]?.string,
-//            let productName = dict["product_name"]?.string,
-//            let id = dict["local_id"]?.string
-//            else {
-//                return nil
-//        }
-//        
-//        self.init(id, companyName: companyName, productName: productName)
-//    }
-//    
-//}
-//
-//extension JSON {
-//    
-//    /// Property to turn the JSON into an array of products
-//    internal var searchableProducts: [SearchableProducts] {
-//        return arrayValue.flatMap { return SearchableProducts(JSON: $0) }
-//    }
-//    
-//}
+public extension SearchableProducts {
+    
+    /// Convenience init to use SwiftyJSON and to call the `init(JSONData:)` initaliser
+    ///
+    /// - Parameter json: SwiftyJSON
+    public convenience init?(JSON json: JSON) {
+        guard json != JSON.null,
+            let dict = json.dictionary,
+            let companyName = dict["company_name"]?.string,
+            let productName = dict["product_name"]?.string,
+            let id = dict["local_id"]?.string
+            else {
+                return nil
+        }
+        
+        self.init(id, companyName: companyName, productName: productName)
+    }
+    
+}
+
+extension JSON {
+    
+    /// Property to turn the JSON into an array of products
+    internal var searchableProducts: [SearchableProducts] {
+        return arrayValue.flatMap { return SearchableProducts(JSON: $0) }
+    }
+    
+}

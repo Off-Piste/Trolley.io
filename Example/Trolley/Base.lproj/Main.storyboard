@@ -283,10 +283,10 @@
             </objects>
             <point key="canvasLocation" x="2416.8000000000002" y="97.601199400299862"/>
         </scene>
-        <!--View Controller-->
+        <!--Default-->
         <scene sceneID="AbO-jD-bvF">
             <objects>
-                <viewController id="A9U-4W-emA" sceneMemberID="viewController">
+                <viewController title="Default" id="A9U-4W-emA" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7dl-Cx-pfx"/>
                         <viewControllerLayoutGuide type="bottom" id="ucI-rw-fYM"/>
@@ -299,12 +299,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwB-3P-K3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="-536"/>
+            <point key="canvasLocation" x="705" y="-547"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--SearchVCInital-->
         <scene sceneID="6U2-Ks-Jre">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pnw-LX-jZi" sceneMemberID="viewController">
+                <navigationController title="SearchVCInital" automaticallyAdjustsScrollViewInsets="NO" id="pnw-LX-jZi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bl4-d8-4S2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

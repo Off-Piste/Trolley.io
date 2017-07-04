@@ -211,7 +211,7 @@ extension Trolley {
         self.networkManager = try TRLNetworkManager(option: anOption)
 
         let dm = DefaultsManager(withKey: "_local_websocket")
-        dm.set("http://127.0.0.1:8080/API")
+//        dm.set("ws://127.0.0.1:8080/.ws")
         let url = try! dm.retrieveObject() as! String
 
         self.webSocketManager = try TRLWebSocketManager(url: url, protocols: nil)
