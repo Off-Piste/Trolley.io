@@ -84,7 +84,8 @@ private extension TRLUtilities {
                 // we have a port, use the provided scheme
                 secure = (scheme == "https")
             } else {
-                secure = false
+                // the sever isn't accectping SSL requests yet
+                secure = (scheme == "https") /* true */
             }
             
             namespace = parts[0].lowercased()

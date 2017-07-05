@@ -20,13 +20,13 @@
     
 - (void)spec {
     describe(@"TRLNetworkManager", ^{
-        beforeSuite(^{
-            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-            [[TRLShop shared] configureForBundle:bundle];
-        });
-        
+
         // This is also tested in NetworkCalls_Swift.swift
         describe(@"Fix For #4", ^{
+            
+            // When the sever is running and you expect
+            // this to fail, un-comment this line
+//            xcontext(@"Server Is Unreachable", ^{
             context(@"Server Is Down", ^{
                 it(@"Error Should Not Be Nil", ^{
                     TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
