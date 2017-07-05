@@ -13,9 +13,18 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */; };
 		658C6777525650BD65BD6B9D /* Pods_Trolley_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */; };
+		C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */; };
 		C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
 		C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */; };
+		C84CF5061F0BBBFE00FD9A47 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */; };
+		C84CF5071F0BBBFE00FD9A47 /* SearchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */; };
+		C84CF5081F0BBBFE00FD9A47 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */; };
+		C84CF50E1F0BBC4100FD9A47 /* BasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */; };
+		C84CF50F1F0BBC4100FD9A47 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50B1F0BBC4100FD9A47 /* Cell.swift */; };
+		C84CF5101F0BBC4100FD9A47 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */; };
+		C84CF5111F0BBC4100FD9A47 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */; };
+		C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		E3F54B2F8A7CA0E4F7CD50B5 /* Pods_Trolley_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -47,9 +56,18 @@
 		607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls_Swift.swift; sourceTree = "<group>"; };
 		86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Objc.m; sourceTree = "<group>"; };
 		C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set Up.swift"; sourceTree = "<group>"; };
+		C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVC.swift; sourceTree = "<group>"; };
+		C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVC.swift; sourceTree = "<group>"; };
+		C84CF50B1F0BBC4100FD9A47 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Swift.swift; sourceTree = "<group>"; };
 		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
 		C9E97A09BDD0E385AC036DCB /* Pods-Trolley_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F68171A0877242EB70CDCF0B /* Pods-Trolley_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Tests/Pods-Trolley_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +117,8 @@
 		607FACD21AFB9204008FA782 /* Example for Trolley */ = {
 			isa = PBXGroup;
 			children = (
+				C84CF5091F0BBC4100FD9A47 /* Basic Example */,
+				C84CF5021F0BBBFE00FD9A47 /* Search Example */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -152,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */,
+				C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */,
 			);
 			name = Objc;
 			sourceTree = "<group>";
@@ -160,8 +181,30 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */,
+				C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */,
 			);
 			name = Swift;
+			sourceTree = "<group>";
+		};
+		C84CF5021F0BBBFE00FD9A47 /* Search Example */ = {
+			isa = PBXGroup;
+			children = (
+				C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */,
+				C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */,
+				C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */,
+			);
+			path = "Search Example";
+			sourceTree = "<group>";
+		};
+		C84CF5091F0BBC4100FD9A47 /* Basic Example */ = {
+			isa = PBXGroup;
+			children = (
+				C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */,
+				C84CF50B1F0BBC4100FD9A47 /* Cell.swift */,
+				C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */,
+				C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */,
+			);
+			path = "Basic Example";
 			sourceTree = "<group>";
 		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
@@ -390,7 +433,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84CF5081F0BBBFE00FD9A47 /* SearchVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				C84CF5071F0BBBFE00FD9A47 /* SearchedVC.swift in Sources */,
+				C84CF50E1F0BBC4100FD9A47 /* BasicVC.swift in Sources */,
+				C84CF5111F0BBC4100FD9A47 /* NetworkManager.swift in Sources */,
+				C84CF5061F0BBBFE00FD9A47 /* SearchCell.swift in Sources */,
+				C84CF50F1F0BBC4100FD9A47 /* Cell.swift in Sources */,
+				C84CF5101F0BBC4100FD9A47 /* Datasource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */,
 				C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */,
+				C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */,
 				C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */,
 			);
