@@ -17,10 +17,13 @@ Pod::Spec.new do |s|
 A very very very very very very very short description of Trolley for me to do later
                        DESC
 
-  s.homepage         = 'https://github.com/Off-Piste/Trolley.io'
+  s.homepage         = 'https://github.com/Off-Piste/Trolley.io-cocoa'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'harrytwright' => 'haroldtomwright@gmail.com' }
-  s.source           = { :git => 'https://github.com/Off-Piste/Trolley.io.git', :tag => 'v0.1.0-alpha' }
+  s.source           = {
+      :git => 'https://github.com/Off-Piste/Trolley.io-cocoa',
+      :tag => 'v0.1.0-alpha'
+  }
 
   s.ios.deployment_target = '8.0'
   s.frameworks = 'Foundation', 'UIKit', 'PassKit'
