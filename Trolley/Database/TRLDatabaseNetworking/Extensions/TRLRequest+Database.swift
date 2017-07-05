@@ -32,7 +32,7 @@ public extension TRLRequest {
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
         
         self.parameters?.updateValue(value, forKey: kRateQueryKey)
-        return self.default
+        return self
     }
     
     /// <#Description#>
@@ -45,7 +45,7 @@ public extension TRLRequest {
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
         
         self.parameters?.updateValue(value, forKey: kPageQueryKey)
-        return self.default
+        return self
         
     }
     
@@ -61,11 +61,11 @@ public extension TRLRequest {
         let _ = NSPredicate(format: predicateFormat)
         guard let data = predicateFormat.data(using: .utf8) else {
             TRLDatabaseLogger.info("The NSPredicate format could not be converted to Data so the request will not be carried out")
-            return self.default
+            return self
         }
         
         self.parameters?.updateValue(data, forKey: kFilterQueryKey)
-        return self.default
+        return self
     }
     
     /// <#Description#>
@@ -78,7 +78,22 @@ public extension TRLRequest {
         assert(self.parameters != nil, "Cannot use \(#function) with nil prarameters")
         
         self.parameters?.updateValue(value, forKey: kSearchQueryKey)
-        return self.default
+        return self
+    }
+    
+    func validate() -> Networkable {
+        guard let paramaters = self.parameters else { return self }
+        
+        if (paramaters[kPageQueryKey] == nil) ^^ (paramaters[kRateQueryKey] == nil) {
+            self.error = createError("The url: \(self.url.desc) should have both a page and rate")
+        }
+        
+        return self
+    }
+    
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
+    @objc var validated: TRLRequest {
+        return self.validate() as! TRLRequest
     }
     
 }

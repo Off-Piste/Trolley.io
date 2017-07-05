@@ -19,6 +19,14 @@ func request(_ request: TRLRequest) -> DataRequest {
     )
 }
 
+extension URLConvertible {
+    
+    var desc: String {
+        return ((try? asURL()) == nil) ? "invalidURL" : try! self.asURL().absoluteString
+    }
+    
+}
+
 @objc public class TRLRequest : NSObject {
 
     internal var url: URLConvertible
@@ -30,6 +38,8 @@ func request(_ request: TRLRequest) -> DataRequest {
     internal var encoding: ParameterEncoding
 
     internal var headers: HTTPHeaders?
+    
+    internal var error: Error?
 
     init(
         url: URLConvertible,
@@ -121,6 +131,8 @@ extension TRLRequest : Networkable {
         TRLCoreNetworkingLogger.debug("Creating URL Request for \(self.dataRequest)")
         
         return Promise { fullfill, reject in
+            if let error = self.error { reject(error); return }
+            
             self.promise.then {
                 fullfill($0.2)
             }.catch {
