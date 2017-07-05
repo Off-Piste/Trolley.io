@@ -28,11 +28,11 @@ extension Notification.Name {
 }
 
 extension NotificationCenter {
-    
+
     func addObserver(_ observer: Notification.Name, object: Any?, block: @escaping (Notification) -> Void) {
         self.addObserver(forName: observer, object: object, queue: .main, using: block)
     }
-    
+
 }
 
 var kURLBase: String = "http://localhost:8080/API"
@@ -60,17 +60,17 @@ public class Trolley : NSObject {
     /// <#Description#>
     internal fileprivate(set)
     var anOption: TRLOptions!
-    
+
     fileprivate
     var networkManager: TRLNetworkManager!
-    
+
     fileprivate
     var analytics: TRLAnalytics!
-    
+
     /// <#Description#>
     internal
     var webSocketManager: TRLWebSocketManager!
-    
+
     internal
     var reachability: Reachability! {
         didSet {
@@ -83,7 +83,7 @@ public class Trolley : NSObject {
     var parsedURL: ParsedURL {
         return networkManager.network.parsedURL
     }
-    
+
     fileprivate
     let queue = DispatchQueue(
         label: "io.trolley",
@@ -94,7 +94,7 @@ public class Trolley : NSObject {
     /// <#Description#>
     fileprivate
     override init() { }
-    
+
     /**
      * Configures a default Trolley.io Shop.
      *
@@ -145,16 +145,16 @@ public class Trolley : NSObject {
     func configure(options: TRLOptions, withLogging log: Bool = false) {
         if kAlreadyConfigured { TRLCoreLogger.info(kAlreadyConfiguredWarning); return }
         kAlreadyConfigured = !kAlreadyConfigured
-        
+
         TRLDefaultLogger.info("Shutter Doors are opening, coffee is flowing")
         self.setLoggingEnabled(log, function: #function)
-        
+
         self.analytics = TRLAnalytics()
         self.anOption = options
         self.anOption.validate()
-        
+
         SHOP_CURRENCY_CODE = self.anOption.currencyCode
-        
+
         do {
             try self.setupNetworking(self.anOption)
         } catch {
@@ -166,7 +166,7 @@ public class Trolley : NSObject {
         }.then(on: queue) { (newReach) -> Promise<CurrencyConverter> in
             _check(newReach.currentReachabilityStatus != .notReachable, "Value should be reachable")
             self.reachability = newReach
-            
+
             TRLCoreLogger.debug("Reachability", self.reachability, true)
             return self.downloadCurrency()
         }.then(on: queue) { convertor -> Promise<TRLUser> in
@@ -192,28 +192,28 @@ public class Trolley : NSObject {
 
 private
 extension Trolley {
-    
+
     func setupReachability() -> Promise<Reachability> {
         NotificationCenter.default.addObserver(ReachabilityChangedNotification, object: nil) {
             if $0.object != nil, $0.object is Reachability {
                 self.reachability = $0.object as! Reachability
             }
         }
-        
+
         guard let aReachabilty = Reachability() else {
             NSException.fatal("Cannot setup Reachabilty")
         }
-        
+
         return aReachabilty.promise()
     }
 
     func setupNetworking(_ anOption: TRLOptions) throws {
         self.networkManager = try TRLNetworkManager(option: anOption)
 
-        let dm = DefaultsManager(withKey: "_local_websocket")
+        // let dm = DefaultsManager(withKey: "_local_websocket")
 //        dm.set("ws://127.0.0.1:8080/.ws")
-        let url = try! dm.retrieveObject() as! String
-
+        // let url = try! dm.retrieveObject() as! String
+        let url = self.networkManager.network.parsedURL.webSocketURL
         self.webSocketManager = try TRLWebSocketManager(url: url, protocols: nil)
         self.webSocketManager.open()
     }
@@ -272,9 +272,9 @@ public extension TRLNetworkManager {
 }
 
 public extension TRLAnalytics {
-    
+
     static var shared: TRLAnalytics {
         return Trolley.shared.analytics
     }
-    
+
 }

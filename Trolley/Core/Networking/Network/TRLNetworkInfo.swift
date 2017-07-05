@@ -57,7 +57,10 @@ internal extension TRLNetworkInfo {
             scheme = "ws"
         }
         
-        guard let url = URL(string: "\(scheme)://\(self.host)/.ws?ns=\(self.namespace)") else {
+        let portInt = self.url?.port ?? NSNotFound
+        let port = (portInt != NSNotFound) ? ":\(portInt)/" : "/"
+        
+        guard let url = URL(string: "\(scheme)://\(self.host)\(port).ws?ns=\(self.namespace)") else {
             fatalError()
         }
         
