@@ -330,3 +330,7 @@ func _assertCheck(
     
     assert(value(), TRLDefaultLogger.sortVaradicItems(message, separator: " "), file: file, line: line)
 }
+
+@objc public class Logger: NSObject {
+    @objc public static func print(_ items: [Any]) { Swift.print(items) }
+}

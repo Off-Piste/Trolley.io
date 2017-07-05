@@ -11,14 +11,14 @@ Trolley is e-commerce system that allows users to create fast and easy to use iO
 
 # Features
 
-- **Mobile Friendly:** Many competitors forget about handheld devices, we don't never again will you have to use someones Shopify wrapper to build your iOS store.
+- **Mobile Friendly:** Many competitors forget about handheld devices, we don't. Never again will you have to use someones Shopify wrapper to build your iOS store.
 - **Swift Built:** This allows all the fun parts of Swift coding to come into play, less crashes and more fun.
 - **ObjectiveC Support:** To help with developers who still love ObjectiveC, they can still use our SDK, some things are missed out but still as fun to use.
-- **Promise Kit:** Buildt around promise kit, so all the async code runs perfectly
+- **Promise Kit:** Built around promise kit, so all the async code runs perfectly
 
 # Getting Started
 
-Please sea our documentation for examples: ObjectiveC, Swift
+Please see our documentation for examples: ObjectiveC, Swift
 
 # Installation
 
