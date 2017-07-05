@@ -9,6 +9,24 @@
 import Foundation
 import Alamofire
 
+@objc(TRLParameters)
+public enum APIParameters: Int {
+    case rate = 0, search, page, filter
+    
+    var queryParmeterName: String {
+        switch self {
+        case .rate:
+            return kRateQueryKey
+        case .search:
+            return kSearchQueryKey
+        case .page:
+            return kPageQueryKey
+        case .filter:
+            return kFilterQueryKey
+        }
+    }
+}
+
 extension TRLNetworkManager {
     
     /// <#Description#>
@@ -42,5 +60,12 @@ extension TRLNetworkManager {
             headers: nil
         )
     }
+    
+    @objc(searchForItemInDatabase:)
+    public func searchForItems(in database: Database) -> TRLRequest {
+        let route = String.urlRoute(for: database.name, "search")
+        return self.get(route, with: nil, encoding: URLEncoding.queryString, headers: nil)
+    }
+    
     
 }
