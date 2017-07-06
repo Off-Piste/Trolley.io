@@ -12,9 +12,12 @@ before_install:
     - rvm install ruby-2.2.2
     - gem install cocoapods
     - gem install xcpretty -N
+    - gem install xcpretty-travis-formatter
     - pod install --project-directory=Example
+
+    # Workaround for Error 65
     - gem install simctl --no-rdoc --no-ri --no-document --quiet
-    - ruby -rsimctl -e 'SimCtl.warmup("iPhone 6", "iOS 10.1", 300)'
+    - ruby -rsimctl -e 'SimCtl.warmup("iPhone 7", "iOS 10.3.1", 300)'
 
 # xcode_workspace: Example/Trolley.xcworkspace
 # xcode_scheme: Trolley-Example
@@ -26,5 +29,6 @@ before_install:
 # - pod install --project-directory=Example
 
 script:
-    - set -o pipefail && travis_retry xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO | xcpretty
+    # travis_retry is a workaround for Error 65
+    - set -o pipefail && travis_retry xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO | xcpretty -f `xcpretty-travis-formatter`
     - pod lib lint Trolley.podspec --verbose
