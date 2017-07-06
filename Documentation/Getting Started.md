@@ -17,12 +17,18 @@ We recommend using CocoaPods to install the libraries. You can install Cocoapods
 If you are planning to download and run one of the quickstart samples, the Xcode project and Podfile are already present, there will also be a sample configuration file present but this is the global tester, so if you wish to see your own products you will have to overwrite this file.
 
 1. If you don't have an Xcode project yet, create one now.
-2. Create a Podfile if you don't have one:
+2. Open up terminal.app and create a Podfile if you don't have one:
+
     ```bash
     $ cd your-project directory
     $ pod init
     ```
+
+    > [What is a Podfile?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Getting%20Started.md#Helper%20Code#Podfile)
+
+
 3. Add the pods that you want to install. You can include a Pod in your Podfile like this:
+
     ```bash
     pod 'Trolley/Core'
 
@@ -30,13 +36,18 @@ If you are planning to download and run one of the quickstart samples, the Xcode
 
     pod 'Trolley'
     ```
+
+    > [Where do I place this?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Getting%20Started.md#Helper%20Code#Podfile)
+
     > NOTE: This will add the prerequisite libraries needed to get Firebase up and running in your iOS app. A list of currently available pods and subspecs is provided below. These are linked in feature specific setup guides as well.
 
 4. Install the pods and open the .xcworkspace file to see the project in Xcode.
+
     ```bash
     $ pod install
     $ open your-project.xcworkspace
     ```
+
 5. Download configuration file...
 
 ## Initialise Trolley in your app
@@ -92,3 +103,37 @@ See Roadmap for these ideas
 ## Next steps
 
 ...
+
+## Helper Code
+
+### Podfile
+
+#### What are they?
+
+A Podfile is a Ruby file that describes the dependencies (Helper Code) for Xcode Projects
+
+#### Example
+
+Here is an example Podfile, copy and change the <Project Name> with your project and run `pod install` to install the pods you need.
+
+> NOTE:
+> More details can be found [here](https://guides.cocoapods.org/syntax/podfile.html)
+
+```ruby
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+use_frameworks!
+
+target <Project Name> do
+  # Place Your Pods Here:
+  pod 'Trolley'
+
+  target '<Project Name>Tests' do
+    inherit! :search_paths
+    # Pods for testing
+
+  end
+
+end
+
+```
