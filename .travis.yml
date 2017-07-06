@@ -17,8 +17,8 @@ before_install:
 
     # Workaround for Error 65
     - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 7 (10.3.1" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
-  - echo $IOS_SIMULATOR_UDID
-  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
+    - echo $IOS_SIMULATOR_UDID
+    - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 # xcode_workspace: Example/Trolley.xcworkspace
 # xcode_scheme: Trolley-Example
