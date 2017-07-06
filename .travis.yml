@@ -8,7 +8,11 @@ branches:
     only:
         - master
         - travis-ci
-before_script:
-    ./Script/travis-before
+before_install:
+    - rvm install ruby-2.2.2
+    - gem install cocoapods
+    - gem install xcpretty -N
+    - pod install --project-directory=Example
 script:
-    ./Script/travis-after
+    - set -o pipefail && xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO | xcpretty
+    - pod lib lint Trolley.podspec --verbose
