@@ -40,7 +40,8 @@ A very very very very very very very short description of Trolley for me to do l
       c.source_files = core
 
       c.dependency 'PromiseKit/CoreLocation'
-      c.dependency 'PromiseKit'
+      c.dependency 'PromiseKit', branch: "swift4-beta1"
+      c.dependency 'Alamofire', branch: "swift4"
       c.dependency 'SwiftyJSON'
       c.dependency 'PromiseKit/Alamofire'
   end
