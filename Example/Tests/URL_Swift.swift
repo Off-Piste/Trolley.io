@@ -57,7 +57,7 @@ class URL_Swift: QuickSpec {
                         expect(urlInfo.secure).to(beTrue())
                         expect(urlInfo.namespace).to(equal("localhost"))
                         expect(urlInfo.connectionURL.absoluteString)
-                            .to(equal("wss://localhost/.ws?ns=localhost"))
+                            .to(equal("wss://localhost:8080/.ws?ns=localhost"))
                     }
                 })
             })

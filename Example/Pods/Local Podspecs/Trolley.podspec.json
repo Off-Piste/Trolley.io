@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "Trolley is everything I could wish for",
   "description": "A very very very very very very very short description of Trolley for me to do later",
-  "homepage": "https://github.com/Off-Piste/Trolley.io",
+  "homepage": "https://github.com/Off-Piste/Trolley.io-cocoa",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "harrytwright": "haroldtomwright@gmail.com"
   },
   "source": {
-    "git": "https://github.com/Off-Piste/Trolley.io.git",
+    "git": "https://github.com/Off-Piste/Trolley.io-cocoa.git",
     "tag": "v0.1.0-alpha"
   },
   "platforms": {

@@ -21,7 +21,7 @@ A very very very very very very very short description of Trolley for me to do l
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'harrytwright' => 'haroldtomwright@gmail.com' }
   s.source           = {
-      :git => 'https://github.com/Off-Piste/Trolley.io-cocoa',
+      :git => 'https://github.com/Off-Piste/Trolley.io-cocoa.git',
       :tag => 'v0.1.0-alpha'
   }
 

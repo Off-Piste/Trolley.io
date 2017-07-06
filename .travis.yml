@@ -7,19 +7,29 @@ language: objective-c
 branches:
     only:
         - master
+        - travis-ci
 before_install:
-  - rvm install ruby-2.2.2
-  - gem install cocoapods
-  - gem install xcpretty -N
+    - rvm install ruby-2.2.2
+    - gem install cocoapods
+    - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+    - gem install xcpretty-travis-formatter
+    - pod install --project-directory=Example
 
-xcode_workspace: Example/Trolley.xcworkspace
-xcode_scheme: Trolley_Tests
-xcode_sdk: iphonesimulator10.3
-# # cache: cocoapods
-# # podfile: Example/Podfile
-# # before_install:
-# # - gem install cocoapods # Since Travis is not always on latest version
-# # - pod install --project-directory=Example
-# script:
-# - set -o pipefail && xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-# - pod lib lint
+    # Workaround for Error 65
+    - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 7 (10.3.1" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
+    - echo $IOS_SIMULATOR_UDID
+    - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
+
+# xcode_workspace: Example/Trolley.xcworkspace
+# xcode_scheme: Trolley-Example
+# xcode_sdk: iphonesimulator10.3
+# cache: cocoapods
+# podfile: Example/Podfile
+# before_install:
+# - gem install cocoapods # Since Travis is not always on latest version
+# - pod install --project-directory=Example
+
+script:
+    # travis_retry is a workaround for Error 65
+    - set -o pipefail && travis_retry xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO | xcpretty -f `xcpretty-travis-formatter`
+    - pod lib lint Trolley.podspec --verbose
