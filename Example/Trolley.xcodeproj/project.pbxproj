@@ -18,6 +18,8 @@
 		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
 		C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */; };
 		C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */; };
+		C868D42B1F101A6700EFA10E /* Money_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868D4291F101A1E00EFA10E /* Money_swift.swift */; };
+		C868D42D1F101D3F00EFA10E /* Money_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C868D42C1F101D3F00EFA10E /* Money_Objc.m */; };
 		C87B09F31F0D1708009744CD /* TRLGeolocation_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */; };
 		C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
@@ -56,6 +58,8 @@
 		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set Up.swift"; sourceTree = "<group>"; };
 		C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Swift.swift; sourceTree = "<group>"; };
+		C868D4291F101A1E00EFA10E /* Money_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money_swift.swift; sourceTree = "<group>"; };
+		C868D42C1F101D3F00EFA10E /* Money_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money_Objc.m; sourceTree = "<group>"; };
 		C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLGeolocation_Swift.swift; sourceTree = "<group>"; };
 		C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLGeolocation_Objc.m; sourceTree = "<group>"; };
 		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */,
+				C868D42C1F101D3F00EFA10E /* Money_Objc.m */,
 				C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */,
 				C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */,
 			);
@@ -172,6 +177,7 @@
 				607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */,
 				C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */,
 				C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */,
+				C868D4291F101A1E00EFA10E /* Money_swift.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -410,6 +416,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C868D42B1F101A6700EFA10E /* Money_swift.swift in Sources */,
+				C868D42D1F101D3F00EFA10E /* Money_Objc.m in Sources */,
 				C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */,
 				C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */,
 				C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */,

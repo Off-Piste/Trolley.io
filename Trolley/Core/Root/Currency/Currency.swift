@@ -8,9 +8,10 @@
 
 import Foundation
 
-public enum Currency {
+@objc(TRLCurrencyCode)
+public enum Currency: Int {
     
-    case AED
+    case AED = 0
     case AFN
     case ALL
     case AMD

@@ -57,6 +57,10 @@ import Foundation
         return self._core.currency
     }
     
+    internal var currencyCode: String {
+        return currency.code
+    }
+    
     /// <#Description#>
     public var decimalValue: NSDecimalNumber {
         return self._core.decimalValue

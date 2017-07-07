@@ -58,7 +58,17 @@ class URL_Swift: QuickSpec {
                         expect(urlInfo.namespace).to(equal("localhost"))
                         expect(urlInfo.connectionURL.absoluteString)
                             .to(equal("wss://localhost:8080/.ws?ns=localhost"))
+                        
+                        let url2 = try! ParsedURL("http://gmail.com/API")
+                        let url2Info = url2.parsedURLInfo
+                        
+                        expect(url2Info.host).to(equal("gmail.com"))
+                        expect(url2Info.secure).to(beFalse())
+                        expect(url2Info.namespace).to(equal("gmail"))
+                        expect(url2Info.connectionURL.absoluteString)
+                            .to(equal("ws://gmail.com/.ws?ns=gmail"))
                     }
+                    
                 })
             })
         }

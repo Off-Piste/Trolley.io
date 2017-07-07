@@ -24,7 +24,7 @@
         describe(@"Placemark", ^{
             // For some reason this timesout but
             // swift version runs fine??
-            xit(@"Should Return a Placemark", ^{
+            it(@"Should Return a Placemark", ^{
                 CLLocation *loc = [[CLLocation alloc] initWithLatitude:53.6763221
                                                              longitude:-1.9142865];
                 __block NSString *postcode;

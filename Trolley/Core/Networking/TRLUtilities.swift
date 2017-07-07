@@ -89,6 +89,17 @@ private extension TRLUtilities {
             }
             
             namespace = parts[0].lowercased()
+        } else if parts.count == 2 {
+            let colonIndex: Int? = (parts[0] as NSString).range(of: ":").location
+            if colonIndex != NSNotFound {
+                // we have a port, use the provided scheme
+                secure = (scheme == "https")
+            } else {
+                // the sever isn't accectping SSL requests yet
+                secure = (scheme == "https") /* true */
+            }
+            
+            namespace = parts[0].lowercased()
         } else if parts.count == 5 {
             let colonIndex: Int? = (parts[2] as NSString).range(of: ":").location
             if colonIndex != NSNotFound {
