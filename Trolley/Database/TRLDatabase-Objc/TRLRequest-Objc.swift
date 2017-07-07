@@ -10,22 +10,25 @@ import Foundation
 import PromiseKit
 import SwiftyJSON
 
-@available(swift, introduced: 1.0, obsoleted: 1.0)
+@available(swift, introduced: 1.0, obsoleted: 2.0)
 public extension TRLRequest {
     
     // MARK: Obj-C | JSON
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(responseJSON)
     func responseJSONPromise() -> AnyPromise {
-        let promise = Promise<[String : Any]> { fullfill, reject in
+        let promise = Promise<Any> { fullfill, reject in
             self.responseJSON(handler: { (json, error) in
                 if error != nil {
                     reject(error!)
                 } else {
-                    if json.dictionaryObject == nil {
-                        reject(createError("Dictionary is nil for [\(json.rawString() ?? "")]"))
+                    if json.arrayObject == nil || json.dictionaryObject == nil {
+                        reject(createError("JSON is nil for [\(json.rawString() ?? "")]"))
                     } else {
-                        fullfill(json.dictionaryObject!)
+                        if json.dictionaryObject != nil { fullfill(json.dictionaryObject!) }
+                        else if json.arrayObject != nil { fullfill(json.arrayObject!) }
+                        else { fatalError("JSON Error") }
                     }
                 }
             })
@@ -34,8 +37,23 @@ public extension TRLRequest {
         return AnyPromise(promise)
     }
     
-    @objc
-    func responseJSON(withBlock block:@escaping ([String : Any], Error?) -> Void) {
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
+    @objc(responseJSONArray:)
+    func responseJSONArray(withBlock block:@escaping ([Any], Error?) -> Void) {
+        self.responseJSON(handler: { (json, error) in
+            if error != nil { block([], error); return }
+            if json.arrayObject == nil {
+                block([], createError("Dictionary is nil for [\(json.rawString() ?? "")]"))
+            } else {
+                block(json.arrayObject!, nil)
+            }
+            
+        })
+    }
+    
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
+    @objc(responseJSONDictionary:)
+    func responseJSONDictionary(withBlock block:@escaping ([String : Any], Error?) -> Void) {
         self.responseJSON(handler: { (json, error) in
             if error != nil { block([:], error); return }
             if json.dictionaryObject == nil {
@@ -46,36 +64,5 @@ public extension TRLRequest {
             
         })
     }
-    
-    // MARK: Obj-C | JSON -> Array of Products
-    
-    @objc(responseProducts)
-    func responseProductsPromise() -> AnyPromise {
-        let promise = Promise<[Product]> { fullfill, reject in
-            self.responseProducts(handler: { (response) in
-                switch response {
-                case .error(let error):
-                    reject(error)
-                case .response(let rawres):
-                    fullfill(rawres.objects)
-                }
-            })
-        }
-        
-        return AnyPromise(promise)
-    }
-    
-    @objc
-    func responseProducts(withBlock block: @escaping ([Product], Error?) -> Void) {
-        self.responseProducts(handler: { (response) in
-            switch response {
-            case .error(let error):
-                block([], error)
-            case .response(let rawres):
-                block(rawres.objects, nil)
-            }
-        })
-    }
-    
     
 }

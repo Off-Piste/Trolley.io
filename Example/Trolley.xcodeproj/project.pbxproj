@@ -17,13 +17,6 @@
 		C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
 		C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */; };
-		C84CF5061F0BBBFE00FD9A47 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */; };
-		C84CF5071F0BBBFE00FD9A47 /* SearchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */; };
-		C84CF5081F0BBBFE00FD9A47 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */; };
-		C84CF50E1F0BBC4100FD9A47 /* BasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */; };
-		C84CF50F1F0BBC4100FD9A47 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50B1F0BBC4100FD9A47 /* Cell.swift */; };
-		C84CF5101F0BBC4100FD9A47 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */; };
-		C84CF5111F0BBC4100FD9A47 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */; };
 		C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */; };
 		C87B09F31F0D1708009744CD /* TRLGeolocation_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */; };
 		C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */; };
@@ -62,13 +55,6 @@
 		C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set Up.swift"; sourceTree = "<group>"; };
-		C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
-		C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVC.swift; sourceTree = "<group>"; };
-		C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVC.swift; sourceTree = "<group>"; };
-		C84CF50B1F0BBC4100FD9A47 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
-		C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Swift.swift; sourceTree = "<group>"; };
 		C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLGeolocation_Swift.swift; sourceTree = "<group>"; };
 		C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLGeolocation_Objc.m; sourceTree = "<group>"; };
@@ -121,8 +107,6 @@
 		607FACD21AFB9204008FA782 /* Example for Trolley */ = {
 			isa = PBXGroup;
 			children = (
-				C84CF5091F0BBC4100FD9A47 /* Basic Example */,
-				C84CF5021F0BBBFE00FD9A47 /* Search Example */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -190,27 +174,6 @@
 				C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */,
 			);
 			name = Swift;
-			sourceTree = "<group>";
-		};
-		C84CF5021F0BBBFE00FD9A47 /* Search Example */ = {
-			isa = PBXGroup;
-			children = (
-				C84CF5031F0BBBFE00FD9A47 /* SearchCell.swift */,
-				C84CF5041F0BBBFE00FD9A47 /* SearchedVC.swift */,
-				C84CF5051F0BBBFE00FD9A47 /* SearchVC.swift */,
-			);
-			path = "Search Example";
-			sourceTree = "<group>";
-		};
-		C84CF5091F0BBC4100FD9A47 /* Basic Example */ = {
-			isa = PBXGroup;
-			children = (
-				C84CF50A1F0BBC4100FD9A47 /* BasicVC.swift */,
-				C84CF50B1F0BBC4100FD9A47 /* Cell.swift */,
-				C84CF50C1F0BBC4100FD9A47 /* Datasource.swift */,
-				C84CF50D1F0BBC4100FD9A47 /* NetworkManager.swift */,
-			);
-			path = "Basic Example";
 			sourceTree = "<group>";
 		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
@@ -439,14 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C84CF5081F0BBBFE00FD9A47 /* SearchVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				C84CF5071F0BBBFE00FD9A47 /* SearchedVC.swift in Sources */,
-				C84CF50E1F0BBC4100FD9A47 /* BasicVC.swift in Sources */,
-				C84CF5111F0BBC4100FD9A47 /* NetworkManager.swift in Sources */,
-				C84CF5061F0BBBFE00FD9A47 /* SearchCell.swift in Sources */,
-				C84CF50F1F0BBC4100FD9A47 /* Cell.swift in Sources */,
-				C84CF5101F0BBC4100FD9A47 /* Datasource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

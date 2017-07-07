@@ -11,7 +11,7 @@ import SwiftyJSON
 
 extension JSON {
     
-    /// Property to turn the JSON into an array of products
+    @available(*, unavailable, message: "Removed Due to [0001]")
     public var products: [Product] {
         
         // Not required now, but maybe useful later on so will keep commented 

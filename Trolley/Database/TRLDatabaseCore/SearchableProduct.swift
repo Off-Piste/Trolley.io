@@ -8,7 +8,7 @@
 
 import Foundation
 //import PromiseKit
-//import SwiftyJSON
+import SwiftyJSON
 
 // TODO: - New Name For This
 
@@ -59,6 +59,7 @@ public extension SearchableProducts {
 extension JSON {
     
     /// Property to turn the JSON into an array of products
+    @available(*, unavailable, message: "Removed Due to [0001]")
     internal var searchableProducts: [SearchableProducts] {
         return arrayValue.flatMap { return SearchableProducts(JSON: $0) }
     }
