@@ -10,11 +10,12 @@ import Foundation
 import PromiseKit
 import SwiftyJSON
 
-@available(swift, introduced: 1.0, obsoleted: 1.0)
+@available(swift, introduced: 1.0, obsoleted: 2.0)
 public extension TRLRequest {
     
     // MARK: Obj-C | JSON
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(responseJSON)
     func responseJSONPromise() -> AnyPromise {
         let promise = Promise<Any> { fullfill, reject in
@@ -36,6 +37,7 @@ public extension TRLRequest {
         return AnyPromise(promise)
     }
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(responseJSONArray:)
     func responseJSONArray(withBlock block:@escaping ([Any], Error?) -> Void) {
         self.responseJSON(handler: { (json, error) in
@@ -49,6 +51,7 @@ public extension TRLRequest {
         })
     }
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(responseJSONDictionary:)
     func responseJSONDictionary(withBlock block:@escaping ([String : Any], Error?) -> Void) {
         self.responseJSON(handler: { (json, error) in

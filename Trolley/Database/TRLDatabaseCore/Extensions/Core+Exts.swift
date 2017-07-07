@@ -21,9 +21,9 @@ public extension _Basket where P == Product {
     /// <#Description#>
     ///
     /// - Parameter json: <#json description#>
-    public init(json: JSON) {
-        self.init(indexes: json.products)
-    }
+//    public init(json: JSON) {
+//        self.init(indexes: json.products)
+//    }
 
     mutating func add(_ element: Element, withQuantity q: Int) -> Promise<_Basket> {
         return Promise { fullfill, reject in

@@ -36,30 +36,24 @@ This is useful for data that only needs to be loaded once and isn't expected to 
 
 **Swift**
 ```swift
-var products: [Products]()
-
-// Names may change in future updates
-self.networkManager.get(.products).responseProducts(handler: { response in
-    switch response {
-    case .error(let error):
-        print(error.localizedDescription)
-    case .response(let rawres):
-        products.append(rawres.objects)
+self.networkManager.get(.products).responseJSON { (json, error) in
+    if let error = error {
+        /* ... */
+    } else {
+        /* ... */
     }
-})
+}
 ```
 
 **Objective-C**
 ```objective-c
-__block NSMutableArray<TRLProduct *> *productsArr;
-
 TRLRequest *request = [self.networkManager getDatabase:TRLDatabaseProducts];
-[request responseProductsWithBlock:^(NSArray<TRLProduct *> *products, NSError *error) {
+[request responseJSONArray:^(NSArray *json, NSError *error) {
     if (error) {
-        NSLog(@"%@", error.localizedDescription);
-        return;
+        /* ... */
+    } else {
+        /* ... */    
     }
-    [productsArr addObjectsFromArray:products];
 }];
 ```
 
