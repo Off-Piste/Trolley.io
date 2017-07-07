@@ -20,22 +20,47 @@
     
 - (void)spec {
     describe(@"TRLNetworkManager", ^{
-
-        // This is also tested in NetworkCalls_Swift.swift
-        describe(@"Fix For #4", ^{
-            
-            // When the sever is running and you expect
-            // this to fail, un-comment this line
+        // When the sever is running and you expect
+        // this to fail, un-comment this line
 //            xcontext(@"Server Is Unreachable", ^{
-            context(@"Server Is Down", ^{
-                it(@"Error Should Not Be Nil", ^{
-                    TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
-                    waitUntil(^(void (^done)(void)){
-                        [request responseProductsWithBlock:^(NSArray<TRLProduct *> *products, NSError *error) {
+        context(@"Server Is Unreachable", ^{
+            it(@"Error Should Not Be Nil", ^{
+                TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
+                
+                waitUntil(^(void (^done)(void)){
+                    [request responseJSONArray:^(NSArray *json, NSError *error) {
+                        if (error)
                             expect(error).toNot(beNil());
+                        done();
+                    }];
+                });
+            });
+        });
+        
+        context(@"Server Is Running", ^{
+            it(@"Products count should be the same as json.count", ^{
+                __block NSMutableArray<TRLProduct *> *products = [[NSMutableArray alloc] init];
+                TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
+                
+                waitUntil(^(void (^done)(void)){
+                    [request responseJSONArray:^(NSArray *json, NSError *error) {
+                        if (error) {
                             done();
-                        }];
-                    });
+                        } else {
+                            for (NSDictionary<NSString *, id> *jsonElement in json) {
+                                NSError *error;
+                                TRLProduct *product = [[TRLProduct alloc] initWithJSONData:jsonElement error:&error];
+                                
+                                if (error) {
+                                    continue;
+                                }
+                                
+                                [products addObject:product];
+                            }
+                            expect(products.count).to(equal(json.count));
+                            done();
+                        }
+                    }];
                 });
             });
         });
