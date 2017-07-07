@@ -155,7 +155,7 @@ private extension TRLAnalytics {
             .asNotification()
             .then { notif -> Void in
                 // This should never fail, as the sever should only send it back as confirmation
-                guard let token = (notif.object as! JSON)[kDeviceToken].string else {
+                guard let token = JSON(notif.object as! [String : JSON])[kDeviceToken].string else {
                     fatalError()
                 }
                 // Sets the device
