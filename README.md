@@ -41,7 +41,7 @@ pod "Trolley/ARKit" # Name is the clue
 
 For now, until the website is up and running, all documentation will be stored here:
 
-- [Getting Started](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Read%20Data.md)
+- [Getting Started](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Getting%20Started.md)
 - [Setting up TRLDatabase](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Getting%20Started.md)
 
 
