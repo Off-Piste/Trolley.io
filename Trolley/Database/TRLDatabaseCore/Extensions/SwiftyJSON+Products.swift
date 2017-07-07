@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 
+@available(*, unavailable, message: "Removed Due to [0001]")
 extension JSON {
     
     /// Property to turn the JSON into an array of products
