@@ -1,5 +1,17 @@
 # Getting Started
 
+## Requirements (Beta)
+
+Before you begin, you need a few things set up in your environment:
+
+- Xcode
+- - 8.3 or later
+- An Xcode project targeting iOS 10.3 or above
+- The bundle identifier of your app
+- CocoaPods 1.0.0 or later
+
+> NOTE: 1.0.0 Will be built for for 10.3/11 and Xcode 8.3/9
+
 ## Add Trolley to your app
 
 Now it's time to add Trolley to your app. Todo this you will need a Trolley Shop and it's Trolley configuration file for your app.
@@ -102,7 +114,7 @@ See Roadmap for these ideas
 
 ## Next steps
 
-...
+- [Connecting The Shops Database](http://)
 
 ## Helper Code
 

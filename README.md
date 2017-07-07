@@ -1,9 +1,10 @@
 # Trolley <IMG>
 
 [![Build Status](https://travis-ci.org/Off-Piste/Trolley.io-cocoa.svg?branch=master)](https://travis-ci.org/Off-Piste/Trolley.io-cocoa)
-[![Version](https://img.shields.io/cocoapods/v/Trolley.svg?style=flat)](http://cocoapods.org/pods/Trolley)
+![Languages](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-orange.svg)
+<!-- [![Version](https://img.shields.io/cocoapods/v/Trolley.svg?style=flat)](http://cocoapods.org/pods/Trolley)
 [![License](https://img.shields.io/cocoapods/l/Trolley.svg?style=flat)](http://cocoapods.org/pods/Trolley)
-[![Platform](https://img.shields.io/cocoapods/p/Trolley.svg?style=flat)](http://cocoapods.org/pods/Trolley)
+[![Platform](https://img.shields.io/cocoapods/p/Trolley.svg?style=flat)](http://cocoapods.org/pods/Trolley) -->
 
 Trolley is e-commerce system that allows users to create fast and easy to use iOS Shops without having to wait time building a server
 
@@ -40,7 +41,8 @@ pod "Trolley/ARKit" # Name is the clue
 
 For now, until the website is up and running, all documentation will be stored here:
 
-[Getting Started](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/Getting%20Started.md)
+- [Getting Started](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/Getting%20Started.md)
+- [Downloading your first products](http://)
 
 ## Swift
 
