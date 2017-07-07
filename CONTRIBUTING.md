@@ -6,6 +6,9 @@ Whether you find a bug, typo or an API call that could be clarified or our SDK r
 
 When filing an issue, please provide as much of the following information as possible in order to help others fix it:
 
+> NOTE:
+> A template can be found [here](http://)
+
 1. **A Simple Overview Of The Error**
 2. **Expected Results**
 3. **Actual Results**
@@ -32,4 +35,9 @@ $(xcodebuild -version)
 \`\`\`" | tee /dev/tty | pbcopy
 ```
 
-## Enhancements
+## Proposals
+
+[template](http://)
+
+## Pull Requests
+[template](http://)
