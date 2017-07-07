@@ -16,7 +16,7 @@ Before you begin, you need a few things set up in your environment:
 
 Now it's time to add Trolley to your app. Todo this you will need a Trolley Shop and it's Trolley configuration file for your app.
 
-1. Create a Trolley shop in the [Trolley console](http://trolleyio.com), if you have't already.
+1. Create a Trolley shop in the [Trolley console](http://trolleyio.co.uk), if you have't already.
 2. Click **Add Trolley to your iOS app** and follow the steps, this will automatically download your Trolley configuration file.
 3. If you haven't already, copy your configuration file to your Xcode project root.
 
@@ -114,7 +114,7 @@ See Roadmap for these ideas
 
 ## Next steps
 
-- [Connecting The Shops Database](http://)
+- [Connecting The Shops Database](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Getting%20Started.md)
 
 ## Helper Code
 

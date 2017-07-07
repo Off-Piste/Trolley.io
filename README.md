@@ -41,28 +41,10 @@ pod "Trolley/ARKit" # Name is the clue
 
 For now, until the website is up and running, all documentation will be stored here:
 
-- [Getting Started](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/Getting%20Started.md)
-- [Downloading your first products](http://)
+- [Getting Started](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Read%20Data.md)
+- [Setting up TRLDatabase](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Getting%20Started.md)
 
-## Swift
 
-- **Setting Up Your Shop**
-- **Downloading Your First Products**
-- **Customising Your Products Requests**
-- **Searching For Products**
-- **Downloading Your Users Basket**
-
-- [Using TRLNetworkManager](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/Swift/Using%20TRLNetworkManager.md)
-
-## Objective-C
-
-- **Setting Up Your Shop**
-- **Downloading Your First Products**
-- **Customising Your Products Requests**
-- **Searching For Products**
-- **Downloading Your Users Basket**
-
-- [Using TRLNetworkManager](https://github.com/Off-Piste/Trolley.io/blob/master/Documentation/Objective-C/Using%20TRLNetworkManager.md)
 
 # Contributing
 

@@ -72,4 +72,4 @@ self.networkManager = [TRLNetworkManager shared];
 
 ## Next Steps
 
-- [Reading Data](http://)
+- [Reading Data](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Read%20Data.md)

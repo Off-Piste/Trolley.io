@@ -2,12 +2,12 @@
 
 ## Filing issues
 
-Whether you find a bug, typo or an API call that could be clarified or our SDK recommends you to do so, please [file an issue](https://github.com/Off-Piste/Trolley.io/issues/new) on our GitHub repository.
+Whether you find a bug, typo or an API call that could be clarified or our SDK recommends you to do so, please [file an issue](https://github.com/Off-Piste/Trolley.io-cocoa/issues/new) on our GitHub repository.
 
 When filing an issue, please provide as much of the following information as possible in order to help others fix it:
 
 > NOTE:
-> A template can be found [here](http://)
+> A template can be found [here](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/.github/ISSUE_TEMPLATE.md)
 
 1. **A Simple Overview Of The Error**
 2. **Expected Results**
@@ -37,7 +37,8 @@ $(xcodebuild -version)
 
 ## Proposals
 
-[template](http://)
+[template](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/.github/%5BProposal%5D_TEMPLATE.md)
 
 ## Pull Requests
-[template](http://)
+
+[template](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/.github/PULL_REQUEST_TEMPLATE.md)
