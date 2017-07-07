@@ -4,6 +4,8 @@
 
 osx_image: xcode8.3
 language: objective-c
+cache:
+    - cocoapods
 rvm: 2.3.1
 before_install:
     - gem uninstall cocoapods -a
@@ -18,7 +20,6 @@ before_install:
     - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 script:
-    - "! git grep ' $'" # Fail on trailing whitespace
     # travis_retry is a workaround for Error 65
     - set -o pipefail && travis_retry xcodebuild test -workspace Example/Trolley.xcworkspace -scheme Trolley-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO | xcpretty -f `xcpretty-travis-formatter`
     - pod lib lint Trolley.podspec --verbose
