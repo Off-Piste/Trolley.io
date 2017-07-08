@@ -22,8 +22,7 @@ public extension Product {
     
     @available(swift, introduced: 1.0, obsoleted: 2.0)
     @objc(total) var objc_total: TRLMoney {
-        let core = self.price - self.discountValue
-        return TRLMoney(_core: core)
+        return TRLMoney(_core: self.total)
     }
     
 }

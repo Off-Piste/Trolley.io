@@ -127,6 +127,7 @@ public struct Money : DecimalType {
     /// <#Description#>
     public typealias IntegerLiteralType = Int
     
+    ///
     public var money: (value: DecimalStorageType, currency: Currency)
     
     /// <#Description#>
