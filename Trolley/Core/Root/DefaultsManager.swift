@@ -26,6 +26,7 @@ public enum DefaultsManagerError: Error {
     case returnValueNil(forKey: String)
     case couldNotUnarchive(forKey: String)
     case couldNotConvert(Any, to: Any)
+    case testDefaultsNil(forKey: String)
     
     var localizedDescription: String {
         switch self {
@@ -35,6 +36,8 @@ public enum DefaultsManagerError: Error {
             return "NSKeyedUnarchiver cannot unarchive the value for key: \(key). Please report this toy use via gitbug"
         case .couldNotConvert(let first, let second):
             return "Could not convert \(first) to \(second)"
+        case .testDefaultsNil(let key):
+            return "Defaults Could not be created for key [\(key)]"
         }
     }
 }
@@ -46,10 +49,12 @@ public typealias ManagerError = DefaultsManagerError
 public class DefaultsManager : NSObject {
     
     /// The standard UserDefaults shared instance
-    private let defaults = UserDefaults.standard
+    private var defaults = UserDefaults.standard
     
     /// The key for the UserDefaults object
     private let _key: String
+    
+    private var suiteName: String?
     
     /// Initaliser to set up the key
     ///
@@ -58,12 +63,28 @@ public class DefaultsManager : NSObject {
         self._key = key
     }
     
+    init(withKey key: String, testName: String, function: String = #function, file: String = #file) throws {
+        let suiteName: String = "\((file as NSString).lastPathComponent)_\(function)_\(testName)"
+        self._key = key
+        
+        guard let defaults = UserDefaults(suiteName: suiteName) else {
+            throw ManagerError.testDefaultsNil(forKey: key)
+        }
+        
+        self.defaults = defaults
+        self.suiteName = suiteName
+    }
+    
     /// <#Description#>
     ///
     /// - Returns: <#return value description#>
     /// - Throws: <#throws value description#>
     @objc(retriveObject:)
     public func retrieveObject() throws -> Any {
+        objc_sync_enter(self)
+        defer { defaults.synchronize(); objc_sync_exit(self) }
+        
+        defaults.synchronize()
         guard let data = defaults.data(forKey: _key) else {
             throw ManagerError.returnValueNil(forKey: _key)
         }
@@ -76,14 +97,56 @@ public class DefaultsManager : NSObject {
     /// - Parameter object: <#object description#>
     @objc(setObject:)
     public func set(_ object: Any) {
+        objc_sync_enter(self)
+        defer { defaults.synchronize(); objc_sync_exit(self) }
+        
         let data = Encoder(withObject: object).data
         self.defaults.set(data, forKey: self._key)
+        defaults.synchronize()
     }
     
     /// The method to remove objects for the key
     @objc(clearObject)
     public func clear() {
+        objc_sync_enter(self)
+        defer { defaults.synchronize(); objc_sync_exit(self) }
+        
         defaults.removeObject(forKey: _key)
+    }
+    
+    func clearSuite() {
+        if defaults == UserDefaults.standard, self.suiteName == nil { return }
+        self.defaults.removeSuite(named: self.suiteName!)
+        self.defaults.synchronize()
+    }
+    
+}
+
+extension DefaultsManager {
+    
+    @available(*, unavailable, renamed: "set(_:)")
+    public override func setValue(_ value: Any?, forKey key: String) {
+        fatalError("renamed set(_:)")
+    }
+    
+    @available(*, unavailable, renamed: "set(_:)")
+    public override func setNilValueForKey(_ key: String) {
+        fatalError("renamed set(_:)")
+    }
+    
+    @available(*, unavailable, renamed: "set(_:)")
+    public override func setValuesForKeys(_ keyedValues: [String : Any]) {
+        fatalError("renamed set(_:)")
+    }
+    
+    @available(*, unavailable, renamed: "set(_:)")
+    public override func setValue(_ value: Any?, forKeyPath keyPath: String) {
+        fatalError("renamed set(_:)")
+    }
+    
+    @available(*, unavailable, renamed: "set(_:)")
+    public override func setValue(_ value: Any?, forUndefinedKey key: String) {
+        fatalError("renamed set(_:)")
     }
     
 }

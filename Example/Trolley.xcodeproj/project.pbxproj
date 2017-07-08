@@ -13,6 +13,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */; };
 		658C6777525650BD65BD6B9D /* Pods_Trolley_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */; };
+		C81005901F11411D00BA32DC /* DefaultsManager_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */; };
 		C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */; };
 		C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
@@ -53,6 +54,7 @@
 		607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls_Swift.swift; sourceTree = "<group>"; };
 		86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager_Swift.swift; sourceTree = "<group>"; };
 		C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Objc.m; sourceTree = "<group>"; };
 		C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */,
 				C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */,
 				C868D4291F101A1E00EFA10E /* Money_swift.swift */,
+				C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */,
 				C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */,
 				C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */,
+				C81005901F11411D00BA32DC /* DefaultsManager_Swift.swift in Sources */,
 				C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */,
 				C87B09F31F0D1708009744CD /* TRLGeolocation_Swift.swift in Sources */,
 				C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */,
