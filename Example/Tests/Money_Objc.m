@@ -25,12 +25,11 @@
                 TRLMoney *money = [[TRLMoney alloc] initWithNumber:@78];
                 if (money.currency == TRLCurrencyCodeUSD) {
                     bool pass = YES;
-                    expect(pass).to(equal(YES));
+                    expect(pass).to(beTrue());
                 }
                 
                 expect(money.stripe).to(equal(7800));
-                expect(money.negative.intValue).to(equal(-78));
-                    
+                expect(money.negative.integerValue).to(equal(-78));
             });
         });
     });

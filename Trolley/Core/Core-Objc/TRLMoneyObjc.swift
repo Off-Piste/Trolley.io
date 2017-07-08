@@ -77,8 +77,8 @@ import Foundation
     }
     
     /// <#Description#>
-    public var negative: NSDecimalNumber {
-        return self._core.decimalValue.negate(withBehavior: kDecimalHandler)
+    public var negative: TRLMoney {
+        return TRLMoney(_core: self._core.negative)
     }
     
     public override var description: String {
