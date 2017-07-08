@@ -66,7 +66,8 @@ public enum CurrencyError: Error {
  Money inside of the basket or Products are not automatically converted,
  as users may not required that.
  */
-public class CurrencyConverter: CurrencyConvertable {
+@objc(TRLCurrencyConverter)
+public class CurrencyConverter: NSObject, CurrencyConvertable {
     
     public static let shared = CurrencyConverter()
     
@@ -80,7 +81,7 @@ public class CurrencyConverter: CurrencyConvertable {
         return DefaultsManager(withKey: _offlineRatesUD)
     }
     
-    private init() { }
+    private override init() { }
     
     public init(withCovertionRate cr: Float) { self.conversionRate = cr }
     
