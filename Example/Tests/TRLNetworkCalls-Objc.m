@@ -12,11 +12,11 @@
 #import "Trolley_Tests-Swift.h"
 #import "Trolley_Tests-Bridging-Header.h"
 
-@interface NetworkCalls_Objc : QuickSpec
+@interface TRLNetworkCalls_Objc : QuickSpec
 
 @end
 
-@implementation NetworkCalls_Objc
+@implementation TRLNetworkCalls_Objc
     
 - (void)spec {
     describe(@"TRLNetworkManager", ^{

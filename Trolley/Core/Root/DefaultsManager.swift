@@ -63,6 +63,11 @@ public class DefaultsManager : NSObject {
         self._key = key
     }
     
+    /// Testable
+    /// - note:
+    /// DefaultsManager works out of tests, as the AnalyticsQueue was been
+    /// cleared upon app startup but in tests it fails, so workaround from:
+    /// [Stack Overflow](https://stackoverflow.com/questions/19084633/shouldnt-nsuserdefault-be-clean-slate-for-unit-tests)
     init(withKey key: String, testName: String, function: String = #function, file: String = #file) throws {
         let suiteName: String = "\((file as NSString).lastPathComponent)_\(function)_\(testName)"
         self._key = key
@@ -114,6 +119,7 @@ public class DefaultsManager : NSObject {
         defaults.removeObject(forKey: _key)
     }
     
+    /* testable */
     func clearSuite() {
         if defaults == UserDefaults.standard, self.suiteName == nil { return }
         self.defaults.removeSuite(named: self.suiteName!)

@@ -6,7 +6,7 @@ import Nimble
 @testable import Pods_Trolley_Tests
 @testable import Pods_Trolley_Example
 
-class NetworkCalls_Swift: QuickSpec {
+class TRLNetworkCalls_Swift: QuickSpec {
     
     override func spec() {
         describe("TRLNetworkManager") {

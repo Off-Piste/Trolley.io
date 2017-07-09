@@ -11,16 +11,17 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */; };
+		607FACEC1AFB9204008FA782 /* TRLNetworkCalls_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* TRLNetworkCalls_Swift.swift */; };
 		658C6777525650BD65BD6B9D /* Pods_Trolley_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28095E8474A8157D21CFC519 /* Pods_Trolley_Example.framework */; };
-		C81005901F11411D00BA32DC /* DefaultsManager_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */; };
 		C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */; };
 		C84CF4E41F0B964E00FD9A47 /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
-		C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */; };
+		C84CF4E71F0B973900FD9A47 /* TRLNetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* TRLNetworkCalls-Objc.m */; };
 		C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */; };
 		C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */; };
 		C868D42B1F101A6700EFA10E /* Money_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868D4291F101A1E00EFA10E /* Money_swift.swift */; };
 		C868D42D1F101D3F00EFA10E /* Money_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C868D42C1F101D3F00EFA10E /* Money_Objc.m */; };
+		C869BFEB1F12563000CC8AA6 /* TRLOptions_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C869BFEA1F12563000CC8AA6 /* TRLOptions_Swift.swift */; };
+		C869BFF21F125DB200CC8AA6 /* Percentage_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C869BFEC1F125D1F00CC8AA6 /* Percentage_Swift.swift */; };
 		C87B09F31F0D1708009744CD /* TRLGeolocation_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */; };
 		C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
@@ -51,17 +52,18 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Trolley_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Trolley_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls_Swift.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* TRLNetworkCalls_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRLNetworkCalls_Swift.swift; sourceTree = "<group>"; };
 		86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trolley_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager_Swift.swift; sourceTree = "<group>"; };
 		C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Objc.m; sourceTree = "<group>"; };
 		C84CF4E51F0B973900FD9A47 /* Trolley_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCalls-Objc.m"; sourceTree = "<group>"; };
+		C84CF4E61F0B973900FD9A47 /* TRLNetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRLNetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set Up.swift"; sourceTree = "<group>"; };
 		C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Swift.swift; sourceTree = "<group>"; };
 		C868D4291F101A1E00EFA10E /* Money_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money_swift.swift; sourceTree = "<group>"; };
 		C868D42C1F101D3F00EFA10E /* Money_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money_Objc.m; sourceTree = "<group>"; };
+		C869BFEA1F12563000CC8AA6 /* TRLOptions_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLOptions_Swift.swift; sourceTree = "<group>"; };
+		C869BFEC1F125D1F00CC8AA6 /* Percentage_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percentage_Swift.swift; sourceTree = "<group>"; };
 		C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLGeolocation_Swift.swift; sourceTree = "<group>"; };
 		C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLGeolocation_Objc.m; sourceTree = "<group>"; };
 		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
@@ -135,8 +137,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C84CF4E91F0B9C4000FD9A47 /* Swift */,
-				C84CF4E81F0B9C3A00FD9A47 /* Objc */,
+				C869BFEF1F125D4000CC8AA6 /* Database */,
+				C869BFEE1F125D3700CC8AA6 /* Core */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -165,7 +167,6 @@
 		C84CF4E81F0B9C3A00FD9A47 /* Objc */ = {
 			isa = PBXGroup;
 			children = (
-				C84CF4E61F0B973900FD9A47 /* NetworkCalls-Objc.m */,
 				C868D42C1F101D3F00EFA10E /* Money_Objc.m */,
 				C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */,
 				C82F3D291F0C1CD100C4FD27 /* URL_Objc.m */,
@@ -176,13 +177,47 @@
 		C84CF4E91F0B9C4000FD9A47 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* NetworkCalls_Swift.swift */,
 				C87B09F21F0D1708009744CD /* TRLGeolocation_Swift.swift */,
 				C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */,
 				C868D4291F101A1E00EFA10E /* Money_swift.swift */,
-				C810058F1F11411D00BA32DC /* DefaultsManager_Swift.swift */,
+				C869BFEC1F125D1F00CC8AA6 /* Percentage_Swift.swift */,
+				C869BFEA1F12563000CC8AA6 /* TRLOptions_Swift.swift */,
 			);
 			name = Swift;
+			sourceTree = "<group>";
+		};
+		C869BFEE1F125D3700CC8AA6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C84CF4E91F0B9C4000FD9A47 /* Swift */,
+				C84CF4E81F0B9C3A00FD9A47 /* Objc */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		C869BFEF1F125D4000CC8AA6 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C869BFF11F125D4F00CC8AA6 /* Objc */,
+				C869BFF01F125D4800CC8AA6 /* Swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		C869BFF01F125D4800CC8AA6 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEB1AFB9204008FA782 /* TRLNetworkCalls_Swift.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		C869BFF11F125D4F00CC8AA6 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				C84CF4E61F0B973900FD9A47 /* TRLNetworkCalls-Objc.m */,
+			);
+			name = Objc;
 			sourceTree = "<group>";
 		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
@@ -423,12 +458,13 @@
 				C868D42D1F101D3F00EFA10E /* Money_Objc.m in Sources */,
 				C82F3D2A1F0C1CD100C4FD27 /* URL_Objc.m in Sources */,
 				C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */,
-				C84CF4E71F0B973900FD9A47 /* NetworkCalls-Objc.m in Sources */,
-				C81005901F11411D00BA32DC /* DefaultsManager_Swift.swift in Sources */,
+				C84CF4E71F0B973900FD9A47 /* TRLNetworkCalls-Objc.m in Sources */,
+				C869BFEB1F12563000CC8AA6 /* TRLOptions_Swift.swift in Sources */,
 				C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */,
 				C87B09F31F0D1708009744CD /* TRLGeolocation_Swift.swift in Sources */,
 				C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* NetworkCalls_Swift.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* TRLNetworkCalls_Swift.swift in Sources */,
+				C869BFF21F125DB200CC8AA6 /* Percentage_Swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

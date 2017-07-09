@@ -24,7 +24,8 @@ public class TRLOptions {
     public static var `default`: TRLOptions = TRLOptions()
 
     /// <#Description#>
-    private(set) var xml: XML = [:]
+    /* private(set) */
+    internal(set) var xml: XML = [:]
 
     /// <#Description#>
     fileprivate private(set) var error: Error?
@@ -103,19 +104,15 @@ internal extension TRLOptions {
             let err = self.error!
             switch err {
             case ParserError.error.pathCannotBeFound:
-                NSException.raise("The required plist cannot be found, please download from <url>")
+                assertionFailure("The required plist cannot be found, please download from <url>")
             default:
-                NSException.raise(err.localizedDescription)
+                assertionFailure(err.localizedDescription)
             }
         }
-
-        if self.merchantID.isEmpty {
-            NSException.raise("The Merchant ID is nil, please re-download the plist")
-        }
-
-        if self.currencyCode.isEmpty {
-            NSException.raise("The Currency Code is nil, please re-download the plist")
-        }
+        
+        assert(!self.merchantID.isEmpty, "The Merchant ID is nil, please re-download the plist")
+        assert(!self.currencyCode.isEmpty, "The Currency Code is nil, please re-download the plist")
+        assert(self.url != "/", "The URL is not set, please re-download the plist")
     }
 
 }
