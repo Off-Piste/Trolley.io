@@ -14,26 +14,11 @@ class URL_Swift: QuickSpec {
     
     override func spec() {
         describe("URL's") {
-            var networkManager: TRLNetworkManager!
-            beforeSuite {
-                networkManager = TRLNetworkManager.shared
-            }
-
             describe("Invalid URL's", closure: {
-                context("Query Parameters as invalid", closure: {
-                    it("Should be nil") {
-                        waitUntil(action: { (done) in
-                            networkManager
-                                .get(.products)
-                                .rate(20)
-                                .validate()
-                                .responseData(handler: { (data, error) in
-                                    expect(error).toNot(beNil())
-                                    done()
-                                }
-                            )
-                        })
-                    }
+                context("Testing Parsed URL", closure: {
+                    it("Should throw an error", closure: {
+                        expect { try ParsedURL("htps:/localhost:8080") }.to(throwError())
+                    })
                 })
             })
             
@@ -41,10 +26,7 @@ class URL_Swift: QuickSpec {
                 context("Testing Parsed URL", closure: { 
                     it("Should not throw an error", closure: { 
                         expect { try ParsedURL("https://localhost:8080") }.toNot(throwError())
-                    })
-                    
-                    it("Should throw an error", closure: { 
-                        expect { try ParsedURL("htps:/localhost:8080") }.to(throwError())
+                        expect { try ParsedURL("http://api.fixer.io") }.toNot(throwError())
                     })
                 })
                 
@@ -67,8 +49,17 @@ class URL_Swift: QuickSpec {
                         expect(url2Info.namespace).to(equal("gmail"))
                         expect(url2Info.connectionURL.absoluteString)
                             .to(equal("ws://gmail.com/.ws?ns=gmail"))
+                        
+                        let url3 = try! ParsedURL("http://api.fixer.io")
+                        let url3Info = url3.parsedURLInfo
+                        
+                        expect(url3Info.host).to(equal("api.fixer.io"))
+                        expect(url3Info.secure).to(beFalse())
+                        expect(url3Info.namespace).to(equal("fixer"))
+                        expect(url3Info.connectionURL.absoluteString)
+                            .to(equal("ws://api.fixer.io/.ws?ns=fixer"))
+                        
                     }
-                    
                 })
             })
         }

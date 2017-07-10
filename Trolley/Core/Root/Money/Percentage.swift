@@ -82,7 +82,7 @@ public extension Percentage {
 
     /// <#Description#>
     var decimalValue: NSDecimalNumber {
-        return self.value / 100
+        return (self.value / 100).rounding(accordingToBehavior: kDecimalHandler)
     }
 
 }

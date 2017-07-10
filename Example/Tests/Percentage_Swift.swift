@@ -29,20 +29,25 @@ class Percentage_Swift : QuickSpec {
                     expect(percentage.decimalValue.floatValue).to(equal(0.2))
                 })
                 
-                it("Should Pass `.descrease`", closure: { 
+                it("Should Pass `.decrease`", closure: {
                     let percentage2 = Percentage.decrease(forOld: 10, new: 5)
                     expect(percentage2.description).to(equal("50%"))
+                    expect(percentage2.decimalValue).to(equal(0.5))
                     
                     let percentage3 = Percentage.decrease(forOld: 687, new: 123)
                     expect(percentage3.description).to(equal("82.1%"))
+                    expect(percentage3.decimalValue).to(equal(0.82))
                 })
                 
-                it("Should Pass `.increate`", closure: {
+                it("Should Pass `.increase`", closure: {
                     let percentage2 = Percentage.increase(forOld: 10, new: 20)
                     expect(percentage2.description).to(equal("100%"))
+                    expect(percentage2.decimalValue).to(equal(1))
+
                     
                     let percentage3 = Percentage.increase(forOld: 12345, new: 67890)
                     expect(percentage3.description).to(equal("449.94%"))
+                    expect(percentage3.decimalValue).to(equal(4.5))
                 })
                 
                 it("Should throw assertion", closure: { 

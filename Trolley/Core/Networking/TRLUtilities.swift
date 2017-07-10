@@ -115,8 +115,23 @@ private extension TRLUtilities {
             } else {
                 namespace = parts[0].lowercased()
             }
+        } else if parts.count == 3 {
+            let colonIndex: Int? = (host as NSString).range(of: ":").location
+            if colonIndex != NSNotFound {
+                // we have a port, use the provided scheme
+                secure = (scheme == "https")
+            } else {
+                secure = (scheme == "https")
+            }
+            
+            if parts.contains("api") {
+                let index = parts.index { $0 == "api" }!
+                namespace = parts[index + 1].lowercased()
+            } else {
+                namespace = parts[0].lowercased()
+            }
         } else {
-            throw createError("Invalid URL")
+            throw createError("[Invalid URL] could not find namespace in host: \(host)")
         }
         
         return (namespace, secure)

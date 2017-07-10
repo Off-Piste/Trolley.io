@@ -29,24 +29,37 @@ import Foundation
         self._percentageCore = core
     }
     
-    var integer: Int {
+}
+
+public extension TRLPercentage {
+
+    public var integerValue: Int {
         return self._percentageCore.integer
     }
     
-    var float: Float {
+    public var floatValue: Float {
         return self._percentageCore.float
     }
     
-    var roundedValue: NSDecimalNumber {
+    public var roundedValue: NSDecimalNumber {
         return self._percentageCore.roundedValue
     }
     
-    var decimalValue: NSDecimalNumber {
+    public var decimalValue: NSDecimalNumber {
         return self._percentageCore.decimalValue
     }
     
     public override var description: String {
         return self._percentageCore.description
+    }
+    
+}
+
+public extension TRLPercentage {
+    
+    @objc(forValues:inValue:)
+    class func `for`(_ values: Int, in value: Int) -> TRLPercentage {
+        return TRLPercentage(core: Percentage.for(values, in: value))
     }
     
 }
