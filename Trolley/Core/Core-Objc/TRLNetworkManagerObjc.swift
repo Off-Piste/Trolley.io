@@ -9,9 +9,9 @@
 import Foundation
 import Alamofire
 
-@available(swift, introduced: 1.0, obsoleted: 1.0)
 public extension TRLNetworkManager {
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc func get(
         _ route: String,
         with parameters: Dictionary<String, AnyObject>?,
@@ -22,6 +22,7 @@ public extension TRLNetworkManager {
         return self.network.get(route, with: parameters, encoding: encoding, headers: headers)
     }
     
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc func getItem(
         withID id: String,
         inDatabase route: String,

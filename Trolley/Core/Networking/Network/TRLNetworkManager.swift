@@ -26,6 +26,14 @@ extension String {
     var network: TRLNetwork
 
     var error: Error?
+    
+    var url: URLConvertible? {
+        return network.parsedURL.url
+    }
+    
+    var connectionURL: URLConvertible {
+        return network.parsedURL.webSocketURL
+    }
 
     internal init(network: TRLNetwork, key: String) {
         self.network = network
@@ -43,6 +51,33 @@ extension String {
         return nil
     }
 
+}
+
+/** 
+ Deprecations
+ */
+extension TRLNetworkManager {
+    
+    @available(*, unavailable, message: "nil")
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        fatalError("Nil")
+    }
+    
+    @available(*, unavailable, message: "nil")
+    public override func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?) {
+        fatalError("Nil")
+    }
+    
+    @available(*, unavailable, message: "nil")
+    public override func removeObserver(_ observer: NSObject, forKeyPath keyPath: String) {
+        fatalError("Nil")
+    }
+    
+    @available(*, unavailable, message: "nil")
+    public override func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutableRawPointer?) {
+        fatalError("Nil")
+    }
+    
 }
 
 extension TRLNetworkManager {

@@ -9,7 +9,6 @@
 import Foundation
 import PromiseKit
 
-@available(swift, introduced: 1.0, obsoleted: 1.0)
 public extension TRLRequest {
     
     /// Obj-C Progress Method
@@ -18,6 +17,7 @@ public extension TRLRequest {
     /// Due to `breaking` changes, and that I can't send return 
     /// Networkable to force you call your response after this
     /// we had to add dataResponse to this method
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(progressWithQueue:handler:response:)
     func progress(
         queue: DispatchQueue,
@@ -32,6 +32,7 @@ public extension TRLRequest {
     /// @objc version of `responseData() -> Promise<Data>`
     ///
     /// - Returns: Returns Any Promise
+    @available(swift, introduced: 1.0, obsoleted: 1.0)
     @objc(responseData)
     func responseDataPromise() -> AnyPromise {
         return AnyPromise(responseData())

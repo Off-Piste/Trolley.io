@@ -120,7 +120,6 @@ public class Trolley : NSObject {
      * - Note
      * This method is thread safe by using `zalgo`.
      */
-
     public
     func configure(withLogging log: Bool) {
         if kAlreadyConfigured { TRLDefaultLogger.info(kAlreadyConfiguredWarning); return }
@@ -201,7 +200,7 @@ extension Trolley {
         }
 
         guard let aReachabilty = Reachability() else {
-            NSException.fatal("Cannot setup Reachabilty")
+            preconditionFailure("Cannot setup Reachabilty")
         }
 
         return aReachabilty.promise()
@@ -209,11 +208,8 @@ extension Trolley {
 
     func setupNetworking(_ anOption: TRLOptions) throws {
         self.networkManager = try TRLNetworkManager(option: anOption)
-
-        // let dm = DefaultsManager(withKey: "_local_websocket")
-//        dm.set("ws://127.0.0.1:8080/.ws")
-        // let url = try! dm.retrieveObject() as! String
-        let url = self.networkManager.network.parsedURL.webSocketURL
+        let url = self.networkManager.connectionURL
+        
         self.webSocketManager = try TRLWebSocketManager(url: url, protocols: nil)
         self.webSocketManager.open()
     }
@@ -254,13 +250,21 @@ extension Trolley {
     func fatalError(_ error: Error) {
         let reason: String =
         "Reason: \(error.localizedDescription) " +
-            "What to do next? Check our Error FAQ documention and see if your error " +
-            "has been mentioned  if not, please rasie an issue on out github with " +
+            "What to dso next? Check our Error FAQ documention and see if your error " +
+            "has been mentioned if not, please raise an issue on our github with " +
             "all the details https://github.com/Off-Piste/Trolley.io"
         Swift.fatalError(reason)
     }
 
 
+}
+
+extension UserDefaults {
+    
+    static var trolley: UserDefaults {
+        return UserDefaults(suiteName: "io.trolley")!
+    }
+    
 }
 
 public extension TRLNetworkManager {

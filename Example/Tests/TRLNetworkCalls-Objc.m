@@ -20,9 +20,6 @@
     
 - (void)spec {
     describe(@"TRLNetworkManager", ^{
-        // When the sever is running and you expect
-        // this to fail, un-comment this line
-//            xcontext(@"Server Is Unreachable", ^{
         context(@"Server Is Unreachable", ^{
             it(@"Error Should Not Be Nil", ^{
                 TRLRequest *request = [[TRLNetworkManager shared]  getDatabase:TRLDatabaseProducts];
@@ -57,6 +54,7 @@
                                 
                                 [products addObject:product];
                             }
+                            
                             expect(products.count).to(equal(json.count));
                             done();
                         }

@@ -6,6 +6,8 @@ target 'Trolley_Example' do
   pod 'Trolley/Database', :path => '../'
   pod 'Trolley/Delivery', :path => '../'
   pod 'Trolley/Notification', :path => '../'
+  
+  pod 'Ardex', :path => '/Users/harrywright/Frameworks/Off Piste/Cocoapod/Ardex'
 
   target 'Trolley_Tests' do
     inherit! :search_paths
