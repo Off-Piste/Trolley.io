@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9C48AAAD8FE64064DD49298F3CE2245ADDD50BAE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FA0A598D905C3117422F04709E6A6424507F192E" : 9223372036854775807,
+    "9C48AAAD8FE64064DD49298F3CE2245ADDD50BAE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AAF75281-57BF-4972-8DFF-722AAC1B1AE0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FA0A598D905C3117422F04709E6A6424507F192E" : "Ardex\/",
+    "9C48AAAD8FE64064DD49298F3CE2245ADDD50BAE" : "Trolley\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Trolley",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Trolley.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Off-Piste\/Trolley.io.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9C48AAAD8FE64064DD49298F3CE2245ADDD50BAE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Off-Piste\/Ardex.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FA0A598D905C3117422F04709E6A6424507F192E"
+    }
+  ]
+}

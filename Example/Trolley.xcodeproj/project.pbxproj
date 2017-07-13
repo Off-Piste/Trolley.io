@@ -20,6 +20,9 @@
 		C84CF4E71F0B973900FD9A47 /* TRLNetworkCalls-Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4E61F0B973900FD9A47 /* TRLNetworkCalls-Objc.m */; };
 		C84CF4EB1F0BA2AA00FD9A47 /* Set Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */; };
 		C854BE991F0BDC4B00DBF40A /* URL_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */; };
+		C864603C1F17BFC500FA9C85 /* BasicDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C864603B1F17BFC500FA9C85 /* BasicDatasource.swift */; };
+		C864603E1F17C00700FA9C85 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C864603D1F17C00700FA9C85 /* BasicCell.swift */; };
+		C86460401F17C03C00FA9C85 /* BasicNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C864603F1F17C03C00FA9C85 /* BasicNetworking.swift */; };
 		C868D42B1F101A6700EFA10E /* Money_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868D4291F101A1E00EFA10E /* Money_swift.swift */; };
 		C868D42D1F101D3F00EFA10E /* Money_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C868D42C1F101D3F00EFA10E /* Money_Objc.m */; };
 		C869BFEB1F12563000CC8AA6 /* TRLOptions_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C869BFEA1F12563000CC8AA6 /* TRLOptions_Swift.swift */; };
@@ -28,6 +31,10 @@
 		C87B09F51F0D1B31009744CD /* TRLGeolocation_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */; };
 		C8A65C011ED58D1D009A41EC /* Trolley-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */; };
 		C8BB96871F16726F00521E91 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB96861F16726F00521E91 /* BasicViewController.swift */; };
+		C8F330741F182D430067742E /* BasicViewController_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F330731F182D430067742E /* BasicViewController_Objc.m */; };
+		C8F330781F182DE20067742E /* BasicDatasource_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F330771F182DE20067742E /* BasicDatasource_Objc.m */; };
+		C8F3307B1F182EB40067742E /* BasicCell_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3307A1F182EB40067742E /* BasicCell_Objc.m */; };
+		C8F3307E1F1831F10067742E /* ADXDatasource+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3307D1F1831F10067742E /* ADXDatasource+Networking.m */; };
 		E3F54B2F8A7CA0E4F7CD50B5 /* Pods_Trolley_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EF430E201C9047C3311CD8 /* Pods_Trolley_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +72,9 @@
 		C84CF4E61F0B973900FD9A47 /* TRLNetworkCalls-Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRLNetworkCalls-Objc.m"; sourceTree = "<group>"; };
 		C84CF4EA1F0BA2AA00FD9A47 /* Set Up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set Up.swift"; sourceTree = "<group>"; };
 		C854BE981F0BDC4B00DBF40A /* URL_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Swift.swift; sourceTree = "<group>"; };
+		C864603B1F17BFC500FA9C85 /* BasicDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDatasource.swift; sourceTree = "<group>"; };
+		C864603D1F17C00700FA9C85 /* BasicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
+		C864603F1F17C03C00FA9C85 /* BasicNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNetworking.swift; sourceTree = "<group>"; };
 		C868D4291F101A1E00EFA10E /* Money_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money_swift.swift; sourceTree = "<group>"; };
 		C868D42C1F101D3F00EFA10E /* Money_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money_Objc.m; sourceTree = "<group>"; };
 		C869BFEA1F12563000CC8AA6 /* TRLOptions_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLOptions_Swift.swift; sourceTree = "<group>"; };
@@ -73,6 +83,15 @@
 		C87B09F41F0D1B31009744CD /* TRLGeolocation_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLGeolocation_Objc.m; sourceTree = "<group>"; };
 		C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Trolley-Config.plist"; sourceTree = "<group>"; };
 		C8BB96861F16726F00521E91 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		C8F330711F182D430067742E /* Trolley_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trolley_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8F330721F182D430067742E /* BasicViewController_Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController_Objc.h; sourceTree = "<group>"; };
+		C8F330731F182D430067742E /* BasicViewController_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController_Objc.m; sourceTree = "<group>"; };
+		C8F330761F182DE20067742E /* BasicDatasource_Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicDatasource_Objc.h; sourceTree = "<group>"; };
+		C8F330771F182DE20067742E /* BasicDatasource_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicDatasource_Objc.m; sourceTree = "<group>"; };
+		C8F330791F182EB40067742E /* BasicCell_Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicCell_Objc.h; sourceTree = "<group>"; };
+		C8F3307A1F182EB40067742E /* BasicCell_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicCell_Objc.m; sourceTree = "<group>"; };
+		C8F3307C1F1831F10067742E /* ADXDatasource+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADXDatasource+Networking.h"; sourceTree = "<group>"; };
+		C8F3307D1F1831F10067742E /* ADXDatasource+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADXDatasource+Networking.m"; sourceTree = "<group>"; };
 		C9E97A09BDD0E385AC036DCB /* Pods-Trolley_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Example/Pods-Trolley_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F68171A0877242EB70CDCF0B /* Pods-Trolley_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trolley_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trolley_Tests/Pods-Trolley_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +140,8 @@
 		607FACD21AFB9204008FA782 /* Example for Trolley */ = {
 			isa = PBXGroup;
 			children = (
-				C8BB96861F16726F00521E91 /* BasicViewController.swift */,
+				C8F330751F182D4A0067742E /* Basic_Swift */,
+				C8F3307F1F1833350067742E /* Basic_Objc */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -134,6 +154,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8F330711F182D430067742E /* Trolley_Example-Bridging-Header.h */,
 				C8A65C001ED58D1D009A41EC /* Trolley-Config.plist */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
@@ -229,6 +250,32 @@
 			name = Objc;
 			sourceTree = "<group>";
 		};
+		C8F330751F182D4A0067742E /* Basic_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				C8BB96861F16726F00521E91 /* BasicViewController.swift */,
+				C864603F1F17C03C00FA9C85 /* BasicNetworking.swift */,
+				C864603B1F17BFC500FA9C85 /* BasicDatasource.swift */,
+				C864603D1F17C00700FA9C85 /* BasicCell.swift */,
+			);
+			name = Basic_Swift;
+			sourceTree = "<group>";
+		};
+		C8F3307F1F1833350067742E /* Basic_Objc */ = {
+			isa = PBXGroup;
+			children = (
+				C8F330721F182D430067742E /* BasicViewController_Objc.h */,
+				C8F330731F182D430067742E /* BasicViewController_Objc.m */,
+				C8F330761F182DE20067742E /* BasicDatasource_Objc.h */,
+				C8F330771F182DE20067742E /* BasicDatasource_Objc.m */,
+				C8F330791F182EB40067742E /* BasicCell_Objc.h */,
+				C8F3307A1F182EB40067742E /* BasicCell_Objc.m */,
+				C8F3307C1F1831F10067742E /* ADXDatasource+Networking.h */,
+				C8F3307D1F1831F10067742E /* ADXDatasource+Networking.m */,
+			);
+			name = Basic_Objc;
+			sourceTree = "<group>";
+		};
 		E166B2A883A1CC46D4FA97D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,7 +353,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = FVT8X28ANV;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -455,8 +502,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86460401F17C03C00FA9C85 /* BasicNetworking.swift in Sources */,
+				C864603E1F17C00700FA9C85 /* BasicCell.swift in Sources */,
+				C8F3307B1F182EB40067742E /* BasicCell_Objc.m in Sources */,
+				C8F3307E1F1831F10067742E /* ADXDatasource+Networking.m in Sources */,
+				C864603C1F17BFC500FA9C85 /* BasicDatasource.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				C8BB96871F16726F00521E91 /* BasicViewController.swift in Sources */,
+				C8F330741F182D430067742E /* BasicViewController_Objc.m in Sources */,
+				C8F330781F182DE20067742E /* BasicDatasource_Objc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +658,7 @@
 			baseConfigurationReference = C9E97A09BDD0E385AC036DCB /* Pods-Trolley_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FVT8X28ANV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,6 +669,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trolley/Trolley_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -623,6 +680,7 @@
 			baseConfigurationReference = 8D76ADFFC4052395C017B7CE /* Pods-Trolley_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FVT8X28ANV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -634,6 +692,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trolley/Trolley_Example-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
