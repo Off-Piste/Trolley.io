@@ -108,4 +108,4 @@ TRLRequest *request = [self.networkManager getDatabase:TRLDatabaseProducts];
 
 ## Next Step
 
-- [Connecting Ardex](http://)
+- [Connecting Ardex](https://github.com/Off-Piste/Trolley.io-cocoa/blob/0.2.0-alpha/Documentation/Database/Working%20With%20Ardex.md)
