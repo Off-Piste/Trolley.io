@@ -36,7 +36,7 @@ If you are planning to download and run one of the quickstart samples, the Xcode
     $ pod init
     ```
 
-    > [What is a Podfile?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Getting%20Started.md#podfile)
+    > [What is a Podfile?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/0.2.0-alpha/Documentation/Getting%20Started.md#podfile)
 
 
 3. Add the pods that you want to install. You can include a Pod in your Podfile like this:
@@ -49,7 +49,7 @@ If you are planning to download and run one of the quickstart samples, the Xcode
     pod 'Trolley'
     ```
 
-    > [Where do I place this?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Getting%20Started.md#podfile)
+    > [Where do I place this?](https://github.com/Off-Piste/Trolley.io-cocoa/blob/0.2.0-alpha/Documentation/Getting%20Started.md#podfile)
 
     > NOTE: This will add the prerequisite libraries needed to get Firebase up and running in your iOS app. A list of currently available pods and subspecs is provided below. These are linked in feature specific setup guides as well.
 
@@ -114,7 +114,7 @@ See Roadmap for these ideas
 
 ## Next steps
 
-- [Connecting The Shops Database](https://github.com/Off-Piste/Trolley.io-cocoa/blob/master/Documentation/Database/Getting%20Started.md)
+- [Connecting The Shops Database](https://github.com/Off-Piste/Trolley.io-cocoa/blob/0.2.0-alpha/Documentation/Database/Getting%20Started.md)
 
 ## Helper Code
 
