@@ -10,7 +10,7 @@ import Ardex
 
 class BasicDatasource: Datasource {
     
-    override func collectionCellClasses() -> [Any] {
+    override var collectionCellClasses: [Any] {
         return [BasicCell.self]
     }
     
