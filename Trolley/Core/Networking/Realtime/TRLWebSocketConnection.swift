@@ -11,10 +11,12 @@ import Alamofire
 
 var kUserAgent: String {
     let systemVersion = TRLAppEnviroment.current.systemVersion
+        .replacingOccurrences(of: ".", with: "_")
     let deviceName = UIDevice.current.model
     let bundleIdentifier: String? = Bundle.main.bundleIdentifier
+    let applicationVersion = TRLAppEnviroment.current.appVersionNumber
     
-    let ua: String = "Trolley/13/\(systemVersion)/\(deviceName)_\((bundleIdentifier) ?? "unknown")"
+    let ua: String = "Trolley/0.1.0 (Macintosh; \(deviceName) \(systemVersion)) [\((bundleIdentifier) ?? "unknown")_\(applicationVersion)]"
     return ua
 }
 

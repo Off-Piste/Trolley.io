@@ -91,7 +91,11 @@ public class DefaultsManager : NSObject {
         
         defaults.synchronize()
         guard let data = defaults.data(forKey: _key) else {
-            throw ManagerError.returnValueNil(forKey: _key)
+            throw createError(
+                for: kTrolleyErrorDomain,
+                code: -301,
+                withReason: "Unable to return value for key [\(_key)]"
+            )
         }
         
         return try Encoder.decode(data: data, forKey: _key)
@@ -169,7 +173,11 @@ fileprivate class Encoder {
     ///
     /// - Parameter object: Any object, please confom custom objects to `NSCoding`
     init(withObject object: Any) {
-        self.data = NSKeyedArchiver.archivedData(withRootObject: object)
+        if object is Data {
+            self.data = object as! Data
+        } else {
+            self.data = NSKeyedArchiver.archivedData(withRootObject: object)
+        }
     }
 
     /// The method for whichh objects are attemped to be decoded
@@ -182,8 +190,14 @@ fileprivate class Encoder {
     /// - Returns: An Any object that can be used and converted by the user
     /// - Throws: An `ManagerError` if the object cannot be unarchived
     class func decode(data: Data, forKey key: String) throws -> Any {
+        if key == "_WebSocketKey" { return data }
+        
         guard let object = NSKeyedUnarchiver.unarchiveObject(with: data) else {
-            throw ManagerError.couldNotUnarchive(forKey: key)
+            throw createError(
+                for: kTrolleyErrorDomain,
+                code: -308,
+                withReason: "Unable to unarchive object for key [\(key)]"
+            )
         }
         
         return object

@@ -314,17 +314,30 @@ class WebSocket : NSObject, StreamDelegate {
         CFHTTPMessageSetHeaderFieldValue(urlRequest, key as CFString, val as CFString)
     }
     
+    private let dm: DefaultsManager = DefaultsManager(withKey: "_WebSocketKey")
+    
     /**
      Generate a WebSocket key as needed in RFC.
      */
     private func generateWebSocketKey() -> String {
-        var key = ""
-        let seed = 16
-        for _ in 0..<seed {
-            let uni = UnicodeScalar(UInt32(97 + arc4random_uniform(25)))
-            key += "\(Character(uni!))"
+        let data: Data!
+        
+        // Will Check to see if the Key has already been set, if so will use that one.
+        do {
+            data = try dm.retrieveObject() as! Data
+            
+        } catch {
+            var key = ""
+            let seed = 16
+            for _ in 0..<seed {
+                let uni = UnicodeScalar(UInt32(97 + arc4random_uniform(25)))
+                key += "\(Character(uni!))"
+            }
+            
+            data = key.data(using: String.Encoding.utf8)
+            self.dm.set(data)
         }
-        let data = key.data(using: String.Encoding.utf8)
+        
         let baseKey = data?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         return baseKey!
     }
