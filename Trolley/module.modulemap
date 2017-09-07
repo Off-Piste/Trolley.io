@@ -1,0 +1,6 @@
+framework module Trolley {
+  umbrella header "Trolley.h"
+
+  export *
+  module * { export * }
+}

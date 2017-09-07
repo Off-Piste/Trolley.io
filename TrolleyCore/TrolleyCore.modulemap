@@ -1,0 +1,11 @@
+framework module TrolleyCore {
+  umbrella header "TrolleyCore.h"
+
+  export *
+  module * { export * }
+
+  explicit module Private {
+    umbrella header "Trolley_Private.h"
+  }
+
+}
