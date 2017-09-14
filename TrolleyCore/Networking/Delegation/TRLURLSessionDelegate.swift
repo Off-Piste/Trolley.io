@@ -185,20 +185,6 @@ extension TRLURLSessionDelegate: URLSessionDelegate {
 
         if let sessionDidReceiveChallenge = sessionDidReceiveChallenge {
             (disposition, credential) = sessionDidReceiveChallenge(session, challenge)
-        } else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-            let host = challenge.protectionSpace.host
-
-//            if
-//                let serverTrustPolicy = session.serverTrustPolicyManager?.serverTrustPolicy(forHost: host),
-//                let serverTrust = challenge.protectionSpace.serverTrust
-//            {
-//                if serverTrustPolicy.evaluate(serverTrust, forHost: host) {
-//                    disposition = .useCredential
-//                    credential = URLCredential(trust: serverTrust)
-//                } else {
-//                    disposition = .cancelAuthenticationChallenge
-//                }
-//            }
         }
 
         completionHandler(disposition, credential)
@@ -320,15 +306,7 @@ extension TRLURLSessionDelegate: URLSessionTaskDelegate {
     {
         if let taskDidSendBodyData = taskDidSendBodyData {
             taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesExpectedToSend)
-        } /* else if let delegate = self[task]?.delegate as? UploadTaskDelegate {
-            delegate.URLSession(
-                session,
-                task: task,
-                didSendBodyData: bytesSent,
-                totalBytesSent: totalBytesSent,
-                totalBytesExpectedToSend: totalBytesExpectedToSend
-            )
-        } */
+        }
     }
 
 #if !os(watchOS)
@@ -358,15 +336,6 @@ extension TRLURLSessionDelegate: URLSessionTaskDelegate {
 
             strongSelf.taskDidComplete?(session, task, error)
             strongSelf[task]?.delegate.urlSession(session, task: task, didCompleteWithError: error)
-
-//            strongSelf[task]?.delegate.urlSession(session, task: task, didCompleteWithError: error)
-
-//            NotificationCenter.default.post(
-//                name: Notification.Name.Task.DidComplete,
-//                object: strongSelf,
-//                userInfo: [Notification.Key.Task: task]
-//            )
-
             strongSelf[task] = nil
         }
 
@@ -385,28 +354,7 @@ extension TRLURLSessionDelegate: URLSessionTaskDelegate {
             error = request.delegate.error
         }
 
-        /// If an error occurred and the retrier is set, asynchronously ask the retrier if the request
-        /// should be retried. Otherwise, complete the task by notifying the task delegate.
-//        if let retrier = retrier, let error = error {
-//            retrier.should(sessionManager, retry: request, with: error) { [weak self] shouldRetry, timeDelay in
-//                guard shouldRetry else { completeTask(session, task, error) ; return }
-//
-//                DispatchQueue.utility.after(timeDelay) { [weak self] in
-//                    guard let strongSelf = self else { return }
-//
-//                    let retrySucceeded = strongSelf.sessionManager?.retry(request) ?? false
-//
-//                    if retrySucceeded, let task = request.task {
-//                        strongSelf[task] = request
-//                        return
-//                    } else {
-//                        completeTask(session, task, error)
-//                    }
-//                }
-//            }
-//        } else {
-            completeTask(session, task, error)
-//        }
+        completeTask(session, task, error)
     }
 }
 
@@ -453,9 +401,7 @@ extension TRLURLSessionDelegate: URLSessionDataDelegate {
     {
         if let dataTaskDidBecomeDownloadTask = dataTaskDidBecomeDownloadTask {
             dataTaskDidBecomeDownloadTask(session, dataTask, downloadTask)
-        } /* else {
-            self[downloadTask]?.delegate = DownloadTaskDelegate(task: downloadTask)
-        } */
+        } 
     }
 
     /// Tells the delegate that the data task has received some of the expected data.
@@ -507,132 +453,3 @@ extension TRLURLSessionDelegate: URLSessionDataDelegate {
         }
     }
 }
-
-// MARK: - URLSessionDownloadDelegate
-
-//extension TRLURLSessionDelegate: URLSessionDownloadDelegate {
-//    /// Tells the delegate that a download task has finished downloading.
-//    ///
-//    /// - parameter session:      The session containing the download task that finished.
-//    /// - parameter downloadTask: The download task that finished.
-//    /// - parameter location:     A file URL for the temporary file. Because the file is temporary, you must either
-//    ///                           open the file for reading or move it to a permanent location in your app’s sandbox
-//    ///                           container directory before returning from this delegate method.
-//    open func urlSession(
-//        _ session: URLSession,
-//        downloadTask: URLSessionDownloadTask,
-//        didFinishDownloadingTo location: URL)
-//    {
-//        if let downloadTaskDidFinishDownloadingToURL = downloadTaskDidFinishDownloadingToURL {
-//            downloadTaskDidFinishDownloadingToURL(session, downloadTask, location)
-//        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
-//            delegate.urlSession(session, downloadTask: downloadTask, didFinishDownloadingTo: location)
-//        }
-//    }
-//
-//    /// Periodically informs the delegate about the download’s progress.
-//    ///
-//    /// - parameter session:                   The session containing the download task.
-//    /// - parameter downloadTask:              The download task.
-//    /// - parameter bytesWritten:              The number of bytes transferred since the last time this delegate
-//    ///                                        method was called.
-//    /// - parameter totalBytesWritten:         The total number of bytes transferred so far.
-//    /// - parameter totalBytesExpectedToWrite: The expected length of the file, as provided by the Content-Length
-//    ///                                        header. If this header was not provided, the value is
-//    ///                                        `NSURLSessionTransferSizeUnknown`.
-//    open func urlSession(
-//        _ session: URLSession,
-//        downloadTask: URLSessionDownloadTask,
-//        didWriteData bytesWritten: Int64,
-//        totalBytesWritten: Int64,
-//        totalBytesExpectedToWrite: Int64)
-//    {
-//        if let downloadTaskDidWriteData = downloadTaskDidWriteData {
-//            downloadTaskDidWriteData(session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite)
-//        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
-//            delegate.urlSession(
-//                session,
-//                downloadTask: downloadTask,
-//                didWriteData: bytesWritten,
-//                totalBytesWritten: totalBytesWritten,
-//                totalBytesExpectedToWrite: totalBytesExpectedToWrite
-//            )
-//        }
-//    }
-//
-//    /// Tells the delegate that the download task has resumed downloading.
-//    ///
-//    /// - parameter session:            The session containing the download task that finished.
-//    /// - parameter downloadTask:       The download task that resumed. See explanation in the discussion.
-//    /// - parameter fileOffset:         If the file's cache policy or last modified date prevents reuse of the
-//    ///                                 existing content, then this value is zero. Otherwise, this value is an
-//    ///                                 integer representing the number of bytes on disk that do not need to be
-//    ///                                 retrieved again.
-//    /// - parameter expectedTotalBytes: The expected length of the file, as provided by the Content-Length header.
-//    ///                                 If this header was not provided, the value is NSURLSessionTransferSizeUnknown.
-//    open func urlSession(
-//        _ session: URLSession,
-//        downloadTask: URLSessionDownloadTask,
-//        didResumeAtOffset fileOffset: Int64,
-//        expectedTotalBytes: Int64)
-//    {
-//        if let downloadTaskDidResumeAtOffset = downloadTaskDidResumeAtOffset {
-//            downloadTaskDidResumeAtOffset(session, downloadTask, fileOffset, expectedTotalBytes)
-//        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
-//            delegate.urlSession(
-//                session,
-//                downloadTask: downloadTask,
-//                didResumeAtOffset: fileOffset,
-//                expectedTotalBytes: expectedTotalBytes
-//            )
-//        }
-//    }
-//}
-//
-//// MARK: - URLSessionStreamDelegate
-//
-//#if !os(watchOS)
-//
-//@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
-//extension TRLURLSessionDelegate: URLSessionStreamDelegate {
-//    /// Tells the delegate that the read side of the connection has been closed.
-//    ///
-//    /// - parameter session:    The session.
-//    /// - parameter streamTask: The stream task.
-//    open func urlSession(_ session: URLSession, readClosedFor streamTask: URLSessionStreamTask) {
-//        streamTaskReadClosed?(session, streamTask)
-//    }
-//
-//    /// Tells the delegate that the write side of the connection has been closed.
-//    ///
-//    /// - parameter session:    The session.
-//    /// - parameter streamTask: The stream task.
-//    open func urlSession(_ session: URLSession, writeClosedFor streamTask: URLSessionStreamTask) {
-//        streamTaskWriteClosed?(session, streamTask)
-//    }
-//
-//    /// Tells the delegate that the system has determined that a better route to the host is available.
-//    ///
-//    /// - parameter session:    The session.
-//    /// - parameter streamTask: The stream task.
-//    open func urlSession(_ session: URLSession, betterRouteDiscoveredFor streamTask: URLSessionStreamTask) {
-//        streamTaskBetterRouteDiscovered?(session, streamTask)
-//    }
-//
-//    /// Tells the delegate that the stream task has been completed and provides the unopened stream objects.
-//    ///
-//    /// - parameter session:      The session.
-//    /// - parameter streamTask:   The stream task.
-//    /// - parameter inputStream:  The new input stream.
-//    /// - parameter outputStream: The new output stream.
-//    open func urlSession(
-//        _ session: URLSession,
-//        streamTask: URLSessionStreamTask,
-//        didBecome inputStream: InputStream,
-//        outputStream: OutputStream)
-//    {
-//        streamTaskDidBecomeInputAndOutputStreams?(session, streamTask, inputStream, outputStream)
-//    }
-//}
-
-//#endif

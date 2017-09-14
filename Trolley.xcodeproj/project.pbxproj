@@ -86,6 +86,7 @@
 		C880D6881F6A935300DBF370 /* TRLError.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6851F6A935300DBF370 /* TRLError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C880D6891F6A935300DBF370 /* TRLError.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6861F6A935300DBF370 /* TRLError.m */; };
 		C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */; };
+		C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D68D1F6A94B800DBF370 /* Trolley.swift */; };
 		C8CD0A041F61866B005AB75F /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CD0A021F61866B005AB75F /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8CD0A0A1F6187A5005AB75F /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */; };
 /* End PBXBuildFile section */
@@ -183,6 +184,7 @@
 		C880D6851F6A935300DBF370 /* TRLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLError.h; sourceTree = "<group>"; };
 		C880D6861F6A935300DBF370 /* TRLError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLError.m; sourceTree = "<group>"; };
 		C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Fixed-Header.h"; sourceTree = "<group>"; };
+		C880D68D1F6A94B800DBF370 /* Trolley.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trolley.swift; sourceTree = "<group>"; };
 		C8CD0A001F61866B005AB75F /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CD0A021F61866B005AB75F /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
 		C8CD0A031F61866B005AB75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				C880D5E21F6A90BB00DBF370 /* API Connections */,
 				C880D5F41F6A90BB00DBF370 /* Networking */,
 				C880D6841F6A935300DBF370 /* Error.swift */,
+				C880D68D1F6A94B800DBF370 /* Trolley.swift */,
 				C880D6851F6A935300DBF370 /* TRLError.h */,
 				C880D6861F6A935300DBF370 /* TRLError.m */,
 				C880D68C1F6A947400DBF370 /* Support Files */,
@@ -587,6 +590,7 @@
 				C880D6481F6A90BB00DBF370 /* TRLURLTaskDelegate.m in Sources */,
 				C880D66D1F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift in Sources */,
 				C880D6451F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m in Sources */,
+				C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */,
 				C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */,
 				C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */,
 				C880D6871F6A935300DBF370 /* Error.swift in Sources */,

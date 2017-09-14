@@ -63,9 +63,6 @@ NSException *TRLException(NSString *reason, NSDictionary *additionalUserInfo);
 
 NSError *TRLMakeError(TRLError code, NSString *_Nullable reason, ...) NS_FORMAT_FUNCTION(2,3);
 
-#define TRLCreateError(code, fmt, ...) \
-    TRLMakeError(code, fmt, ## __VA_ARGS__);
-
 void TRLSetErrorOrThrow(NSError *error, NSError **outError);
 
 NS_ASSUME_NONNULL_END

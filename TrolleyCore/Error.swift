@@ -26,8 +26,6 @@
 
 import Foundation
 
-@objc public final class Trolley: NSObject { }
-
 extension Trolley {
 
     public struct Error {
