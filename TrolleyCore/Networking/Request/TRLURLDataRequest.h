@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLURLDataRequest.h
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 09.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,33 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "TRLURLRequest.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+#import "TRLBlocks.h"
+
+@class TRLURLDataTaskDelegate;
+
+@protocol TRLURLParameterEncoding;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TRLURLDataRequest : TRLURLRequest
+
+@property (strong, readonly) NSProgress *progress;
+
+@property (strong, readonly) TRLURLDataTaskDelegate *dataDelegate;
+
+- (instancetype)stream;
+
+- (instancetype)streamWithBlock:(StreamBlock)block;
+
+- (instancetype)downloadProgressWithBlock:(ProgressHandler)block;
+
+- (instancetype)downloadProgressWithQueue:(dispatch_queue_t)queue block:(ProgressHandler)block;
+
+@end
+
+TRLURLDataRequest * request(NSString *url, HTTPMethod method, Parameters *_Nullable parameters, id<TRLURLParameterEncoding> encoding, HTTPHeaders *_Nullable headers) NS_SWIFT_UNAVAILABLE("Please use the Swift Methods");
+
+
+NS_ASSUME_NONNULL_END

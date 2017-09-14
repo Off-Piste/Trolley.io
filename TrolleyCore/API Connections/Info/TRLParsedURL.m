@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLParsedURL.m
+//  RequestBuilder
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 30.08.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,44 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "TRLParsedURL.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
+#import "TRLNetworkInfo.h"
+
 #import "TRLError.h"
+
+@implementation TRLParsedURL
+
+- (NSURL *)url{
+    return self.info.url;
+}
+
+- (NSURL *)connectionURL {
+    return self.info.connectionURL;
+}
+
+- (instancetype)initWithURLString:(NSString *)url {
+    self = [super init];
+    if (self) {
+        NSError *error;
+        TRLNetworkInfo *info = [TRLNetworkInfo networkInfoForURL:url error:&error];
+        if (error) {
+            @throw TRLException(error.localizedDescription, @{ });
+        }
+
+        self->_info = info;
+    }
+
+    return self;
+}
+
+- (void)addPath:(NSString *)path {
+    [self->_info addPath:path];
+}
+
+- (NSString *)description {
+    return self->_info.description;
+}
+
+
+@end

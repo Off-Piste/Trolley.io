@@ -7,62 +7,85 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C858F3B81F617EEE00FF2E87 /* NSMutableString+URLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F37B1F617EEE00FF2E87 /* NSMutableString+URLFormatter.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3BA1F617EEE00FF2E87 /* NSString+URL.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F37D1F617EEE00FF2E87 /* NSString+URL.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3BB1F617EEE00FF2E87 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F37E1F617EEE00FF2E87 /* NSString+URL.m */; };
-		C858F3BC1F617EEE00FF2E87 /* ParsedURL_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F37F1F617EEE00FF2E87 /* ParsedURL_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3BD1F617EEE00FF2E87 /* TRLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3801F617EEE00FF2E87 /* TRLLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3BE1F617EEE00FF2E87 /* TRLLoggerLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3811F617EEE00FF2E87 /* TRLLoggerLevel.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3BF1F617EEE00FF2E87 /* TRLNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3821F617EEE00FF2E87 /* TRLNetwork.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C01F617EEE00FF2E87 /* TRLNetworkInfo_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3831F617EEE00FF2E87 /* TRLNetworkInfo_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C11F617EEE00FF2E87 /* TRLNetworkInfo_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3841F617EEE00FF2E87 /* TRLNetworkInfo_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C31F617EEE00FF2E87 /* TRLNetworkManager_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3861F617EEE00FF2E87 /* TRLNetworkManager_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C41F617EEE00FF2E87 /* TRLRequest_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3871F617EEE00FF2E87 /* TRLRequest_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C51F617EEE00FF2E87 /* TRLURLQueryParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3881F617EEE00FF2E87 /* TRLURLQueryParameters.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C61F617EEE00FF2E87 /* TRLURLRequest_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3891F617EEE00FF2E87 /* TRLURLRequest_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C71F617EEE00FF2E87 /* Trolley_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F38A1F617EEE00FF2E87 /* Trolley_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C858F3C81F617EEE00FF2E87 /* Networkable.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F38C1F617EEE00FF2E87 /* Networkable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3C91F617EEE00FF2E87 /* NSArray+Map.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F38D1F617EEE00FF2E87 /* NSArray+Map.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3CA1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F38E1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3CB1F617EEE00FF2E87 /* NSString+Data.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F38F1F617EEE00FF2E87 /* NSString+Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3CC1F617EEE00FF2E87 /* ParsedURL.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3901F617EEE00FF2E87 /* ParsedURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3CD1F617EEE00FF2E87 /* SwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3911F617EEE00FF2E87 /* SwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3CE1F617EEE00FF2E87 /* SwiftSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3921F617EEE00FF2E87 /* SwiftSupport.m */; };
-		C858F3D01F617EEE00FF2E87 /* TRLNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3941F617EEE00FF2E87 /* TRLNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D11F617EEE00FF2E87 /* TRLNetworkingConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3951F617EEE00FF2E87 /* TRLNetworkingConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D21F617EEE00FF2E87 /* TRLNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3961F617EEE00FF2E87 /* TRLNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D41F617EEE00FF2E87 /* TRLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3981F617EEE00FF2E87 /* TRLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D61F617EEE00FF2E87 /* TRLURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F39A1F617EEE00FF2E87 /* TRLURLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D71F617EEE00FF2E87 /* TRLURLParameterEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F39B1F617EEE00FF2E87 /* TRLURLParameterEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D81F617EEE00FF2E87 /* TRLURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F39C1F617EEE00FF2E87 /* TRLURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3D91F617EEE00FF2E87 /* TRLURLRequest_Response.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F39D1F617EEE00FF2E87 /* TRLURLRequest_Response.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3DA1F617EEE00FF2E87 /* TRLURLRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F39E1F617EEE00FF2E87 /* TRLURLRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3DC1F617EEE00FF2E87 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A01F617EEE00FF2E87 /* Logger.swift */; };
-		C858F3DD1F617EEE00FF2E87 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A11F617EEE00FF2E87 /* NSArray+Map.m */; };
-		C858F3DE1F617EEE00FF2E87 /* NSLocale+HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A21F617EEE00FF2E87 /* NSLocale+HTTPHeader.swift */; };
-		C858F3DF1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A31F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.m */; };
-		C858F3E01F617EEE00FF2E87 /* NSString+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A41F617EEE00FF2E87 /* NSString+Data.m */; };
-		C858F3E11F617EEE00FF2E87 /* ObjectiveCSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A51F617EEE00FF2E87 /* ObjectiveCSupport.swift */; };
-		C858F3E21F617EEE00FF2E87 /* ParsedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A61F617EEE00FF2E87 /* ParsedURL.m */; };
-		C858F3E31F617EEE00FF2E87 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A71F617EEE00FF2E87 /* SwiftyJSON.swift */; };
-		C858F3E51F617EEE00FF2E87 /* TRLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3A91F617EEE00FF2E87 /* TRLError.swift */; };
-		C858F3E61F617EEE00FF2E87 /* TRLJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AA1F617EEE00FF2E87 /* TRLJSON.swift */; };
-		C858F3E71F617EEE00FF2E87 /* TRLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AB1F617EEE00FF2E87 /* TRLLogger.m */; };
-		C858F3E81F617EEE00FF2E87 /* TRLMutableJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AC1F617EEE00FF2E87 /* TRLMutableJSON.swift */; };
-		C858F3E91F617EEE00FF2E87 /* TRLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AD1F617EEE00FF2E87 /* TRLNetwork.m */; };
-		C858F3EA1F617EEE00FF2E87 /* TRLNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AE1F617EEE00FF2E87 /* TRLNetworkInfo.m */; };
-		C858F3EB1F617EEE00FF2E87 /* TRLOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3AF1F617EEE00FF2E87 /* TRLOptions.swift */; };
-		C858F3EC1F617EEE00FF2E87 /* TRLURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B01F617EEE00FF2E87 /* TRLURLEncoding.m */; };
-		C858F3ED1F617EEE00FF2E87 /* TRLURLQueryParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B11F617EEE00FF2E87 /* TRLURLQueryParameters.m */; };
-		C858F3EE1F617EEE00FF2E87 /* TRLURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B21F617EEE00FF2E87 /* TRLURLRequest.m */; };
-		C858F3EF1F617EEE00FF2E87 /* TRLURLRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B31F617EEE00FF2E87 /* TRLURLRequestBuilder.m */; };
-		C858F3F01F617EEE00FF2E87 /* Trolley.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B41F617EEE00FF2E87 /* Trolley.swift */; };
 		C858F3F11F617EEE00FF2E87 /* TrolleyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C858F3F21F617EEE00FF2E87 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858F3B71F617EEE00FF2E87 /* UserAgent.swift */; };
-		C858F3F71F617F1C00FF2E87 /* NSMutableString+URLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3F31F617F1C00FF2E87 /* NSMutableString+URLFormatter.m */; };
-		C858F3F81F617F1C00FF2E87 /* TRLNetworkingConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3F41F617F1C00FF2E87 /* TRLNetworkingConstants.m */; };
-		C858F3F91F617F1C00FF2E87 /* TRLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3F51F617F1C00FF2E87 /* TRLNetworkManager.m */; };
-		C858F3FA1F617F1C00FF2E87 /* TRLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C858F3F61F617F1C00FF2E87 /* TRLRequest.m */; };
+		C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */; };
+		C880D6381F6A90BB00DBF370 /* TRLParsedURL.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6391F6A90BB00DBF370 /* TRLParsedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */; };
+		C880D63A1F6A90BB00DBF370 /* TRLNetwork_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C880D63B1F6A90BB00DBF370 /* TRLNetworkManager_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C880D63C1F6A90BB00DBF370 /* TRLNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D63D1F6A90BB00DBF370 /* TRLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */; };
+		C880D63E1F6A90BB00DBF370 /* TRLNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D63F1F6A90BB00DBF370 /* TRLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */; };
+		C880D6401F6A90BB00DBF370 /* TRLNetworkManager_Options.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6411F6A90BB00DBF370 /* TRLOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */; };
+		C880D6421F6A90BB00DBF370 /* TRLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F21F6A90BB00DBF370 /* TRLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6431F6A90BB00DBF370 /* TRLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F31F6A90BB00DBF370 /* TRLRequest.m */; };
+		C880D6441F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6451F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */; };
+		C880D6461F6A90BB00DBF370 /* TRLURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */; };
+		C880D6471F6A90BB00DBF370 /* TRLURLTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6481F6A90BB00DBF370 /* TRLURLTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */; };
+		C880D6491F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D64A1F6A90BB00DBF370 /* TRLURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D64B1F6A90BB00DBF370 /* TRLURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */; };
+		C880D64C1F6A90BB00DBF370 /* TRLURLParameterEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D64D1F6A90BB00DBF370 /* JSON+Bridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */; };
+		C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6021F6A90BB00DBF370 /* JSON.swift */; };
+		C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6031F6A90BB00DBF370 /* JSONCore.swift */; };
+		C880D6501F6A90BB00DBF370 /* TRLJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6041F6A90BB00DBF370 /* TRLJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6511F6A90BB00DBF370 /* TRLJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6051F6A90BB00DBF370 /* TRLJSON.m */; };
+		C880D6521F6A90BB00DBF370 /* TRLJSONBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6531F6A90BB00DBF370 /* TRLJSONBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */; };
+		C880D6541F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6551F6A90BB00DBF370 /* TRLJSONBase_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */; };
+		C880D6561F6A90BB00DBF370 /* TRLMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6571F6A90BB00DBF370 /* TRLMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */; };
+		C880D6581F6A90BB00DBF370 /* TRLMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6591F6A90BB00DBF370 /* TRLMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */; };
+		C880D65A1F6A90BB00DBF370 /* TRLMutableJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D65B1F6A90BB00DBF370 /* TRLMutableJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */; };
+		C880D65C1F6A90BB00DBF370 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6111F6A90BB00DBF370 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D65D1F6A90BB00DBF370 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6121F6A90BB00DBF370 /* Reachability.m */; };
+		C880D65E1F6A90BB00DBF370 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6131F6A90BB00DBF370 /* Reachability.swift */; };
+		C880D65F1F6A90BB00DBF370 /* TRLURLDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6601F6A90BB00DBF370 /* TRLURLDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */; };
+		C880D6611F6A90BB00DBF370 /* TRLURLDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */; };
+		C880D6621F6A90BB00DBF370 /* TRLURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6631F6A90BB00DBF370 /* TRLURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */; };
+		C880D6641F6A90BB00DBF370 /* TRLURLRequestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */; };
+		C880D6651F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */; };
+		C880D6661F6A90BB00DBF370 /* TRLURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */; };
+		C880D6671F6A90BB00DBF370 /* TAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */; };
+		C880D6681F6A90BB00DBF370 /* TBackgroundCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */; };
+		C880D6691F6A90BB00DBF370 /* TChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6211F6A90BB00DBF370 /* TChallenge.swift */; };
+		C880D66A1F6A90BB00DBF370 /* TProgressHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */; };
+		C880D66B1F6A90BB00DBF370 /* TRLURLQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */; };
+		C880D66C1F6A90BB00DBF370 /* TValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6241F6A90BB00DBF370 /* TValidations.swift */; };
+		C880D66D1F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */; };
+		C880D66E1F6A90BB00DBF370 /* TRLURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D66F1F6A90BB00DBF370 /* TRLURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */; };
+		C880D6701F6A90BB00DBF370 /* DispatchQueue+UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */; };
+		C880D6711F6A90BB00DBF370 /* NSArray+Map.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6721F6A90BB00DBF370 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */; };
+		C880D6731F6A90BB00DBF370 /* NSDictionary+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */; };
+		C880D6741F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */; };
+		C880D6751F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6761F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */; };
+		C880D6771F6A90BB00DBF370 /* NSNumber+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */; };
+		C880D6781F6A90BB00DBF370 /* TNTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6311F6A90BB00DBF370 /* TNTUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6791F6A90BB00DBF370 /* TNTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6321F6A90BB00DBF370 /* TNTUtils.m */; };
+		C880D67A1F6A90BB00DBF370 /* TRLBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6331F6A90BB00DBF370 /* TRLBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D67B1F6A90BB00DBF370 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6341F6A90BB00DBF370 /* UserAgent.swift */; };
+		C880D67D1F6A90DD00DBF370 /* TNT_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D67C1F6A90D300DBF370 /* TNT_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D67F1F6A916200DBF370 /* TrolleyCore_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C880D6811F6A919A00DBF370 /* TRLNetwork_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6831F6A91CE00DBF370 /* TRLNetworkInfo_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C880D6871F6A935300DBF370 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6841F6A935300DBF370 /* Error.swift */; };
+		C880D6881F6A935300DBF370 /* TRLError.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6851F6A935300DBF370 /* TRLError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C880D6891F6A935300DBF370 /* TRLError.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6861F6A935300DBF370 /* TRLError.m */; };
+		C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */; };
 		C8CD0A041F61866B005AB75F /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CD0A021F61866B005AB75F /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8CD0A0A1F6187A5005AB75F /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */; };
 /* End PBXBuildFile section */
@@ -79,64 +102,87 @@
 
 /* Begin PBXFileReference section */
 		C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C858F37B1F617EEE00FF2E87 /* NSMutableString+URLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+URLFormatter.h"; sourceTree = "<group>"; };
-		C858F37D1F617EEE00FF2E87 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
-		C858F37E1F617EEE00FF2E87 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
-		C858F37F1F617EEE00FF2E87 /* ParsedURL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsedURL_Internal.h; sourceTree = "<group>"; };
-		C858F3801F617EEE00FF2E87 /* TRLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLLogger.h; sourceTree = "<group>"; };
-		C858F3811F617EEE00FF2E87 /* TRLLoggerLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLLoggerLevel.h; sourceTree = "<group>"; };
-		C858F3821F617EEE00FF2E87 /* TRLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetwork.h; sourceTree = "<group>"; };
-		C858F3831F617EEE00FF2E87 /* TRLNetworkInfo_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo_Internal.h; sourceTree = "<group>"; };
-		C858F3841F617EEE00FF2E87 /* TRLNetworkInfo_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo_Private.h; sourceTree = "<group>"; };
-		C858F3861F617EEE00FF2E87 /* TRLNetworkManager_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager_Internal.h; sourceTree = "<group>"; };
-		C858F3871F617EEE00FF2E87 /* TRLRequest_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLRequest_Internal.h; sourceTree = "<group>"; };
-		C858F3881F617EEE00FF2E87 /* TRLURLQueryParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLQueryParameters.h; sourceTree = "<group>"; };
-		C858F3891F617EEE00FF2E87 /* TRLURLRequest_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequest_Internal.h; sourceTree = "<group>"; };
-		C858F38A1F617EEE00FF2E87 /* Trolley_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trolley_Private.h; sourceTree = "<group>"; };
-		C858F38C1F617EEE00FF2E87 /* Networkable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networkable.h; sourceTree = "<group>"; };
-		C858F38D1F617EEE00FF2E87 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
-		C858F38E1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Trolley.h"; sourceTree = "<group>"; };
-		C858F38F1F617EEE00FF2E87 /* NSString+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Data.h"; sourceTree = "<group>"; };
-		C858F3901F617EEE00FF2E87 /* ParsedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsedURL.h; sourceTree = "<group>"; };
-		C858F3911F617EEE00FF2E87 /* SwiftSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSupport.h; sourceTree = "<group>"; };
-		C858F3921F617EEE00FF2E87 /* SwiftSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftSupport.m; sourceTree = "<group>"; };
-		C858F3941F617EEE00FF2E87 /* TRLNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo.h; sourceTree = "<group>"; };
-		C858F3951F617EEE00FF2E87 /* TRLNetworkingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkingConstants.h; sourceTree = "<group>"; };
-		C858F3961F617EEE00FF2E87 /* TRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager.h; sourceTree = "<group>"; };
-		C858F3981F617EEE00FF2E87 /* TRLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLRequest.h; sourceTree = "<group>"; };
-		C858F39A1F617EEE00FF2E87 /* TRLURLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLEncoding.h; sourceTree = "<group>"; };
-		C858F39B1F617EEE00FF2E87 /* TRLURLParameterEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLParameterEncoding.h; sourceTree = "<group>"; };
-		C858F39C1F617EEE00FF2E87 /* TRLURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequest.h; sourceTree = "<group>"; };
-		C858F39D1F617EEE00FF2E87 /* TRLURLRequest_Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequest_Response.h; sourceTree = "<group>"; };
-		C858F39E1F617EEE00FF2E87 /* TRLURLRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequestBuilder.h; sourceTree = "<group>"; };
 		C858F39F1F617EEE00FF2E87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C858F3A01F617EEE00FF2E87 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		C858F3A11F617EEE00FF2E87 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
-		C858F3A21F617EEE00FF2E87 /* NSLocale+HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+HTTPHeader.swift"; sourceTree = "<group>"; };
-		C858F3A31F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Trolley.m"; sourceTree = "<group>"; };
-		C858F3A41F617EEE00FF2E87 /* NSString+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Data.m"; sourceTree = "<group>"; };
-		C858F3A51F617EEE00FF2E87 /* ObjectiveCSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveCSupport.swift; sourceTree = "<group>"; };
-		C858F3A61F617EEE00FF2E87 /* ParsedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsedURL.m; sourceTree = "<group>"; };
-		C858F3A71F617EEE00FF2E87 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		C858F3A91F617EEE00FF2E87 /* TRLError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLError.swift; sourceTree = "<group>"; };
-		C858F3AA1F617EEE00FF2E87 /* TRLJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLJSON.swift; sourceTree = "<group>"; };
-		C858F3AB1F617EEE00FF2E87 /* TRLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLLogger.m; sourceTree = "<group>"; };
-		C858F3AC1F617EEE00FF2E87 /* TRLMutableJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLMutableJSON.swift; sourceTree = "<group>"; };
-		C858F3AD1F617EEE00FF2E87 /* TRLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetwork.m; sourceTree = "<group>"; };
-		C858F3AE1F617EEE00FF2E87 /* TRLNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkInfo.m; sourceTree = "<group>"; };
-		C858F3AF1F617EEE00FF2E87 /* TRLOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLOptions.swift; sourceTree = "<group>"; };
-		C858F3B01F617EEE00FF2E87 /* TRLURLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLEncoding.m; sourceTree = "<group>"; };
-		C858F3B11F617EEE00FF2E87 /* TRLURLQueryParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLQueryParameters.m; sourceTree = "<group>"; };
-		C858F3B21F617EEE00FF2E87 /* TRLURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLRequest.m; sourceTree = "<group>"; };
-		C858F3B31F617EEE00FF2E87 /* TRLURLRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLRequestBuilder.m; sourceTree = "<group>"; };
-		C858F3B41F617EEE00FF2E87 /* Trolley.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trolley.swift; sourceTree = "<group>"; };
 		C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrolleyCore.h; sourceTree = "<group>"; };
 		C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = TrolleyCore.modulemap; sourceTree = "<group>"; };
-		C858F3B71F617EEE00FF2E87 /* UserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
-		C858F3F31F617F1C00FF2E87 /* NSMutableString+URLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+URLFormatter.m"; sourceTree = "<group>"; };
-		C858F3F41F617F1C00FF2E87 /* TRLNetworkingConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkingConstants.m; sourceTree = "<group>"; };
-		C858F3F51F617F1C00FF2E87 /* TRLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkManager.m; sourceTree = "<group>"; };
-		C858F3F61F617F1C00FF2E87 /* TRLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLRequest.m; sourceTree = "<group>"; };
+		C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo.h; sourceTree = "<group>"; };
+		C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkInfo.m; sourceTree = "<group>"; };
+		C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLParsedURL.h; sourceTree = "<group>"; };
+		C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLParsedURL.m; sourceTree = "<group>"; };
+		C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetwork_Private.h; sourceTree = "<group>"; };
+		C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager_Private.h; sourceTree = "<group>"; };
+		C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetwork.h; sourceTree = "<group>"; };
+		C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetwork.m; sourceTree = "<group>"; };
+		C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager.h; sourceTree = "<group>"; };
+		C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkManager.m; sourceTree = "<group>"; };
+		C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager_Options.h; sourceTree = "<group>"; };
+		C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLOptions.swift; sourceTree = "<group>"; };
+		C880D5F21F6A90BB00DBF370 /* TRLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLRequest.h; sourceTree = "<group>"; };
+		C880D5F31F6A90BB00DBF370 /* TRLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLRequest.m; sourceTree = "<group>"; };
+		C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLDataTaskDelegate.h; sourceTree = "<group>"; };
+		C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLDataTaskDelegate.m; sourceTree = "<group>"; };
+		C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLSessionDelegate.swift; sourceTree = "<group>"; };
+		C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLTaskDelegate.h; sourceTree = "<group>"; };
+		C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLTaskDelegate.m; sourceTree = "<group>"; };
+		C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLTaskDelegate_Dynamic.h; sourceTree = "<group>"; };
+		C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLEncoding.h; sourceTree = "<group>"; };
+		C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLEncoding.m; sourceTree = "<group>"; };
+		C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLParameterEncoding.h; sourceTree = "<group>"; };
+		C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Bridging.swift"; sourceTree = "<group>"; };
+		C880D6021F6A90BB00DBF370 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		C880D6031F6A90BB00DBF370 /* JSONCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCore.swift; sourceTree = "<group>"; };
+		C880D6041F6A90BB00DBF370 /* TRLJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSON.h; sourceTree = "<group>"; };
+		C880D6051F6A90BB00DBF370 /* TRLJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLJSON.m; sourceTree = "<group>"; };
+		C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase.h; sourceTree = "<group>"; };
+		C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLJSONBase.m; sourceTree = "<group>"; };
+		C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase_Dynamic.h; sourceTree = "<group>"; };
+		C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase_Private.h; sourceTree = "<group>"; };
+		C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableArray.h; sourceTree = "<group>"; };
+		C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableArray.m; sourceTree = "<group>"; };
+		C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableDictionary.h; sourceTree = "<group>"; };
+		C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableDictionary.m; sourceTree = "<group>"; };
+		C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableJSON.h; sourceTree = "<group>"; };
+		C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableJSON.m; sourceTree = "<group>"; };
+		C880D6111F6A90BB00DBF370 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C880D6121F6A90BB00DBF370 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C880D6131F6A90BB00DBF370 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLDataRequest.h; sourceTree = "<group>"; };
+		C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLDataRequest.m; sourceTree = "<group>"; };
+		C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLDataRequest.swift; sourceTree = "<group>"; };
+		C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequest.h; sourceTree = "<group>"; };
+		C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLRequest.m; sourceTree = "<group>"; };
+		C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLRequestTask.swift; sourceTree = "<group>"; };
+		C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRLURLDataRequest+Response.swift"; sourceTree = "<group>"; };
+		C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLResponse.swift; sourceTree = "<group>"; };
+		C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TAuthorizationHeader.swift; sourceTree = "<group>"; };
+		C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBackgroundCompletion.swift; sourceTree = "<group>"; };
+		C880D6211F6A90BB00DBF370 /* TChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TChallenge.swift; sourceTree = "<group>"; };
+		C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TProgressHandler.swift; sourceTree = "<group>"; };
+		C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLQueryParameters.swift; sourceTree = "<group>"; };
+		C880D6241F6A90BB00DBF370 /* TValidations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TValidations.swift; sourceTree = "<group>"; };
+		C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrittingOptionsKeysTouple.swift; sourceTree = "<group>"; };
+		C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLSessionManager.h; sourceTree = "<group>"; };
+		C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLSessionManager.m; sourceTree = "<group>"; };
+		C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+UUID.swift"; sourceTree = "<group>"; };
+		C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
+		C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
+		C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+JSON.swift"; sourceTree = "<group>"; };
+		C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+HTTPHeader.swift"; sourceTree = "<group>"; };
+		C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Reqestable.h"; sourceTree = "<group>"; };
+		C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Reqestable.m"; sourceTree = "<group>"; };
+		C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumber+Bool.swift"; sourceTree = "<group>"; };
+		C880D6311F6A90BB00DBF370 /* TNTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTUtils.h; sourceTree = "<group>"; };
+		C880D6321F6A90BB00DBF370 /* TNTUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTUtils.m; sourceTree = "<group>"; };
+		C880D6331F6A90BB00DBF370 /* TRLBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLBlocks.h; sourceTree = "<group>"; };
+		C880D6341F6A90BB00DBF370 /* UserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
+		C880D67C1F6A90D300DBF370 /* TNT_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TNT_Header.h; path = Networking/TNT_Header.h; sourceTree = "<group>"; };
+		C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrolleyCore_Dynamic.h; sourceTree = "<group>"; };
+		C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TRLNetwork_Header.h; path = "API Connections/TRLNetwork_Header.h"; sourceTree = "<group>"; };
+		C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo_Private.h; sourceTree = "<group>"; };
+		C880D6841F6A935300DBF370 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		C880D6851F6A935300DBF370 /* TRLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLError.h; sourceTree = "<group>"; };
+		C880D6861F6A935300DBF370 /* TRLError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLError.m; sourceTree = "<group>"; };
+		C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Fixed-Header.h"; sourceTree = "<group>"; };
 		C8CD0A001F61866B005AB75F /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CD0A021F61866B005AB75F /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
 		C8CD0A031F61866B005AB75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,90 +228,193 @@
 		C858F2DD1F617E5A00FF2E87 /* TrolleyCore */ = {
 			isa = PBXGroup;
 			children = (
-				C858F3791F617EEE00FF2E87 /* Headers */,
-				C858F39F1F617EEE00FF2E87 /* Info.plist */,
-				C858F3F31F617F1C00FF2E87 /* NSMutableString+URLFormatter.m */,
-				C858F3F41F617F1C00FF2E87 /* TRLNetworkingConstants.m */,
-				C858F3F51F617F1C00FF2E87 /* TRLNetworkManager.m */,
-				C858F3F61F617F1C00FF2E87 /* TRLRequest.m */,
-				C858F3A01F617EEE00FF2E87 /* Logger.swift */,
-				C858F3A11F617EEE00FF2E87 /* NSArray+Map.m */,
-				C858F3A21F617EEE00FF2E87 /* NSLocale+HTTPHeader.swift */,
-				C858F3A31F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.m */,
-				C858F3A41F617EEE00FF2E87 /* NSString+Data.m */,
-				C858F3A51F617EEE00FF2E87 /* ObjectiveCSupport.swift */,
-				C858F3A61F617EEE00FF2E87 /* ParsedURL.m */,
-				C858F3A71F617EEE00FF2E87 /* SwiftyJSON.swift */,
-				C858F3A91F617EEE00FF2E87 /* TRLError.swift */,
-				C858F3AA1F617EEE00FF2E87 /* TRLJSON.swift */,
-				C858F3AB1F617EEE00FF2E87 /* TRLLogger.m */,
-				C858F3AC1F617EEE00FF2E87 /* TRLMutableJSON.swift */,
-				C858F3AD1F617EEE00FF2E87 /* TRLNetwork.m */,
-				C858F3AE1F617EEE00FF2E87 /* TRLNetworkInfo.m */,
-				C858F3AF1F617EEE00FF2E87 /* TRLOptions.swift */,
-				C858F3B01F617EEE00FF2E87 /* TRLURLEncoding.m */,
-				C858F3B11F617EEE00FF2E87 /* TRLURLQueryParameters.m */,
-				C858F3B21F617EEE00FF2E87 /* TRLURLRequest.m */,
-				C858F3B31F617EEE00FF2E87 /* TRLURLRequestBuilder.m */,
-				C858F3B41F617EEE00FF2E87 /* Trolley.swift */,
-				C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */,
-				C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */,
-				C858F3B71F617EEE00FF2E87 /* UserAgent.swift */,
+				C880D5E21F6A90BB00DBF370 /* API Connections */,
+				C880D5F41F6A90BB00DBF370 /* Networking */,
+				C880D6841F6A935300DBF370 /* Error.swift */,
+				C880D6851F6A935300DBF370 /* TRLError.h */,
+				C880D6861F6A935300DBF370 /* TRLError.m */,
+				C880D68C1F6A947400DBF370 /* Support Files */,
 			);
 			path = TrolleyCore;
 			sourceTree = "<group>";
 		};
-		C858F3791F617EEE00FF2E87 /* Headers */ = {
+		C880D5E21F6A90BB00DBF370 /* API Connections */ = {
 			isa = PBXGroup;
 			children = (
-				C858F37A1F617EEE00FF2E87 /* Private */,
-				C858F38B1F617EEE00FF2E87 /* Public */,
+				C880D5E31F6A90BB00DBF370 /* Info */,
+				C880D5E91F6A90BB00DBF370 /* Private */,
+				C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */,
+				C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */,
+				C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */,
+				C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */,
+				C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */,
+				C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */,
+				C880D5F21F6A90BB00DBF370 /* TRLRequest.h */,
+				C880D5F31F6A90BB00DBF370 /* TRLRequest.m */,
 			);
-			path = Headers;
+			path = "API Connections";
 			sourceTree = "<group>";
 		};
-		C858F37A1F617EEE00FF2E87 /* Private */ = {
+		C880D5E31F6A90BB00DBF370 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				C858F37B1F617EEE00FF2E87 /* NSMutableString+URLFormatter.h */,
-				C858F37D1F617EEE00FF2E87 /* NSString+URL.h */,
-				C858F37E1F617EEE00FF2E87 /* NSString+URL.m */,
-				C858F37F1F617EEE00FF2E87 /* ParsedURL_Internal.h */,
-				C858F3801F617EEE00FF2E87 /* TRLLogger.h */,
-				C858F3811F617EEE00FF2E87 /* TRLLoggerLevel.h */,
-				C858F3821F617EEE00FF2E87 /* TRLNetwork.h */,
-				C858F3831F617EEE00FF2E87 /* TRLNetworkInfo_Internal.h */,
-				C858F3841F617EEE00FF2E87 /* TRLNetworkInfo_Private.h */,
-				C858F3861F617EEE00FF2E87 /* TRLNetworkManager_Internal.h */,
-				C858F3871F617EEE00FF2E87 /* TRLRequest_Internal.h */,
-				C858F3881F617EEE00FF2E87 /* TRLURLQueryParameters.h */,
-				C858F3891F617EEE00FF2E87 /* TRLURLRequest_Internal.h */,
-				C858F38A1F617EEE00FF2E87 /* Trolley_Private.h */,
+				C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */,
+				C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */,
+				C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */,
+				C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		C880D5E91F6A90BB00DBF370 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */,
+				C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */,
+				C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */,
 			);
 			path = Private;
 			sourceTree = "<group>";
 		};
-		C858F38B1F617EEE00FF2E87 /* Public */ = {
+		C880D5F41F6A90BB00DBF370 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C858F38C1F617EEE00FF2E87 /* Networkable.h */,
-				C858F38D1F617EEE00FF2E87 /* NSArray+Map.h */,
-				C858F38E1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.h */,
-				C858F38F1F617EEE00FF2E87 /* NSString+Data.h */,
-				C858F3901F617EEE00FF2E87 /* ParsedURL.h */,
-				C858F3911F617EEE00FF2E87 /* SwiftSupport.h */,
-				C858F3921F617EEE00FF2E87 /* SwiftSupport.m */,
-				C858F3941F617EEE00FF2E87 /* TRLNetworkInfo.h */,
-				C858F3951F617EEE00FF2E87 /* TRLNetworkingConstants.h */,
-				C858F3961F617EEE00FF2E87 /* TRLNetworkManager.h */,
-				C858F3981F617EEE00FF2E87 /* TRLRequest.h */,
-				C858F39A1F617EEE00FF2E87 /* TRLURLEncoding.h */,
-				C858F39B1F617EEE00FF2E87 /* TRLURLParameterEncoding.h */,
-				C858F39C1F617EEE00FF2E87 /* TRLURLRequest.h */,
-				C858F39D1F617EEE00FF2E87 /* TRLURLRequest_Response.h */,
-				C858F39E1F617EEE00FF2E87 /* TRLURLRequestBuilder.h */,
+				C880D5F51F6A90BB00DBF370 /* Delegation */,
+				C880D5FC1F6A90BB00DBF370 /* Encoding */,
+				C880D6001F6A90BB00DBF370 /* JSON */,
+				C880D6101F6A90BB00DBF370 /* Reachability */,
+				C880D6141F6A90BB00DBF370 /* Request */,
+				C880D61B1F6A90BB00DBF370 /* Response */,
+				C880D61E1F6A90BB00DBF370 /* Touples */,
+				C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */,
+				C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */,
+				C880D6281F6A90BB00DBF370 /* Utils */,
 			);
-			path = Public;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C880D5F51F6A90BB00DBF370 /* Delegation */ = {
+			isa = PBXGroup;
+			children = (
+				C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */,
+				C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */,
+				C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */,
+				C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */,
+				C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */,
+				C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */,
+			);
+			path = Delegation;
+			sourceTree = "<group>";
+		};
+		C880D5FC1F6A90BB00DBF370 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */,
+				C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */,
+				C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		C880D6001F6A90BB00DBF370 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */,
+				C880D6021F6A90BB00DBF370 /* JSON.swift */,
+				C880D6031F6A90BB00DBF370 /* JSONCore.swift */,
+				C880D6041F6A90BB00DBF370 /* TRLJSON.h */,
+				C880D6051F6A90BB00DBF370 /* TRLJSON.m */,
+				C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */,
+				C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */,
+				C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */,
+				C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */,
+				C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */,
+				C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */,
+				C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */,
+				C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */,
+				C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */,
+				C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		C880D6101F6A90BB00DBF370 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C880D6111F6A90BB00DBF370 /* Reachability.h */,
+				C880D6121F6A90BB00DBF370 /* Reachability.m */,
+				C880D6131F6A90BB00DBF370 /* Reachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		C880D6141F6A90BB00DBF370 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */,
+				C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */,
+				C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */,
+				C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */,
+				C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */,
+				C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		C880D61B1F6A90BB00DBF370 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */,
+				C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		C880D61E1F6A90BB00DBF370 /* Touples */ = {
+			isa = PBXGroup;
+			children = (
+				C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */,
+				C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */,
+				C880D6211F6A90BB00DBF370 /* TChallenge.swift */,
+				C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */,
+				C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */,
+				C880D6241F6A90BB00DBF370 /* TValidations.swift */,
+				C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */,
+			);
+			path = Touples;
+			sourceTree = "<group>";
+		};
+		C880D6281F6A90BB00DBF370 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */,
+				C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */,
+				C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */,
+				C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */,
+				C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */,
+				C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */,
+				C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */,
+				C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */,
+				C880D6311F6A90BB00DBF370 /* TNTUtils.h */,
+				C880D6321F6A90BB00DBF370 /* TNTUtils.m */,
+				C880D6331F6A90BB00DBF370 /* TRLBlocks.h */,
+				C880D6341F6A90BB00DBF370 /* UserAgent.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C880D68C1F6A947400DBF370 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C858F39F1F617EEE00FF2E87 /* Info.plist */,
+				C880D67C1F6A90D300DBF370 /* TNT_Header.h */,
+				C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */,
+				C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */,
+				C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */,
+				C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */,
+				C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 		C8CD0A011F61866B005AB75F /* Trolley */ = {
@@ -284,35 +433,41 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C858F3CA1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.h in Headers */,
-				C858F3D11F617EEE00FF2E87 /* TRLNetworkingConstants.h in Headers */,
-				C858F3C91F617EEE00FF2E87 /* NSArray+Map.h in Headers */,
-				C858F3C11F617EEE00FF2E87 /* TRLNetworkInfo_Private.h in Headers */,
-				C858F3C01F617EEE00FF2E87 /* TRLNetworkInfo_Internal.h in Headers */,
-				C858F3C41F617EEE00FF2E87 /* TRLRequest_Internal.h in Headers */,
-				C858F3BF1F617EEE00FF2E87 /* TRLNetwork.h in Headers */,
-				C858F3CB1F617EEE00FF2E87 /* NSString+Data.h in Headers */,
-				C858F3D71F617EEE00FF2E87 /* TRLURLParameterEncoding.h in Headers */,
-				C858F3D61F617EEE00FF2E87 /* TRLURLEncoding.h in Headers */,
-				C858F3D81F617EEE00FF2E87 /* TRLURLRequest.h in Headers */,
-				C858F3C61F617EEE00FF2E87 /* TRLURLRequest_Internal.h in Headers */,
-				C858F3BA1F617EEE00FF2E87 /* NSString+URL.h in Headers */,
-				C858F3B81F617EEE00FF2E87 /* NSMutableString+URLFormatter.h in Headers */,
-				C858F3C51F617EEE00FF2E87 /* TRLURLQueryParameters.h in Headers */,
-				C858F3BC1F617EEE00FF2E87 /* ParsedURL_Internal.h in Headers */,
-				C858F3D01F617EEE00FF2E87 /* TRLNetworkInfo.h in Headers */,
-				C858F3D91F617EEE00FF2E87 /* TRLURLRequest_Response.h in Headers */,
-				C858F3C81F617EEE00FF2E87 /* Networkable.h in Headers */,
-				C858F3CD1F617EEE00FF2E87 /* SwiftSupport.h in Headers */,
-				C858F3CC1F617EEE00FF2E87 /* ParsedURL.h in Headers */,
-				C858F3DA1F617EEE00FF2E87 /* TRLURLRequestBuilder.h in Headers */,
-				C858F3BD1F617EEE00FF2E87 /* TRLLogger.h in Headers */,
-				C858F3C31F617EEE00FF2E87 /* TRLNetworkManager_Internal.h in Headers */,
+				C880D65A1F6A90BB00DBF370 /* TRLMutableJSON.h in Headers */,
+				C880D6541F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h in Headers */,
+				C880D6811F6A919A00DBF370 /* TRLNetwork_Header.h in Headers */,
+				C880D63E1F6A90BB00DBF370 /* TRLNetworkManager.h in Headers */,
+				C880D67F1F6A916200DBF370 /* TrolleyCore_Dynamic.h in Headers */,
+				C880D6381F6A90BB00DBF370 /* TRLParsedURL.h in Headers */,
+				C880D6751F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h in Headers */,
+				C880D67A1F6A90BB00DBF370 /* TRLBlocks.h in Headers */,
+				C880D6401F6A90BB00DBF370 /* TRLNetworkManager_Options.h in Headers */,
+				C880D67D1F6A90DD00DBF370 /* TNT_Header.h in Headers */,
+				C880D6781F6A90BB00DBF370 /* TNTUtils.h in Headers */,
+				C880D6491F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h in Headers */,
+				C880D64A1F6A90BB00DBF370 /* TRLURLEncoding.h in Headers */,
+				C880D6831F6A91CE00DBF370 /* TRLNetworkInfo_Private.h in Headers */,
+				C880D63A1F6A90BB00DBF370 /* TRLNetwork_Private.h in Headers */,
+				C880D6521F6A90BB00DBF370 /* TRLJSONBase.h in Headers */,
+				C880D6621F6A90BB00DBF370 /* TRLURLRequest.h in Headers */,
+				C880D65F1F6A90BB00DBF370 /* TRLURLDataRequest.h in Headers */,
+				C880D64C1F6A90BB00DBF370 /* TRLURLParameterEncoding.h in Headers */,
+				C880D63B1F6A90BB00DBF370 /* TRLNetworkManager_Private.h in Headers */,
+				C880D6881F6A935300DBF370 /* TRLError.h in Headers */,
+				C880D6561F6A90BB00DBF370 /* TRLMutableArray.h in Headers */,
+				C880D6551F6A90BB00DBF370 /* TRLJSONBase_Private.h in Headers */,
+				C880D6581F6A90BB00DBF370 /* TRLMutableDictionary.h in Headers */,
+				C880D6471F6A90BB00DBF370 /* TRLURLTaskDelegate.h in Headers */,
+				C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */,
+				C880D6441F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h in Headers */,
+				C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */,
+				C880D6501F6A90BB00DBF370 /* TRLJSON.h in Headers */,
+				C880D66E1F6A90BB00DBF370 /* TRLURLSessionManager.h in Headers */,
+				C880D6711F6A90BB00DBF370 /* NSArray+Map.h in Headers */,
+				C880D65C1F6A90BB00DBF370 /* Reachability.h in Headers */,
+				C880D63C1F6A90BB00DBF370 /* TRLNetwork.h in Headers */,
 				C858F3F11F617EEE00FF2E87 /* TrolleyCore.h in Headers */,
-				C858F3BE1F617EEE00FF2E87 /* TRLLoggerLevel.h in Headers */,
-				C858F3D41F617EEE00FF2E87 /* TRLRequest.h in Headers */,
-				C858F3C71F617EEE00FF2E87 /* Trolley_Private.h in Headers */,
-				C858F3D21F617EEE00FF2E87 /* TRLNetworkManager.h in Headers */,
+				C880D6421F6A90BB00DBF370 /* TRLRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,33 +580,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C858F3ED1F617EEE00FF2E87 /* TRLURLQueryParameters.m in Sources */,
-				C858F3EB1F617EEE00FF2E87 /* TRLOptions.swift in Sources */,
-				C858F3F81F617F1C00FF2E87 /* TRLNetworkingConstants.m in Sources */,
-				C858F3F71F617F1C00FF2E87 /* NSMutableString+URLFormatter.m in Sources */,
-				C858F3E11F617EEE00FF2E87 /* ObjectiveCSupport.swift in Sources */,
-				C858F3EE1F617EEE00FF2E87 /* TRLURLRequest.m in Sources */,
-				C858F3FA1F617F1C00FF2E87 /* TRLRequest.m in Sources */,
-				C858F3DD1F617EEE00FF2E87 /* NSArray+Map.m in Sources */,
-				C858F3F01F617EEE00FF2E87 /* Trolley.swift in Sources */,
-				C858F3F21F617EEE00FF2E87 /* UserAgent.swift in Sources */,
-				C858F3E01F617EEE00FF2E87 /* NSString+Data.m in Sources */,
-				C858F3E51F617EEE00FF2E87 /* TRLError.swift in Sources */,
-				C858F3E71F617EEE00FF2E87 /* TRLLogger.m in Sources */,
-				C858F3E81F617EEE00FF2E87 /* TRLMutableJSON.swift in Sources */,
-				C858F3E31F617EEE00FF2E87 /* SwiftyJSON.swift in Sources */,
-				C858F3DE1F617EEE00FF2E87 /* NSLocale+HTTPHeader.swift in Sources */,
-				C858F3BB1F617EEE00FF2E87 /* NSString+URL.m in Sources */,
-				C858F3E21F617EEE00FF2E87 /* ParsedURL.m in Sources */,
-				C858F3E61F617EEE00FF2E87 /* TRLJSON.swift in Sources */,
-				C858F3EF1F617EEE00FF2E87 /* TRLURLRequestBuilder.m in Sources */,
-				C858F3CE1F617EEE00FF2E87 /* SwiftSupport.m in Sources */,
-				C858F3EA1F617EEE00FF2E87 /* TRLNetworkInfo.m in Sources */,
-				C858F3DC1F617EEE00FF2E87 /* Logger.swift in Sources */,
-				C858F3E91F617EEE00FF2E87 /* TRLNetwork.m in Sources */,
-				C858F3F91F617F1C00FF2E87 /* TRLNetworkManager.m in Sources */,
-				C858F3EC1F617EEE00FF2E87 /* TRLURLEncoding.m in Sources */,
-				C858F3DF1F617EEE00FF2E87 /* NSMutableURLRequest+Trolley.m in Sources */,
+				C880D6761F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m in Sources */,
+				C880D6681F6A90BB00DBF370 /* TBackgroundCompletion.swift in Sources */,
+				C880D64D1F6A90BB00DBF370 /* JSON+Bridging.swift in Sources */,
+				C880D6631F6A90BB00DBF370 /* TRLURLRequest.m in Sources */,
+				C880D6481F6A90BB00DBF370 /* TRLURLTaskDelegate.m in Sources */,
+				C880D66D1F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift in Sources */,
+				C880D6451F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m in Sources */,
+				C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */,
+				C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */,
+				C880D6871F6A935300DBF370 /* Error.swift in Sources */,
+				C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */,
+				C880D6721F6A90BB00DBF370 /* NSArray+Map.m in Sources */,
+				C880D6601F6A90BB00DBF370 /* TRLURLDataRequest.m in Sources */,
+				C880D6791F6A90BB00DBF370 /* TNTUtils.m in Sources */,
+				C880D6591F6A90BB00DBF370 /* TRLMutableDictionary.m in Sources */,
+				C880D65B1F6A90BB00DBF370 /* TRLMutableJSON.m in Sources */,
+				C880D64B1F6A90BB00DBF370 /* TRLURLEncoding.m in Sources */,
+				C880D6891F6A935300DBF370 /* TRLError.m in Sources */,
+				C880D6771F6A90BB00DBF370 /* NSNumber+Bool.swift in Sources */,
+				C880D6661F6A90BB00DBF370 /* TRLURLResponse.swift in Sources */,
+				C880D6731F6A90BB00DBF370 /* NSDictionary+JSON.swift in Sources */,
+				C880D6641F6A90BB00DBF370 /* TRLURLRequestTask.swift in Sources */,
+				C880D66A1F6A90BB00DBF370 /* TProgressHandler.swift in Sources */,
+				C880D6571F6A90BB00DBF370 /* TRLMutableArray.m in Sources */,
+				C880D67B1F6A90BB00DBF370 /* UserAgent.swift in Sources */,
+				C880D65D1F6A90BB00DBF370 /* Reachability.m in Sources */,
+				C880D6461F6A90BB00DBF370 /* TRLURLSessionDelegate.swift in Sources */,
+				C880D6691F6A90BB00DBF370 /* TChallenge.swift in Sources */,
+				C880D6511F6A90BB00DBF370 /* TRLJSON.m in Sources */,
+				C880D63F1F6A90BB00DBF370 /* TRLNetworkManager.m in Sources */,
+				C880D63D1F6A90BB00DBF370 /* TRLNetwork.m in Sources */,
+				C880D6391F6A90BB00DBF370 /* TRLParsedURL.m in Sources */,
+				C880D6531F6A90BB00DBF370 /* TRLJSONBase.m in Sources */,
+				C880D6611F6A90BB00DBF370 /* TRLURLDataRequest.swift in Sources */,
+				C880D6431F6A90BB00DBF370 /* TRLRequest.m in Sources */,
+				C880D66B1F6A90BB00DBF370 /* TRLURLQueryParameters.swift in Sources */,
+				C880D6651F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift in Sources */,
+				C880D6671F6A90BB00DBF370 /* TAuthorizationHeader.swift in Sources */,
+				C880D65E1F6A90BB00DBF370 /* Reachability.swift in Sources */,
+				C880D6411F6A90BB00DBF370 /* TRLOptions.swift in Sources */,
+				C880D66C1F6A90BB00DBF370 /* TValidations.swift in Sources */,
+				C880D6701F6A90BB00DBF370 /* DispatchQueue+UUID.swift in Sources */,
+				C880D66F1F6A90BB00DBF370 /* TRLURLSessionManager.m in Sources */,
+				C880D6741F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +936,7 @@
 				C8CD0A071F61866B005AB75F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

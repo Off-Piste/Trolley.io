@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TBackgroundCompletion.swift
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 09.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -16,30 +16,22 @@
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
 //
-//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+import Foundation
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@objc public final class TBackgroundCompletion: NSObject {
+
+    @objc public final var handler: (() -> Void)?
+
+    public override init() {
+        self.handler?()
+    }
+
+}

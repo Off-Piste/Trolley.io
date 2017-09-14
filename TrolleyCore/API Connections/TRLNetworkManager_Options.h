@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLNetworkManager_Options.h
+//  TRLNetwork
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 14.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,23 +22,17 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "TRLNetworkManager.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@class TRLOptions;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TRLNetworkManager ()
+
+- (instancetype)initWithOptions:(TRLOptions *)options;
+
+@end
+
+NS_ASSUME_NONNULL_END

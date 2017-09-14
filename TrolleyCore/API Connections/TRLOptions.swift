@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLOptions.swift
+//  TRLNetwork
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 14.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,18 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+import Foundation
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@objc public final class TRLOptions: NSObject {
+
+    @objc public static var `default`: TRLOptions = TRLOptions()
+
+    @objc public var key: String {
+        return "default"
+    }
+
+    @objc public var url: String {
+        return "http://localhost:8080/API"
+    }
+
+}

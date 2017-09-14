@@ -1,0 +1,25 @@
+framework module TrolleyNetworkingTools {
+    umbrella header "TrolleyNetworkingTools.h"
+
+    export *
+    module * { export * }
+
+    // For code that allows for dynamicsim in the code
+    module Dynamic {
+        header "TRLJSONBase_Dynamic.h"
+        header "TRLURLRequest.h"
+    }
+
+    // For Code that will be used only by code that
+    // depeneds on it
+    module Private {
+        header "TRLMutableDictionary.h"
+        header "TRLMutableArray.h"
+//        header "NSMutableURLRequest+Reqestable.h"
+        header "Reachability.h"
+    }
+}
+
+module TrolleyNetworkingTools.Swift {
+    header "TrolleyNetworkingTools-Swift.h"
+}

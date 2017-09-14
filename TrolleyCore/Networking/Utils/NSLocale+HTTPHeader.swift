@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
+//  NSLocale+HTTPHeader.swift
 //  TrolleyCore
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 25.08.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +25,13 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+import Foundation
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+public extension NSLocale {
+    @objc public static var acceptLanguage: String {
+        return NSLocale.preferredLanguages.prefix(6).enumerated().map { index, languageCode in
+            let quality = 1.0 - (Double(index) * 0.1)
+            return "\(languageCode);q=\(quality)"
+        }.joined(separator: ", ")
+    }
+}

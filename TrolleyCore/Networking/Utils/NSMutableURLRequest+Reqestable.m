@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  NSMutableURLRequest+Reqestable.m
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 07.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,23 +23,44 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "NSMutableURLRequest+Reqestable.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
 #import "TRLError.h"
+
+@implementation NSMutableURLRequest (Reqestable)
+
+- (instancetype)initWithURL:(NSURL *)URL
+                     method:(NSString *)method
+                    headers:(HTTPHeaders *)headers {
+    self = [self initWithURL:URL];
+    self.HTTPMethod = method;
+
+    if (headers) {
+        [headers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [self setValue:obj forHTTPHeaderField:key];
+        }];
+    }
+
+    return self;
+}
+
+- (instancetype)initWithURL:(NSString *)URL
+                     method:(NSString *)method
+                    headers:(HTTPHeaders *)headers
+                      error:(NSError * _Nullable __autoreleasing *)error {
+    if ([URL isEqualToString:@""]) {
+        *error = TRLMakeError(TRLErrorInvalidURL, @"URL must contain values");
+        return nil;
+    }
+
+    NSURL *aURL = [NSURL URLWithString:URL];
+    if (aURL) {
+        return [self initWithURL:aURL method:method headers:headers];
+    }
+
+    *error = TRLMakeError(TRLErrorInvalidURL, @"URL [%@] is invalid", URL);
+    return nil;
+}
+
+@end

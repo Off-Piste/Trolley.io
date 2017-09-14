@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLJSONBase_Private.h
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 05.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,23 +22,38 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "TRLJSONBase.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@class WrittingOptions;
+
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ <#Description#>
+
+ @param lhs <#lhs description#>
+ @param rhs <#rhs description#>
+ @return <#return value description#>
+ */
+FOUNDATION_EXTERN BOOL TRLJSONBaseIsEqual(TRLJSONBase *lhs, TRLJSONBase *rhs);
+
+/**
+ <#Description#>
+
+ @param base <#base description#>
+ @param encoding <#encoding description#>
+ @param opt <#opt description#>
+ @param depth <#depth description#>
+ @param error <#error description#>
+ @return <#return value description#>
+ */
+FOUNDATION_EXTERN NSString *_Nullable RawJSONStringForTRLJSONBase(
+    TRLJSONBase *base,
+    NSStringEncoding encoding,
+    NSArray<WrittingOptions *> * opt,
+    int depth,
+    NSError **error
+);
+
+NS_ASSUME_NONNULL_END

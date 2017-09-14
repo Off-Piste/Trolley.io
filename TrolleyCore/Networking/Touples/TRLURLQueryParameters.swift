@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLURLQueryParameters.swift
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 09.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,23 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+import Foundation
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@objc public final class TRLURLQueryParameters: NSObject {
+
+    @objc public var field: Any
+
+    @objc public var value: Any
+
+    @objc public var URLEncodedStringValue: String {
+        return "\(field)=\(value)"
+    }
+
+    private override init() { fatalError() }
+
+    @objc public init(field: Any, value: Any) {
+        self.field = field
+        self.value = value
+    }
+
+}

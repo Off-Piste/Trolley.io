@@ -4,8 +4,12 @@ framework module TrolleyCore {
   export *
   module * { export * }
 
-  explicit module Private {
-    umbrella header "Trolley_Private.h"
-  }
+    explicit module Dynamic {
+        umbrella header "TrolleyCore_Dynamic.h"
+    }
+
+//  explicit module Private {
+//    umbrella header "Trolley_Private.h"
+//  }
 
 }

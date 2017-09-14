@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLParsedURL.h
+//  RequestBuilder
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 30.08.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,51 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import <Foundation/Foundation.h>
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+#import "TNTUtils.h"
+
+@class TRLNetworkInfo;
+
+/**
+ The validated URL for the Trolley Network
+ */
+@interface TRLParsedURL : NSObject
+
+UNAVAILABLE_INIT;
+
+/**
+ The Info for the URL
+ */
+@property (strong, readonly) TRLNetworkInfo *info;
+
+/**
+ The URL for network calls
+ */
+@property (strong, readonly) NSURL *url;
+
+/**
+ The WebSocket URL
+ */
+@property (strong, readonly) NSURL *connectionURL;
+
+/**
+ Method to create the ParsedURL.
+ 
+ @warning Will throw and exception if the URL is invalid.
+
+ @param url The URLString for the URL
+ @return A valid ParsedURL for our Network
+ */
+- (instancetype)initWithURLString:(NSString *)url;
+
+/**
+ Method to append a path onto the base URL
+
+ @warning USE SPARINGLY!! As will break the URL is messed with
+
+ @param path The path to be added to the URL
+ */
+- (void)addPath:(NSString *)path;
+
+@end

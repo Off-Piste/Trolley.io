@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
-//  TrolleyCore
+//  TRLMutableArray.h
+//  TrolleyNetworkingTools
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 06.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +24,42 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import <Foundation/Foundation.h>
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TRLMutableArray: NSObject
+
++ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
+
++ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
+
++ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
+
+- (id)objectAtIndex:(NSUInteger)idx;
+
+- (void)setObject:(id)object;
+
+- (void)removeAll;
+
+- (NSUInteger)count;
+
+- (NSArray *)array;
+
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+
+- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
+
+- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
+
+///
+- (BOOL)isEqualToArray:(NSArray *)arg1;
+
+///
+- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+
+@end
+
+NS_ASSUME_NONNULL_END

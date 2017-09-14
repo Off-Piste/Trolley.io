@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////////////////////////
 //
-//  TrolleyCore.h
+//  NSArray+Map.m
 //  TrolleyCore
 //
-//  Created by Harry Wright on 22.08.17.
+//  Created by Harry Wright on 23.08.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +25,20 @@
 //  SOFTWARE.
 //
 
-//#import <TrolleyCore/TRLURLRequestBuilder.h>
-//#import <TrolleyCore/NSArray+Map.h>
-//#import <TrolleyCore/TRLURLRequest_Response.h>
-//#import <TrolleyCore/NSMutableURLRequest+Trolley.h>
-//#import <TrolleyCore/TRLURLRequest.h>
-//#import <TrolleyCore/TRLURLEncoding.h>
-//#import <TrolleyCore/ParsedURL.h>
-//#import <TrolleyCore/TRLURLParameterEncoding.h>
-//#import <TrolleyCore/NSString+Data.h>
-//#import <TrolleyCore/TRLNetworkingConstants.h>
-//#import <TrolleyCore/TRLNetworkManager.h>
-//#import <TrolleyCore/TRLNetworkInfo.h>
-//#import <TrolleyCore/Networkable.h>
-//#import <TrolleyCore/TRLRequest.h>
+#import "NSArray+Map.h"
 
-#import "TNT_Header.h"
-#import "TRLNetwork_Header.h"
-#import "TRLError.h"
+@implementation NSArray (Map)
+
+- (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [result addObject:block(obj, idx)];
+    }];
+    return result;
+}
+
+- (NSArray *)map:(id (^)(id, NSUInteger))block {
+    return [self mapObjectsUsingBlock:block];
+}
+
+@end
