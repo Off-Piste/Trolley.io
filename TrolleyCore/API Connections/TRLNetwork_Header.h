@@ -9,5 +9,6 @@
 #ifndef TRLNetwork_Header_h
 #define TRLNetwork_Header_h
 
+#import "TRLNetworkManager.h"
 
 #endif /* TRLNetwork_Header_h */

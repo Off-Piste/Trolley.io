@@ -29,3 +29,7 @@
 HTTPMethod HTTPMethodGET = @"GET";
 
 HTTPMethod HTTPMethodPOST = @"POST";
+
+HTTPMethod HTTPMethodPUT = @"PUT";
+
+HTTPMethod HTTPMethodDELETE = @"DELETE";

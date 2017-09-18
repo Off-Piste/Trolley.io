@@ -49,9 +49,9 @@
         _taskLock = [[NSLock alloc] init];
 
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [queue setMaxConcurrentOperationCount:1];
+        queue.maxConcurrentOperationCount = 1;
         [queue setSuspended:YES];
-        [queue setQualityOfService:NSQualityOfServiceUtility];
+        queue.qualityOfService = NSQualityOfServiceUtility;
         self.queue = queue;
     }
     return self;
@@ -115,17 +115,8 @@ didCompleteWithError:(NSError *)error
     if (_taskDidCompleteWithError) {
         _taskDidCompleteWithError(session, task, error);
     } else {
-        if (error) {
-            if (!self.error) { self.error = error; }
-            // DownloadTaskDelegate & UploadTaskDelegate will be in Trolley/Database
-
-//            if ([self isKindOfClass:[TRLURLTaskDelegate class]]) {
-//                if (error.userInfo[NSURLSessionDownloadTaskResumeData]) {
-//                    NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
-//                    TRLURLDownloadTaskDelegate *downloadDelegate = (TRLURLDownloadTaskDelegate *)self;
-//                    downloadDelegate.resumeData = resumeData
-//                }
-//            }
+        if (error && !self.error) {
+            self.error = error;
         }
 
         _queue.suspended = NO;

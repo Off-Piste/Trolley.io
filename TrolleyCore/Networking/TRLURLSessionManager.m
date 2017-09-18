@@ -59,7 +59,7 @@ TRLURLSessionManager *aManager;
 
     @synchronized (self) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        [config setHTTPAdditionalHeaders: [self defaultHTTPHeaders].copy];
+        config.HTTPAdditionalHeaders = [self defaultHTTPHeaders].copy;
         aManager = [TRLURLSessionManager managerForConfiguration:config
                                                         delegate:[[TRLURLSessionDelegate alloc]
                                                                   init]];
@@ -102,7 +102,7 @@ TRLURLSessionManager *aManager;
     return self;
 }
 
-- (instancetype _Nullable)initWithSession:(NSURLSession *)session
+- (instancetype)initWithSession:(NSURLSession *)session
                        delegate:(TRLURLSessionDelegate *)delegate {
     if (self = [super init]) {
         if (![delegate conformsToProtocol:@protocol(NSURLSessionDelegate)]) {

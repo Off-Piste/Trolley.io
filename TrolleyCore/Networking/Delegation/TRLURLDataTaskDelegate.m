@@ -114,7 +114,7 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask
             [mutableData appendData:data];
         }
 
-        int64_t bytesReceived = (int64_t) [data length];
+        int64_t bytesReceived = (int64_t) data.length;
         totalBytesReceived += bytesReceived;
         int64_t totalBytesExpected = dataTask.response ?
                                      dataTask.response.expectedContentLength :
@@ -127,8 +127,6 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask
             dispatch_async(_progressHandler.queue, ^{
                 _progressHandler.closure(_progress);
             });
-            TRLURLEncoding *encoding = [TRLURLEncoding defaultEncoding];
-//            [request(@"http://", HTTPMethodGET, NULL, encoding, NULL) responseWithBlock:<#^(NSData * _Nullable, NSError * _Nullable)block#>]
         }
     }
 }

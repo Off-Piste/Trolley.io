@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
   s.source_files  = 'TrolleyCore/**/**/*.{swift,h,m}'
   s.public_header_files = 'TrolleyCore/Headers/Public/*.h', 'TrolleyCore/TrolleyCore.h'
   s.private_header_files = 'TrolleyCore/Headers/Private/*.h'
-  # s.dependency 'PromiseKit'
+  s.dependency 'PromiseKit'
 
 end

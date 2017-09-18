@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSLock *_taskLock;
 }
 
-- (instancetype)initWithTask:(NSURLSessionTask *_Nullable)task;
+- (instancetype)initWithTask:(NSURLSessionTask *_Nullable)task NS_DESIGNATED_INITIALIZER;
 
 @property (strong) NSOperationQueue *queue;
 

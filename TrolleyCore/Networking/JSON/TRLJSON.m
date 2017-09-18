@@ -146,7 +146,7 @@
 - (NSNumber *)number {
     switch (self.rawType) {
         case JSONTypeNumber: return self->rawNumber;
-        case JSONTypeBool: return [NSNumber numberWithBool:self->rawBool];
+        case JSONTypeBool: return @(self->rawBool);
         case JSONTypeString: {
             NSNumber *n = [[NSNumber alloc] initWithString:self->rawString];
             if (n) {

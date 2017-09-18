@@ -1,8 +1,9 @@
+/////////////////////////////////////////////////////////////////////////////////
 //
-//  TRLOptions.swift
-//  TRLNetwork
+//  TRLReporting.swift
+//  Trolley
 //
-//  Created by Harry Wright on 14.09.17.
+//  Created by Harry Wright on 17.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -15,35 +16,36 @@
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
 //
-//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
 import Foundation
 
-@objc public final class TRLOptions: NSObject {
+@objc public protocol TRLReporting: class {
 
-    @objc public static var `default`: TRLOptions = TRLOptions()
+    @objc
+    func logSearchQuery(
+        _ query: String,
+        customAttributes: [AnyHashable: Any]?
+    )
 
-    public func validateOrRaiseExcpetion() {
-        //
-    }
+    @objc
+    func logAddItem(
+        _ itemID: String,
+        withPrice price: Int,
+        customAttributes: [AnyHashable: Any]?
+    )
 
-    subscript (key: String) -> String {
-        return ""
-    }
-
-    @objc public var key: String {
-        return "default"
-    }
-
-    @objc public var url: String {
-        return "http://localhost:8080/API"
-    }
+    @objc(logCheckoutOfItem:withTotalPrice:customAttributes:)
+    func logCheckout(
+        of items: [Any],
+        withTotalPrice price: Int,
+        customAttributes: [AnyHashable: Any]?
+    )
 
 }

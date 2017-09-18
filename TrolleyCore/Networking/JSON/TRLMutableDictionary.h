@@ -44,7 +44,7 @@
 - (void)removeAllObjects;
 
 /// Returns the number of current objects in the dictionary.
-- (NSUInteger)count;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
 
 /// Returns an object given a key in the dictionary or nil if not found.
 - (ObjectType)objectForKeyedSubscript:(KeyType)key;

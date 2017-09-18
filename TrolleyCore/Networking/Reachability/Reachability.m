@@ -67,7 +67,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	NSCAssert([(__bridge NSObject*) info isKindOfClass: [Reachability class]], @"info was wrong class in ReachabilityCallback");
 
     Reachability* noteObject = (__bridge Reachability *)info;
-    NetworkStatus status = [noteObject currentReachabilityStatus];
+    NetworkStatus status = noteObject.currentReachabilityStatus;
 
     // Post a notification to notify the client that the network reachability changed.
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -85,7 +85,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 + (instancetype)reachabilityWithHostName:(NSString *)hostName {
 	Reachability* returnValue = NULL;
-	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostName UTF8String]);
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, hostName.UTF8String);
 	if (reachability != NULL)
 	{
 		returnValue= [[self alloc] init];
@@ -228,7 +228,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (NSString *)debugDescription {
     return [NSString stringWithFormat:@"%@ { status:%@, isConnectionRequired:%@ }",
-            [super description], [self description], self.connectionRequired ? @"true" : @"false"];
+            super.description, self.description, self.connectionRequired ? @"true" : @"false"];
 }
 
 

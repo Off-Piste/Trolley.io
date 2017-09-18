@@ -172,7 +172,7 @@
     // This map functions looks at all the objects
     // and then tuns them into key=value and joins them with &
     return [[comp mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
-        return [(TRLURLQueryParameters *) obj URLEncodedStringValue];
+        return ((TRLURLQueryParameters *) obj).URLEncodedStringValue;
     }] componentsJoinedByString:@"&"];
 }
 

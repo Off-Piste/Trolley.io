@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C820AC931F6F023D0074AB90 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C820AC901F6F023D0074AB90 /* Podfile */; };
+		C820AC941F6F023D0074AB90 /* TrolleyCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */; };
+		C820AC951F6F023D0074AB90 /* Trolley.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C820AC921F6F023D0074AB90 /* Trolley.podspec */; };
+		C820AC991F6F06B70074AB90 /* TRLAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = C820AC971F6F06B70074AB90 /* TRLAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C820AC9A1F6F06B70074AB90 /* TRLAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C820AC981F6F06B70074AB90 /* TRLAnalytics.m */; };
+		C820AC9C1F6F07100074AB90 /* TRLReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820AC9B1F6F07100074AB90 /* TRLReporting.swift */; };
+		C820AC9E1F6F0A650074AB90 /* TRLDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */; };
+		C820ACA21F6F0CA10074AB90 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820ACA11F6F0CA10074AB90 /* Error.swift */; };
 		C858F3F11F617EEE00FF2E87 /* TrolleyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C86CC4431F70098200130D2C /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C86CC4411F70098200130D2C /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C86CC4441F70098200130D2C /* Trolley.m in Sources */ = {isa = PBXBuildFile; fileRef = C86CC4421F70098200130D2C /* Trolley.m */; };
 		C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */; };
 		C880D6381F6A90BB00DBF370 /* TRLParsedURL.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,13 +92,16 @@
 		C880D67F1F6A916200DBF370 /* TrolleyCore_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C880D6811F6A919A00DBF370 /* TRLNetwork_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C880D6831F6A91CE00DBF370 /* TRLNetworkInfo_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C880D6871F6A935300DBF370 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6841F6A935300DBF370 /* Error.swift */; };
 		C880D6881F6A935300DBF370 /* TRLError.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6851F6A935300DBF370 /* TRLError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C880D6891F6A935300DBF370 /* TRLError.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6861F6A935300DBF370 /* TRLError.m */; };
 		C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */; };
 		C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D68D1F6A94B800DBF370 /* Trolley.swift */; };
 		C8CD0A041F61866B005AB75F /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CD0A021F61866B005AB75F /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8CD0A0A1F6187A5005AB75F /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */; };
+		C8EF42971F700BD400A54CE9 /* TRLAnalytics_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C8EF429A1F7013D200A54CE9 /* TRLAnalyticsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */; };
+		C8EF429B1F7013D200A54CE9 /* TRLAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */; };
+		D88865DBCCCCE4267BE09775 /* Pods_TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,10 +115,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrolleyCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore.release.xcconfig"; sourceTree = "<group>"; };
+		667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrolleyCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore.debug.xcconfig"; sourceTree = "<group>"; };
+		C820AC901F6F023D0074AB90 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = TrolleyCore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C820AC921F6F023D0074AB90 /* Trolley.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trolley.podspec; sourceTree = "<group>"; };
+		C820AC971F6F06B70074AB90 /* TRLAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalytics.h; sourceTree = "<group>"; };
+		C820AC981F6F06B70074AB90 /* TRLAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLAnalytics.m; sourceTree = "<group>"; };
+		C820AC9B1F6F07100074AB90 /* TRLReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLReporting.swift; sourceTree = "<group>"; };
+		C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLDefaultsManager.swift; sourceTree = "<group>"; };
+		C820ACA11F6F0CA10074AB90 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C858F39F1F617EEE00FF2E87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrolleyCore.h; sourceTree = "<group>"; };
 		C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = TrolleyCore.modulemap; sourceTree = "<group>"; };
+		C86CC4411F70098200130D2C /* Trolley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
+		C86CC4421F70098200130D2C /* Trolley.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trolley.m; sourceTree = "<group>"; };
 		C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo.h; sourceTree = "<group>"; };
 		C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkInfo.m; sourceTree = "<group>"; };
 		C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLParsedURL.h; sourceTree = "<group>"; };
@@ -180,7 +206,6 @@
 		C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrolleyCore_Dynamic.h; sourceTree = "<group>"; };
 		C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TRLNetwork_Header.h; path = "API Connections/TRLNetwork_Header.h"; sourceTree = "<group>"; };
 		C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo_Private.h; sourceTree = "<group>"; };
-		C880D6841F6A935300DBF370 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C880D6851F6A935300DBF370 /* TRLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLError.h; sourceTree = "<group>"; };
 		C880D6861F6A935300DBF370 /* TRLError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLError.m; sourceTree = "<group>"; };
 		C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Fixed-Header.h"; sourceTree = "<group>"; };
@@ -188,6 +213,9 @@
 		C8CD0A001F61866B005AB75F /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CD0A021F61866B005AB75F /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
 		C8CD0A031F61866B005AB75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalytics_Dynamic.h; sourceTree = "<group>"; };
+		C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsManager.h; sourceTree = "<group>"; };
+		C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88865DBCCCCE4267BE09775 /* Pods_TrolleyCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,12 +238,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06AF34375E3644AE4A8021C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34F4A42AABF092151B018E95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */,
+				183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C820AC961F6F02410074AB90 /* Cocoapod */ = {
+			isa = PBXGroup;
+			children = (
+				C820AC901F6F023D0074AB90 /* Podfile */,
+				C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */,
+				C820AC921F6F023D0074AB90 /* Trolley.podspec */,
+			);
+			name = Cocoapod;
+			sourceTree = "<group>";
+		};
 		C858F2CB1F617D3800FF2E87 = {
 			isa = PBXGroup;
 			children = (
+				C820AC961F6F02410074AB90 /* Cocoapod */,
 				C8CD0A011F61866B005AB75F /* Trolley */,
 				C858F2DD1F617E5A00FF2E87 /* TrolleyCore */,
 				C858F2DC1F617E5A00FF2E87 /* Products */,
+				34F4A42AABF092151B018E95 /* Pods */,
+				06AF34375E3644AE4A8021C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,12 +289,22 @@
 		C858F2DD1F617E5A00FF2E87 /* TrolleyCore */ = {
 			isa = PBXGroup;
 			children = (
+				C88580801F6ABFAD00EB5907 /* 3rd Party */,
 				C880D5E21F6A90BB00DBF370 /* API Connections */,
 				C880D5F41F6A90BB00DBF370 /* Networking */,
-				C880D6841F6A935300DBF370 /* Error.swift */,
+				C820ACA11F6F0CA10074AB90 /* Error.swift */,
+				C86CC4411F70098200130D2C /* Trolley.h */,
+				C86CC4421F70098200130D2C /* Trolley.m */,
 				C880D68D1F6A94B800DBF370 /* Trolley.swift */,
 				C880D6851F6A935300DBF370 /* TRLError.h */,
 				C880D6861F6A935300DBF370 /* TRLError.m */,
+				C820AC9B1F6F07100074AB90 /* TRLReporting.swift */,
+				C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */,
+				C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */,
+				C820AC971F6F06B70074AB90 /* TRLAnalytics.h */,
+				C820AC981F6F06B70074AB90 /* TRLAnalytics.m */,
+				C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */,
+				C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */,
 				C880D68C1F6A947400DBF370 /* Support Files */,
 			);
 			path = TrolleyCore;
@@ -420,6 +489,13 @@
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
+		C88580801F6ABFAD00EB5907 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "3rd Party";
+			sourceTree = "<group>";
+		};
 		C8CD0A011F61866B005AB75F /* Trolley */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +522,7 @@
 				C880D67A1F6A90BB00DBF370 /* TRLBlocks.h in Headers */,
 				C880D6401F6A90BB00DBF370 /* TRLNetworkManager_Options.h in Headers */,
 				C880D67D1F6A90DD00DBF370 /* TNT_Header.h in Headers */,
+				C820AC991F6F06B70074AB90 /* TRLAnalytics.h in Headers */,
 				C880D6781F6A90BB00DBF370 /* TNTUtils.h in Headers */,
 				C880D6491F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h in Headers */,
 				C880D64A1F6A90BB00DBF370 /* TRLURLEncoding.h in Headers */,
@@ -453,10 +530,12 @@
 				C880D63A1F6A90BB00DBF370 /* TRLNetwork_Private.h in Headers */,
 				C880D6521F6A90BB00DBF370 /* TRLJSONBase.h in Headers */,
 				C880D6621F6A90BB00DBF370 /* TRLURLRequest.h in Headers */,
+				C8EF429A1F7013D200A54CE9 /* TRLAnalyticsManager.h in Headers */,
 				C880D65F1F6A90BB00DBF370 /* TRLURLDataRequest.h in Headers */,
 				C880D64C1F6A90BB00DBF370 /* TRLURLParameterEncoding.h in Headers */,
 				C880D63B1F6A90BB00DBF370 /* TRLNetworkManager_Private.h in Headers */,
 				C880D6881F6A935300DBF370 /* TRLError.h in Headers */,
+				C8EF42971F700BD400A54CE9 /* TRLAnalytics_Dynamic.h in Headers */,
 				C880D6561F6A90BB00DBF370 /* TRLMutableArray.h in Headers */,
 				C880D6551F6A90BB00DBF370 /* TRLJSONBase_Private.h in Headers */,
 				C880D6581F6A90BB00DBF370 /* TRLMutableDictionary.h in Headers */,
@@ -466,6 +545,7 @@
 				C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */,
 				C880D6501F6A90BB00DBF370 /* TRLJSON.h in Headers */,
 				C880D66E1F6A90BB00DBF370 /* TRLURLSessionManager.h in Headers */,
+				C86CC4431F70098200130D2C /* Trolley.h in Headers */,
 				C880D6711F6A90BB00DBF370 /* NSArray+Map.h in Headers */,
 				C880D65C1F6A90BB00DBF370 /* Reachability.h in Headers */,
 				C880D63C1F6A90BB00DBF370 /* TRLNetwork.h in Headers */,
@@ -489,10 +569,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C858F2E11F617E5A00FF2E87 /* Build configuration list for PBXNativeTarget "TrolleyCore" */;
 			buildPhases = (
+				2ED2F80D6A77982C1F64544A /* [CP] Check Pods Manifest.lock */,
 				C858F2D61F617E5A00FF2E87 /* Sources */,
 				C858F2D71F617E5A00FF2E87 /* Frameworks */,
 				C858F2D81F617E5A00FF2E87 /* Headers */,
 				C858F2D91F617E5A00FF2E87 /* Resources */,
+				94CE7F1DFFD9A14C939C46FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -528,6 +610,7 @@
 		C858F2CC1F617D3800FF2E87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TRL;
 				LastUpgradeCheck = 0830;
 				TargetAttributes = {
 					C858F2DA1F617E5A00FF2E87 = {
@@ -573,10 +656,46 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C820AC931F6F023D0074AB90 /* Podfile in Resources */,
+				C820AC951F6F023D0074AB90 /* Trolley.podspec in Resources */,
+				C820AC941F6F023D0074AB90 /* TrolleyCore.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ED2F80D6A77982C1F64544A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94CE7F1DFFD9A14C939C46FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C858F2D61F617E5A00FF2E87 /* Sources */ = {
@@ -593,24 +712,28 @@
 				C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */,
 				C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */,
 				C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */,
-				C880D6871F6A935300DBF370 /* Error.swift in Sources */,
 				C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */,
 				C880D6721F6A90BB00DBF370 /* NSArray+Map.m in Sources */,
 				C880D6601F6A90BB00DBF370 /* TRLURLDataRequest.m in Sources */,
 				C880D6791F6A90BB00DBF370 /* TNTUtils.m in Sources */,
 				C880D6591F6A90BB00DBF370 /* TRLMutableDictionary.m in Sources */,
 				C880D65B1F6A90BB00DBF370 /* TRLMutableJSON.m in Sources */,
+				C820ACA21F6F0CA10074AB90 /* Error.swift in Sources */,
 				C880D64B1F6A90BB00DBF370 /* TRLURLEncoding.m in Sources */,
 				C880D6891F6A935300DBF370 /* TRLError.m in Sources */,
 				C880D6771F6A90BB00DBF370 /* NSNumber+Bool.swift in Sources */,
 				C880D6661F6A90BB00DBF370 /* TRLURLResponse.swift in Sources */,
 				C880D6731F6A90BB00DBF370 /* NSDictionary+JSON.swift in Sources */,
+				C86CC4441F70098200130D2C /* Trolley.m in Sources */,
 				C880D6641F6A90BB00DBF370 /* TRLURLRequestTask.swift in Sources */,
 				C880D66A1F6A90BB00DBF370 /* TProgressHandler.swift in Sources */,
+				C820AC9E1F6F0A650074AB90 /* TRLDefaultsManager.swift in Sources */,
 				C880D6571F6A90BB00DBF370 /* TRLMutableArray.m in Sources */,
 				C880D67B1F6A90BB00DBF370 /* UserAgent.swift in Sources */,
 				C880D65D1F6A90BB00DBF370 /* Reachability.m in Sources */,
+				C820AC9C1F6F07100074AB90 /* TRLReporting.swift in Sources */,
 				C880D6461F6A90BB00DBF370 /* TRLURLSessionDelegate.swift in Sources */,
+				C8EF429B1F7013D200A54CE9 /* TRLAnalyticsManager.m in Sources */,
 				C880D6691F6A90BB00DBF370 /* TChallenge.swift in Sources */,
 				C880D6511F6A90BB00DBF370 /* TRLJSON.m in Sources */,
 				C880D63F1F6A90BB00DBF370 /* TRLNetworkManager.m in Sources */,
@@ -620,6 +743,7 @@
 				C880D6611F6A90BB00DBF370 /* TRLURLDataRequest.swift in Sources */,
 				C880D6431F6A90BB00DBF370 /* TRLRequest.m in Sources */,
 				C880D66B1F6A90BB00DBF370 /* TRLURLQueryParameters.swift in Sources */,
+				C820AC9A1F6F06B70074AB90 /* TRLAnalytics.m in Sources */,
 				C880D6651F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift in Sources */,
 				C880D6671F6A90BB00DBF370 /* TAuthorizationHeader.swift in Sources */,
 				C880D65E1F6A90BB00DBF370 /* Reachability.swift in Sources */,
@@ -652,17 +776,55 @@
 		C858F2D01F617D3800FF2E87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		C858F2D11F617D3800FF2E87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
 		C858F2E21F617E5A00FF2E87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -684,7 +846,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -730,6 +892,7 @@
 		};
 		C858F2E31F617E5A00FF2E87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -751,7 +914,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -811,7 +974,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -876,7 +1039,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

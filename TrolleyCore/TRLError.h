@@ -57,9 +57,12 @@ typedef TRL_ERROR_ENUM(NSInteger, TRLError, TRLErrorDomain) {
     TRLErrorJSONWrongType = 901,
     TRLErrorJSONIndexOutOfBounds = 900,
     TRLErrorJSONErrorNotExist = 490,
+
+    TRLErrorNSUDNilReturnValue = 500,
+    TRLErrorNSUDCouldNotUnarchive = 502,
 };
 
-NSException *TRLException(NSString *reason, NSDictionary *additionalUserInfo);
+NSException *TRLException(NSString *reason, NSDictionary *_Nullable additionalUserInfo);
 
 NSError *TRLMakeError(TRLError code, NSString *_Nullable reason, ...) NS_FORMAT_FUNCTION(2,3);
 

@@ -8,5 +8,6 @@ target 'TrolleyCore' do
   use_frameworks!
 
   # Pods for TrolleyCore
+  pod "PromiseKit"
 
 end

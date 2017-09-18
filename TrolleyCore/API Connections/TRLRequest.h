@@ -113,7 +113,7 @@ UNAVAILABLE_INIT;
                      method:(HTTPMethod)method
                  parameters:(Parameters *)parameters
                    encoding:(id<TRLURLParameterEncoding>)encoding
-                    headers:(HTTPHeaders *)headers;
+                    headers:(HTTPHeaders *)headers NS_DESIGNATED_INITIALIZER;
 
 
 @end

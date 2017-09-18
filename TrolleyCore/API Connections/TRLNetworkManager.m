@@ -31,15 +31,22 @@
 #import "TRLNetwork_Private.h"
 #import "TRLParsedURL.h"
 
+#import "Reachability.h"
+
 #import "TRLURLEncoding.h"
 
 #import "Swift-Fixed-Header.h"
 
 @implementation TRLNetworkManager
 
+- (NSURL *)connectionURL {
+    return _network.connectionURL;
+}
+
 - (instancetype)initWithURL:(NSString *)url APIKey:(NSString *)key {
     if (self = [super init]) {
         self->_network = [[TRLNetwork alloc] initWithURLString:url];
+        self->_reachability = [Reachability reachabilityWithHostName:url];
         [_network.parsedURL addPath:key];
     }
     return self;

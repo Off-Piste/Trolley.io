@@ -12,5 +12,7 @@
 #import "TRLJSONBase_Dynamic.h"
 
 #import "Reachability.h"
+#import "TRLAnalytics_Dynamic.h"
+#import "TRLNetworkManager_Options.h"
 
 #endif /* TrolleyCore_Dynamic_h */

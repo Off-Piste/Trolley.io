@@ -1,8 +1,8 @@
 //
-//  TRLMutableArray.h
-//  TrolleyNetworkingTools
+//  TRLAnalytics_Dynamic.h
+//  Trolley
 //
-//  Created by Harry Wright on 06.09.17.
+//  Created by Harry Wright on 18.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,43 +22,15 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
 
-#import <Foundation/Foundation.h>
+#import "TRLAnalytics.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TRLMutableArray: NSObject
+@interface TRLAnalytics ()
 
-+ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
-
-+ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
-
-+ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
-
-- (id)objectAtIndex:(NSUInteger)idx;
-
-- (void)setObject:(id)object;
-
-- (void)removeAll;
-
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
-
-- (NSArray *)array;
-
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
-
-///
-- (BOOL)isEqualToArray:(NSArray *)arg1;
-
-///
-- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+- (void)logAppTurnOnForDevice:(NSString *)uuid
+             customAttributes:(NSDictionary *_Nullable)customAttributes;
 
 @end
 

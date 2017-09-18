@@ -92,7 +92,7 @@
 - (id)objectAtIndex:(NSUInteger)idx {
     __block id object;
     dispatch_sync(_queue, ^{
-        object = [_objects objectAtIndex:idx];
+        object = _objects[idx];
     });
     return object;
 }

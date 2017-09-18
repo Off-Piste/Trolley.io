@@ -44,8 +44,6 @@ extension Trolley {
 
         public static let jsonErrorNotExist: Code = .jsonErrorNotExist
 
-        public static let NSUDNilReturnValue: Code = .nsudNilReturnValue
-
         /// :nodoc:
         public var code: Code {
             return (_nsError as! TRLError).code
@@ -63,12 +61,8 @@ extension Trolley {
 
 }
 
-internal func TRLMakeError(_ code: Trolley.Error.Code, _ msg: String? = nil) -> Error {
-    var userInfo: [String : Any] = ["Error Code": code.rawValue]
-    if let msg = msg {
-        userInfo[NSLocalizedDescriptionKey] = msg
-    }
-    return NSError(domain: Trolley.Error._nsErrorDomain, code: code.rawValue, userInfo: userInfo)
+internal func TRLMakeError(_ code: Trolley.Error.Code, _ msg: String) {
+    
 }
 
 extension Trolley.Error : _BridgedStoredNSError {

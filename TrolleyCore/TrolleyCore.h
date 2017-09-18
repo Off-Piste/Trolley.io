@@ -43,3 +43,5 @@
 #import "TNT_Header.h"
 #import "TRLNetwork_Header.h"
 #import "TRLError.h"
+#import "TRLAnalytics.h"
+#import "Trolley.h"

@@ -1,8 +1,8 @@
 //
-//  TRLMutableArray.h
-//  TrolleyNetworkingTools
+//  TRLAnalytics.m
+//  Trolley
 //
-//  Created by Harry Wright on 06.09.17.
+//  Created by Harry Wright on 17.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,42 +24,54 @@
 //  SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "TRLAnalytics.h"
+#import "TRLAnalytics_Dynamic.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#import "TRLAnalyticsManager.h"
 
-@interface TRLMutableArray: NSObject
+#import <TrolleyCore/TrolleyCore-Swift.h>
 
-+ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
+static TRLAnalytics *anAnalytics;
 
-+ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
+@implementation TRLAnalytics
 
-+ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
++ (TRLAnalytics *)defaultAnalytics {
+    if (anAnalytics) {
+        return anAnalytics;
+    }
 
-- (id)objectAtIndex:(NSUInteger)idx;
+    @synchronized (self) {
+        anAnalytics = [[TRLAnalytics alloc] init];
+        anAnalytics->_manager = [TRLAnalyticsManager defaultManager];
+        return anAnalytics;
 
-- (void)setObject:(id)object;
+        [[Trolley shared] configure];
+    }
+}
 
-- (void)removeAll;
+- (void)logAppTurnOnForDevice:(NSString *)uuid
+             customAttributes:(NSDictionary *)customAttributes {
+    TRLShopOpenedUp(self.manager);
+}
 
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
+- (void)logSearchQuery:(NSString *)query
+      customAttributes:(NSDictionary *)customAttributes
+{
+    
+}
 
-- (NSArray *)array;
+- (void)logAddItem:(NSString *)itemID
+         withPrice:(NSInteger)price
+  customAttributes:(NSDictionary *)customAttributes
+{
 
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
+}
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (void)logCheckoutOfItem:(NSArray *)items
+           withTotalPrice:(NSInteger)price
+         customAttributes:(NSDictionary *)customAttributes
+{
 
-- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
-
-///
-- (BOOL)isEqualToArray:(NSArray *)arg1;
-
-///
-- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

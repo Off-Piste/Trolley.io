@@ -29,6 +29,7 @@
 @class TRLNetwork;
 @protocol TRLURLParameterEncoding;
 @class TRLRequest;
+@class Reachability;
 
 #import "TNTUtils.h"
 
@@ -39,6 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 UNAVAILABLE_INIT;
+
+@property (strong, readonly) Reachability *reachability;
+
+/**
+ The WebSocket URL
+ */
+@property (strong, readonly) NSURL *connectionURL;
 
 /**
  Method to GET a url with the a path.

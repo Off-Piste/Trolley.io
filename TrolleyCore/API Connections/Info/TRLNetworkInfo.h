@@ -70,7 +70,7 @@ UNAVAILABLE_INIT;
 
  @return Bool test for if the URL is a demo URL
  */
-- (BOOL)isDemoHost;
+@property (NS_NONATOMIC_IOSONLY, getter=isDemoHost, readonly) BOOL demoHost;
 
 /**
  Method to create a TRLNetworkInfo from a NSString and pass back an error

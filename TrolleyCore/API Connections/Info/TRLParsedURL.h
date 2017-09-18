@@ -60,7 +60,7 @@ UNAVAILABLE_INIT;
  @param url The URLString for the URL
  @return A valid ParsedURL for our Network
  */
-- (instancetype)initWithURLString:(NSString *)url;
+- (instancetype)initWithURLString:(NSString *)url NS_DESIGNATED_INITIALIZER;
 
 /**
  Method to append a path onto the base URL

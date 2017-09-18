@@ -61,10 +61,10 @@
 }
 
 - (NSMutableURLRequest *)request {
-    if ([super request]) {
-        return [super request].mutableCopy;
+    if (super.request) {
+        return super.request.mutableCopy;
     } else if ([(id)self->originalTask isKindOfClass:[TRLURLDataRequestHelper class]]) {
-        return [(TRLURLDataRequestHelper *)self->originalTask urlRequest].mutableCopy;
+        return ((TRLURLDataRequestHelper *)self->originalTask).urlRequest.mutableCopy;
     }
 
     return nil;

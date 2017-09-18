@@ -1,8 +1,8 @@
 //
-//  TRLMutableArray.h
-//  TrolleyNetworkingTools
+//  TRLAnalyticsManager.m
+//  Trolley
 //
-//  Created by Harry Wright on 06.09.17.
+//  Created by Harry Wright on 18.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,42 +24,28 @@
 //  SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "TRLAnalyticsManager.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#import "TRLAnalytics.h"
 
-@interface TRLMutableArray: NSObject
+static TRLAnalyticsManager *aManager;
 
-+ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
+@implementation TRLAnalyticsManager 
 
-+ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
++ (TRLAnalyticsManager *)defaultManager {
+    if (aManager) {
+        return aManager;
+    }
 
-+ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
+    @synchronized (self) {
+        aManager = [[TRLAnalyticsManager alloc] init];
+        aManager->_analytics = [TRLAnalytics defaultAnalytics];
+        return aManager;
+    }
+}
 
-- (id)objectAtIndex:(NSUInteger)idx;
-
-- (void)setObject:(id)object;
-
-- (void)removeAll;
-
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
-
-- (NSArray *)array;
-
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
-
-///
-- (BOOL)isEqualToArray:(NSArray *)arg1;
-
-///
-- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+void TRLShopOpenedUp(TRLAnalyticsManager *manager) {
+    manager->_start = [NSDate date];
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

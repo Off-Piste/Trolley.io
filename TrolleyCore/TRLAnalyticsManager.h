@@ -1,8 +1,8 @@
 //
-//  TRLMutableArray.h
-//  TrolleyNetworkingTools
+//  TRLAnalyticsManager.h
+//  Trolley
 //
-//  Created by Harry Wright on 06.09.17.
+//  Created by Harry Wright on 18.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,40 +26,18 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class TRLAnalytics;
 
-@interface TRLMutableArray: NSObject
+@interface TRLAnalyticsManager : NSObject {
+    NSDate *_start;
 
-+ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
+    id _websocket;
+}
 
-+ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
+@property (class, readonly) TRLAnalyticsManager *defaultManager;
 
-+ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
+@property (strong, readonly) TRLAnalytics *analytics;
 
-- (id)objectAtIndex:(NSUInteger)idx;
-
-- (void)setObject:(id)object;
-
-- (void)removeAll;
-
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
-
-- (NSArray *)array;
-
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
-
-///
-- (BOOL)isEqualToArray:(NSArray *)arg1;
-
-///
-- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+void TRLShopOpenedUp(TRLAnalyticsManager *manager);
 
 @end
-
-NS_ASSUME_NONNULL_END

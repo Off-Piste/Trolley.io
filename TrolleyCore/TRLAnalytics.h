@@ -1,8 +1,8 @@
 //
-//  TRLMutableArray.h
-//  TrolleyNetworkingTools
+//  TRLAnalytics.h
+//  Trolley
 //
-//  Created by Harry Wright on 06.09.17.
+//  Created by Harry Wright on 17.09.17.
 //  Copyright © 2017 Off-Piste.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,39 +26,25 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TNTUtils.h"
+
+@class TRLAnalyticsManager;
+@protocol TRLReporting;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TRLMutableArray: NSObject
+OBJ_SWIFT_PROTOCOL(TRLAnalytics, TRLReporting)
 
-+ (instancetype)initWithArray:(NSArray *)array NS_SWIFT_NAME(init(array:));
+@property (strong, class, readonly) TRLAnalytics *defaultAnalytics;
 
-+ (instancetype)initWithMutableArray:(NSMutableArray *)array NS_SWIFT_NAME(init(mutableArray:));
+@property (weak, readonly) TRLAnalyticsManager *manager;
 
-+ (instancetype)initWithTRLMutableArray:(TRLMutableArray *)array NS_SWIFT_NAME(init(_:));
+// Cannot Access TRLReporting Methods from a Swift Class
+// so had to re-add them here for it to work
 
-- (id)objectAtIndex:(NSUInteger)idx;
-
-- (void)setObject:(id)object;
-
-- (void)removeAll;
-
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
-
-- (NSArray *)array;
-
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (instancetype)map:(id (^)(id obj, NSUInteger idx))block;
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop))block;
-
-///
-- (BOOL)isEqualToArray:(NSArray *)arg1;
-
-///
-- (BOOL)isEqualToTRLMutableArray:(TRLMutableArray *)arg1;
+- (void)logSearchQuery:(NSString *)query customAttributes:(NSDictionary *)customAttributes;
+- (void)logAddItem:(NSString *)itemID withPrice:(NSInteger)price customAttributes:(NSDictionary *)customAttributes;
+- (void)logCheckoutOfItem:(NSArray *)items withTotalPrice:(NSInteger)price customAttributes:(NSDictionary *)customAttributes;
 
 @end
 
