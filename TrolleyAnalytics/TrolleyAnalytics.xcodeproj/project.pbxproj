@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C80E996D1F8B8F29005F6DF2 /* TrolleyAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C80E99791F8B93B1005F6DF2 /* TrolleyAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */; };
+		C80E997B1F8B941B005F6DF2 /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */; };
+		C860E0621F8BA868008FCF37 /* TRLAnalyticsQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C860E0601F8BA868008FCF37 /* TRLAnalyticsQueue.h */; };
+		C860E0631F8BA868008FCF37 /* TRLAnalyticsQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C860E0611F8BA868008FCF37 /* TRLAnalyticsQueue.m */; };
+		C860E0651F8BAC25008FCF37 /* TRLAnalyticsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C860E0641F8BAC25008FCF37 /* TRLAnalyticsObject.swift */; };
+		C8CFD4EF1F8BB2AB00536FEF /* TRLAnalyticsConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */; };
+		C8CFD4F01F8BB2AB00536FEF /* TRLAnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CFD4EE1F8BB2AB00536FEF /* TRLAnalyticsConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrolleyAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrolleyAnalytics.h; sourceTree = "<group>"; };
 		C80E996C1F8B8F29005F6DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrolleyAnalytics.m; sourceTree = "<group>"; };
+		C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C860E0601F8BA868008FCF37 /* TRLAnalyticsQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsQueue.h; sourceTree = "<group>"; };
+		C860E0611F8BA868008FCF37 /* TRLAnalyticsQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsQueue.m; sourceTree = "<group>"; };
+		C860E0641F8BAC25008FCF37 /* TRLAnalyticsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRLAnalyticsObject.swift; sourceTree = "<group>"; };
+		C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsConstants.h; sourceTree = "<group>"; };
+		C8CFD4EE1F8BB2AB00536FEF /* TRLAnalyticsConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80E997B1F8B941B005F6DF2 /* TrolleyCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +47,7 @@
 			children = (
 				C80E996A1F8B8F29005F6DF2 /* TrolleyAnalytics */,
 				C80E99691F8B8F29005F6DF2 /* Products */,
+				C80E997A1F8B941B005F6DF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,9 +63,23 @@
 			isa = PBXGroup;
 			children = (
 				C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */,
+				C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */,
+				C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */,
+				C8CFD4EE1F8BB2AB00536FEF /* TRLAnalyticsConstants.m */,
+				C860E0641F8BAC25008FCF37 /* TRLAnalyticsObject.swift */,
+				C860E0601F8BA868008FCF37 /* TRLAnalyticsQueue.h */,
+				C860E0611F8BA868008FCF37 /* TRLAnalyticsQueue.m */,
 				C80E996C1F8B8F29005F6DF2 /* Info.plist */,
 			);
 			path = TrolleyAnalytics;
+			sourceTree = "<group>";
+		};
+		C80E997A1F8B941B005F6DF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,6 +89,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CFD4EF1F8BB2AB00536FEF /* TRLAnalyticsConstants.h in Headers */,
+				C860E0621F8BA868008FCF37 /* TRLAnalyticsQueue.h in Headers */,
 				C80E996D1F8B8F29005F6DF2 /* TrolleyAnalytics.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +127,7 @@
 				TargetAttributes = {
 					C80E99671F8B8F29005F6DF2 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C860E0651F8BAC25008FCF37 /* TRLAnalyticsObject.swift in Sources */,
+				C8CFD4F01F8BB2AB00536FEF /* TRLAnalyticsConstants.m in Sources */,
+				C80E99791F8B93B1005F6DF2 /* TrolleyAnalytics.m in Sources */,
+				C860E0631F8BA868008FCF37 /* TRLAnalyticsQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +287,7 @@
 		C80E99711F8B8F29005F6DF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -263,6 +301,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.TrolleyAnalytics;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -270,6 +310,7 @@
 		C80E99721F8B8F29005F6DF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -283,6 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.TrolleyAnalytics;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

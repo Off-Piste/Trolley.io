@@ -13,4 +13,7 @@
   #if __has_include(<TrolleyCore/TrolleyCore.h>)
     #import <TrolleyCore/TrolleyCore.h>
   #endif
+    #if __has_include(<TrolleyAnalytics/TrolleyAnalytics.h>)
+        #import <TrolleyAnalytics/TrolleyAnalytics.h>
+    #endif
 #endif

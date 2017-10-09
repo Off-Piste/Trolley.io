@@ -19,6 +19,8 @@
 		C80E993C1F8B8572005F6DF2 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		C80E993D1F8B8572005F6DF2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C80E993E1F8B8572005F6DF2 /* Trolley.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Trolley.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C80E99751F8B8FC0005F6DF2 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80E99771F8B8FC9005F6DF2 /* TrolleyAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrolleyAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FD17331F8B8495000F9075 /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FD17361F8B8495000F9075 /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
 		C8FD17371F8B8495000F9075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,12 +48,22 @@
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
+		C80E99731F8B8FC0005F6DF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C80E99771F8B8FC9005F6DF2 /* TrolleyAnalytics.framework */,
+				C80E99751F8B8FC0005F6DF2 /* TrolleyCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8FD17271F8B847E000F9075 = {
 			isa = PBXGroup;
 			children = (
 				C80E993A1F8B855D005F6DF2 /* Support Files */,
 				C8FD17351F8B8495000F9075 /* Trolley */,
 				C8FD17341F8B8495000F9075 /* Products */,
+				C80E99731F8B8FC0005F6DF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
