@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TrolleyAnalytics/TrolleyAnalytics.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Trolley.xcodeproj">
    </FileRef>
    <FileRef
