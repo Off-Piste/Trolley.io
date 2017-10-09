@@ -5,6 +5,6 @@
       location = "group:Trolley.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Trolley-Core/Core.xcodeproj">
+      location = "group:TrolleyCore/Core/Core.xcodeproj">
    </FileRef>
 </Workspace>
