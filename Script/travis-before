@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-rvm install ruby-2.2.2
-gem install cocoapods
-gem install xcpretty -N
-pod install --project-directory=Example

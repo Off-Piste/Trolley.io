@@ -1,0 +1,3 @@
+[submodule "TrolleyCore/Core"]
+	path = TrolleyCore/Core
+	url = https://github.com/Off-Piste/Trolley-Core

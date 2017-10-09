@@ -3,504 +3,71 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C820AC931F6F023D0074AB90 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C820AC901F6F023D0074AB90 /* Podfile */; };
-		C820AC941F6F023D0074AB90 /* TrolleyCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */; };
-		C820AC951F6F023D0074AB90 /* Trolley.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C820AC921F6F023D0074AB90 /* Trolley.podspec */; };
-		C820AC991F6F06B70074AB90 /* TRLAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = C820AC971F6F06B70074AB90 /* TRLAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C820AC9A1F6F06B70074AB90 /* TRLAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C820AC981F6F06B70074AB90 /* TRLAnalytics.m */; };
-		C820AC9C1F6F07100074AB90 /* TRLReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820AC9B1F6F07100074AB90 /* TRLReporting.swift */; };
-		C820AC9E1F6F0A650074AB90 /* TRLDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */; };
-		C820ACA21F6F0CA10074AB90 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820ACA11F6F0CA10074AB90 /* Error.swift */; };
-		C858F3F11F617EEE00FF2E87 /* TrolleyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C86CC4431F70098200130D2C /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C86CC4411F70098200130D2C /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C86CC4441F70098200130D2C /* Trolley.m in Sources */ = {isa = PBXBuildFile; fileRef = C86CC4421F70098200130D2C /* Trolley.m */; };
-		C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */; };
-		C880D6381F6A90BB00DBF370 /* TRLParsedURL.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6391F6A90BB00DBF370 /* TRLParsedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */; };
-		C880D63A1F6A90BB00DBF370 /* TRLNetwork_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C880D63B1F6A90BB00DBF370 /* TRLNetworkManager_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C880D63C1F6A90BB00DBF370 /* TRLNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D63D1F6A90BB00DBF370 /* TRLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */; };
-		C880D63E1F6A90BB00DBF370 /* TRLNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D63F1F6A90BB00DBF370 /* TRLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */; };
-		C880D6401F6A90BB00DBF370 /* TRLNetworkManager_Options.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6411F6A90BB00DBF370 /* TRLOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */; };
-		C880D6421F6A90BB00DBF370 /* TRLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F21F6A90BB00DBF370 /* TRLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6431F6A90BB00DBF370 /* TRLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F31F6A90BB00DBF370 /* TRLRequest.m */; };
-		C880D6441F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6451F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */; };
-		C880D6461F6A90BB00DBF370 /* TRLURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */; };
-		C880D6471F6A90BB00DBF370 /* TRLURLTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6481F6A90BB00DBF370 /* TRLURLTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */; };
-		C880D6491F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D64A1F6A90BB00DBF370 /* TRLURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D64B1F6A90BB00DBF370 /* TRLURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */; };
-		C880D64C1F6A90BB00DBF370 /* TRLURLParameterEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D64D1F6A90BB00DBF370 /* JSON+Bridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */; };
-		C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6021F6A90BB00DBF370 /* JSON.swift */; };
-		C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6031F6A90BB00DBF370 /* JSONCore.swift */; };
-		C880D6501F6A90BB00DBF370 /* TRLJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6041F6A90BB00DBF370 /* TRLJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6511F6A90BB00DBF370 /* TRLJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6051F6A90BB00DBF370 /* TRLJSON.m */; };
-		C880D6521F6A90BB00DBF370 /* TRLJSONBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6531F6A90BB00DBF370 /* TRLJSONBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */; };
-		C880D6541F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6551F6A90BB00DBF370 /* TRLJSONBase_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */; };
-		C880D6561F6A90BB00DBF370 /* TRLMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6571F6A90BB00DBF370 /* TRLMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */; };
-		C880D6581F6A90BB00DBF370 /* TRLMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6591F6A90BB00DBF370 /* TRLMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */; };
-		C880D65A1F6A90BB00DBF370 /* TRLMutableJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D65B1F6A90BB00DBF370 /* TRLMutableJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */; };
-		C880D65C1F6A90BB00DBF370 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6111F6A90BB00DBF370 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D65D1F6A90BB00DBF370 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6121F6A90BB00DBF370 /* Reachability.m */; };
-		C880D65E1F6A90BB00DBF370 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6131F6A90BB00DBF370 /* Reachability.swift */; };
-		C880D65F1F6A90BB00DBF370 /* TRLURLDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6601F6A90BB00DBF370 /* TRLURLDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */; };
-		C880D6611F6A90BB00DBF370 /* TRLURLDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */; };
-		C880D6621F6A90BB00DBF370 /* TRLURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6631F6A90BB00DBF370 /* TRLURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */; };
-		C880D6641F6A90BB00DBF370 /* TRLURLRequestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */; };
-		C880D6651F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */; };
-		C880D6661F6A90BB00DBF370 /* TRLURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */; };
-		C880D6671F6A90BB00DBF370 /* TAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */; };
-		C880D6681F6A90BB00DBF370 /* TBackgroundCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */; };
-		C880D6691F6A90BB00DBF370 /* TChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6211F6A90BB00DBF370 /* TChallenge.swift */; };
-		C880D66A1F6A90BB00DBF370 /* TProgressHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */; };
-		C880D66B1F6A90BB00DBF370 /* TRLURLQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */; };
-		C880D66C1F6A90BB00DBF370 /* TValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6241F6A90BB00DBF370 /* TValidations.swift */; };
-		C880D66D1F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */; };
-		C880D66E1F6A90BB00DBF370 /* TRLURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D66F1F6A90BB00DBF370 /* TRLURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */; };
-		C880D6701F6A90BB00DBF370 /* DispatchQueue+UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */; };
-		C880D6711F6A90BB00DBF370 /* NSArray+Map.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6721F6A90BB00DBF370 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */; };
-		C880D6731F6A90BB00DBF370 /* NSDictionary+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */; };
-		C880D6741F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */; };
-		C880D6751F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6761F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */; };
-		C880D6771F6A90BB00DBF370 /* NSNumber+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */; };
-		C880D6781F6A90BB00DBF370 /* TNTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6311F6A90BB00DBF370 /* TNTUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6791F6A90BB00DBF370 /* TNTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6321F6A90BB00DBF370 /* TNTUtils.m */; };
-		C880D67A1F6A90BB00DBF370 /* TRLBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6331F6A90BB00DBF370 /* TRLBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D67B1F6A90BB00DBF370 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D6341F6A90BB00DBF370 /* UserAgent.swift */; };
-		C880D67D1F6A90DD00DBF370 /* TNT_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D67C1F6A90D300DBF370 /* TNT_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D67F1F6A916200DBF370 /* TrolleyCore_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C880D6811F6A919A00DBF370 /* TRLNetwork_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6831F6A91CE00DBF370 /* TRLNetworkInfo_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C880D6881F6A935300DBF370 /* TRLError.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D6851F6A935300DBF370 /* TRLError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C880D6891F6A935300DBF370 /* TRLError.m in Sources */ = {isa = PBXBuildFile; fileRef = C880D6861F6A935300DBF370 /* TRLError.m */; };
-		C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */; };
-		C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880D68D1F6A94B800DBF370 /* Trolley.swift */; };
-		C8CD0A041F61866B005AB75F /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CD0A021F61866B005AB75F /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8CD0A0A1F6187A5005AB75F /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */; };
-		C8EF42971F700BD400A54CE9 /* TRLAnalytics_Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C8EF429A1F7013D200A54CE9 /* TRLAnalyticsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */; };
-		C8EF429B1F7013D200A54CE9 /* TRLAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */; };
-		D88865DBCCCCE4267BE09775 /* Pods_TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */; };
+		C80E993F1F8B8572005F6DF2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C80E993B1F8B8572005F6DF2 /* README.md */; };
+		C80E99401F8B8572005F6DF2 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = C80E993C1F8B8572005F6DF2 /* CONTRIBUTING.md */; };
+		C80E99411F8B8572005F6DF2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C80E993D1F8B8572005F6DF2 /* LICENSE */; };
+		C80E99421F8B8572005F6DF2 /* Trolley.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C80E993E1F8B8572005F6DF2 /* Trolley.podspec */; };
+		C8FD17381F8B8495000F9075 /* Trolley.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FD17361F8B8495000F9075 /* Trolley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C8CD0A0C1F6187F2005AB75F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C858F2CC1F617D3800FF2E87 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C858F2DA1F617E5A00FF2E87;
-			remoteInfo = TrolleyCore;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrolleyCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore.release.xcconfig"; sourceTree = "<group>"; };
-		667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrolleyCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore.debug.xcconfig"; sourceTree = "<group>"; };
-		C820AC901F6F023D0074AB90 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = TrolleyCore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C820AC921F6F023D0074AB90 /* Trolley.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trolley.podspec; sourceTree = "<group>"; };
-		C820AC971F6F06B70074AB90 /* TRLAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalytics.h; sourceTree = "<group>"; };
-		C820AC981F6F06B70074AB90 /* TRLAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLAnalytics.m; sourceTree = "<group>"; };
-		C820AC9B1F6F07100074AB90 /* TRLReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLReporting.swift; sourceTree = "<group>"; };
-		C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLDefaultsManager.swift; sourceTree = "<group>"; };
-		C820ACA11F6F0CA10074AB90 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C858F39F1F617EEE00FF2E87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrolleyCore.h; sourceTree = "<group>"; };
-		C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = TrolleyCore.modulemap; sourceTree = "<group>"; };
-		C86CC4411F70098200130D2C /* Trolley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
-		C86CC4421F70098200130D2C /* Trolley.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trolley.m; sourceTree = "<group>"; };
-		C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo.h; sourceTree = "<group>"; };
-		C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkInfo.m; sourceTree = "<group>"; };
-		C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLParsedURL.h; sourceTree = "<group>"; };
-		C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLParsedURL.m; sourceTree = "<group>"; };
-		C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetwork_Private.h; sourceTree = "<group>"; };
-		C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager_Private.h; sourceTree = "<group>"; };
-		C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetwork.h; sourceTree = "<group>"; };
-		C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetwork.m; sourceTree = "<group>"; };
-		C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager.h; sourceTree = "<group>"; };
-		C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLNetworkManager.m; sourceTree = "<group>"; };
-		C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkManager_Options.h; sourceTree = "<group>"; };
-		C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLOptions.swift; sourceTree = "<group>"; };
-		C880D5F21F6A90BB00DBF370 /* TRLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLRequest.h; sourceTree = "<group>"; };
-		C880D5F31F6A90BB00DBF370 /* TRLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLRequest.m; sourceTree = "<group>"; };
-		C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLDataTaskDelegate.h; sourceTree = "<group>"; };
-		C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLDataTaskDelegate.m; sourceTree = "<group>"; };
-		C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLSessionDelegate.swift; sourceTree = "<group>"; };
-		C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLTaskDelegate.h; sourceTree = "<group>"; };
-		C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLTaskDelegate.m; sourceTree = "<group>"; };
-		C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLTaskDelegate_Dynamic.h; sourceTree = "<group>"; };
-		C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLEncoding.h; sourceTree = "<group>"; };
-		C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLEncoding.m; sourceTree = "<group>"; };
-		C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLParameterEncoding.h; sourceTree = "<group>"; };
-		C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Bridging.swift"; sourceTree = "<group>"; };
-		C880D6021F6A90BB00DBF370 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		C880D6031F6A90BB00DBF370 /* JSONCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCore.swift; sourceTree = "<group>"; };
-		C880D6041F6A90BB00DBF370 /* TRLJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSON.h; sourceTree = "<group>"; };
-		C880D6051F6A90BB00DBF370 /* TRLJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLJSON.m; sourceTree = "<group>"; };
-		C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase.h; sourceTree = "<group>"; };
-		C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLJSONBase.m; sourceTree = "<group>"; };
-		C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase_Dynamic.h; sourceTree = "<group>"; };
-		C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLJSONBase_Private.h; sourceTree = "<group>"; };
-		C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableArray.h; sourceTree = "<group>"; };
-		C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableArray.m; sourceTree = "<group>"; };
-		C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableDictionary.h; sourceTree = "<group>"; };
-		C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableDictionary.m; sourceTree = "<group>"; };
-		C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLMutableJSON.h; sourceTree = "<group>"; };
-		C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLMutableJSON.m; sourceTree = "<group>"; };
-		C880D6111F6A90BB00DBF370 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		C880D6121F6A90BB00DBF370 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		C880D6131F6A90BB00DBF370 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLDataRequest.h; sourceTree = "<group>"; };
-		C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLDataRequest.m; sourceTree = "<group>"; };
-		C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLDataRequest.swift; sourceTree = "<group>"; };
-		C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLRequest.h; sourceTree = "<group>"; };
-		C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLRequest.m; sourceTree = "<group>"; };
-		C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLRequestTask.swift; sourceTree = "<group>"; };
-		C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRLURLDataRequest+Response.swift"; sourceTree = "<group>"; };
-		C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLResponse.swift; sourceTree = "<group>"; };
-		C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TAuthorizationHeader.swift; sourceTree = "<group>"; };
-		C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBackgroundCompletion.swift; sourceTree = "<group>"; };
-		C880D6211F6A90BB00DBF370 /* TChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TChallenge.swift; sourceTree = "<group>"; };
-		C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TProgressHandler.swift; sourceTree = "<group>"; };
-		C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLURLQueryParameters.swift; sourceTree = "<group>"; };
-		C880D6241F6A90BB00DBF370 /* TValidations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TValidations.swift; sourceTree = "<group>"; };
-		C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrittingOptionsKeysTouple.swift; sourceTree = "<group>"; };
-		C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLURLSessionManager.h; sourceTree = "<group>"; };
-		C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLURLSessionManager.m; sourceTree = "<group>"; };
-		C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+UUID.swift"; sourceTree = "<group>"; };
-		C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
-		C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
-		C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+JSON.swift"; sourceTree = "<group>"; };
-		C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+HTTPHeader.swift"; sourceTree = "<group>"; };
-		C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Reqestable.h"; sourceTree = "<group>"; };
-		C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Reqestable.m"; sourceTree = "<group>"; };
-		C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumber+Bool.swift"; sourceTree = "<group>"; };
-		C880D6311F6A90BB00DBF370 /* TNTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTUtils.h; sourceTree = "<group>"; };
-		C880D6321F6A90BB00DBF370 /* TNTUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTUtils.m; sourceTree = "<group>"; };
-		C880D6331F6A90BB00DBF370 /* TRLBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLBlocks.h; sourceTree = "<group>"; };
-		C880D6341F6A90BB00DBF370 /* UserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
-		C880D67C1F6A90D300DBF370 /* TNT_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TNT_Header.h; path = Networking/TNT_Header.h; sourceTree = "<group>"; };
-		C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrolleyCore_Dynamic.h; sourceTree = "<group>"; };
-		C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TRLNetwork_Header.h; path = "API Connections/TRLNetwork_Header.h"; sourceTree = "<group>"; };
-		C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLNetworkInfo_Private.h; sourceTree = "<group>"; };
-		C880D6851F6A935300DBF370 /* TRLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLError.h; sourceTree = "<group>"; };
-		C880D6861F6A935300DBF370 /* TRLError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLError.m; sourceTree = "<group>"; };
-		C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Fixed-Header.h"; sourceTree = "<group>"; };
-		C880D68D1F6A94B800DBF370 /* Trolley.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trolley.swift; sourceTree = "<group>"; };
-		C8CD0A001F61866B005AB75F /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8CD0A021F61866B005AB75F /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
-		C8CD0A031F61866B005AB75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalytics_Dynamic.h; sourceTree = "<group>"; };
-		C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsManager.h; sourceTree = "<group>"; };
-		C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsManager.m; sourceTree = "<group>"; };
+		C80E993B1F8B8572005F6DF2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C80E993C1F8B8572005F6DF2 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		C80E993D1F8B8572005F6DF2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C80E993E1F8B8572005F6DF2 /* Trolley.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Trolley.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C8FD17331F8B8495000F9075 /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FD17361F8B8495000F9075 /* Trolley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trolley.h; sourceTree = "<group>"; };
+		C8FD17371F8B8495000F9075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C858F2D71F617E5A00FF2E87 /* Frameworks */ = {
+		C8FD172F1F8B8495000F9075 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88865DBCCCCE4267BE09775 /* Pods_TrolleyCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C8CD09FC1F61866B005AB75F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C8CD0A0A1F6187A5005AB75F /* TrolleyCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06AF34375E3644AE4A8021C8 /* Frameworks */ = {
+		C80E993A1F8B855D005F6DF2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				667F1A58BD009948150935D2 /* Pods_TrolleyCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		34F4A42AABF092151B018E95 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */,
-				183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C820AC961F6F02410074AB90 /* Cocoapod */ = {
-			isa = PBXGroup;
-			children = (
-				C820AC901F6F023D0074AB90 /* Podfile */,
-				C820AC911F6F023D0074AB90 /* TrolleyCore.podspec */,
-				C820AC921F6F023D0074AB90 /* Trolley.podspec */,
-			);
-			name = Cocoapod;
-			sourceTree = "<group>";
-		};
-		C858F2CB1F617D3800FF2E87 = {
-			isa = PBXGroup;
-			children = (
-				C820AC961F6F02410074AB90 /* Cocoapod */,
-				C8CD0A011F61866B005AB75F /* Trolley */,
-				C858F2DD1F617E5A00FF2E87 /* TrolleyCore */,
-				C858F2DC1F617E5A00FF2E87 /* Products */,
-				34F4A42AABF092151B018E95 /* Pods */,
-				06AF34375E3644AE4A8021C8 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		C858F2DC1F617E5A00FF2E87 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */,
-				C8CD0A001F61866B005AB75F /* Trolley.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C858F2DD1F617E5A00FF2E87 /* TrolleyCore */ = {
-			isa = PBXGroup;
-			children = (
-				C88580801F6ABFAD00EB5907 /* 3rd Party */,
-				C880D5E21F6A90BB00DBF370 /* API Connections */,
-				C880D5F41F6A90BB00DBF370 /* Networking */,
-				C820ACA11F6F0CA10074AB90 /* Error.swift */,
-				C86CC4411F70098200130D2C /* Trolley.h */,
-				C86CC4421F70098200130D2C /* Trolley.m */,
-				C880D68D1F6A94B800DBF370 /* Trolley.swift */,
-				C880D6851F6A935300DBF370 /* TRLError.h */,
-				C880D6861F6A935300DBF370 /* TRLError.m */,
-				C820AC9B1F6F07100074AB90 /* TRLReporting.swift */,
-				C8EF42981F7013D200A54CE9 /* TRLAnalyticsManager.h */,
-				C8EF42991F7013D200A54CE9 /* TRLAnalyticsManager.m */,
-				C820AC971F6F06B70074AB90 /* TRLAnalytics.h */,
-				C820AC981F6F06B70074AB90 /* TRLAnalytics.m */,
-				C8EF42961F700BD400A54CE9 /* TRLAnalytics_Dynamic.h */,
-				C820AC9D1F6F0A650074AB90 /* TRLDefaultsManager.swift */,
-				C880D68C1F6A947400DBF370 /* Support Files */,
-			);
-			path = TrolleyCore;
-			sourceTree = "<group>";
-		};
-		C880D5E21F6A90BB00DBF370 /* API Connections */ = {
-			isa = PBXGroup;
-			children = (
-				C880D5E31F6A90BB00DBF370 /* Info */,
-				C880D5E91F6A90BB00DBF370 /* Private */,
-				C880D5EC1F6A90BB00DBF370 /* TRLNetwork.h */,
-				C880D5ED1F6A90BB00DBF370 /* TRLNetwork.m */,
-				C880D5EE1F6A90BB00DBF370 /* TRLNetworkManager.h */,
-				C880D5EF1F6A90BB00DBF370 /* TRLNetworkManager.m */,
-				C880D5F01F6A90BB00DBF370 /* TRLNetworkManager_Options.h */,
-				C880D5F11F6A90BB00DBF370 /* TRLOptions.swift */,
-				C880D5F21F6A90BB00DBF370 /* TRLRequest.h */,
-				C880D5F31F6A90BB00DBF370 /* TRLRequest.m */,
-			);
-			path = "API Connections";
-			sourceTree = "<group>";
-		};
-		C880D5E31F6A90BB00DBF370 /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				C880D5E41F6A90BB00DBF370 /* TRLNetworkInfo.h */,
-				C880D5E51F6A90BB00DBF370 /* TRLNetworkInfo.m */,
-				C880D5E71F6A90BB00DBF370 /* TRLParsedURL.h */,
-				C880D5E81F6A90BB00DBF370 /* TRLParsedURL.m */,
-			);
-			path = Info;
-			sourceTree = "<group>";
-		};
-		C880D5E91F6A90BB00DBF370 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				C880D6821F6A91CE00DBF370 /* TRLNetworkInfo_Private.h */,
-				C880D5EA1F6A90BB00DBF370 /* TRLNetwork_Private.h */,
-				C880D5EB1F6A90BB00DBF370 /* TRLNetworkManager_Private.h */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
-		C880D5F41F6A90BB00DBF370 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				C880D5F51F6A90BB00DBF370 /* Delegation */,
-				C880D5FC1F6A90BB00DBF370 /* Encoding */,
-				C880D6001F6A90BB00DBF370 /* JSON */,
-				C880D6101F6A90BB00DBF370 /* Reachability */,
-				C880D6141F6A90BB00DBF370 /* Request */,
-				C880D61B1F6A90BB00DBF370 /* Response */,
-				C880D61E1F6A90BB00DBF370 /* Touples */,
-				C880D6261F6A90BB00DBF370 /* TRLURLSessionManager.h */,
-				C880D6271F6A90BB00DBF370 /* TRLURLSessionManager.m */,
-				C880D6281F6A90BB00DBF370 /* Utils */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		C880D5F51F6A90BB00DBF370 /* Delegation */ = {
-			isa = PBXGroup;
-			children = (
-				C880D5F61F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h */,
-				C880D5F71F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m */,
-				C880D5F81F6A90BB00DBF370 /* TRLURLSessionDelegate.swift */,
-				C880D5F91F6A90BB00DBF370 /* TRLURLTaskDelegate.h */,
-				C880D5FA1F6A90BB00DBF370 /* TRLURLTaskDelegate.m */,
-				C880D5FB1F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h */,
-			);
-			path = Delegation;
-			sourceTree = "<group>";
-		};
-		C880D5FC1F6A90BB00DBF370 /* Encoding */ = {
-			isa = PBXGroup;
-			children = (
-				C880D5FD1F6A90BB00DBF370 /* TRLURLEncoding.h */,
-				C880D5FE1F6A90BB00DBF370 /* TRLURLEncoding.m */,
-				C880D5FF1F6A90BB00DBF370 /* TRLURLParameterEncoding.h */,
-			);
-			path = Encoding;
-			sourceTree = "<group>";
-		};
-		C880D6001F6A90BB00DBF370 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				C880D6011F6A90BB00DBF370 /* JSON+Bridging.swift */,
-				C880D6021F6A90BB00DBF370 /* JSON.swift */,
-				C880D6031F6A90BB00DBF370 /* JSONCore.swift */,
-				C880D6041F6A90BB00DBF370 /* TRLJSON.h */,
-				C880D6051F6A90BB00DBF370 /* TRLJSON.m */,
-				C880D6061F6A90BB00DBF370 /* TRLJSONBase.h */,
-				C880D6071F6A90BB00DBF370 /* TRLJSONBase.m */,
-				C880D6081F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h */,
-				C880D6091F6A90BB00DBF370 /* TRLJSONBase_Private.h */,
-				C880D60A1F6A90BB00DBF370 /* TRLMutableArray.h */,
-				C880D60B1F6A90BB00DBF370 /* TRLMutableArray.m */,
-				C880D60C1F6A90BB00DBF370 /* TRLMutableDictionary.h */,
-				C880D60D1F6A90BB00DBF370 /* TRLMutableDictionary.m */,
-				C880D60E1F6A90BB00DBF370 /* TRLMutableJSON.h */,
-				C880D60F1F6A90BB00DBF370 /* TRLMutableJSON.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		C880D6101F6A90BB00DBF370 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				C880D6111F6A90BB00DBF370 /* Reachability.h */,
-				C880D6121F6A90BB00DBF370 /* Reachability.m */,
-				C880D6131F6A90BB00DBF370 /* Reachability.swift */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
-		C880D6141F6A90BB00DBF370 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				C880D6151F6A90BB00DBF370 /* TRLURLDataRequest.h */,
-				C880D6161F6A90BB00DBF370 /* TRLURLDataRequest.m */,
-				C880D6171F6A90BB00DBF370 /* TRLURLDataRequest.swift */,
-				C880D6181F6A90BB00DBF370 /* TRLURLRequest.h */,
-				C880D6191F6A90BB00DBF370 /* TRLURLRequest.m */,
-				C880D61A1F6A90BB00DBF370 /* TRLURLRequestTask.swift */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
-		C880D61B1F6A90BB00DBF370 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				C880D61C1F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift */,
-				C880D61D1F6A90BB00DBF370 /* TRLURLResponse.swift */,
-			);
-			path = Response;
-			sourceTree = "<group>";
-		};
-		C880D61E1F6A90BB00DBF370 /* Touples */ = {
-			isa = PBXGroup;
-			children = (
-				C880D61F1F6A90BB00DBF370 /* TAuthorizationHeader.swift */,
-				C880D6201F6A90BB00DBF370 /* TBackgroundCompletion.swift */,
-				C880D6211F6A90BB00DBF370 /* TChallenge.swift */,
-				C880D6221F6A90BB00DBF370 /* TProgressHandler.swift */,
-				C880D6231F6A90BB00DBF370 /* TRLURLQueryParameters.swift */,
-				C880D6241F6A90BB00DBF370 /* TValidations.swift */,
-				C880D6251F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift */,
-			);
-			path = Touples;
-			sourceTree = "<group>";
-		};
-		C880D6281F6A90BB00DBF370 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C880D6291F6A90BB00DBF370 /* DispatchQueue+UUID.swift */,
-				C880D62A1F6A90BB00DBF370 /* NSArray+Map.h */,
-				C880D62B1F6A90BB00DBF370 /* NSArray+Map.m */,
-				C880D62C1F6A90BB00DBF370 /* NSDictionary+JSON.swift */,
-				C880D62D1F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift */,
-				C880D62E1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h */,
-				C880D62F1F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m */,
-				C880D6301F6A90BB00DBF370 /* NSNumber+Bool.swift */,
-				C880D6311F6A90BB00DBF370 /* TNTUtils.h */,
-				C880D6321F6A90BB00DBF370 /* TNTUtils.m */,
-				C880D6331F6A90BB00DBF370 /* TRLBlocks.h */,
-				C880D6341F6A90BB00DBF370 /* UserAgent.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		C880D68C1F6A947400DBF370 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C858F39F1F617EEE00FF2E87 /* Info.plist */,
-				C880D67C1F6A90D300DBF370 /* TNT_Header.h */,
-				C880D6801F6A919700DBF370 /* TRLNetwork_Header.h */,
-				C858F3B51F617EEE00FF2E87 /* TrolleyCore.h */,
-				C880D68A1F6A944000DBF370 /* Swift-Fixed-Header.h */,
-				C880D67E1F6A916000DBF370 /* TrolleyCore_Dynamic.h */,
-				C858F3B61F617EEE00FF2E87 /* TrolleyCore.modulemap */,
+				C80E993C1F8B8572005F6DF2 /* CONTRIBUTING.md */,
+				C80E993B1F8B8572005F6DF2 /* README.md */,
+				C80E993D1F8B8572005F6DF2 /* LICENSE */,
+				C80E993E1F8B8572005F6DF2 /* Trolley.podspec */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
-		C88580801F6ABFAD00EB5907 /* 3rd Party */ = {
+		C8FD17271F8B847E000F9075 = {
 			isa = PBXGroup;
 			children = (
+				C80E993A1F8B855D005F6DF2 /* Support Files */,
+				C8FD17351F8B8495000F9075 /* Trolley */,
+				C8FD17341F8B8495000F9075 /* Products */,
 			);
-			path = "3rd Party";
 			sourceTree = "<group>";
 		};
-		C8CD0A011F61866B005AB75F /* Trolley */ = {
+		C8FD17341F8B8495000F9075 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8CD0A021F61866B005AB75F /* Trolley.h */,
-				C8CD0A031F61866B005AB75F /* Info.plist */,
+				C8FD17331F8B8495000F9075 /* Trolley.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8FD17351F8B8495000F9075 /* Trolley */ = {
+			isa = PBXGroup;
+			children = (
+				C8FD17361F8B8495000F9075 /* Trolley.h */,
+				C8FD17371F8B8495000F9075 /* Info.plist */,
 			);
 			path = Trolley;
 			sourceTree = "<group>";
@@ -508,254 +75,82 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C858F2D81F617E5A00FF2E87 /* Headers */ = {
+		C8FD17301F8B8495000F9075 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C880D65A1F6A90BB00DBF370 /* TRLMutableJSON.h in Headers */,
-				C880D6541F6A90BB00DBF370 /* TRLJSONBase_Dynamic.h in Headers */,
-				C880D6811F6A919A00DBF370 /* TRLNetwork_Header.h in Headers */,
-				C880D63E1F6A90BB00DBF370 /* TRLNetworkManager.h in Headers */,
-				C880D67F1F6A916200DBF370 /* TrolleyCore_Dynamic.h in Headers */,
-				C880D6381F6A90BB00DBF370 /* TRLParsedURL.h in Headers */,
-				C880D6751F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.h in Headers */,
-				C880D67A1F6A90BB00DBF370 /* TRLBlocks.h in Headers */,
-				C880D6401F6A90BB00DBF370 /* TRLNetworkManager_Options.h in Headers */,
-				C880D67D1F6A90DD00DBF370 /* TNT_Header.h in Headers */,
-				C820AC991F6F06B70074AB90 /* TRLAnalytics.h in Headers */,
-				C880D6781F6A90BB00DBF370 /* TNTUtils.h in Headers */,
-				C880D6491F6A90BB00DBF370 /* TRLURLTaskDelegate_Dynamic.h in Headers */,
-				C880D64A1F6A90BB00DBF370 /* TRLURLEncoding.h in Headers */,
-				C880D6831F6A91CE00DBF370 /* TRLNetworkInfo_Private.h in Headers */,
-				C880D63A1F6A90BB00DBF370 /* TRLNetwork_Private.h in Headers */,
-				C880D6521F6A90BB00DBF370 /* TRLJSONBase.h in Headers */,
-				C880D6621F6A90BB00DBF370 /* TRLURLRequest.h in Headers */,
-				C8EF429A1F7013D200A54CE9 /* TRLAnalyticsManager.h in Headers */,
-				C880D65F1F6A90BB00DBF370 /* TRLURLDataRequest.h in Headers */,
-				C880D64C1F6A90BB00DBF370 /* TRLURLParameterEncoding.h in Headers */,
-				C880D63B1F6A90BB00DBF370 /* TRLNetworkManager_Private.h in Headers */,
-				C880D6881F6A935300DBF370 /* TRLError.h in Headers */,
-				C8EF42971F700BD400A54CE9 /* TRLAnalytics_Dynamic.h in Headers */,
-				C880D6561F6A90BB00DBF370 /* TRLMutableArray.h in Headers */,
-				C880D6551F6A90BB00DBF370 /* TRLJSONBase_Private.h in Headers */,
-				C880D6581F6A90BB00DBF370 /* TRLMutableDictionary.h in Headers */,
-				C880D6471F6A90BB00DBF370 /* TRLURLTaskDelegate.h in Headers */,
-				C880D68B1F6A944000DBF370 /* Swift-Fixed-Header.h in Headers */,
-				C880D6441F6A90BB00DBF370 /* TRLURLDataTaskDelegate.h in Headers */,
-				C880D6351F6A90BB00DBF370 /* TRLNetworkInfo.h in Headers */,
-				C880D6501F6A90BB00DBF370 /* TRLJSON.h in Headers */,
-				C880D66E1F6A90BB00DBF370 /* TRLURLSessionManager.h in Headers */,
-				C86CC4431F70098200130D2C /* Trolley.h in Headers */,
-				C880D6711F6A90BB00DBF370 /* NSArray+Map.h in Headers */,
-				C880D65C1F6A90BB00DBF370 /* Reachability.h in Headers */,
-				C880D63C1F6A90BB00DBF370 /* TRLNetwork.h in Headers */,
-				C858F3F11F617EEE00FF2E87 /* TrolleyCore.h in Headers */,
-				C880D6421F6A90BB00DBF370 /* TRLRequest.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C8CD09FD1F61866B005AB75F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C8CD0A041F61866B005AB75F /* Trolley.h in Headers */,
+				C8FD17381F8B8495000F9075 /* Trolley.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C858F2DA1F617E5A00FF2E87 /* TrolleyCore */ = {
+		C8FD17321F8B8495000F9075 /* Trolley */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C858F2E11F617E5A00FF2E87 /* Build configuration list for PBXNativeTarget "TrolleyCore" */;
+			buildConfigurationList = C8FD17391F8B8495000F9075 /* Build configuration list for PBXNativeTarget "Trolley" */;
 			buildPhases = (
-				2ED2F80D6A77982C1F64544A /* [CP] Check Pods Manifest.lock */,
-				C858F2D61F617E5A00FF2E87 /* Sources */,
-				C858F2D71F617E5A00FF2E87 /* Frameworks */,
-				C858F2D81F617E5A00FF2E87 /* Headers */,
-				C858F2D91F617E5A00FF2E87 /* Resources */,
-				94CE7F1DFFD9A14C939C46FF /* [CP] Copy Pods Resources */,
+				C8FD172E1F8B8495000F9075 /* Sources */,
+				C8FD172F1F8B8495000F9075 /* Frameworks */,
+				C8FD17301F8B8495000F9075 /* Headers */,
+				C8FD17311F8B8495000F9075 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = TrolleyCore;
-			productName = TrolleyCore;
-			productReference = C858F2DB1F617E5A00FF2E87 /* TrolleyCore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C8CD09FF1F61866B005AB75F /* Trolley */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C8CD0A051F61866B005AB75F /* Build configuration list for PBXNativeTarget "Trolley" */;
-			buildPhases = (
-				C8CD09FB1F61866B005AB75F /* Sources */,
-				C8CD09FC1F61866B005AB75F /* Frameworks */,
-				C8CD09FD1F61866B005AB75F /* Headers */,
-				C8CD09FE1F61866B005AB75F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C8CD0A0D1F6187F2005AB75F /* PBXTargetDependency */,
 			);
 			name = Trolley;
 			productName = Trolley;
-			productReference = C8CD0A001F61866B005AB75F /* Trolley.framework */;
+			productReference = C8FD17331F8B8495000F9075 /* Trolley.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C858F2CC1F617D3800FF2E87 /* Project object */ = {
+		C8FD17281F8B847E000F9075 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = TRL;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				TargetAttributes = {
-					C858F2DA1F617E5A00FF2E87 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = FVT8X28ANV;
-						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
-					};
-					C8CD09FF1F61866B005AB75F = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = FVT8X28ANV;
+					C8FD17321F8B8495000F9075 = {
+						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = C858F2CF1F617D3800FF2E87 /* Build configuration list for PBXProject "Trolley" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = C8FD172B1F8B847E000F9075 /* Build configuration list for PBXProject "Trolley" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C858F2CB1F617D3800FF2E87;
-			productRefGroup = C858F2DC1F617E5A00FF2E87 /* Products */;
+			mainGroup = C8FD17271F8B847E000F9075;
+			productRefGroup = C8FD17341F8B8495000F9075 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C8CD09FF1F61866B005AB75F /* Trolley */,
-				C858F2DA1F617E5A00FF2E87 /* TrolleyCore */,
+				C8FD17321F8B8495000F9075 /* Trolley */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C858F2D91F617E5A00FF2E87 /* Resources */ = {
+		C8FD17311F8B8495000F9075 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C8CD09FE1F61866B005AB75F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C820AC931F6F023D0074AB90 /* Podfile in Resources */,
-				C820AC951F6F023D0074AB90 /* Trolley.podspec in Resources */,
-				C820AC941F6F023D0074AB90 /* TrolleyCore.podspec in Resources */,
+				C80E99411F8B8572005F6DF2 /* LICENSE in Resources */,
+				C80E99401F8B8572005F6DF2 /* CONTRIBUTING.md in Resources */,
+				C80E99421F8B8572005F6DF2 /* Trolley.podspec in Resources */,
+				C80E993F1F8B8572005F6DF2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2ED2F80D6A77982C1F64544A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		94CE7F1DFFD9A14C939C46FF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrolleyCore/Pods-TrolleyCore-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C858F2D61F617E5A00FF2E87 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C880D6761F6A90BB00DBF370 /* NSMutableURLRequest+Reqestable.m in Sources */,
-				C880D6681F6A90BB00DBF370 /* TBackgroundCompletion.swift in Sources */,
-				C880D64D1F6A90BB00DBF370 /* JSON+Bridging.swift in Sources */,
-				C880D6631F6A90BB00DBF370 /* TRLURLRequest.m in Sources */,
-				C880D6481F6A90BB00DBF370 /* TRLURLTaskDelegate.m in Sources */,
-				C880D66D1F6A90BB00DBF370 /* WrittingOptionsKeysTouple.swift in Sources */,
-				C880D6451F6A90BB00DBF370 /* TRLURLDataTaskDelegate.m in Sources */,
-				C880D68E1F6A94B800DBF370 /* Trolley.swift in Sources */,
-				C880D64E1F6A90BB00DBF370 /* JSON.swift in Sources */,
-				C880D64F1F6A90BB00DBF370 /* JSONCore.swift in Sources */,
-				C880D6361F6A90BB00DBF370 /* TRLNetworkInfo.m in Sources */,
-				C880D6721F6A90BB00DBF370 /* NSArray+Map.m in Sources */,
-				C880D6601F6A90BB00DBF370 /* TRLURLDataRequest.m in Sources */,
-				C880D6791F6A90BB00DBF370 /* TNTUtils.m in Sources */,
-				C880D6591F6A90BB00DBF370 /* TRLMutableDictionary.m in Sources */,
-				C880D65B1F6A90BB00DBF370 /* TRLMutableJSON.m in Sources */,
-				C820ACA21F6F0CA10074AB90 /* Error.swift in Sources */,
-				C880D64B1F6A90BB00DBF370 /* TRLURLEncoding.m in Sources */,
-				C880D6891F6A935300DBF370 /* TRLError.m in Sources */,
-				C880D6771F6A90BB00DBF370 /* NSNumber+Bool.swift in Sources */,
-				C880D6661F6A90BB00DBF370 /* TRLURLResponse.swift in Sources */,
-				C880D6731F6A90BB00DBF370 /* NSDictionary+JSON.swift in Sources */,
-				C86CC4441F70098200130D2C /* Trolley.m in Sources */,
-				C880D6641F6A90BB00DBF370 /* TRLURLRequestTask.swift in Sources */,
-				C880D66A1F6A90BB00DBF370 /* TProgressHandler.swift in Sources */,
-				C820AC9E1F6F0A650074AB90 /* TRLDefaultsManager.swift in Sources */,
-				C880D6571F6A90BB00DBF370 /* TRLMutableArray.m in Sources */,
-				C880D67B1F6A90BB00DBF370 /* UserAgent.swift in Sources */,
-				C880D65D1F6A90BB00DBF370 /* Reachability.m in Sources */,
-				C820AC9C1F6F07100074AB90 /* TRLReporting.swift in Sources */,
-				C880D6461F6A90BB00DBF370 /* TRLURLSessionDelegate.swift in Sources */,
-				C8EF429B1F7013D200A54CE9 /* TRLAnalyticsManager.m in Sources */,
-				C880D6691F6A90BB00DBF370 /* TChallenge.swift in Sources */,
-				C880D6511F6A90BB00DBF370 /* TRLJSON.m in Sources */,
-				C880D63F1F6A90BB00DBF370 /* TRLNetworkManager.m in Sources */,
-				C880D63D1F6A90BB00DBF370 /* TRLNetwork.m in Sources */,
-				C880D6391F6A90BB00DBF370 /* TRLParsedURL.m in Sources */,
-				C880D6531F6A90BB00DBF370 /* TRLJSONBase.m in Sources */,
-				C880D6611F6A90BB00DBF370 /* TRLURLDataRequest.swift in Sources */,
-				C880D6431F6A90BB00DBF370 /* TRLRequest.m in Sources */,
-				C880D66B1F6A90BB00DBF370 /* TRLURLQueryParameters.swift in Sources */,
-				C820AC9A1F6F06B70074AB90 /* TRLAnalytics.m in Sources */,
-				C880D6651F6A90BB00DBF370 /* TRLURLDataRequest+Response.swift in Sources */,
-				C880D6671F6A90BB00DBF370 /* TAuthorizationHeader.swift in Sources */,
-				C880D65E1F6A90BB00DBF370 /* Reachability.swift in Sources */,
-				C880D6411F6A90BB00DBF370 /* TRLOptions.swift in Sources */,
-				C880D66C1F6A90BB00DBF370 /* TValidations.swift in Sources */,
-				C880D6701F6A90BB00DBF370 /* DispatchQueue+UUID.swift in Sources */,
-				C880D66F1F6A90BB00DBF370 /* TRLURLSessionManager.m in Sources */,
-				C880D6741F6A90BB00DBF370 /* NSLocale+HTTPHeader.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C8CD09FB1F61866B005AB75F /* Sources */ = {
+		C8FD172E1F8B8495000F9075 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -764,76 +159,32 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		C8CD0A0D1F6187F2005AB75F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C858F2DA1F617E5A00FF2E87 /* TrolleyCore */;
-			targetProxy = C8CD0A0C1F6187F2005AB75F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		C858F2D01F617D3800FF2E87 /* Debug */ = {
+		C8FD172C1F8B847E000F9075 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
-		C858F2D11F617D3800FF2E87 /* Release */ = {
+		C8FD172D1F8B847E000F9075 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
-		C858F2E21F617E5A00FF2E87 /* Debug */ = {
+		C8FD173A1F8B8495000F9075 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0B348AD0A0460E11BED8F6D /* Pods-TrolleyCore.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -841,12 +192,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -857,135 +213,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = TrolleyCore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = TrolleyCore/TrolleyCore.modulemap;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.off-piste.TrolleyCore";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C858F2E31F617E5A00FF2E87 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 183028A0892520CE490E549C /* Pods-TrolleyCore.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FVT8X28ANV;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = TrolleyCore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = TrolleyCore/TrolleyCore.modulemap;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.off-piste.TrolleyCore";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C8CD0A061F61866B005AB75F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FVT8X28ANV;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1001,13 +229,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Trolley/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = Trolley/module.modulemap;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.off-piste.Trolley";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.Trolley;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1016,17 +244,19 @@
 			};
 			name = Debug;
 		};
-		C8CD0A071F61866B005AB75F /* Release */ = {
+		C8FD173B1F8B8495000F9075 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1034,12 +264,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1050,7 +285,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1060,12 +295,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Trolley/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = Trolley/module.modulemap;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.off-piste.Trolley";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.Trolley;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1078,34 +313,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C858F2CF1F617D3800FF2E87 /* Build configuration list for PBXProject "Trolley" */ = {
+		C8FD172B1F8B847E000F9075 /* Build configuration list for PBXProject "Trolley" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C858F2D01F617D3800FF2E87 /* Debug */,
-				C858F2D11F617D3800FF2E87 /* Release */,
+				C8FD172C1F8B847E000F9075 /* Debug */,
+				C8FD172D1F8B847E000F9075 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C858F2E11F617E5A00FF2E87 /* Build configuration list for PBXNativeTarget "TrolleyCore" */ = {
+		C8FD17391F8B8495000F9075 /* Build configuration list for PBXNativeTarget "Trolley" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C858F2E21F617E5A00FF2E87 /* Debug */,
-				C858F2E31F617E5A00FF2E87 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C8CD0A051F61866B005AB75F /* Build configuration list for PBXNativeTarget "Trolley" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C8CD0A061F61866B005AB75F /* Debug */,
-				C8CD0A071F61866B005AB75F /* Release */,
+				C8FD173A1F8B8495000F9075 /* Debug */,
+				C8FD173B1F8B8495000F9075 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C858F2CC1F617D3800FF2E87 /* Project object */;
+	rootObject = C8FD17281F8B847E000F9075 /* Project object */;
 }
