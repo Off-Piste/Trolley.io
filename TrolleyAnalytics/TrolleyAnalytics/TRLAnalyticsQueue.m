@@ -8,14 +8,19 @@
 
 @import TrolleyCore;
 
+#warning FIXME
+
 #import "TRLAnalyticsQueue.h"
 #import "TRLAnalyticsConstants.h"
 
 #import <TrolleyAnalytics/TrolleyAnalytics-Swift.h>
 
+#define TRLAnalyticsObjectSet NSMutableOrderedSet<TRLAnalyticsObject *>*
+
 static TRLAnalyticsQueue *aQueue;
 
 @implementation TRLAnalyticsQueue {
+    BOOL isStored;
     NSMutableOrderedSet<TRLAnalyticsObject *> *_queue;
     TRLDefaultsManager *_defaults;
 }
@@ -35,8 +40,10 @@ static TRLAnalyticsQueue *aQueue;
 
 - (instancetype)init {
     if (self = [super init]) {
+        isStored = YES;
         _queue = [[NSMutableOrderedSet alloc] init];
         _defaults = [TRLDefaultsManager managerForKey:kTRLQueueStorageKey];
+        [_defaults clearObject];
     }
     return self;
 }
@@ -44,15 +51,31 @@ static TRLAnalyticsQueue *aQueue;
 #pragma mark Set Confomaties
 
 - (void)addObject:(id)object {
-    [_queue addObject:object];
+    if (isStored) {
+        [self addObjectWhileInStorage:object];
+    } else {
+        [_queue addObject:object];
+    }
 }
 
 - (void)removeObject {
-    [_queue removeObjectAtIndex:0];
+    if (isStored) {
+        [self removeObjectWhileInStorage];
+    } else {
+        [_queue removeObjectAtIndex:0];
+    }
 }
 
-- (NSUInteger)count {
-    return _queue.count;
+- (void)addObjectWhileInStorage:(TRLAnalyticsObject *)object {
+    [self retrieveFromStorage];
+    [_queue addObject:object];
+    [self pushToStorage];
+}
+
+- (void)removeObjectWhileInStorage {
+    [self retrieveFromStorage];
+    [_queue removeObjectAtIndex:0];
+    [self pushToStorage];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
@@ -64,14 +87,13 @@ static TRLAnalyticsQueue *aQueue;
 
 #pragma mark Queue Parts
 
-- (TRLJSON *)jsonForObject {
-    NSAssert(_queue.count != 0, @"Cannot get an object from a empty queue");
-    return [[_queue firstObject] json];
-}
-
 - (void)retrieveFromStorage {
+    // Check to see if the items are being stored
+    NSAssert(isStored, @"Cannot retrieve from storage if the objects are not there");
+
+    // Retrieve the queue
     NSError *error;
-    NSMutableOrderedSet<TRLAnalyticsObject *> *queue = [_defaults retriveObject:&error];
+    TRLAnalyticsObjectSet queue = [_defaults retriveObject:&error];;
 
     // If the code is returning TRLErrorDefaultsManagerNilReturnValue that should mean
     // the queue is empty, if so create the queue with an empty set
@@ -86,23 +108,21 @@ static TRLAnalyticsQueue *aQueue;
         [_queue removeAllObjects];
     }
 
+    // Once the errors have been handled && the live queue has been emptied
+    // set the new queue, delete the queue in storage and set isStored = NO;
     _queue = queue;
+    [_defaults clearObject];
+    isStored = NO;
 }
 
 - (void)pushToStorage {
-    if (_queue.count == 0) {
-        _queue = nil;
-    }
-
+    // Should never hit an error so if it does its a bug
     NSError *error;
-    [_defaults setObject:_queue ? _queue : [[NSMutableOrderedSet alloc] init] error:&error];
-
-    if (error) {
-        TRLErrorLogger(TRLLoggerServiceAnalytics, "Error: %@", error.localizedDescription);
-        return;
-    }
+    [_defaults setObject:_queue?: [[NSMutableOrderedSet alloc] init] error:&error];
+    assert(error == nil);
 
     [_queue removeAllObjects];
+    isStored = YES;
 }
 
 

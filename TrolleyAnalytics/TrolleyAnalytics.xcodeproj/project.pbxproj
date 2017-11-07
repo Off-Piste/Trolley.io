@@ -9,25 +9,98 @@
 /* Begin PBXBuildFile section */
 		C80E996D1F8B8F29005F6DF2 /* TrolleyAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C80E99791F8B93B1005F6DF2 /* TrolleyAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */; };
-		C80E997B1F8B941B005F6DF2 /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */; };
 		C860E0621F8BA868008FCF37 /* TRLAnalyticsQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C860E0601F8BA868008FCF37 /* TRLAnalyticsQueue.h */; };
 		C860E0631F8BA868008FCF37 /* TRLAnalyticsQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C860E0611F8BA868008FCF37 /* TRLAnalyticsQueue.m */; };
 		C860E0651F8BAC25008FCF37 /* TRLAnalyticsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C860E0641F8BAC25008FCF37 /* TRLAnalyticsObject.swift */; };
 		C8CFD4EF1F8BB2AB00536FEF /* TRLAnalyticsConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */; };
 		C8CFD4F01F8BB2AB00536FEF /* TRLAnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CFD4EE1F8BB2AB00536FEF /* TRLAnalyticsConstants.m */; };
+		C8D9D9161FB0A68900D64C65 /* TrolleyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E024801F8CE00900523B89 /* TrolleyCore.framework */; };
+		C8D9D9171FB0A68900D64C65 /* TrolleyCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8E024801F8CE00900523B89 /* TrolleyCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8D9D9191FB0A68900D64C65 /* Trolley.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8E0247B1F8CDFFD00523B89 /* Trolley.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8E024301F8CC0C000523B89 /* TRLReporting.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E0242E1F8CC0C000523B89 /* TRLReporting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8E024311F8CC0C000523B89 /* TRLReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0242F1F8CC0C000523B89 /* TRLReporting.m */; };
+		C8E024341F8CC18B00523B89 /* TRLAnalytics_Network.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E024321F8CC18B00523B89 /* TRLAnalytics_Network.h */; };
+		C8E0243C1F8CD71800523B89 /* TRLAppEnvironmentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0243B1F8CD71800523B89 /* TRLAppEnvironmentUtil.m */; };
+		C8E0243D1F8CD71F00523B89 /* TRLAppEnvironmentUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E0243A1F8CD71800523B89 /* TRLAppEnvironmentUtil.h */; };
+		C8E024461F8CDED400523B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E024451F8CDED400523B89 /* AppDelegate.m */; };
+		C8E024491F8CDED400523B89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E024481F8CDED400523B89 /* ViewController.m */; };
+		C8E0244C1F8CDED400523B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E0244A1F8CDED400523B89 /* Main.storyboard */; };
+		C8E0244E1F8CDED400523B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E0244D1F8CDED400523B89 /* Assets.xcassets */; };
+		C8E024511F8CDED400523B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E0244F1F8CDED400523B89 /* LaunchScreen.storyboard */; };
+		C8E024541F8CDED400523B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E024531F8CDED400523B89 /* main.m */; };
+		C8E0245E1F8CDED400523B89 /* AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0245D1F8CDED400523B89 /* AppTests.m */; };
+		C8E024701F8CDFA900523B89 /* TrolleyAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */; };
+		C8E024711F8CDFA900523B89 /* TrolleyAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8E0247D1F8CE00900523B89 /* Trolley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E0247F1F8CE00900523B89 /* Trolley.framework */; };
+		C8E024821F8CE09D00523B89 /* TrolleyConfigFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8E024811F8CE08600523B89 /* TrolleyConfigFile.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8E0245A1F8CDED400523B89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C80E995F1F8B8F29005F6DF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E024411F8CDED300523B89;
+			remoteInfo = App;
+		};
+		C8E0246A1F8CDF7C00523B89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C80E995F1F8B8F29005F6DF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C80E99671F8B8F29005F6DF2;
+			remoteInfo = TrolleyAnalytics;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C8E0246F1F8CDF7C00523B89 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C8D9D9191FB0A68900D64C65 /* Trolley.framework in Embed Frameworks */,
+				C8E024711F8CDFA900523B89 /* TrolleyAnalytics.framework in Embed Frameworks */,
+				C8D9D9171FB0A68900D64C65 /* TrolleyCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrolleyAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrolleyAnalytics.h; sourceTree = "<group>"; };
 		C80E996C1F8B8F29005F6DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrolleyAnalytics.m; sourceTree = "<group>"; };
-		C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C860E0601F8BA868008FCF37 /* TRLAnalyticsQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsQueue.h; sourceTree = "<group>"; };
 		C860E0611F8BA868008FCF37 /* TRLAnalyticsQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsQueue.m; sourceTree = "<group>"; };
 		C860E0641F8BAC25008FCF37 /* TRLAnalyticsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRLAnalyticsObject.swift; sourceTree = "<group>"; };
 		C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAnalyticsConstants.h; sourceTree = "<group>"; };
 		C8CFD4EE1F8BB2AB00536FEF /* TRLAnalyticsConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLAnalyticsConstants.m; sourceTree = "<group>"; };
+		C8E0242E1F8CC0C000523B89 /* TRLReporting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLReporting.h; sourceTree = "<group>"; };
+		C8E0242F1F8CC0C000523B89 /* TRLReporting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLReporting.m; sourceTree = "<group>"; };
+		C8E024321F8CC18B00523B89 /* TRLAnalytics_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAnalytics_Network.h; sourceTree = "<group>"; };
+		C8E0243A1F8CD71800523B89 /* TRLAppEnvironmentUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRLAppEnvironmentUtil.h; sourceTree = "<group>"; };
+		C8E0243B1F8CD71800523B89 /* TRLAppEnvironmentUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRLAppEnvironmentUtil.m; sourceTree = "<group>"; };
+		C8E024421F8CDED300523B89 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E024441F8CDED400523B89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C8E024451F8CDED400523B89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C8E024471F8CDED400523B89 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C8E024481F8CDED400523B89 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C8E0244B1F8CDED400523B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8E0244D1F8CDED400523B89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8E024501F8CDED400523B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C8E024521F8CDED400523B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E024531F8CDED400523B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8E024591F8CDED400523B89 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E0245D1F8CDED400523B89 /* AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTests.m; sourceTree = "<group>"; };
+		C8E0245F1F8CDED400523B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E0247B1F8CDFFD00523B89 /* Trolley.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Trolley.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Trolley-aajlhmlpzvetscbeszfycogkszmi/Build/Products/Debug-iphoneos/Trolley.framework"; sourceTree = "<group>"; };
+		C8E0247C1F8CDFFD00523B89 /* TrolleyCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TrolleyCore.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Trolley-aajlhmlpzvetscbeszfycogkszmi/Build/Products/Debug-iphoneos/TrolleyCore.framework"; sourceTree = "<group>"; };
+		C8E0247F1F8CE00900523B89 /* Trolley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Trolley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E024801F8CE00900523B89 /* TrolleyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrolleyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E024811F8CE08600523B89 /* TrolleyConfigFile.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TrolleyConfigFile.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +108,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C80E997B1F8B941B005F6DF2 /* TrolleyCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E0243F1F8CDED300523B89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E0247D1F8CE00900523B89 /* Trolley.framework in Frameworks */,
+				C8D9D9161FB0A68900D64C65 /* TrolleyCore.framework in Frameworks */,
+				C8E024701F8CDFA900523B89 /* TrolleyAnalytics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E024561F8CDED400523B89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +134,7 @@
 		C80E995E1F8B8F29005F6DF2 = {
 			isa = PBXGroup;
 			children = (
+				C8E024671F8CDF0D00523B89 /* Example */,
 				C80E996A1F8B8F29005F6DF2 /* TrolleyAnalytics */,
 				C80E99691F8B8F29005F6DF2 /* Products */,
 				C80E997A1F8B941B005F6DF2 /* Frameworks */,
@@ -55,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */,
+				C8E024421F8CDED300523B89 /* App.app */,
+				C8E024591F8CDED400523B89 /* AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +154,11 @@
 		C80E996A1F8B8F29005F6DF2 /* TrolleyAnalytics */ = {
 			isa = PBXGroup;
 			children = (
+				C8E0243A1F8CD71800523B89 /* TRLAppEnvironmentUtil.h */,
+				C8E0243B1F8CD71800523B89 /* TRLAppEnvironmentUtil.m */,
+				C8E0242E1F8CC0C000523B89 /* TRLReporting.h */,
+				C8E0242F1F8CC0C000523B89 /* TRLReporting.m */,
+				C8E024321F8CC18B00523B89 /* TRLAnalytics_Network.h */,
 				C80E996B1F8B8F29005F6DF2 /* TrolleyAnalytics.h */,
 				C80E99781F8B93B1005F6DF2 /* TrolleyAnalytics.m */,
 				C8CFD4ED1F8BB2AB00536FEF /* TRLAnalyticsConstants.h */,
@@ -77,9 +174,49 @@
 		C80E997A1F8B941B005F6DF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C80E997C1F8B941B005F6DF2 /* TrolleyCore.framework */,
+				C8E0247F1F8CE00900523B89 /* Trolley.framework */,
+				C8E024801F8CE00900523B89 /* TrolleyCore.framework */,
+				C8E0247C1F8CDFFD00523B89 /* TrolleyCore.framework */,
+				C8E0247B1F8CDFFD00523B89 /* Trolley.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8E024431F8CDED400523B89 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C8E024441F8CDED400523B89 /* AppDelegate.h */,
+				C8E024451F8CDED400523B89 /* AppDelegate.m */,
+				C8E024471F8CDED400523B89 /* ViewController.h */,
+				C8E024481F8CDED400523B89 /* ViewController.m */,
+				C8E0244A1F8CDED400523B89 /* Main.storyboard */,
+				C8E0244D1F8CDED400523B89 /* Assets.xcassets */,
+				C8E0244F1F8CDED400523B89 /* LaunchScreen.storyboard */,
+				C8E024521F8CDED400523B89 /* Info.plist */,
+				C8E024811F8CE08600523B89 /* TrolleyConfigFile.plist */,
+				C8E024531F8CDED400523B89 /* main.m */,
+			);
+			name = App;
+			path = Example/App;
+			sourceTree = "<group>";
+		};
+		C8E0245C1F8CDED400523B89 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E0245D1F8CDED400523B89 /* AppTests.m */,
+				C8E0245F1F8CDED400523B89 /* Info.plist */,
+			);
+			name = Tests;
+			path = Example/Tests;
+			sourceTree = "<group>";
+		};
+		C8E024671F8CDF0D00523B89 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				C8E024431F8CDED400523B89 /* App */,
+				C8E0245C1F8CDED400523B89 /* Tests */,
+			);
+			name = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,8 +226,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E0243D1F8CD71F00523B89 /* TRLAppEnvironmentUtil.h in Headers */,
+				C8E024301F8CC0C000523B89 /* TRLReporting.h in Headers */,
 				C8CFD4EF1F8BB2AB00536FEF /* TRLAnalyticsConstants.h in Headers */,
 				C860E0621F8BA868008FCF37 /* TRLAnalyticsQueue.h in Headers */,
+				C8E024341F8CC18B00523B89 /* TRLAnalytics_Network.h in Headers */,
 				C80E996D1F8B8F29005F6DF2 /* TrolleyAnalytics.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +256,43 @@
 			productReference = C80E99681F8B8F29005F6DF2 /* TrolleyAnalytics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C8E024411F8CDED300523B89 /* App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E024641F8CDED400523B89 /* Build configuration list for PBXNativeTarget "App" */;
+			buildPhases = (
+				C8E0243E1F8CDED300523B89 /* Sources */,
+				C8E0243F1F8CDED300523B89 /* Frameworks */,
+				C8E024401F8CDED300523B89 /* Resources */,
+				C8E0246F1F8CDF7C00523B89 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E0246B1F8CDF7C00523B89 /* PBXTargetDependency */,
+			);
+			name = App;
+			productName = App;
+			productReference = C8E024421F8CDED300523B89 /* App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8E024581F8CDED400523B89 /* AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E024651F8CDED400523B89 /* Build configuration list for PBXNativeTarget "AppTests" */;
+			buildPhases = (
+				C8E024551F8CDED400523B89 /* Sources */,
+				C8E024561F8CDED400523B89 /* Frameworks */,
+				C8E024571F8CDED400523B89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E0245B1F8CDED400523B89 /* PBXTargetDependency */,
+			);
+			name = AppTests;
+			productName = AppTests;
+			productReference = C8E024591F8CDED400523B89 /* AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -130,6 +307,15 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
+					C8E024411F8CDED300523B89 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					C8E024581F8CDED400523B89 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C8E024411F8CDED300523B89;
+					};
 				};
 			};
 			buildConfigurationList = C80E99621F8B8F29005F6DF2 /* Build configuration list for PBXProject "TrolleyAnalytics" */;
@@ -138,6 +324,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C80E995E1F8B8F29005F6DF2;
 			productRefGroup = C80E99691F8B8F29005F6DF2 /* Products */;
@@ -145,12 +332,32 @@
 			projectRoot = "";
 			targets = (
 				C80E99671F8B8F29005F6DF2 /* TrolleyAnalytics */,
+				C8E024411F8CDED300523B89 /* App */,
+				C8E024581F8CDED400523B89 /* AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C80E99661F8B8F29005F6DF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E024401F8CDED300523B89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E024511F8CDED400523B89 /* LaunchScreen.storyboard in Resources */,
+				C8E0244E1F8CDED400523B89 /* Assets.xcassets in Resources */,
+				C8E024821F8CE09D00523B89 /* TrolleyConfigFile.plist in Resources */,
+				C8E0244C1F8CDED400523B89 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E024571F8CDED400523B89 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,13 +372,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				C860E0651F8BAC25008FCF37 /* TRLAnalyticsObject.swift in Sources */,
+				C8E0243C1F8CD71800523B89 /* TRLAppEnvironmentUtil.m in Sources */,
 				C8CFD4F01F8BB2AB00536FEF /* TRLAnalyticsConstants.m in Sources */,
 				C80E99791F8B93B1005F6DF2 /* TrolleyAnalytics.m in Sources */,
+				C8E024311F8CC0C000523B89 /* TRLReporting.m in Sources */,
 				C860E0631F8BA868008FCF37 /* TRLAnalyticsQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8E0243E1F8CDED300523B89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E024491F8CDED400523B89 /* ViewController.m in Sources */,
+				C8E024541F8CDED400523B89 /* main.m in Sources */,
+				C8E024461F8CDED400523B89 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E024551F8CDED400523B89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E0245E1F8CDED400523B89 /* AppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8E0245B1F8CDED400523B89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E024411F8CDED300523B89 /* App */;
+			targetProxy = C8E0245A1F8CDED400523B89 /* PBXContainerItemProxy */;
+		};
+		C8E0246B1F8CDF7C00523B89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C80E99671F8B8F29005F6DF2 /* TrolleyAnalytics */;
+			targetProxy = C8E0246A1F8CDF7C00523B89 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8E0244A1F8CDED400523B89 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8E0244B1F8CDED400523B89 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C8E0244F1F8CDED400523B89 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8E024501F8CDED400523B89 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C80E996E1F8B8F29005F6DF2 /* Debug */ = {
@@ -329,6 +588,68 @@
 			};
 			name = Release;
 		};
+		C8E024601F8CDED400523B89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FVT8X28ANV;
+				GCC_PREPROCESSOR_DEFINITIONS = "TRLDebugMode=YES";
+				INFOPLIST_FILE = Example/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.App;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8E024611F8CDED400523B89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FVT8X28ANV;
+				GCC_PREPROCESSOR_DEFINITIONS = "TRLDebugMode=YES";
+				INFOPLIST_FILE = Example/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.App;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8E024621F8CDED400523B89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FVT8X28ANV;
+				INFOPLIST_FILE = Example/Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.AppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/App";
+			};
+			name = Debug;
+		};
+		C8E024631F8CDED400523B89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FVT8X28ANV;
+				INFOPLIST_FILE = Example/Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.trolleyio.AppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/App";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +667,24 @@
 			buildConfigurations = (
 				C80E99711F8B8F29005F6DF2 /* Debug */,
 				C80E99721F8B8F29005F6DF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E024641F8CDED400523B89 /* Build configuration list for PBXNativeTarget "App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E024601F8CDED400523B89 /* Debug */,
+				C8E024611F8CDED400523B89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E024651F8CDED400523B89 /* Build configuration list for PBXNativeTarget "AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E024621F8CDED400523B89 /* Debug */,
+				C8E024631F8CDED400523B89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

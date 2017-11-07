@@ -29,13 +29,6 @@
 
 /**
  <#Description#>
-
- @return <#return value description#>
- */
-- (NSUInteger)count;
-
-/**
- <#Description#>
  */
 - (void)removeObject;
 
@@ -48,12 +41,5 @@
  <#Description#>
  */
 - (void)pushToStorage;
-
-/**
- <#Description#>
-
- @return <#return value description#>
- */
-- (TRLJSON *)jsonForObject;
 
 @end

@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+#import "TRLReporting.h"
+
 @interface TRLAnalytics : NSObject
 
 @property (class, strong, readonly) TRLAnalytics *shared;
