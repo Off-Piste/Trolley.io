@@ -169,16 +169,25 @@ static BOOL isAppEncrypted() {
 }
 
 + (NSString *)deviceModel {
-  static dispatch_once_t once;
   static NSString *deviceModel;
-
-  dispatch_once(&once, ^{
-    struct utsname systemInfo;
-    if (uname(&systemInfo) == 0) {
-      deviceModel = [NSString stringWithUTF8String:systemInfo.machine];
+#if TARGET_IPHONE_SIMULATOR
+    NSProcessInfo *info = [[NSProcessInfo alloc] init];
+    NSString *dir = info.environment[@"SIMULATOR_MODEL_IDENTIFIER"];
+    if (dir) {
+        deviceModel = dir;
+    } else {
+        deviceModel = @"Unknown";
     }
-  });
-  return deviceModel;
+#else
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        struct utsname systemInfo;
+        if (uname(&systemInfo) == 0) {
+            deviceModel = [NSString stringWithUTF8String:systemInfo.machine];
+        }
+    });
+#endif
+    return deviceModel;
 }
 
 + (NSString *)systemVersion {

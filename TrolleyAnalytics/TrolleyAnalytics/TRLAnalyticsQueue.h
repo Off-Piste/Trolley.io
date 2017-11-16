@@ -34,6 +34,20 @@
 
 /**
  <#Description#>
+
+ @param block <#block description#>
+ */
+- (void)enumerateObjectsUsingBlock:(void (NS_NOESCAPE ^)(TRLAnalyticsObject *obj, NSUInteger idx, BOOL *stop))block;
+
+/**
+ <#Description#>
+
+ @param index <#index description#>
+ */
+- (void)removeObjectInIndexes:(NSIndexSet *)index;
+
+/**
+ <#Description#>
  */
 - (void)retrieveFromStorage;
 

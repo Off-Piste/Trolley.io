@@ -51,10 +51,10 @@ customAttributes:(NGenericDictionary)customAttributes;
                 customAttributes:(NSDictionary *)customAttributes
 {
     NSDictionary *defaultAttributes = @{
-                                        @"price":price,
-                                        @"currency":currency,
-                                        @"itemName":itemName,
-                                        @"itemId":itemId,
+                                        @"price":price ?: [NSNull null],
+                                        @"currency":currency ?: [NSNull null],
+                                        @"itemName":itemName ?: [NSNull null],
+                                        @"itemId":itemId ?: [NSNull null],
                                         };
     [TRLReporting logEvent:AnalyticsEventAddToCart
                 customName:nil

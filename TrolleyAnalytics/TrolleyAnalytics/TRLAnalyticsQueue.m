@@ -8,8 +8,6 @@
 
 @import TrolleyCore;
 
-#warning FIXME
-
 #import "TRLAnalyticsQueue.h"
 #import "TRLAnalyticsConstants.h"
 
@@ -39,9 +37,13 @@ static TRLAnalyticsQueue *aQueue;
 }
 
 - (instancetype)init {
+    return [self initWithQueue:[[NSMutableOrderedSet alloc] init]];
+}
+
+- (instancetype)initWithQueue:(NSMutableOrderedSet *)queue {
     if (self = [super init]) {
         isStored = YES;
-        _queue = [[NSMutableOrderedSet alloc] init];
+        _queue = queue;
         _defaults = [TRLDefaultsManager managerForKey:kTRLQueueStorageKey];
         [_defaults clearObject];
     }
@@ -49,6 +51,14 @@ static TRLAnalyticsQueue *aQueue;
 }
 
 #pragma mark Set Confomaties
+
+- (void)enumerateObjectsUsingBlock:(void (^)(TRLAnalyticsObject *, NSUInteger, BOOL *))block {
+    [_queue enumerateObjectsUsingBlock:block];
+}
+
+- (id)copy {
+    return [[TRLAnalyticsQueue alloc] initWithQueue:_queue];
+}
 
 - (void)addObject:(id)object {
     if (isStored) {
@@ -60,9 +70,25 @@ static TRLAnalyticsQueue *aQueue;
 
 - (void)removeObject {
     if (isStored) {
-        [self removeObjectWhileInStorage];
+        [self removeObjectWhileInStorageForIndex:0];
     } else {
         [_queue removeObjectAtIndex:0];
+    }
+}
+
+- (void)removeObjectInIndexes:(NSIndexSet *)index {
+    if (!isStored) {
+        [_queue removeObjectsAtIndexes:index];
+    } else {
+        [self removeObjectAtIndexesWhileInStorage:index];
+    }
+}
+
+- (void)removeObjectAtIndex:(NSInteger)index {
+    if (isStored) {
+        [self removeObjectWhileInStorageForIndex:index];
+    } else {
+        [_queue removeObjectAtIndex:index];
     }
 }
 
@@ -72,9 +98,15 @@ static TRLAnalyticsQueue *aQueue;
     [self pushToStorage];
 }
 
-- (void)removeObjectWhileInStorage {
+- (void)removeObjectWhileInStorageForIndex:(NSInteger)index {
     [self retrieveFromStorage];
-    [_queue removeObjectAtIndex:0];
+    [_queue removeObjectAtIndex:index];
+    [self pushToStorage];
+}
+
+- (void)removeObjectAtIndexesWhileInStorage:(NSIndexSet *)index {
+    [self retrieveFromStorage];
+    [_queue removeObjectsAtIndexes:index];
     [self pushToStorage];
 }
 
@@ -89,7 +121,7 @@ static TRLAnalyticsQueue *aQueue;
 
 - (void)retrieveFromStorage {
     // Check to see if the items are being stored
-    NSAssert(isStored, @"Cannot retrieve from storage if the objects are not there");
+    if (!isStored) { return; }
 
     // Retrieve the queue
     NSError *error;

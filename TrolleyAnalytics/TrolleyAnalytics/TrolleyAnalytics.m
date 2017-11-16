@@ -6,6 +6,14 @@
 //  Copyright © 2017 Trolley. All rights reserved.
 //
 
+#warning may not be needed
+#if TARGET_OS_IOS
+#import <UIKit/UIKit.h>
+#elif TARGET_OS_OSX
+#import <AppKit/AppKit.h>
+#endif
+#pragma mark -
+
 #import "TrolleyAnalytics.h"
 #import "TRLAnalytics_Network.h"
 #import "TRLAnalyticsQueue.h"
@@ -17,6 +25,8 @@
 @import TrolleyCore;
 
 static TRLAnalytics *anAnalytics;
+
+static BOOL hasConnected = NO;
 
 @implementation TRLAnalytics {
     NSNotificationCenter *_center;
@@ -30,6 +40,7 @@ static TRLAnalytics *anAnalytics;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+        hasConnected = NO;
 
         [defaultCenter addObserverForName:TRLTrolleyStartingUpNotification
                                    object:nil
@@ -81,8 +92,7 @@ static TRLAnalytics *anAnalytics;
 - (void)startUpObserved {
     TRLDebugLogger(TRLLoggerServiceAnalytics, "Notification [%@] has been observed", TRLTrolleyStartingUpNotification);
 
-    // Validated
-    _manager = [TRLNetworkManager shared];
+    if (hasConnected) { return; }
 
     // Add phone info to queue
     NSDictionary *defaultAttr = @{
@@ -103,22 +113,26 @@ static TRLAnalytics *anAnalytics;
                                                                   date:[NSDate date]
                                                       defaultAttribues:defaultAttr
                                                       customAttributes:nil];
-    [_queue addObject:obj];
+//    [_queue addObject:obj];
+    [self send:obj secure:true];
 }
 
 - (void)serverIsConnected:(NSNotification *)note {
-    NSAssert(_manager, @"The NetworkManager must be linked before running so we know that the SDK's notfication has been sent");
+    _manager = [TRLNetworkManager shared];
+
     serverIsConnected = YES;
+    hasConnected = YES;
     [_queue retrieveFromStorage];
 
-    for (TRLAnalyticsObject *obj in _queue) {
+    // Workaround for the cannot Mutate Collection while Enumerating
+    NSMutableIndexSet *indicesForObjectsToReplace = [NSMutableIndexSet new];
+    [_queue enumerateObjectsUsingBlock:^(TRLAnalyticsObject *obj, NSUInteger idx, BOOL *stop) {
         if (serverIsConnected) {
             [self send:obj secure:YES];
-            [_queue removeObject];
-        } else {
-            break;
+            [indicesForObjectsToReplace addIndex:idx];
         }
-    }
+    }];
+    [_queue removeObjectInIndexes:indicesForObjectsToReplace];
 }
 
 - (void)serverIsDisconnected:(NSNotification *)note {
@@ -137,7 +151,7 @@ static TRLAnalytics *anAnalytics;
 }
 
 - (void)send:(TRLAnalyticsObject *)object secure:(BOOL)secure {
-    if (!_manager) {
+    if (!_manager || !serverIsConnected) {
         [_queue addObject:object];
         return;
     }

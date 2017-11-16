@@ -9,6 +9,38 @@
 import Foundation
 @testable import TrolleyCore
 
+#if os(iOS)
+import UIKit
+
+//extension TRLApp {
+//    @objc public var platformType: String {
+//        #if (arch(i386) || arch(x86_64)) && os(iOS)
+//            let DEVICE_IS_SIMULATOR = true
+//        #else
+//            let DEVICE_IS_SIMULATOR = false
+//        #endif
+//
+//        var machineSwiftString : String = ""
+//
+//        if DEVICE_IS_SIMULATOR == true {
+//            // this neat trick is found at http://kelan.io/2015/easier-getenv-in-swift/
+//            if let dir = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
+//                machineSwiftString = dir
+//            }
+//        } else {
+//            var size : size_t = 0
+//            sysctlbyname("hw.machine", nil, &size, nil, 0)
+//            var machine = [CChar](repeating: 0, count: Int(size))
+//            sysctlbyname("hw.machine", &machine, &size, nil, 0)
+//            machineSwiftString = String(cString: (machine))
+//        }
+//
+//        return machineSwiftString
+//    }
+//}
+
+#endif
+
 extension AnalyticsEvent: CustomStringConvertible {
     public var description: String {
         let returnValue: String = "analytics_"
@@ -51,7 +83,7 @@ extension AnalyticsEvent: CustomStringConvertible {
             json["name"] = JSON(name!)
         } else {
             assert(!defaultAttribues.isEmpty)
-            json["defaultAttribues"] = JSON(defaultAttribues)
+            json["defaultAttributes"] = JSON(defaultAttribues)
         }
 
         json["customAttributes"] = JSON(customAttributes)
